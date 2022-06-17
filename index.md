@@ -1,37 +1,44 @@
-## Welcome to GitHub Pages
+## 个人简介
 
-You can use the [editor on GitHub](https://github.com/hfut-zyw/hfut-zyw.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+本人是就读于[学园都市](https://baike.baidu.com/item/学园都市)某高中的高中生，右手名为幻想杀手，拥有不论善恶、让任何异能之力（无论是超能力还是魔法）消灭的特异能力。都市传说中“拥有能将任何能力无效化的能力的男人”的正体。但是由于无法被学园都市的身体检查仪器检测到，而被测定为Level 0的无能力者。
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+虽然被分类为“爱打架的坏学生”，但是我并不是打架高手。若是与不良少年对打，也只有一对一的时候才会赢。一对二的话就相当危险，一对三的话肯定要逃命，只是这种程度而已。本人对自己的长跑本事挺有自信 。
 
-### Markdown
+### 研究方向
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- [x] 幻想杀手
 
-```markdown
-Syntax highlighted code block
+  寄宿在本人右手中的幻想杀手具有无论是超能力还是魔法、任何“异能之力”只要被接触到都能够消除的能力。不论善恶好坏，就算是出现在神话中的神迹也不例外。
 
-# Header 1
-## Header 2
-### Header 3
+- [x] 矢量操作
 
-- Bulleted
-- List
+  只要经过皮肤碰触，就可以自由操纵动能、热能、电能等所有能量的方向。
 
-1. Numbered
-2. List
+- [x] 愚者的世界
 
-**Bold** and _Italic_ and `Code` text
+  通过特制魔导器——大阿卡那塔罗牌的0号卡牌『愚者』发动，以自身为中心的一定效果领域范围内完全封杀魔术的发动（包括自己的），但是对已经发动的魔法效果无效。
 
-[Link](url) and ![Image](src)
-```
+  ![](https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.gamersky.com%2Fimage2016%2F10%2F20161025_sy_225_11%2Fgamersky_01small_02_2016102514189EC.jpg&refer=http%3A%2F%2Fimg1.gamersky.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1658023174&t=85d8489d3439bc078ab513086cc652e9)
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+### 组织机构
 
-### Jekyll Themes
+- [x] 必要之恶教会
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/hfut-zyw/hfut-zyw.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+  隶属于第零圣堂区，以保管世界各地魔道书的“禁书目录”为助力，致力于中和世界上的魔法，职责是彻底歼灭与铲除英国国内各种魔法结社与旗下的魔法师。
 
-### Support or Contact
+- [x] 常盘台中学
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+  学园都市中在超能力开发方面排名前五的名门 ，学生总数约180人，在学条件之一为“等级3强能力者以上”，最弱的是强能力者（等级3），还有47名等级4大能力者，顶点则是两位超能力者。
+
+- [x] 天之智慧研究会
+
+  一个神秘组织
+
+- [x] 科学结社
+
+  学园都市的敌对组织，过去与天井亚雄接触过，所以对“树形图设计者”相当了解 。“残骸”事件中，接受美国的肯尼迪角（位于美国卡纳维尔角的太空基地）派遣计划侵入学园都市夺取“[树形图设计者](https://baike.baidu.com/item/树形图设计者)”的核心“残骸”  。
+
+### 成就
+
+- [x] 宇智波一族的创始人，拥有永恒的“万花筒写轮眼”。实力十分强悍，曾经和初代火影·千手柱间大战，在此战中败北，并普遍被世人认为死亡。然而，我在临死前却开启了轮回眼，并且以秽土转生的状态重回忍界，轻松打败了五影。
+- [x] 唯一一个完成伟大航道的人，创建了无比强大的海贼团后，完成了伟大航路的航行，被大家公认为海贼王 ！
