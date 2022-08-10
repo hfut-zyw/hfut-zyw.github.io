@@ -12,32 +12,32 @@
   <meta name="description" content="由于Matplotlib考虑到Matlab用户，提供了函数接口作图，但是这种方法是隐式创建对象的，以至于你想在哪张图的哪个子图上面画什么东西不是那么得心应手，于是，这里介绍一下基于对象的作图方式，显示创建对象，作图逻辑更加清晰，作图更加灵活。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Matplotlib-Tutorial">
-<meta property="og:url" content="http://example.com/2022/08/10/Matplotlib-Tutorial/index.html">
+<meta property="og:url" content="https://github.com/hfut-zyw/hfut-zyw.github.io/2022/08/10/Matplotlib-Tutorial/index.html">
 <meta property="og:site_name" content="Homepage | 张有为">
 <meta property="og:description" content="由于Matplotlib考虑到Matlab用户，提供了函数接口作图，但是这种方法是隐式创建对象的，以至于你想在哪张图的哪个子图上面画什么东西不是那么得心应手，于是，这里介绍一下基于对象的作图方式，显示创建对象，作图逻辑更加清晰，作图更加灵活。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/%5Cartimg%5Cmatplotlib%5Cfigure1.png">
-<meta property="og:image" content="http://example.com/%5Cartimg%5Cmatplotlib%5Cfigure2.png">
-<meta property="og:image" content="http://example.com/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot1.png">
-<meta property="og:image" content="http://example.com/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot2.png">
-<meta property="og:image" content="http://example.com/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot3.png">
-<meta property="og:image" content="http://example.com/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot4.png">
-<meta property="og:image" content="http://example.com/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot5.png">
-<meta property="og:image" content="http://example.com/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot6.png">
-<meta property="og:image" content="http://example.com/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot7.png">
-<meta property="og:image" content="http://example.com/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot8.png">
-<meta property="og:image" content="http://example.com/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot9.png">
-<meta property="og:image" content="http://example.com/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot10.png">
-<meta property="og:image" content="http://example.com/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot11.png">
-<meta property="og:image" content="http://example.com/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot12.png">
-<meta property="og:image" content="http://example.com/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot13.png">
-<meta property="og:image" content="http://example.com/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot14.png">
-<meta property="og:image" content="http://example.com/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot15.gif">
+<meta property="og:image" content="https://github.com/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cfigure1.png">
+<meta property="og:image" content="https://github.com/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cfigure2.png">
+<meta property="og:image" content="https://github.com/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot1.png">
+<meta property="og:image" content="https://github.com/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot2.png">
+<meta property="og:image" content="https://github.com/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot3.png">
+<meta property="og:image" content="https://github.com/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot4.png">
+<meta property="og:image" content="https://github.com/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot5.png">
+<meta property="og:image" content="https://github.com/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot6.png">
+<meta property="og:image" content="https://github.com/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot7.png">
+<meta property="og:image" content="https://github.com/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot8.png">
+<meta property="og:image" content="https://github.com/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot9.png">
+<meta property="og:image" content="https://github.com/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot10.png">
+<meta property="og:image" content="https://github.com/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot11.png">
+<meta property="og:image" content="https://github.com/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot12.png">
+<meta property="og:image" content="https://github.com/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot13.png">
+<meta property="og:image" content="https://github.com/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot14.png">
+<meta property="og:image" content="https://github.com/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot15.gif">
 <meta property="article:published_time" content="2022-08-10T08:04:56.000Z">
 <meta property="article:modified_time" content="2022-08-10T08:21:18.777Z">
 <meta property="article:author" content="宝可梦训练师">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/%5Cartimg%5Cmatplotlib%5Cfigure1.png">
+<meta name="twitter:image" content="https://github.com/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cfigure1.png">
   
     <link rel="alternative" href="/atom.xml" title="Homepage | 张有为" type="application/atom+xml">
   
@@ -45,7 +45,7 @@
     <link rel="icon" href="/img/favicon.ico">
   
   
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/hfut-zyw/hfut-zyw.github.io/css/style.css">
 
   
   
@@ -84,9 +84,9 @@
 					<nav class="header-menu">
 						<ul>
 						
-							<li><a href="/">Home</a></li>
+							<li><a href="/hfut-zyw/hfut-zyw.github.io/">Home</a></li>
 				        
-							<li><a href="/archives">文章归档</a></li>
+							<li><a href="/hfut-zyw/hfut-zyw.github.io/archives">文章归档</a></li>
 				        
 						</ul>
 					</nav>
@@ -96,8 +96,15 @@
 					<nav class="header-nav">
 						<div class="social">
 							
+								<a class="github" target="_blank" href="https://github.com/hfut-zyw" title="github">github</a>
+					        
 						</div>
 						<!-- music -->
+						
+							<!-- <div style="position: absolute; bottom: 120px; left: auto; width: 85%;"> -->
+							<div style="position: absolute; left: auto; width: 85%;">
+								<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=220 height=86 src="//music.163.com/outchain/player?type=2&id=557584656&auto=1&height=66"></iframe>
+							</div>
 						
 					</nav>
 				</section>
@@ -136,9 +143,9 @@
 			<nav class="header-menu">
 				<ul>
 				
-					<li><a href="/">Home</a></li>
+					<li><a href="/hfut-zyw/hfut-zyw.github.io/">Home</a></li>
 		        
-					<li><a href="/archives">文章归档</a></li>
+					<li><a href="/hfut-zyw/hfut-zyw.github.io/archives">文章归档</a></li>
 		        
 		        <div class="clearfix"></div>
 				</ul>
@@ -146,6 +153,8 @@
 			<nav class="header-nav">
 				<div class="social">
 					
+						<a class="github" target="_blank" href="https://github.com/hfut-zyw" title="github">github</a>
+			        
 				</div>
 			</nav>
 		</header>				
@@ -154,7 +163,7 @@
       <div class="body-wrap"><article id="post-Matplotlib-Tutorial" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2022/08/10/Matplotlib-Tutorial/" class="article-date">
+      <a href="/hfut-zyw/hfut-zyw.github.io/2022/08/10/Matplotlib-Tutorial/" class="article-date">
   	<time datetime="2022-08-10T08:04:56.000Z" itemprop="datePublished">2022-08-10</time>
 </a>
     </div>
@@ -199,7 +208,7 @@
 </li>
 </ul>
 </li>
-<li><p>方法二：%matplotlib是窗口显示，简单好用， <a target="_blank" rel="noopener" href="https://github.com/microsoft/vscode-jupyter/wiki/Using-%25matplotlib-widget-instead-of-%25matplotlib-notebook,tk,etc">参考说明</a>，%matplotlib notebook是行内显示</p>
+<li><p>方法二：%matplotlib是窗口显示，简单好用， <a href="https://github.com/microsoft/vscode-jupyter/wiki/Using-%25matplotlib-widget-instead-of-%25matplotlib-notebook,tk,etc">参考说明</a>，%matplotlib notebook是行内显示</p>
 </li>
 <li><p>两种执行模式简介 </p>
 <ul>
@@ -216,7 +225,7 @@
 TkAgg
 True
 </code></pre>
-<p><img src="/%5Cartimg%5Cmatplotlib%5Cfigure1.png"></p>
+<p><img src="/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cfigure1.png"></p>
 <h3 id="Matplotlib中对象层次"><a href="#Matplotlib中对象层次" class="headerlink" title="Matplotlib中对象层次"></a>Matplotlib中对象层次</h3><ul>
 <li><p>Matplotlib图像中最重要的三个对象分别是figure(画布)，ax(坐标系)，axis (坐标轴)，它们有一个共同的基类：artist </p>
 </li>
@@ -227,7 +236,7 @@ True
 <li><p>axis又有label，tick等对象，可以设置坐标轴刻度，坐标轴标签，坐标轴标题等</p>
 </li>
 </ul>
-<p><img src="/%5Cartimg%5Cmatplotlib%5Cfigure2.png"> </p>
+<p><img src="/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cfigure2.png"> </p>
 <h4 id="使用面向对象接口时，正确的作图流程应该是："><a href="#使用面向对象接口时，正确的作图流程应该是：" class="headerlink" title="使用面向对象接口时，正确的作图流程应该是："></a>使用面向对象接口时，正确的作图流程应该是：</h4><p>1.创建 Figure 实例 </p>
 <p>2.在 Figure 上创建 Axes </p>
 <p>3.在 Axes 上添加基础类对象 </p>
@@ -240,26 +249,26 @@ True
 <p>打个比方，画图时你需要拿出一张素描纸，这就是创建画布，然后在这张纸上你想画碧海、蓝天、凉亭，你肯定事先会设计在哪个地方画这些内容，你决定的每个元素的放置位置就是在划分子图，而你决定好在哪画之后其实等价于在该子图位置创建了坐标系。后面就容易理解了，你的绘图等价于在子图的坐标系上绘图、添加图例、添加标题等。最后，对于坐标轴的样式（是否显示、刻度范围、刻度标签等），可以通过坐标系对象的方法，得到坐标轴对象，通过坐标轴对象的方法设置。</p>
 <h2 id="Chapter-A：面向对象绘图-2张画布"><a href="#Chapter-A：面向对象绘图-2张画布" class="headerlink" title="Chapter_A：面向对象绘图(2张画布)"></a>Chapter_A：面向对象绘图(2张画布)</h2><h3 id="Step1：建立画布"><a href="#Step1：建立画布" class="headerlink" title="Step1：建立画布"></a>Step1：建立画布</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">fig1=plt.figure(figsize=(<span class="number">5</span>,<span class="number">3</span>))</span><br><span class="line">fig2=plt.figure(figsize=(<span class="number">8</span>,<span class="number">4</span>))</span><br><span class="line"><span class="comment"># 如果是交互式模式，会直接调用show显示画布</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><img src="/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot1.png"><img src="/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot2.png"></p>
+<p><img src="/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot1.png"><img src="/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot2.png"></p>
 <h3 id="Step2：建立子图"><a href="#Step2：建立子图" class="headerlink" title="Step2：建立子图"></a>Step2：建立子图</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#清空两个画布，以免每次运行都会覆盖画一堆东西</span></span><br><span class="line">fig1.clear()</span><br><span class="line">fig2.clear()</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建两个子图，存在两个列表当中</span></span><br><span class="line">axes1=fig1.subplots(nrows=<span class="number">2</span>,ncols=<span class="number">2</span>)</span><br><span class="line">axes2=fig2.subplots(nrows=<span class="number">2</span>,ncols=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#显示此时的画布</span></span><br><span class="line">fig1.show()</span><br><span class="line">fig2.show()</span><br></pre></td></tr></table></figure>
 
-<p><img src="/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot3.png"><img src="/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot4.png"></p>
+<p><img src="/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot3.png"><img src="/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot4.png"></p>
 <h3 id="Step3：选中子图，并在上面添加元素"><a href="#Step3：选中子图，并在上面添加元素" class="headerlink" title="Step3：选中子图，并在上面添加元素"></a>Step3：选中子图，并在上面添加元素</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#选择坐标轴系</span></span><br><span class="line">ax1=axes1[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">ax2=axes1[<span class="number">1</span>][<span class="number">1</span>]</span><br><span class="line">ax3=axes2[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#作图：在data区添加线元素</span></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>, <span class="number">100</span>)</span><br><span class="line">ax1.plot(x, x, label=<span class="string">&#x27;linear&#x27;</span>) </span><br><span class="line">ax2.plot(x, x**<span class="number">2</span>, label=<span class="string">&#x27;quadratic&#x27;</span>) </span><br><span class="line">ax3.plot(x, x**<span class="number">3</span>, label=<span class="string">&#x27;cubic&#x27;</span>) </span><br><span class="line">fig1.show()</span><br><span class="line">fig2.show()</span><br><span class="line"></span><br><span class="line"><span class="comment">#设置坐标轴，标题，图标，网格</span></span><br><span class="line">ax1.set_xlabel(<span class="string">&#x27;x label&#x27;</span>)  </span><br><span class="line">ax1.set_ylabel(<span class="string">&#x27;y label&#x27;</span>) </span><br><span class="line">ax1.set_title(<span class="string">&quot;linear curve&quot;</span>)  </span><br><span class="line">ax1.legend() </span><br><span class="line">ax1.grid(color=<span class="string">&#x27;b&#x27;</span>, linestyle=<span class="string">&#x27;:&#x27;</span>, linewidth=<span class="number">1</span>) </span><br><span class="line"></span><br><span class="line">ax2.set_xlabel(<span class="string">&#x27;x label&#x27;</span>)  </span><br><span class="line">ax2.set_ylabel(<span class="string">&#x27;y label&#x27;</span>) </span><br><span class="line">ax2.set_title(<span class="string">&quot;quadratic curve&quot;</span>)  </span><br><span class="line">ax2.legend()  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ax3.set_xlabel(<span class="string">&#x27;x label&#x27;</span>)  </span><br><span class="line">ax3.set_ylabel(<span class="string">&#x27;y label&#x27;</span>) </span><br><span class="line">ax3.set_title(<span class="string">&quot;cubic curve&quot;</span>)  </span><br><span class="line">ax3.legend() </span><br><span class="line"></span><br><span class="line">fig1.show()</span><br><span class="line">fig2.show()</span><br></pre></td></tr></table></figure>
 
-<p><img src="/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot5.png"><img src="/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot6.png"></p>
+<p><img src="/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot5.png"><img src="/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot6.png"></p>
 <h3 id="Step4：对图像作最后微调"><a href="#Step4：对图像作最后微调" class="headerlink" title="Step4：对图像作最后微调"></a>Step4：对图像作最后微调</h3><p>更多的作图细节，以及其他元素的设置细节，请参考<a target="_blank" rel="noopener" href="https://matplotlib.org/stable/index.html">官网文档</a>或其他<a target="_blank" rel="noopener" href="https://www.freesion.com/article/26761507701/">网络教程</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#调整子图间距，使其不重叠</span></span><br><span class="line">fig1.tight_layout()</span><br><span class="line">fig2.tight_layout()</span><br><span class="line">fig1.show()</span><br><span class="line">fig2.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><img src="/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot7.png"><img src="/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot8.png"></p>
+<p><img src="/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot7.png"><img src="/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot8.png"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#调整图例大小，位置</span></span><br><span class="line">ax1.legend(loc=<span class="string">&#x27;lower right&#x27;</span>,fontsize=<span class="string">&#x27;5&#x27;</span>)</span><br><span class="line">ax2.legend(loc=<span class="string">&#x27;upper left&#x27;</span>,fontsize=<span class="string">&#x27;5&#x27;</span>)</span><br><span class="line">ax3.legend(loc=<span class="string">&#x27;best&#x27;</span>,fontsize=<span class="string">&#x27;10&#x27;</span>)</span><br><span class="line">fig1.show()</span><br><span class="line">fig2.show()</span><br></pre></td></tr></table></figure>
 
-<p><img src="/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot9.png"><img src="/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot10.png"></p>
+<p><img src="/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot9.png"><img src="/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot10.png"></p>
 <h2 id="Chapter-B：面向对象绘图-1张画布"><a href="#Chapter-B：面向对象绘图-1张画布" class="headerlink" title="Chapter_B：面向对象绘图(1张画布)"></a>Chapter_B：面向对象绘图(1张画布)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建画布</span></span><br><span class="line">fig3=plt.figure()</span><br><span class="line"></span><br><span class="line"><span class="comment">#添加子图</span></span><br><span class="line">ax4=fig3.add_subplot(<span class="number">221</span>)</span><br><span class="line">ax5=fig3.add_subplot(<span class="number">223</span>)</span><br><span class="line">ax6=fig3.add_subplot(<span class="number">122</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#后面的作图过程完全一样，这里略</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot11.png"></p>
+<p><img src="/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot11.png"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#快速构建画布，与子图</span></span><br><span class="line">fig4,axes3=plt.subplots(<span class="number">1</span>,<span class="number">2</span>)    <span class="comment">#subplots返回一个元组，第一个是画布，第二个是子图列表</span></span><br><span class="line">fig4.show()</span><br></pre></td></tr></table></figure>
 
-<p><img src="/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot12.png"></p>
+<p><img src="/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot12.png"></p>
 <h2 id="Chapter-C：面向过程绘图-2张画布"><a href="#Chapter-C：面向过程绘图-2张画布" class="headerlink" title="Chapter_C：面向过程绘图(2张画布)"></a>Chapter_C：面向过程绘图(2张画布)</h2><h3 id="利用pyplot接口提供的函数，直接隐式创建对象，并在当前对象上进行操作"><a href="#利用pyplot接口提供的函数，直接隐式创建对象，并在当前对象上进行操作" class="headerlink" title="利用pyplot接口提供的函数，直接隐式创建对象，并在当前对象上进行操作"></a>利用pyplot接口提供的函数，直接隐式创建对象，并在当前对象上进行操作</h3><ul>
 <li><p>plt.figure(编号)，自动转向数字编号的画布，如果没有，创建并转向； </p>
 <p>注意，之前的绘图，每一张画图会自动按顺序给一个数字编号，这里如果新增画布，那么数字应该接着前面的编号 </p>
@@ -276,7 +285,7 @@ True
 
 <pre><code>Text(0.5, 1.0, &#39;Easy as 1, 2, 3&#39;)
 </code></pre>
-<p><img src="/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot13.png"><img src="/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot14.png"></p>
+<p><img src="/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot13.png"><img src="/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot14.png"></p>
 <h2 id="Chapter-D：交互式绘制动态图"><a href="#Chapter-D：交互式绘制动态图" class="headerlink" title="Chapter_D：交互式绘制动态图"></a>Chapter_D：交互式绘制动态图</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">simple_plot</span>():</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 生成画布</span></span><br><span class="line">    fig=plt.figure(figsize=(<span class="number">8</span>, <span class="number">6</span>), dpi=<span class="number">80</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#建立一个空列表，用来存每一帧图片</span></span><br><span class="line">    frames=[]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 循环，并且走出循环后，画布依旧还在，没有回收</span></span><br><span class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">30</span>):</span><br><span class="line">        path_png=<span class="string">&#x27;./frame/frame&#123;&#125;.png&#x27;</span>.<span class="built_in">format</span>(index)</span><br><span class="line">        <span class="comment"># 清除原有图像</span></span><br><span class="line">        plt.cla()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 设定标题等</span></span><br><span class="line">        plt.title(<span class="string">&quot;dynamic&quot;</span>)</span><br><span class="line">        plt.grid(<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 生成测试数据</span></span><br><span class="line">        x = np.linspace(-np.pi + <span class="number">0.1</span>*index, np.pi+<span class="number">0.1</span>*index, <span class="number">256</span>, endpoint=<span class="literal">True</span>)</span><br><span class="line">        y_cos, y_sin = np.cos(x), np.sin(x)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 设置X轴</span></span><br><span class="line">        plt.xlabel(<span class="string">&quot;X&quot;</span>)</span><br><span class="line">        plt.xlim(-<span class="number">4</span> + <span class="number">0.1</span>*index, <span class="number">4</span> + <span class="number">0.1</span>*index)</span><br><span class="line">        plt.xticks(np.linspace(-<span class="number">4</span> + <span class="number">0.1</span>*index, <span class="number">4</span>+<span class="number">0.1</span>*index, <span class="number">9</span>, endpoint=<span class="literal">True</span>))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 设置Y轴</span></span><br><span class="line">        plt.ylabel(<span class="string">&quot;Y&quot;</span>)</span><br><span class="line">        plt.ylim(-<span class="number">1.0</span>, <span class="number">1.0</span>)</span><br><span class="line">        plt.yticks(np.linspace(-<span class="number">1</span>, <span class="number">1</span>, <span class="number">9</span>, endpoint=<span class="literal">True</span>))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 画两条曲线</span></span><br><span class="line">        <span class="comment"># 由于在循环中，会不停在同一张画布上作图，开头使用cla函数清空画布，以免全都画在上面了</span></span><br><span class="line">        plt.plot(x, y_cos, <span class="string">&quot;b--&quot;</span>, linewidth=<span class="number">2.0</span>, label=<span class="string">&quot;cos&quot;</span>)</span><br><span class="line">        plt.plot(x, y_sin, <span class="string">&quot;g-&quot;</span>, linewidth=<span class="number">2.0</span>, label=<span class="string">&quot;sin&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 设置图例位置,loc可以为[upper, lower, left, right, center]</span></span><br><span class="line">        plt.legend(loc=<span class="string">&quot;upper left&quot;</span>,  shadow=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 图形显示</span></span><br><span class="line">        plt.show()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 获取当前图片，用PIL打开，存入列表</span></span><br><span class="line">        frame=plt.gcf()</span><br><span class="line">        frame.savefig(path_png)</span><br><span class="line">        frame = Image.<span class="built_in">open</span>(path_png)</span><br><span class="line">        frames.append(frame)</span><br><span class="line">    </span><br><span class="line">        <span class="comment"># 暂停</span></span><br><span class="line">        plt.pause(<span class="number">0.2</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#将列表中的所有图片制作为gif动态图,frames[0]是一个image对象，可以调用save方法</span></span><br><span class="line">    frames[<span class="number">0</span>].save(<span class="string">&#x27;./plot/plot15.gif&#x27;</span>,save_all=<span class="literal">True</span>,append_images=frames[<span class="number">1</span>:],loop=<span class="number">0</span>,disposal=<span class="number">2</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;done!&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">simple_plot()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <pre><code>c:\Users\Amadeus\AppData\Local\Programs\Python\Python39\lib\site-packages\PIL\Image.py:945: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
@@ -285,7 +294,7 @@ True
 
 done!
 </code></pre>
-<p><img src="/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot15.gif"></p>
+<p><img src="/hfut-zyw/hfut-zyw.github.io/%5Cartimg%5Cmatplotlib%5Cplot%5Cplot15.gif"></p>
 <h3 id="存储所有画布"><a href="#存储所有画布" class="headerlink" title="存储所有画布"></a>存储所有画布</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">saves_path=<span class="string">&#x27;./saves/&#x27;</span></span><br><span class="line">fig1.savefig(saves_path+<span class="string">&#x27;plot_fig1.png&#x27;</span>)                 <span class="comment">#chapterA的图1</span></span><br><span class="line">fig2.savefig(saves_path+<span class="string">&#x27;plot_fig2.png&#x27;</span>)                 <span class="comment">#chapterA的图2</span></span><br><span class="line">fig3.savefig(saves_path+<span class="string">&#x27;plot_fig3.png&#x27;</span>)                 <span class="comment">#chapterB的图1</span></span><br><span class="line">fig4.savefig(saves_path+<span class="string">&#x27;plot_fig4.png&#x27;</span>)                 <span class="comment">#chapterB的图2</span></span><br><span class="line">plt.figure(<span class="number">5</span>).savefig(saves_path+<span class="string">&#x27;plot_fig5.png&#x27;</span>)        <span class="comment">#chapterC的图1</span></span><br><span class="line">plt.figure(<span class="number">6</span>).savefig(saves_path+<span class="string">&#x27;plot_fig6.png&#x27;</span>)        <span class="comment">#chapterC的图2</span></span><br><span class="line">plt.figure(<span class="number">7</span>).savefig(saves_path+<span class="string">&#x27;plot_fig7.png&#x27;</span>)        <span class="comment">#制作动态图最后一次循环出来后的画布</span></span><br></pre></td></tr></table></figure>
 
       
@@ -296,7 +305,7 @@ done!
     
 <nav id="article-nav">
   
-    <a href="/2022/08/10/Guide-for-Miniconda3/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/hfut-zyw/hfut-zyw.github.io/2022/08/10/Guide-for-Miniconda3/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
@@ -306,7 +315,7 @@ done!
     </a>
   
   
-    <a href="/2022/08/10/pytorch-tutorial/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/hfut-zyw/hfut-zyw.github.io/2022/08/10/pytorch-tutorial/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Pytorch Tutorial</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
@@ -329,7 +338,7 @@ done!
         &copy; 2022 宝可梦训练师
       </div>
         <div class="footer-right">
-          <a href="https://github.com/hfut-zyw" target="_blank">View My GitHub Profile</a> 
+          <a href="https://space.bilibili.com/782159" target="_blank">访问我的哔哩哔哩</a> 
         </div>
     </div>
   </div>
@@ -337,7 +346,7 @@ done!
     </div>
     
   
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+<link rel="stylesheet" href="/hfut-zyw/hfut-zyw.github.io/fancybox/jquery.fancybox.css">
 
 
 
@@ -355,7 +364,7 @@ done!
 	}
 </script>
 
-<script src="/js/main.js"></script>
+<script src="/hfut-zyw/hfut-zyw.github.io/js/main.js"></script>
 
 
 
