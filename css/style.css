@@ -561,7 +561,7 @@ a {
   font-weight: 300;
   line-height: 45px;
   cursor: pointer;
-  text-transform: uppercase;
+  text-transform: none;
   float: none;
   margin-left: -10px;
   text-align: center;
@@ -604,7 +604,7 @@ a {
   font-weight: 300;
   line-height: 20px;
   cursor: pointer;
-  text-transform: uppercase;
+  text-transform: none;
   float: none;
   height: 30px;
   margin-left: -2px;
