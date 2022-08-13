@@ -9,15 +9,15 @@
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录使用hexo中所遇到的一些零碎的东西">
+  <meta name="description" content="记录使用hexo中碰到的一些坑">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tips for Hexo">
 <meta property="og:url" content="http://example.com/2022/08/12/notes/tips-for-hexo/index.html">
 <meta property="og:site_name" content="Homepage | 张有为">
-<meta property="og:description" content="记录使用hexo中所遇到的一些零碎的东西">
+<meta property="og:description" content="记录使用hexo中碰到的一些坑">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-12T08:55:44.000Z">
-<meta property="article:modified_time" content="2022-08-13T00:09:39.454Z">
+<meta property="article:modified_time" content="2022-08-13T00:45:29.717Z">
 <meta property="article:author" content="宝可梦训练师">
 <meta name="twitter:card" content="summary">
   
@@ -181,29 +181,32 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>记录使用hexo中所遇到的一些零碎的东西</p>
+<p>记录使用hexo中碰到的一些坑</p>
 </blockquote>
 <span id="more"></span>
 
 <p>[TOC]</p>
-<h2 id="hexo文件夹介绍"><a href="#hexo文件夹介绍" class="headerlink" title="hexo文件夹介绍"></a>hexo文件夹介绍</h2><h4 id="config-yml文件"><a href="#config-yml文件" class="headerlink" title="_config.yml文件"></a>_config.yml文件</h4><p>​		网站的配置信息，您可以在此配置大部分的参数</p>
+<h2 id="hexo文件夹介绍"><a href="#hexo文件夹介绍" class="headerlink" title="hexo文件夹介绍"></a>hexo文件夹介绍</h2><h4 id="config-yml文件"><a href="#config-yml文件" class="headerlink" title="_config.yml文件"></a>_config.yml文件</h4><p>​		网站的配置信息，可以在此配置大部分的参数</p>
 <h4 id="source文件夹"><a href="#source文件夹" class="headerlink" title="source文件夹"></a>source文件夹</h4><p>​		资源文件夹，存放用户资源的地方（放图片、Markdown文档、文章、草稿、各种页面等）</p>
-<p>​		source&#x2F;__posts ：默认source文件夹下只有一个_post文件夹，存放文章的markdown源文件，_posts 目录下的md		文件，会被编译成 html 文件，放到 public 文件夹下。每个页面有一个以该页面命名的文件夹，也存放在source		文件夹下。除 _posts 文件夹之外，开头命名为 _ (下划线)的文件 &#x2F; 文件夹和隐藏的文件将会被忽略<br>​		source&#x2F;categories: 分类文件夹，有index.md文件，由hexo new page categories生成。<br>​		source&#x2F;tags: 由hexo new page tags生成的标签文件夹，内自动生成index.md</p>
-<h4 id="scaffolds文件夹"><a href="#scaffolds文件夹" class="headerlink" title="scaffolds文件夹"></a>scaffolds文件夹</h4><p>​		模版文件夹，当您新建文章时，Hexo 会根据 scaffold 来建立文件。</p>
-<p>​		Hexo的模板是指在新建的文章文件中默认填充的内容。例如，如果您修改scaffold&#x2F;post.md中的Front-matter内		容，那么每次新建一篇文章时都会包含这个修改</p>
-<h4 id="public文件夹"><a href="#public文件夹" class="headerlink" title="public文件夹"></a>public文件夹</h4><p>​		生成的静态网页文件，用于上传到GitHub</p>
-<h4 id="package-json文件和node-module文件夹"><a href="#package-json文件和node-module文件夹" class="headerlink" title="package.json文件和node_module文件夹"></a>package.json文件和node_module文件夹</h4><p>​		package.json用来查看Hexo的版本以及相关依赖包的版本</p>
+<p>​		source&#x2F;__posts ：存放文章的markdown源文件，会被编译成 html 文件<br>​		source&#x2F;categories: 分类文件夹，文章有categories参数的话，会把文章添加到此目录<br>​		source&#x2F;tags: 标签文件夹，同上</p>
+<h4 id="scaffolds文件夹"><a href="#scaffolds文件夹" class="headerlink" title="scaffolds文件夹"></a>scaffolds文件夹</h4><p>​		模版文件夹，是指在新建的文章文件中默认填充的内容，如果文章需要分类，可以加个categories参数，以后每次新建post时候，文章头都会添加这个参数</p>
+<h4 id="public文件夹"><a href="#public文件夹" class="headerlink" title="public文件夹"></a>public文件夹</h4><p>​		生成的静态网页文件，用于上传到GitHub，这个文件夹就是你看到的页面，其文件目录就是真正的路径地址</p>
+<h4 id="package-json文件和node-module文件夹"><a href="#package-json文件和node-module文件夹" class="headerlink" title="package.json文件和node_module文件夹"></a>package.json文件和node_module文件夹</h4><p>​		package.json：查看Hexo的版本以及相关依赖包的版本</p>
+<p>​		node_module文件夹：所有的包</p>
 <p>​		Hexo会默认安装：</p>
-<p>​		hexo：主程序<br>​		hexo-deployer-git：实现git部署<br>​		hexo-generator-archive：存档页面生成器<br>​		hexo-generator-category：分类页面生成器<br>​		hexo-generator-index：index生成器<br>​		hexo-generator-tag：标签页面生成器<br>​		hexo-renderer-ejs：支持EJS渲染<br>​		hexo-renderer-marked：Markdown引擎<br>​		hexo-renderer-stylus：支持stylus渲染，主题需要<br>​		hexo-server：支持本地预览，默认地址localhost:4000</p>
-<p>​		新安装的依赖包，也会保存在node_module文件夹下</p>
-<h3 id="themes-x2F-主题-x2F-layout和themes-x2F-主题-x2F-source-x2F-css"><a href="#themes-x2F-主题-x2F-layout和themes-x2F-主题-x2F-source-x2F-css" class="headerlink" title="themes&#x2F;主题&#x2F;layout和themes&#x2F;主题&#x2F;source&#x2F;css"></a>themes&#x2F;主题&#x2F;layout和themes&#x2F;主题&#x2F;source&#x2F;css</h3><p>​		页面的排版布局</p>
-<h2 id="如何分类管理文章"><a href="#如何分类管理文章" class="headerlink" title="如何分类管理文章"></a>如何分类管理文章</h2><h4 id="step1："><a href="#step1：" class="headerlink" title="step1："></a>step1：</h4><p>​		在主题的_config.yml的menu下，加一项</p>
-<p>​		nndl案例与实践: &#x2F;categories&#x2F;nndl</p>
-<h4 id="step2："><a href="#step2：" class="headerlink" title="step2："></a>step2：</h4><p>​		hexo new post -p nndl&#x2F;chapter1</p>
-<p>​		这样就会在_post&#x2F;nndl下创建chapter1</p>
-<h4 id="step3："><a href="#step3：" class="headerlink" title="step3："></a>step3：</h4><p>​		在每篇文章的front-matter部分，加一项</p>
-<p>​		categories: nndl</p>
-<h4 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h4><p>​		主页menu导航栏目，会多一项nndl案例与实践，点进去后就是你添加的文章</p>
+<p>​		hexo：主程序<br>​		hexo-deployer-git：实现git部署(在_config.yml中配置参数后可以一键部署)<br>​		hexo-generator-archive：存档页面生成器<br>​		hexo-generator-category：分类页面生成器<br>​		hexo-generator-index：index生成器（可以删除，用index2插件代替，以实现文章排序）<br>​		hexo-generator-tag：标签页面生成器<br>​		hexo-renderer-ejs：支持EJS渲染<br>​		hexo-renderer-marked：Markdown引擎<br>​		hexo-renderer-stylus：支持stylus渲染，主题需要<br>​		hexo-server：支持本地预览，默认地址localhost:4000</p>
+<h5 id="插件使用核心"><a href="#插件使用核心" class="headerlink" title="插件使用核心"></a>插件使用核心</h5><p>​		插件安装在node_module目录下，启用插件以及插件的配置参数，在_config.yml文件中填写，</p>
+<p>一般插件源代码中的变量名前面都有个config前缀，就是从config中读取变量</p>
+<p>​		</p>
+<h4 id="themes-x2F-jelly-x2F-layout和themes-x2F-jelly-x2F-source-x2F-css"><a href="#themes-x2F-jelly-x2F-layout和themes-x2F-jelly-x2F-source-x2F-css" class="headerlink" title="themes&#x2F;jelly&#x2F;layout和themes&#x2F;jelly&#x2F;source&#x2F;css"></a>themes&#x2F;jelly&#x2F;layout和themes&#x2F;jelly&#x2F;source&#x2F;css</h4><p>​		相应主题（这里是jelly）的页面排版布局，比如字体，图标的源文件和设置一般在css中，而</p>
+<p>页面的其他布局一般在layout中</p>
+<pre><code>    ##### example
+</code></pre>
+<p>​		比如打开layout&#x2F;_partial下的left-col.ejs文件，会有这么一行代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav class=&quot;header-menu&quot;&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">    &lt;% for (var i in theme.menu)&#123; %&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href=&quot;&lt;%- url_for(theme.menu[i]) %&gt;&quot;&gt;&lt;%= i %&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;%&#125;%&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/nav&gt;</span><br></pre></td></tr></table></figure>
+
+<p>​		在主题_config.yml中menu下，加入一项nndl案例与实践后，通过上述for遍历得到变量名theme.menu，从而把”nndl案例与实践”加入menu当中</p>
+<p>​		而配置menu字体大小写的文件，在主题文件夹的source&#x2F;css&#x2F;_partial的main.styl文件中，只需要修改text-transform属性即可</p>
 <h2 id="如何正确引用相对路径"><a href="#如何正确引用相对路径" class="headerlink" title="如何正确引用相对路径"></a>如何正确引用相对路径</h2><h4 id="config-yml配置"><a href="#config-yml配置" class="headerlink" title="_config.yml配置"></a>_config.yml配置</h4><table>
 <thead>
 <tr>
@@ -238,7 +241,7 @@
 <td align="left"></td>
 </tr>
 </tbody></table>
-<h4 id="引用方法"><a href="#引用方法" class="headerlink" title="引用方法"></a>引用方法</h4><ul>
+<h4 id="引用说明"><a href="#引用说明" class="headerlink" title="引用说明"></a>引用说明</h4><ul>
 <li>比如插入一张图片，路径格式应为</li>
 </ul>
 <p>​		&#x2F;img&#x2F;figure.png</p>
@@ -252,23 +255,16 @@
 </ul>
 <p>​		&#x2F;categories&#x2F;nndl</p>
 <p>​		那么会引用source&#x2F;categories&#x2F;nndl</p>
-<h2 id="如何在文章中插入pdf在线预览"><a href="#如何在文章中插入pdf在线预览" class="headerlink" title="如何在文章中插入pdf在线预览"></a>如何在文章中插入pdf在线预览</h2><h4 id="step1：-1"><a href="#step1：-1" class="headerlink" title="step1："></a>step1：</h4><p>​		到hexo网站文件夹下安装</p>
+<h2 id="如何在文章中插入pdf在线预览"><a href="#如何在文章中插入pdf在线预览" class="headerlink" title="如何在文章中插入pdf在线预览"></a>如何在文章中插入pdf在线预览</h2><h4 id="step1："><a href="#step1：" class="headerlink" title="step1："></a>step1：</h4><p>​		到hexo网站文件夹下安装</p>
 <p>​		npm install hexo-pdf –save</p>
-<h4 id="step2：-1"><a href="#step2：-1" class="headerlink" title="step2："></a>step2：</h4><p>​		在文章需要加入pdf的地方</p>
+<h4 id="step2："><a href="#step2：" class="headerlink" title="step2："></a>step2：</h4><p>​		在文章需要加入pdf的地方</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure>
 
 <p>​		其中，xxx.pdf放在source的pdf文件夹下</p>
 <p>​		注：本地打开网页，会跳出保存pdf，上传到服务器后，才是预览</p>
-<h4 id="step3：-1"><a href="#step3：-1" class="headerlink" title="step3："></a>step3：</h4><p>​		到node_modules&#x2F;hexo-pdf下打开reader.ejs</p>
+<h4 id="step3："><a href="#step3：" class="headerlink" title="step3："></a>step3：</h4><p>​		到node_modules&#x2F;hexo-pdf下打开reader.ejs</p>
 <p>​		将height&#x3D;”550”改为height&#x3D;”800”</p>
 <p>​		这样预览pdf的窗口高度就会变高</p>
-<h2 id="如何修改页面布局"><a href="#如何修改页面布局" class="headerlink" title="如何修改页面布局"></a>如何修改页面布局</h2><p>​		进入主题文件夹下的layout文件夹下，页面的相关部件都在里面</p>
-<p>​		比如打开_partial下的left-col.ejs文件，会有这么一行代码</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav class=&quot;header-menu&quot;&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">    &lt;% for (var i in theme.menu)&#123; %&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href=&quot;&lt;%- url_for(theme.menu[i]) %&gt;&quot;&gt;&lt;%= i %&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;%&#125;%&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/nav&gt;</span><br></pre></td></tr></table></figure>
-
-<p>​		在主题_config.yml中menu下，加入一项nndl案例与实践后，通过上述for遍历得到变量名theme.menu，从而把		nndl案例与实践加入menu当中</p>
-<p>​		而配置menu字体大小写的文件，在主题文件夹的source&#x2F;css&#x2F;_partial的main.styl文件中，只需要修改</p>
-<p>​		text-transform属性即可</p>
 <h2 id="如何修改头像，logo"><a href="#如何修改头像，logo" class="headerlink" title="如何修改头像，logo"></a>如何修改头像，logo</h2><h4 id="头像"><a href="#头像" class="headerlink" title="头像"></a>头像</h4><p>​		一般在_config.yml中可以直接配置，头像文件一般在source&#x2F;img文件夹下</p>
 <h4 id="小部件的logo"><a href="#小部件的logo" class="headerlink" title="小部件的logo"></a>小部件的logo</h4><p>​		这个可能在主题source&#x2F;css&#x2F;fonts文件夹下的字体文件fontawesome中</p>
 <h2 id="关于menu导航栏的文章分类定制"><a href="#关于menu导航栏的文章分类定制" class="headerlink" title="关于menu导航栏的文章分类定制"></a>关于menu导航栏的文章分类定制</h2><p>在主题的_config.yml中设置如下</p>
@@ -291,41 +287,27 @@
 <p>自定义栏目，一般显示的文件夹为categories的子文件夹，这样给文章加个分类标签容易管理</p>
 </li>
 </ul>
-<h2 id="hexo-generator-index2插件介绍（文章排序）"><a href="#hexo-generator-index2插件介绍（文章排序）" class="headerlink" title="hexo-generator-index2插件介绍（文章排序）"></a>hexo-generator-index2插件介绍（文章排序）</h2><p>主要使用hexo-generator-index2插件，<a target="_blank" rel="noopener" href="https://github.com/Jamling/hexo-generator-index2/blob/master/README_zh.md">官方地址</a></p>
-<h4 id="step1：-2"><a href="#step1：-2" class="headerlink" title="step1："></a>step1：</h4><pre><code>    $ npm install hexo-generator-index2 --save
+<h2 id="hexo-generator-index2插件介绍（文章分类与排序）"><a href="#hexo-generator-index2插件介绍（文章分类与排序）" class="headerlink" title="hexo-generator-index2插件介绍（文章分类与排序）"></a>hexo-generator-index2插件介绍（文章分类与排序）</h2><p><a target="_blank" rel="noopener" href="https://github.com/Jamling/hexo-generator-index2/blob/master/README_zh.md">官方地址</a></p>
+<h4 id="安装插件并删除原始插件："><a href="#安装插件并删除原始插件：" class="headerlink" title="安装插件并删除原始插件："></a>安装插件并删除原始插件：</h4><pre><code>    $ npm install hexo-generator-index2 --save
     $ npm uninstall hexo-generator-index --save
 </code></pre>
-<h4 id="step2：-2"><a href="#step2：-2" class="headerlink" title="step2："></a>step2：</h4><p>在_config.yml中修改配置选项</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># index2 generator是否包含官方的hexo-generator-index，默认true（包含）</span><br><span class="line">index2_include_index: true # defult is true</span><br><span class="line"></span><br><span class="line"># 配置index2 generator，可以是数组或对象</span><br><span class="line">index2_generator:</span><br><span class="line">  per_page: 10</span><br><span class="line">  order_by: -date</span><br><span class="line">  include:</span><br><span class="line">    - category Web # 只包含Web分类下的文章</span><br><span class="line">  exclude:</span><br><span class="line">    - tag Hexo # 不包含标签为Hexo的文章</span><br></pre></td></tr></table></figure>
+<h4 id="主题-config-yml的menu配置"><a href="#主题-config-yml的menu配置" class="headerlink" title="主题_config.yml的menu配置"></a>主题_config.yml的menu配置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  主页:  2022/08/09/home/me/</span><br><span class="line">  笔记: /categories/notes</span><br><span class="line">  nndl案例与实践: /categories/nndl</span><br></pre></td></tr></table></figure>
+
+<h4 id="根目录-config-yml配置"><a href="#根目录-config-yml配置" class="headerlink" title="根目录_config.yml配置"></a>根目录_config.yml配置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">index2_include_index: true</span><br><span class="line"></span><br><span class="line">index2_generator:</span><br><span class="line">  path: &#x27;/categories/notes&#x27;</span><br><span class="line">  per_page: 15</span><br><span class="line">  order_by: top</span><br><span class="line">  include:</span><br><span class="line">      - category notes # 加入notes</span><br><span class="line">  exclude:</span><br><span class="line">      - category nndl # 排除nndl</span><br><span class="line">      - category home # 排除home </span><br><span class="line">      </span><br><span class="line">index_generator:</span><br><span class="line">  path: &#x27;/categories/nndl&#x27;</span><br><span class="line">  per_page: 15</span><br><span class="line">  order_by: top</span><br><span class="line">  include:</span><br><span class="line">      - category nndl # 加入nndl </span><br><span class="line">  exclude:</span><br><span class="line">      - category notes # 排除notes</span><br><span class="line">      - category home # 排除home  </span><br><span class="line">      </span><br><span class="line"># Category &amp; Tag</span><br><span class="line">default_category: uncategorized</span><br><span class="line">category_map:</span><br><span class="line">tag_map:</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><strong>per_page</strong>: Posts displayed per page. (0 &#x3D; disable pagination)</li>
-<li><strong>order_by</strong>: Posts order. (Order by date descending by default)</li>
-<li><strong>layout</strong>: Set the layout, default is <code>index</code></li>
-<li><strong>path</strong>: Output path, if path is <code>&#39;&#39;</code>, means output to the root directory (<a target="_blank" rel="noopener" href="http://127.0.0.1:4000/">http://127.0.0.1:4000/</a> )</li>
-<li><strong>index</strong>: Home index or not, if <code>true</code> and the <code>path</code> is <code>&#39;&#39;</code>, same to offical <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-generator-index">hexo-generator-index</a></li>
-<li><strong>include</strong>: Posts filter include option</li>
-<li><strong>exclude</strong>: Posts filter exclude option</li>
+<li><p>path: 文章源路径</p>
+</li>
+<li><p>per_page: 每页显示的文章数量</p>
+</li>
+<li><p>order_by: -date表示按日期降序，top表示按top值升序</p>
+</li>
+<li><p>置顶的字样如果不想要，可以在主题的layout&#x2F;_partial&#x2F;post下的title.ejs中修改</p>
+</li>
 </ul>
-<p>除了include和exclude，其它如per_page和order_by都是原有的官方首页生成器选项，不必更改。</p>
-<p>Include&#x2F;exclude 选项格式为<code>属性 值</code>（注意，属性与值中间有个英文的空格），可选的属性有：</p>
-<ul>
-<li>category: 文章分类</li>
-<li>tag: 文章标签</li>
-<li>path: 文章源路径</li>
-<li>置顶的字样如果不想要，可以在主题的layout&#x2F;_partial&#x2F;post下的title.ejs中修改</li>
-</ul>
-<h4 id="主题-config-yml的menu设置如下"><a href="#主题-config-yml的menu设置如下" class="headerlink" title="主题_config.yml的menu设置如下"></a>主题_config.yml的menu设置如下</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  主页:  2022/08/09/home/me/</span><br><span class="line">  笔记: /categories/notes</span><br><span class="line">  nndl案例与实践: /categories/nndl</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="根目录-config-yml加入以下代码"><a href="#根目录-config-yml加入以下代码" class="headerlink" title="根目录_config.yml加入以下代码"></a>根目录_config.yml加入以下代码</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">index2_include_index: true</span><br><span class="line">index2_generator:</span><br><span class="line">  path: &#x27;/categories/notes&#x27;</span><br><span class="line">  per_page: 15</span><br><span class="line">  order_by: top</span><br><span class="line">  include:</span><br><span class="line">      - category notes # include article which category is nndl </span><br><span class="line">  exclude:</span><br><span class="line">      - category nndl</span><br><span class="line">      - category home # exclude article which category is home  </span><br><span class="line">index_generator:</span><br><span class="line">  path: &#x27;/categories/nndl&#x27;</span><br><span class="line">  per_page: 15</span><br><span class="line">  order_by: top</span><br><span class="line">  include:</span><br><span class="line">      - category nndl # include article which category is nndl </span><br><span class="line">  exclude:</span><br><span class="line">      - category notes</span><br><span class="line">      - category home # exclude article which category is home  </span><br><span class="line"># Category &amp; Tag</span><br><span class="line">default_category: uncategorized</span><br><span class="line">category_map:</span><br><span class="line">tag_map:</span><br></pre></td></tr></table></figure>
-
-<p>​		注意，这里使用了两个函数，分别是index2_generator和index_generator，这两个函数都来自上面同一个插件，注意，此时		一定要把原始生成index的插件卸载，否则两个插件会冲突。</p>
-<p>​		生成后，可以到相应文件夹打开html源文件，看看里面是否生成成功。</p>
-<h2 id="如何自定义主界面"><a href="#如何自定义主界面" class="headerlink" title="如何自定义主界面"></a>如何自定义主界面</h2><p>​		由于hexo-generator-index会自动生成一个包含所有文章的主界面，也就是public下的index.html中，如果没有生成（比如你		_config.yml中设置了一些东西导致生成不成功)，会导致本地访问页面时出现cannot get &#x2F; 的错误。</p>
-<p>​		既然知道了public下的index.html就是主页，我们不妨把个人简介的html直接手动拷贝过来</p>
-<p>​		同样，如果上述文章排序时，生成的静态网页还是没有排序，那么直接在本地预览网页的时候，查看源代码，手动保存，替		换相应的静态网页</p>
+<p>​		注意，这里使用了两个函数，分别是index2_generator和index_generator，这两个函数都来自上面同一个插件，注意，此时一定要把原始生成index的插件卸载，否则两个插件会冲突。生成后，可以到相应文件夹打开html源文件，看看里面是否生成成功。</p>
+<h4 id="使用小技巧"><a href="#使用小技巧" class="headerlink" title="使用小技巧"></a>使用小技巧</h4><p>​		hexo-generator-index2按照上述设置，不会生成根目录的index.html主页文件，会导致本地访问页面时出现cannot get &#x2F; 的错误，我们可以手动把个人简介的html直接拷贝过来</p>
+<p>​		同样，如果上述文章排序时，生成的静态网页还是没有排序，那么直接在本地预览网页的时候，查看源代码，手动保存，替换相应的静态网页</p>
 
       
     </div>
