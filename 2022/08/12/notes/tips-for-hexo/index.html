@@ -17,7 +17,7 @@
 <meta property="og:description" content="记录使用hexo中碰到的一些坑">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-12T08:55:44.000Z">
-<meta property="article:modified_time" content="2022-08-13T01:54:50.234Z">
+<meta property="article:modified_time" content="2022-09-03T08:34:57.697Z">
 <meta property="article:author" content="宝可梦训练师">
 <meta name="twitter:card" content="summary">
   
@@ -66,9 +66,9 @@
 					<nav class="header-menu">
 						<ul>
 						
-							<li><a href="/2022/08/09/home/me/">主页</a></li>
+							<li><a href="/2022/08/09/me/aboutme">Homepage</a></li>
 				        
-							<li><a href="/categories/notes">笔记</a></li>
+							<li><a href="/categories/notes">我的笔记</a></li>
 				        
 							<li><a href="/categories/nndl">nndl案例与实践</a></li>
 				        
@@ -122,9 +122,9 @@
 			<nav class="header-menu">
 				<ul>
 				
-					<li><a href="/2022/08/09/home/me/">主页</a></li>
+					<li><a href="/2022/08/09/me/aboutme">Homepage</a></li>
 		        
-					<li><a href="/categories/notes">笔记</a></li>
+					<li><a href="/categories/notes">我的笔记</a></li>
 		        
 					<li><a href="/categories/nndl">nndl案例与实践</a></li>
 		        
@@ -287,13 +287,17 @@
 <p>自定义栏目，一般显示的文件夹为categories的子文件夹，这样给文章加个分类标签容易管理</p>
 </li>
 </ul>
-<h2 id="hexo-generator-index2插件介绍（文章分类与排序）"><a href="#hexo-generator-index2插件介绍（文章分类与排序）" class="headerlink" title="hexo-generator-index2插件介绍（文章分类与排序）"></a>hexo-generator-index2插件介绍（文章分类与排序）</h2><p><a target="_blank" rel="noopener" href="https://github.com/Jamling/hexo-generator-index2/blob/master/README_zh.md">官方地址</a></p>
-<h4 id="安装插件并删除原始插件："><a href="#安装插件并删除原始插件：" class="headerlink" title="安装插件并删除原始插件："></a>安装插件并删除原始插件：</h4><pre><code>    $ npm install hexo-generator-index2 --save
-    $ npm uninstall hexo-generator-index --save
-</code></pre>
-<h4 id="主题-config-yml的menu配置"><a href="#主题-config-yml的menu配置" class="headerlink" title="主题_config.yml的menu配置"></a>主题_config.yml的menu配置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  主页:  2022/08/09/home/me/</span><br><span class="line">  笔记: /categories/notes</span><br><span class="line">  nndl案例与实践: /categories/nndl</span><br></pre></td></tr></table></figure>
+<h2 id="文章分类与排序：hexo-generator插件介绍"><a href="#文章分类与排序：hexo-generator插件介绍" class="headerlink" title="文章分类与排序：hexo-generator插件介绍"></a>文章分类与排序：hexo-generator插件介绍</h2><p><a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-generator-index">hexo-generator-index</a> 用于生成主页</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-generator-category">hexo-generator-category</a> 用于生成目录页</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-generator-archive">hexo-generator-archive</a> 用于生成文章归档页</p>
+<p>上面三个插件都是通过调用hexo-pagination函数生成页面</p>
+<h4 id="pagination函数的返回值"><a href="#pagination函数的返回值" class="headerlink" title="pagination函数的返回值"></a>pagination函数的返回值</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">      path: xxxDir,     // 路径</span><br><span class="line">      layout: [&#x27;layout1&#x27;, &#x27;layout2&#x27;, &#x27;layout3&#x27;, &#x27;layout4&#x27;],  //指定布局，首先找有没有1模板 没有依次往下找</span><br><span class="line">      data: &#123;</span><br><span class="line">        base: xxxDir,</span><br><span class="line">        total: 1,</span><br><span class="line">        current: 1,</span><br><span class="line">        current_url: tagDir,</span><br><span class="line">        posts: locals.posts,</span><br><span class="line">        prev: 0,</span><br><span class="line">        prev_link: &#x27;&#x27;,</span><br><span class="line">        next: 0,</span><br><span class="line">        next_link: &#x27;&#x27;,</span><br><span class="line">        tags: tags</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="根目录-config-yml配置"><a href="#根目录-config-yml配置" class="headerlink" title="根目录_config.yml配置"></a>根目录_config.yml配置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">index2_include_index: true</span><br><span class="line"></span><br><span class="line">index2_generator:</span><br><span class="line">  path: &#x27;/categories/notes&#x27;</span><br><span class="line">  per_page: 15</span><br><span class="line">  order_by: top</span><br><span class="line">  include:</span><br><span class="line">      - category notes # 加入notes</span><br><span class="line">  exclude:</span><br><span class="line">      - category nndl # 排除nndl</span><br><span class="line">      - category home # 排除home </span><br><span class="line">      </span><br><span class="line">index_generator:</span><br><span class="line">  path: &#x27;/categories/nndl&#x27;</span><br><span class="line">  per_page: 15</span><br><span class="line">  order_by: top</span><br><span class="line">  include:</span><br><span class="line">      - category nndl # 加入nndl </span><br><span class="line">  exclude:</span><br><span class="line">      - category notes # 排除notes</span><br><span class="line">      - category home # 排除home  </span><br><span class="line">      </span><br><span class="line"># Category &amp; Tag</span><br><span class="line">default_category: uncategorized</span><br><span class="line">category_map:</span><br><span class="line">tag_map:</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="主题-config-yml的menu配置（生成各种导航按钮）"><a href="#主题-config-yml的menu配置（生成各种导航按钮）" class="headerlink" title="主题_config.yml的menu配置（生成各种导航按钮）"></a>主题_config.yml的menu配置（生成各种导航按钮）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  主页:  2022/08/09/home/me/</span><br><span class="line">  笔记: /categories/notes</span><br><span class="line">  nndl案例与实践: /categories/nndl</span><br></pre></td></tr></table></figure>
+
+<h4 id="根目录-config-yml配置"><a href="#根目录-config-yml配置" class="headerlink" title="根目录_config.yml配置"></a>根目录_config.yml配置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># index 页面配置</span><br><span class="line">index_generator:</span><br><span class="line">  path: &#x27;&#x27;</span><br><span class="line">  per_page: 15</span><br><span class="line">  order_by: top</span><br><span class="line"></span><br><span class="line"># Category 页面配置</span><br><span class="line">category_generator:</span><br><span class="line">  layout: index</span><br><span class="line">  per_page: 15</span><br><span class="line">  order_by: top</span><br><span class="line">  </span><br><span class="line"># Archive 页面配置</span><br><span class="line">archive_generator:</span><br><span class="line">  layout: index</span><br><span class="line">  per_page: 15</span><br><span class="line">  order_by: top</span><br><span class="line">  </span><br><span class="line"># Tag 页面配置</span><br><span class="line">tag_generator:</span><br><span class="line">  layout: index</span><br><span class="line">  per_page: 15</span><br><span class="line">  order_by: top</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p>path: 文章源路径</p>
@@ -305,9 +309,10 @@
 <li><p>置顶的字样如果不想要，可以在主题的layout&#x2F;_partial&#x2F;post下的title.ejs中修改</p>
 </li>
 </ul>
-<p>​		注意，这里使用了两个函数，分别是index2_generator和index_generator，这两个函数都来自上面同一个插件，注意，此时一定要把原始生成index的插件卸载，否则两个插件会冲突。生成后，可以到相应文件夹打开html源文件，看看里面是否生成成功。</p>
-<h4 id="使用小技巧"><a href="#使用小技巧" class="headerlink" title="使用小技巧"></a>使用小技巧</h4><p>​		hexo-generator-index2按照上述设置，不会生成根目录的index.html主页文件，会导致本地访问页面时出现cannot get &#x2F; 的错误，我们可以手动把个人简介的html直接拷贝过来</p>
-<p>​		同样，如果上述文章排序时，生成的静态网页还是没有排序，那么直接在本地预览网页的时候，查看源代码，手动保存，替换相应的静态网页</p>
+<h4 id="生成页面布局修改"><a href="#生成页面布局修改" class="headerlink" title="生成页面布局修改"></a>生成页面布局修改</h4><p>比如想要把category页面布局生成的和主页布局一样，直接找到插件目录下的lib&#x2F;generator.js，修改</p>
+<p><code> layout: [&#39;index&#39;,&#39;category&#39;, &#39;archive&#39;]</code></p>
+<p>默认就会选择index布局</p>
+<h4 id="布局目录"><a href="#布局目录" class="headerlink" title="布局目录"></a>布局目录</h4><p>主题文件夹下的layout文件夹</p>
 <h2 id="数学公式支持"><a href="#数学公式支持" class="headerlink" title="数学公式支持"></a>数学公式支持</h2><h4 id="插件依赖"><a href="#插件依赖" class="headerlink" title="插件依赖"></a>插件依赖</h4><p>hexo-filter-mathjax</p>
 <p>hexo-renderer-pandoc</p>
 <h4 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h4><p>第一步，访问pandoc官网，直接下载一个pandoc，并安装到你电脑，重启</p>
