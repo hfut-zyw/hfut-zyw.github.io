@@ -64,9 +64,11 @@
 						
 							<li><a href="/2022/08/09/me/aboutme">Homepage</a></li>
 				        
-							<li><a href="/categories/notes">我的笔记</a></li>
+							<li><a href="/categories/notes">随写</a></li>
 				        
 							<li><a href="/categories/pytorch">Pytorch</a></li>
+				        
+							<li><a href="/categories/opt">优化笔记</a></li>
 				        
 							<li><a href="/categories/nndl">nndl案例与实践</a></li>
 				        
@@ -122,9 +124,11 @@
 				
 					<li><a href="/2022/08/09/me/aboutme">Homepage</a></li>
 		        
-					<li><a href="/categories/notes">我的笔记</a></li>
+					<li><a href="/categories/notes">随写</a></li>
 		        
 					<li><a href="/categories/pytorch">Pytorch</a></li>
+		        
+					<li><a href="/categories/opt">优化笔记</a></li>
 		        
 					<li><a href="/categories/nndl">nndl案例与实践</a></li>
 		        
@@ -142,6 +146,221 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-nndl/chapter3B" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/08/12/nndl/chapter3B/" class="article-date">
+  	<time datetime="2022-08-12T01:26:58.000Z" itemprop="datePublished">2022-08-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/12/nndl/chapter3B/">
+        第3章（下）：基于Softmax回归完成鸢尾花分类任务
+        
+          <span class="title-pop-out"></a>
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="3-3-实践：基于Softmax回归完成鸢尾花分类任务"><a href="#3-3-实践：基于Softmax回归完成鸢尾花分类任务" class="headerlink" title="3.3 实践：基于Softmax回归完成鸢尾花分类任务"></a>3.3 实践：基于Softmax回归完成鸢尾花分类任务</h2><p>在本节，我们用入门深度学习的基础实验之一“鸢尾花分类任务”来进行实践，使用经典学术数据集Iris作为训练数据，实现基于Softmax回归的鸢尾花分类任务。</p>
+<p>实践流程主要包括以下7个步骤：数据处理、模型构建、损失函数定义、优化器构建、模型训练、模型评价和模型预测等，</p>
+<ul>
+<li>数据处理：根据网络接收的数据格式，完成相应的预处理操作，保证模型正常读取；</li>
+<li>模型构建：定义Softmax回归模型类；</li>
+<li>训练配置：训练相关的一些配置，如：优化算法、评价指标等；</li>
+<li>组装Runner类：Runner用于管理模型训练和测试过程；</li>
+<li>模型训练和测试：利用Runner进行模型训练、评价和测试。</li>
+</ul>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+        <div class="article-pop-out tagcloud">
+          <a class="">置顶</a>
+        </div>
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/nndl/">nndl</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+        <p class="article-more-link">
+          <a  href="/2022/08/12/nndl/chapter3B/#more">阅读全文 >></a>
+        </p>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-nndl/chapter3A" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/08/12/nndl/chapter3A/" class="article-date">
+  	<time datetime="2022-08-12T01:26:52.000Z" itemprop="datePublished">2022-08-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/12/nndl/chapter3A/">
+        第3章（上）：线性分类理论解读
+        
+          <span class="title-pop-out"></a>
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第3章-线性分类"><a href="#第3章-线性分类" class="headerlink" title="第3章 线性分类"></a>第3章 线性分类</h1><p>分类是机器学习中最常见的一类任务，其预测标签是一些离散的类别（符号）。根据分类任务的类别数量又可以分为二分类任务和多分类任务。</p>
+<p>线性分类是指利用一个或多个线性函数将样本进行分类。常用的线性分类模型有Logistic回归和Softmax回归。<br>Logistic回归是一种常用的处理二分类问题的线性模型。Softmax回归是Logistic回归在多分类问题上的推广。</p>
+<p>在学习本章内容前，建议您先阅读《神经网络与深度学习》第3章：线性模型的相关内容，关键知识点如 <strong>图3.1</strong> 所示，以便更好的理解和掌握相应的理论知识，及其在实践中的应用方法。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+        <div class="article-pop-out tagcloud">
+          <a class="">置顶</a>
+        </div>
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/nndl/">nndl</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+        <p class="article-more-link">
+          <a  href="/2022/08/12/nndl/chapter3A/#more">阅读全文 >></a>
+        </p>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-nndl/chapter2B" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/08/12/nndl/chapter2B/" class="article-date">
+  	<time datetime="2022-08-12T01:26:33.000Z" itemprop="datePublished">2022-08-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/12/nndl/chapter2B/">
+        第2章（下）：基于线性回归完成波士顿房价预测任务
+        
+          <span class="title-pop-out"></a>
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="2-4-Runner类介绍"><a href="#2-4-Runner类介绍" class="headerlink" title="2.4 Runner类介绍"></a>2.4 Runner类介绍</h1><p>通过上面的实践，我们可以看到，在一个任务上应用机器学习方法的流程基本上包括：数据集构建、模型构建、损失函数定义、优化器、模型训练、模型评价、模型预测等环节。</p>
+<p>为了更方便地将上述环节规范化，我们将机器学习模型的基本要素封装成一个<strong>Runner</strong>类。除上述提到的要素外，再加上模型保存、模型加载等功能。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+        <div class="article-pop-out tagcloud">
+          <a class="">置顶</a>
+        </div>
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/nndl/">nndl</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+        <p class="article-more-link">
+          <a  href="/2022/08/12/nndl/chapter2B/#more">阅读全文 >></a>
+        </p>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-nndl/chapter2A" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -348,10 +567,10 @@
 
 
   
-    <article id="post-notes/Optimization" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-opt/test-handlebook" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2022/08/10/notes/Optimization/" class="article-date">
+      <a href="/2022/08/10/opt/test-handlebook/" class="article-date">
   	<time datetime="2022-08-10T12:57:42.000Z" itemprop="datePublished">2022-08-10</time>
 </a>
     </div>
@@ -365,8 +584,10 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/10/notes/Optimization/">
-        Optimization
+      <a class="article-title" href="/2022/08/10/opt/test-handlebook/">
+        考前突击小册子
+        
+          <span class="title-pop-out"></a>
         
       </a>
     </h1>
@@ -378,17 +599,21 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>最优化课程的学习笔记，由于本站点没有加入Latex数学公式的引擎，无法渲染公式，所以以图片和pdf的形式呈现。</p>
+<p>这个小册子是之前花了两天时间写给同学突击考试用的，就是简单把老师发的试卷和重点习题copy下来而已，如果不想看试卷，就看这个吧</p>
 </blockquote>
       
     </div>
     
     <div class="article-info article-info-index">
       
+        <div class="article-pop-out tagcloud">
+          <a class="">置顶</a>
+        </div>
+      
       
       
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/notes/">notes</a>
+	<a class="article-category-link" href="/categories/opt/">opt</a>
 	</div>
 
 
@@ -397,7 +622,7 @@
     </div>
       
         <p class="article-more-link">
-          <a  href="/2022/08/10/notes/Optimization/#more">阅读全文 >></a>
+          <a  href="/2022/08/10/opt/test-handlebook/#more">阅读全文 >></a>
         </p>
       
     
