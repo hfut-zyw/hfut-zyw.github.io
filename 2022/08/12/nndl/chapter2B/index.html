@@ -9,19 +9,19 @@
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="2.4 Runner类介绍通过上面的实践，我们可以看到，在一个任务上应用机器学习方法的流程基本上包括：数据集构建、模型构建、损失函数定义、优化器、模型训练、模型评价、模型预测等环节。 为了更方便地将上述环节规范化，我们将机器学习模型的基本要素封装成一个Runner类。除上述提到的要素外，再加上模型保存、模型加载等功能。">
+  <meta name="description" content="2.4 Runner类介绍通过上面的实践，我们可以看到，在一个任务上应用机器学习方法的流程基本上包括：数据集构建、模型构建、损失函数定义、优化器、模型训练、模型评价、模型预测等环节。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第2章（下）：基于线性回归完成波士顿房价预测任务">
 <meta property="og:url" content="http://example.com/2022/08/12/nndl/chapter2B/index.html">
 <meta property="og:site_name" content="Homepage | 张有为">
-<meta property="og:description" content="2.4 Runner类介绍通过上面的实践，我们可以看到，在一个任务上应用机器学习方法的流程基本上包括：数据集构建、模型构建、损失函数定义、优化器、模型训练、模型评价、模型预测等环节。 为了更方便地将上述环节规范化，我们将机器学习模型的基本要素封装成一个Runner类。除上述提到的要素外，再加上模型保存、模型加载等功能。">
+<meta property="og:description" content="2.4 Runner类介绍通过上面的实践，我们可以看到，在一个任务上应用机器学习方法的流程基本上包括：数据集构建、模型构建、损失函数定义、优化器、模型训练、模型评价、模型预测等环节。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/fdb656daadb349a78560fa464b0de5fa5d63423fc2234adfac48e6ff020a6d60">
 <meta property="og:image" content="http://example.com/img-nndl/output_11_0.png">
 <meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/242350bbd60d4afbbedc62bdc5579a54fa8e375d2481408d9be77069e578f39e">
 <meta property="og:image" content="http://example.com/img-nndl/output_14_0.png">
 <meta property="article:published_time" content="2022-08-12T01:26:33.000Z">
-<meta property="article:modified_time" content="2022-08-13T01:08:54.017Z">
+<meta property="article:modified_time" content="2022-09-03T22:12:27.520Z">
 <meta property="article:author" content="宝可梦训练师">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://ai-studio-static-online.cdn.bcebos.com/fdb656daadb349a78560fa464b0de5fa5d63423fc2234adfac48e6ff020a6d60">
@@ -193,9 +193,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="2-4-Runner类介绍"><a href="#2-4-Runner类介绍" class="headerlink" title="2.4 Runner类介绍"></a>2.4 Runner类介绍</h1><p>通过上面的实践，我们可以看到，在一个任务上应用机器学习方法的流程基本上包括：数据集构建、模型构建、损失函数定义、优化器、模型训练、模型评价、模型预测等环节。</p>
+        <h1 id="2-4-Runner类介绍"><a href="#2-4-Runner类介绍" class="headerlink" title="2.4 Runner类介绍"></a>2.4 Runner类介绍</h1><p>通过上面的实践，我们可以看到，在一个任务上应用机器学习方法的流程基本上包括：数据集构建、模型构建、损失函数定义、优化器、模型训练、模型评价、模型预测等环节。<span id="more"></span></p>
 <p>为了更方便地将上述环节规范化，我们将机器学习模型的基本要素封装成一个<strong>Runner</strong>类。除上述提到的要素外，再加上模型保存、模型加载等功能。</p>
-<span id="more"></span>
 <p><strong>Runner</strong>类的成员函数定义如下：</p>
 <ul>
 <li>__init__函数：实例化<strong>Runner</strong>类时默认调用，需要传入模型、损失函数、优化器和评价指标等；</li>
@@ -536,5 +535,20 @@ b: 32.12007522583008
 
 
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

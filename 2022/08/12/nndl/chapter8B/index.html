@@ -9,19 +9,19 @@
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="8.3 基于自注意力模型的文本语义匹配文本语义匹配 {Text Semantic Matching}是一个十分常见的自然语言处理任务。比如在信息检索、问答系统，文本蕴含等任务中都需要用于文本语义匹配的技术。 比如下面三个句子，句子A和句子C的语义更相似，但是如果通过字符串匹配的方式，A和B更容易被判断为相似。 123A. 什么花一年四季都开？B. 什么花生一年四季都开？C. 哪些花可以全年开放？">
+  <meta name="description" content="8.3 基于自注意力模型的文本语义匹配文本语义匹配 {Text Semantic Matching}是一个十分常见的自然语言处理任务。比如在信息检索、问答系统，文本蕴含等任务中都需要用于文本语义匹配的技术。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第8章（下）：基于自注意力机制完成LCQMC文本语义匹配任务">
 <meta property="og:url" content="http://example.com/2022/08/12/nndl/chapter8B/index.html">
 <meta property="og:site_name" content="Homepage | 张有为">
-<meta property="og:description" content="8.3 基于自注意力模型的文本语义匹配文本语义匹配 {Text Semantic Matching}是一个十分常见的自然语言处理任务。比如在信息检索、问答系统，文本蕴含等任务中都需要用于文本语义匹配的技术。 比如下面三个句子，句子A和句子C的语义更相似，但是如果通过字符串匹配的方式，A和B更容易被判断为相似。 123A. 什么花一年四季都开？B. 什么花生一年四季都开？C. 哪些花可以全年开放？">
+<meta property="og:description" content="8.3 基于自注意力模型的文本语义匹配文本语义匹配 {Text Semantic Matching}是一个十分常见的自然语言处理任务。比如在信息检索、问答系统，文本蕴含等任务中都需要用于文本语义匹配的技术。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/1b81fa33279a430a972cb30fb5b91143bcd2275f5931437a917a28e0a0e80c88">
 <meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/9256f30d032045f2a1fec3c44bd4e7747e4d331a04774d05938db566896aee96">
 <meta property="og:image" content="http://example.com/img-nndl/output_22_0.png">
 <meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/0ec699f6bdb04e7db58c18be2bbfd41d7b8def8ac9a847ccb7ca75b6726ed538">
 <meta property="article:published_time" content="2022-08-12T01:28:00.000Z">
-<meta property="article:modified_time" content="2022-08-13T01:09:44.130Z">
+<meta property="article:modified_time" content="2022-09-03T22:14:39.114Z">
 <meta property="article:author" content="宝可梦训练师">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://ai-studio-static-online.cdn.bcebos.com/1b81fa33279a430a972cb30fb5b91143bcd2275f5931437a917a28e0a0e80c88">
@@ -193,10 +193,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="8-3-基于自注意力模型的文本语义匹配"><a href="#8-3-基于自注意力模型的文本语义匹配" class="headerlink" title="8.3 基于自注意力模型的文本语义匹配"></a>8.3 基于自注意力模型的文本语义匹配</h1><p><strong>文本语义匹配</strong> {Text Semantic Matching}是一个十分常见的自然语言处理任务。比如在信息检索、问答系统，文本蕴含等任务中都需要用于文本语义匹配的技术。</p>
+        <h1 id="8-3-基于自注意力模型的文本语义匹配"><a href="#8-3-基于自注意力模型的文本语义匹配" class="headerlink" title="8.3 基于自注意力模型的文本语义匹配"></a>8.3 基于自注意力模型的文本语义匹配</h1><p><strong>文本语义匹配</strong> {Text Semantic Matching}是一个十分常见的自然语言处理任务。比如在信息检索、问答系统，文本蕴含等任务中都需要用于文本语义匹配的技术。<span id="more"></span></p>
 <p>比如下面三个句子，句子A和句子C的语义更相似，但是如果通过字符串匹配的方式，A和B更容易被判断为相似。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A. 什么花一年四季都开？</span><br><span class="line">B. 什么花生一年四季都开？</span><br><span class="line">C. 哪些花可以全年开放？</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
 <p>文本语义匹配任务就是希望能从语义上更准确第判断两个句子之间的关系，而不是仅仅通过字符串匹配。<br>令1表示“相似”，0表示“不相似”，我们希望文本语义匹配模型能够达到这样的效果：<br>输入A和B两句话，输出为0,；输入A和C两句话，输出为1。</p>
 <p>本实践基于自注意力机制来进行文本语义匹配任务。和前两节不同，这里只是用自注意力模型，而不是将自注意力模型叠加在LSTM模型的上面。<br>这里使用一个非常流行的网络结构Transformer。由于语义匹配是一个分类任务，因此只需要用到Transformer模型的编码器。</p>
 <p>基于Transformer编码器的文本语义匹配的整个模型结构如图所示：</p>
@@ -471,5 +470,20 @@ PE(pos,2i+1) =\cos\left(\frac{t}{10000^NaN}\right),</script><p>其中$t$是指�
 
 
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
