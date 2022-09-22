@@ -17,7 +17,7 @@
 <meta property="og:description" content="主要介绍有界线性算子的基本概念，包括算子的有界性，连续性">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-19T11:02:17.000Z">
-<meta property="article:modified_time" content="2022-09-22T13:01:57.849Z">
+<meta property="article:modified_time" content="2022-09-22T23:41:07.318Z">
 <meta property="article:author" content="Pokemon Master">
 <meta property="article:tag" content="分析笔记">
 <meta name="twitter:card" content="summary">
@@ -201,33 +201,33 @@
 <p>主要介绍有界线性算子的基本概念，包括算子的有界性，连续性</p>
 </blockquote>
 <span id="more"></span>
-<h1 id="第1章-有界线性算子"><a href="#第1章-有界线性算子" class="headerlink" title="第1章 有界线性算子"></a>第1章 有界线性算子</h1><h4 id="定义1-1（算子的连续性）"><a href="#定义1-1（算子的连续性）" class="headerlink" title="定义1.1（算子的连续性）"></a>定义1.1（算子的连续性）</h4><p>若 $ ||x_n-x_0|| \rightarrow 0 \quad \Rightarrow ||Tx_n-Tx_0|| \rightarrow 0 $  则称算子 T 在 $ x_0 $ 处连续  </p>
+<h1 id="第1章-有界线性算子"><a href="#第1章-有界线性算子" class="headerlink" title="第1章 有界线性算子"></a>第1章 有界线性算子</h1><h4 id="定义1-1（算子的连续性）"><a href="#定义1-1（算子的连续性）" class="headerlink" title="定义1.1（算子的连续性）"></a>定义1.1（算子的连续性）</h4><p>若 $ \|x_n-x_0\| \rightarrow 0 \quad \Rightarrow \|Tx_n-Tx_0\| \rightarrow 0 $  则称算子 T 在 $ x_0 $ 处连续  </p>
 <p>注：上面是两个空间中不同的范数</p>
-<h4 id="定义1-2-（算子的有界性）"><a href="#定义1-2-（算子的有界性）" class="headerlink" title="定义1.2 （算子的有界性）"></a>定义1.2 （算子的有界性）</h4><p>$ \exists M &gt;0 , $ 对 $ \forall x \in D(T)  $ , 有 $ ||Tx|| \leq M||x||  $  </p>
+<h4 id="定义1-2-（算子的有界性）"><a href="#定义1-2-（算子的有界性）" class="headerlink" title="定义1.2 （算子的有界性）"></a>定义1.2 （算子的有界性）</h4><p>$ \exists M &gt;0 , $ 对 $ \forall x \in D(T)  $ , 有 $ \|Tx\| \leq M\|x\|  $  </p>
 <h4 id="定理1-3"><a href="#定理1-3" class="headerlink" title="定理1.3"></a>定理1.3</h4><p>T是有界的 $ \Leftrightarrow $ T 将有界集映成有界集  </p>
-<h6 id="证明："><a href="#证明：" class="headerlink" title="证明："></a>证明：</h6><p>“ $\Rightarrow  $ “  设 T 有界，则 $ \exists M_1 &gt;0 , $ 对 $ \forall x \in A  $ , 有 $ ||Tx|| \leq M_1||x||  $ ，其中 A 是有界集，$ \forall x \in A , ||x|  | \leq M_2  $ </p>
-<p> $ \therefore ||Tx|| \leq M_1M_2  $  </p>
-<p>“ $\Leftarrow  $ “  由于 T 将有界集映成有界集，故有 $ \displaystyle \sup_{||x||=1} ||Tx|| \leq M $</p>
+<h6 id="证明："><a href="#证明：" class="headerlink" title="证明："></a>证明：</h6><p>“ $\Rightarrow  $ “  设 T 有界，则 $ \exists M_1 &gt;0 , $ 对 $ \forall x \in A  $ , 有 $ \|Tx\| \leq M_1\|x\|  $ ，其中 A 是有界集，$ \forall x \in A , \|x|  | \leq M_2  $ </p>
+<p> $ \therefore \|Tx\| \leq M_1M_2  $  </p>
+<p>“ $\Leftarrow  $ “  由于 T 将有界集映成有界集，故有 $ \displaystyle \sup_{\|x\|=1} \|Tx\| \leq M $</p>
 <h4 id="定理1-4"><a href="#定理1-4" class="headerlink" title="定理1.4"></a>定理1.4</h4><p>以下四个命题相互等价：  </p>
 <p>（1）. T 有界  </p>
 <p>（2）. T一致连续  </p>
 <p>（3）. T点点连续  </p>
 <p>（4）. T在一点连续  </p>
-<h6 id="证明：-1"><a href="#证明：-1" class="headerlink" title="证明："></a>证明：</h6><p>“ $ (1) \Rightarrow (2)  $ “    $ ||Tx_1-Tx_2|| = ||T(x_1-x_2)|| \leq M||x_1-x_2|| $  </p>
+<h6 id="证明：-1"><a href="#证明：-1" class="headerlink" title="证明："></a>证明：</h6><p>“ $ (1) \Rightarrow (2)  $ “    $ \|Tx_1-Tx_2\| = \|T(x_1-x_2)\| \leq M\|x_1-x_2\| $  </p>
 <p>“ $ (2) \Rightarrow (3) \Rightarrow (4) $ “    显然  </p>
-<p>“ $ (4) \Rightarrow (3)  $ “    设 T 在 $ x_0 $ 点连续，即  $ ||x_n-x_0|| \rightarrow 0 , Tx_n \rightarrow  Tx_0 $ , 若 $ y_n \rightarrow y $ 那么 $y_n-y+x_0 \rightarrow x_0$,就有 $ T(y_n-y+x_0) \rightarrow  Tx_0 $，得到 $ T(y_n-y) \rightarrow  0 $，即$ Ty_n\rightarrow Ty  $，任意一点连续</p>
-<p>“ $ (3) \Rightarrow (1)  $ “   反证法. 假若  T  无界, 则  $ \forall n&gt;0, \exists x_{n}   $ , 使得  $ ||T x_{n}||&gt;n||x_{n}|| .  $ </p>
-<p>令   $  y_{n}=\frac{x_{n}}{n||x_{n}||}  $  , 可见  $   ||y_{n}|| \rightarrow 0   $ , 于是   $  y_{n} \rightarrow 0(n \rightarrow \infty) .   $ 由于  T  连续, 所以    $ T y_{n} \rightarrow T 0=0 .   $</p>
-<p> 但由上面假设有   $  ||T y_{n}||=\frac{1}{n}||\frac{T x_{n}}{||x_{n}||}||&gt;1 ,   $ 矛盾</p>
+<p>“ $ (4) \Rightarrow (3)  $ “    设 T 在 $ x_0 $ 点连续，即  $ \|x_n-x_0\| \rightarrow 0 , Tx_n \rightarrow  Tx_0 $ , 若 $ y_n \rightarrow y $ 那么 $y_n-y+x_0 \rightarrow x_0$,就有 $ T(y_n-y+x_0) \rightarrow  Tx_0 $，得到 $ T(y_n-y) \rightarrow  0 $，即$ Ty_n\rightarrow Ty  $，任意一点连续</p>
+<p>“ $ (3) \Rightarrow (1)  $ “   反证法. 假若  T  无界, 则  $ \forall n&gt;0, \exists x_{n}   $ , 使得  $ \|T x_{n}\|&gt;n\|x_{n}\| .  $ </p>
+<p>令   $  y_{n}=\frac{x_{n}}{n\|x_{n}\|}  $  , 可见  $   \|y_{n}\| \rightarrow 0   $ , 于是   $  y_{n} \rightarrow 0(n \rightarrow \infty) .   $ 由于  T  连续, 所以    $ T y_{n} \rightarrow T 0=0 .   $</p>
+<p> 但由上面假设有   $  \|T y_{n}\|=\frac{1}{n}\|\frac{T x_{n}}{\|x_{n}\|}\|&gt;1 ,   $ 矛盾</p>
 <h4 id="定理1-5"><a href="#定理1-5" class="headerlink" title="定理1.5"></a>定理1.5</h4><p>设 $ (X,\|\cdot\|)  $  是有限维的赋范空间,  $  (Y,\|\cdot\|)   $ 是任意一个赋范空间,   $ T  $  是从  $  X  $  到  $  Y   $ 的线性算子, 则   $ T $   是有界线性算子.</p>
 <h6 id="证明：-2"><a href="#证明：-2" class="headerlink" title="证明："></a>证明：</h6><p>在  $ X  $  上定义一个新范数</p>
 <script type="math/tex; mode=display">
 \|x\|_{1}=\|x\|+\|T x\|  . \hspace{10cm}  (公式1)</script><p>显然范数前三个条件   $  \|\cdot\|_{1} $   都满足, 且   </p>
 <script type="math/tex; mode=display">
-||x+y||_{1} =||x+y||+||T(x+y)||  =||x+y||+||T x+T y|| \leq
-||x||+||y||+||T x||+||T y|| =||x||_{1}+||y||_{1} . \hspace{3cm} (公式2)</script><p>即    $  ||\cdot||_{1} $   是  X  上定义的另一个范数.<br>因为  $  X   $   是有限维的赋范空间, 根据同一个有限维空间上定义的范数都是等价的, 于是  $  ||\cdot||   $ 和  $  \|\cdot\|_{1}   $ 等价, 即: 存在  $  K&gt;0 $  , 使得对于任意的 $  x \in X $ 有 $ ||x||_{1} \leqslant K||x||  $ .</p>
+\|x+y\|_{1} =\|x+y\|+\|T(x+y)\|  =\|x+y\|+\|T x+T y\| \leq
+\|x\|+\|y\|+\|T x\|+\|T y\| =\|x\|_{1}+\|y\|_{1} . \hspace{3cm} (公式2)</script><p>即    $  \|\cdot\|_{1} $   是  X  上定义的另一个范数.<br>因为  $  X   $   是有限维的赋范空间, 根据同一个有限维空间上定义的范数都是等价的, 于是  $  \|\cdot\|   $ 和  $  \|\cdot\|_{1}   $ 等价, 即: 存在  $  K&gt;0 $  , 使得对于任意的 $  x \in X $ 有 $ \|x\|_{1} \leqslant K\|x\|  $ .</p>
 <p>根据  (公式1)和 (公式2), 我们有</p>
-<p> $ ||T x|| \leqslant||x||_{1} \leqslant K||x||, $ </p>
+<p> $ \|T x\| \leqslant\|x\|_{1} \leqslant K\|x\|, $ </p>
 <p>这说明  $ T $  是有界的.</p>
 <h4 id="定理1-6"><a href="#定理1-6" class="headerlink" title="定理1.6"></a>定理1.6</h4><p>若 $T$ 有界，则 $T$ 的零子空间 $N(T)$ 是闭集</p>
 <h6 id="证明：-3"><a href="#证明：-3" class="headerlink" title="证明："></a>证明：</h6><p>$ \forall x \in \overline{N(T)}, \exists  \{x_n\} \subset N(T),st.x_n\rightarrow x$</p>

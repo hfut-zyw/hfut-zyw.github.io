@@ -17,7 +17,7 @@
 <meta property="og:description" content="主要介绍赋范的线性算子空间，了解算子范数的定义，算子列的收敛，算子空间的完备性等">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-09-19T11:02:17.000Z">
-<meta property="article:modified_time" content="2022-09-22T13:02:14.120Z">
+<meta property="article:modified_time" content="2022-09-22T23:40:39.628Z">
 <meta property="article:author" content="Pokemon Master">
 <meta property="article:tag" content="分析笔记">
 <meta name="twitter:card" content="summary">
@@ -205,29 +205,29 @@
 <p>接下来在 $ \mathscr{B}\left(X, X_{1}\right) $ 上定义线性运算和范数，使 $ \mathscr{B}\left(X, X_{1}\right) $ 在代数结构上成为一个线性空间，在拓扑结构上成为一个赋范空间：  </p>
 <script type="math/tex; mode=display">
 (A+B)(x)=A x+B x, \quad(\alpha A)(x)=\alpha A x  \\
-||T||=\sup_{ \substack {x \in X \\ x \neq 0}}{\frac{||Tx||}{||x||}}=\sup_{ ||x|| \leq 1}{\frac{||Tx||}{||x||}}=\sup_{ ||x|| = 1}{\frac{||Tx||}{||x||}}</script><h4 id="范数的基本不等式"><a href="#范数的基本不等式" class="headerlink" title="范数的基本不等式"></a>范数的基本不等式</h4><script type="math/tex; mode=display">
-||T_1+T_2|| \leq ||T_1||+||T_2|| \\  
-||T_1T_2|| \leq ||T_1T_2|| \\  
-||T^n|| \leq ||T||^n</script><h4 id="算子列的几种收敛"><a href="#算子列的几种收敛" class="headerlink" title="算子列的几种收敛"></a>算子列的几种收敛</h4><h5 id="1-按范数收敛（一致收敛）："><a href="#1-按范数收敛（一致收敛）：" class="headerlink" title="1.按范数收敛（一致收敛）："></a>1.按范数收敛（一致收敛）：</h5><script type="math/tex; mode=display">
-||T_n-T|| \rightarrow 0</script><p>记作：</p>
+\|T\|=\sup_{ \substack {x \in X \\ x \neq 0}}{\frac{\|Tx\|}{\|x\|}}=\sup_{ \|x\| \leq 1}{\frac{\|Tx\|}{\|x\|}}=\sup_{ \|x\| = 1}{\frac{\|Tx\|}{\|x\|}}</script><h4 id="范数的基本不等式"><a href="#范数的基本不等式" class="headerlink" title="范数的基本不等式"></a>范数的基本不等式</h4><script type="math/tex; mode=display">
+\|T_1+T_2\| \leq \|T_1\|+\|T_2\| \\  
+\|T_1T_2\| \leq \|T_1T_2\| \\  
+\|T^n\| \leq \|T\|^n</script><h4 id="算子列的几种收敛"><a href="#算子列的几种收敛" class="headerlink" title="算子列的几种收敛"></a>算子列的几种收敛</h4><h5 id="1-按范数收敛（一致收敛）："><a href="#1-按范数收敛（一致收敛）：" class="headerlink" title="1.按范数收敛（一致收敛）："></a>1.按范数收敛（一致收敛）：</h5><script type="math/tex; mode=display">
+\|T_n-T\| \rightarrow 0</script><p>记作：</p>
 <script type="math/tex; mode=display">
 T_n \Rightarrow T</script><h5 id="2-强收敛（点态收敛）："><a href="#2-强收敛（点态收敛）：" class="headerlink" title="2.强收敛（点态收敛）："></a>2.强收敛（点态收敛）：</h5><script type="math/tex; mode=display">
-||T_nx-Tx|| \rightarrow 0</script><p>记作：  </p>
+\|T_nx-Tx\| \rightarrow 0</script><p>记作：  </p>
 <script type="math/tex; mode=display">
 T_n \xrightarrow{s} T</script><h5 id="3-弱收敛："><a href="#3-弱收敛：" class="headerlink" title="3.弱收敛："></a>3.弱收敛：</h5><script type="math/tex; mode=display">
 |f(T_nx)-f(Tx)| \rightarrow 0</script><p>记作： </p>
 <script type="math/tex; mode=display">
 T_n \xrightarrow{w} T</script><h5 id="4-几种收敛性的关系："><a href="#4-几种收敛性的关系：" class="headerlink" title="4.几种收敛性的关系："></a>4.几种收敛性的关系：</h5><script type="math/tex; mode=display">
-T_n \Rightarrow T \quad \Rightarrow \quad ||T_nx-Tx|| \rightarrow 0  \quad \Rightarrow \quad  T_n \xrightarrow{w} T</script><h6 id="证明："><a href="#证明：" class="headerlink" title="证明："></a>证明：</h6><p>（1）. $ ||T_nx-Tx|| \leq ||T_n-T|| ||x|| \leq \varepsilon ||x|| $ </p>
-<p>（1）. $ ||f(T_nx)-f(Tx)|| \leq ||f|| ||T_nx-Tx|| \leq \varepsilon ||f|| $ </p>
+T_n \Rightarrow T \quad \Rightarrow \quad \|T_nx-Tx\| \rightarrow 0  \quad \Rightarrow \quad  T_n \xrightarrow{w} T</script><h6 id="证明："><a href="#证明：" class="headerlink" title="证明："></a>证明：</h6><p>（1）. $ \|T_nx-Tx\| \leq \|T_n-T\| \|x\| \leq \varepsilon \|x\| $ </p>
+<p>（1）. $ \|f(T_nx)-f(Tx)\| \leq \|f\| \|T_nx-Tx\| \leq \varepsilon \|f\| $ </p>
 <h4 id="定理2-2"><a href="#定理2-2" class="headerlink" title="定理2.2"></a>定理2.2</h4><p>设 $ X $  是赋范空间,   $ X_{1} $   是  $ Banach $  空间, 则   $ \mathscr{B}\left(X, X_{1}\right) $   是  $ Banach $  空 间 </p>
 <h6 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h6><p>设$\{ T_n \}$是 $ \mathscr{B}\left(X, X_{1}\right) $ 中的Cauchy列，容易证明$\{ T_nx \}$是$X_1$中的Cauchy列，然后在$X_1$中收敛到$y$，由$x$和$y$构造算子$T$，后面证明$T$就是$\{ T_n \}$收敛到的算子</p>
 <h6 id="证明：-1"><a href="#证明：-1" class="headerlink" title="证明："></a>证明：</h6><p>(1). 构造一个线性算子 $ T $</p>
-<p>设 $ \left\{T_{n}\right\} $  是   $ \mathscr{B}\left(X, X_{1}\right)  $  中的 Cauchy  列. 则对于任给的   $ \varepsilon&gt;0  $ , 存在  $  N $  , 当   $ n, m \geqslant N  $  时, 有$ \left||T_{n}-T_{m}\right||&lt;\varepsilon $  .于是,   $ \forall x \in X $  ,$ \left||T_{n} x-T_{m} x\right|| \leqslant\left||T_{n}-T_{m}\right||||x||&lt;\varepsilon||x|| $ ,这表明对于任何给定的  $  x \in X,\left\{T_{n} x\right\}  $  是 $ X_{1}$ 中的 Cauchy 列. 因为 $ X_{1} $  完备, 故 存在 $   y \in X_{1}  $ , 使得$ T_{n} x \rightarrow y(n \rightarrow \infty), \quad \forall x \in X  $ .于是对于任意给定的  $  x \in X $  , 有唯一确定的  $  y \in X_{1}  $  和它对应, 我们可以定义 $ T x=y=\lim _{n \rightarrow \infty} T_{n} x $  由于极限运算是线性的,   $ T  $  是从  $  X  $  到  $  X_{1}   $ 的线性算子.</p>
+<p>设 $ \left\{T_{n}\right\} $  是   $ \mathscr{B}\left(X, X_{1}\right)  $  中的 Cauchy  列. 则对于任给的   $ \varepsilon&gt;0  $ , 存在  $  N $  , 当   $ n, m \geqslant N  $  时, 有$ \left\|T_{n}-T_{m}\right\|&lt;\varepsilon $  .于是,   $ \forall x \in X $  ,$ \left\|T_{n} x-T_{m} x\right\| \leqslant\left\|T_{n}-T_{m}\right\|\|x\|&lt;\varepsilon\|x\| $ ,这表明对于任何给定的  $  x \in X,\left\{T_{n} x\right\}  $  是 $ X_{1}$ 中的 Cauchy 列. 因为 $ X_{1} $  完备, 故 存在 $   y \in X_{1}  $ , 使得$ T_{n} x \rightarrow y(n \rightarrow \infty), \quad \forall x \in X  $ .于是对于任意给定的  $  x \in X $  , 有唯一确定的  $  y \in X_{1}  $  和它对应, 我们可以定义 $ T x=y=\lim _{n \rightarrow \infty} T_{n} x $  由于极限运算是线性的,   $ T  $  是从  $  X  $  到  $  X_{1}   $ 的线性算子.</p>
 <p>(2). 证明 $  T $ 是有界线性算子.</p>
-<p>注意到 $ \left|\left||T_{n}\right||-\left||T_{m}\right||\right| \leqslant\left||T_{n}-T_{m}\right|| \rightarrow 0(n, m \rightarrow \infty), $ 即  $  \left\{\left||T_{n}\right||\right\}  $  是 Cauchy 数列. 故存在   $ M&gt;0 $  , 使得 $ \left||T_{n}\right|| \leqslant M(n=1,2, \cdots) . $ 由范数的连续性, 我们有 $ ||T x||=\left||\lim _{n \rightarrow \infty} T_{n} x\right||=\lim _{n \rightarrow \infty}\left||T_{n} x\right|| \leqslant M||x|| . $ 故  $  T  $  是有界线性算子, 即 $   T \in \mathscr{B}\left(X, X_{1}\right) . $ </p>
+<p>注意到 $ \left|\left\|T_{n}\right\|-\left\|T_{m}\right\|\right| \leqslant\left\|T_{n}-T_{m}\right\| \rightarrow 0(n, m \rightarrow \infty), $ 即  $  \left\{\left\|T_{n}\right\|\right\}  $  是 Cauchy 数列. 故存在   $ M&gt;0 $  , 使得 $ \left\|T_{n}\right\| \leqslant M(n=1,2, \cdots) . $ 由范数的连续性, 我们有 $ \|T x\|=\left\|\lim _{n \rightarrow \infty} T_{n} x\right\|=\lim _{n \rightarrow \infty}\left\|T_{n} x\right\| \leqslant M\|x\| . $ 故  $  T  $  是有界线性算子, 即 $   T \in \mathscr{B}\left(X, X_{1}\right) . $ </p>
 <p>(3). 证明  $  \left\{T_{n}\right\}  $  按范数收敛 (一致收敛) 到 $   T . $ </p>
-<p>因为  $  \forall \varepsilon&gt;0, \exists N $  , 当  $  n, m \geqslant N   $ 时,$ \left||T_{n} x-T_{m} x\right||&lt;\varepsilon||x||, $  $ \forall x \in X   $ 都成立. 令  $  m \rightarrow \infty  $ , 由范数的连续性和  $  \lim _{m \rightarrow \infty} T_{m} x=T x  $  可推出 $ \left||T_{n} x-T x\right|| \leqslant \varepsilon||x||(n&gt;N), \quad \forall x \in X $ 即 $ \left||T_{n}-T\right|| \leqslant \varepsilon(n&gt;N), $ 于是有  $  T_{n} \rightarrow T(n \rightarrow \infty) . $  综上可知  $  \mathscr{B}\left(X, X_{1}\right) $   是 $  Banach  $ 空间.</p>
+<p>因为  $  \forall \varepsilon&gt;0, \exists N $  , 当  $  n, m \geqslant N   $ 时,$ \left\|T_{n} x-T_{m} x\right\|&lt;\varepsilon\|x\|, $  $ \forall x \in X   $ 都成立. 令  $  m \rightarrow \infty  $ , 由范数的连续性和  $  \lim _{m \rightarrow \infty} T_{m} x=T x  $  可推出 $ \left\|T_{n} x-T x\right\| \leqslant \varepsilon\|x\|(n&gt;N), \quad \forall x \in X $ 即 $ \left\|T_{n}-T\right\| \leqslant \varepsilon(n&gt;N), $ 于是有  $  T_{n} \rightarrow T(n \rightarrow \infty) . $  综上可知  $  \mathscr{B}\left(X, X_{1}\right) $   是 $  Banach  $ 空间.</p>
 
       
     </div>

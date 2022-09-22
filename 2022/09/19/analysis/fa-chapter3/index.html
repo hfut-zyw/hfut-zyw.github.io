@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://example.com/img-analysis/fa-chapter3-fig1.png">
 <meta property="og:image" content="http://example.com/img-analysis/fa-chapter3-fig2.png">
 <meta property="article:published_time" content="2022-09-19T13:02:17.000Z">
-<meta property="article:modified_time" content="2022-09-22T13:02:23.125Z">
+<meta property="article:modified_time" content="2022-09-22T23:39:51.166Z">
 <meta property="article:author" content="Pokemon Master">
 <meta property="article:tag" content="分析笔记">
 <meta name="twitter:card" content="summary">
@@ -206,16 +206,16 @@
 <span id="more"></span>
 <h1 id="第3章-泛函分析四大基本定理"><a href="#第3章-泛函分析四大基本定理" class="headerlink" title="第3章 泛函分析四大基本定理"></a>第3章 泛函分析四大基本定理</h1><p>设 $ X, X_{1} $   是赋范线性空间,   $ \mathscr{B}\left(X, X_{1}\right)  $  表示从 $  X  $ 到 $  X_{1} $ 的全体有界线性算子. </p>
 <h3 id="一致有界原则"><a href="#一致有界原则" class="headerlink" title="一致有界原则"></a>一致有界原则</h3><h5 id="条件："><a href="#条件：" class="headerlink" title="条件："></a>条件：</h5><p>（1）. $X$是Banach空间  </p>
-<p>（2）. $T_{\alpha}$是有界算子族，且点点有界，即 $ \forall x \in X , \sup_\limits{\alpha \in \mathbf{I}}||T_{\alpha}x||\leq M_x $</p>
-<h5 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h5><p>$T_{\alpha}$一致有界，即 $ \sup_\limits{\alpha \in \mathbf{I}}||T_{\alpha}||\leq M $</p>
-<h6 id="证明思路："><a href="#证明思路：" class="headerlink" title="证明思路："></a>证明思路：</h6><p>要证明$T_{\alpha}$一致有界，只需要证明$T_{\alpha}$在一个范数球上一致有界，为此，先将X分解，$ X=\cup_{k=1}^{\infty}M_k , \quad M_{k}=\left\{x \mid\left||T_{\alpha} x\right|| \leqslant k, \forall \alpha \in I\right\}(k=1,2, \cdots)$ ,   </p>
+<p>（2）. $T_{\alpha}$是有界算子族，且点点有界，即 $ \forall x \in X , \sup_\limits{\alpha \in \mathbf{I}}\|T_{\alpha}x\|\leq M_x $</p>
+<h5 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h5><p>$T_{\alpha}$一致有界，即 $ \sup_\limits{\alpha \in \mathbf{I}}\|T_{\alpha}\|\leq M $</p>
+<h6 id="证明思路："><a href="#证明思路：" class="headerlink" title="证明思路："></a>证明思路：</h6><p>要证明$T_{\alpha}$一致有界，只需要证明$T_{\alpha}$在一个范数球上一致有界，为此，先将X分解，$ X=\cup_{k=1}^{\infty}M_k , \quad M_{k}=\left\{x \mid\left\|T_{\alpha} x\right\| \leqslant k, \forall \alpha \in I\right\}(k=1,2, \cdots)$ ,   </p>
 <p>这样$T_{\alpha}$在每一个$M_k$上一致有界，并且由于范数的连续性，每个$M_k$是闭集（这点在后面很重要），另一方面，由于X是第二纲集，所以必定存在一个$M_{k_0}$ 不是疏集，  </p>
 <p>则$M_{k_0}$ 在一个闭球$\overline{B}$ 中稠密，即$\overline{B} \subset \overline{M_{k_0}}=M_{k_0}$ </p>
 <p>由于 $T_{\alpha}$ 在 $M_{k_0}$ 上一致有界，所以 $T_{\alpha}$ 在闭球 $\overline{B}$ 上一致有界，通过平移伸缩可以得到$T_{\alpha}$在一个范数球上一致有界</p>
 <p>注：$M_{k_0}$ 在一个闭球$\overline{B}$ 中稠密，那么也可以通过平移伸缩证明$M_{k_0}$ 在一个以原点为中心的闭球中稠密，这样就可以直接得到 $T_{\alpha}$ 在一个以原点为中心的闭球上一致有界</p>
 <h3 id="逆否命题（共鸣定理）："><a href="#逆否命题（共鸣定理）：" class="headerlink" title="逆否命题（共鸣定理）："></a>逆否命题（共鸣定理）：</h3><h5 id="条件：-1"><a href="#条件：-1" class="headerlink" title="条件："></a>条件：</h5><p>（1）. $X$是Banach空间  </p>
-<p>（2）. $T_{\alpha}$是有界算子族，且 $ \sup_\limits{\alpha \in \mathbf{I}}||T_{\alpha}||= \infty $</p>
-<h5 id="结论：-1"><a href="#结论：-1" class="headerlink" title="结论："></a>结论：</h5><p> $ \exists \quad x_0 \in X , \quad st.\quad \sup_\limits{\alpha \in \mathbf{I}}||T_{\alpha}x_0||=\infty $</p>
+<p>（2）. $T_{\alpha}$是有界算子族，且 $ \sup_\limits{\alpha \in \mathbf{I}}\|T_{\alpha}\|= \infty $</p>
+<h5 id="结论：-1"><a href="#结论：-1" class="headerlink" title="结论："></a>结论：</h5><p> $ \exists \quad x_0 \in X , \quad st.\quad \sup_\limits{\alpha \in \mathbf{I}}\|T_{\alpha}x_0\|=\infty $</p>
 <h3 id="开映射定理"><a href="#开映射定理" class="headerlink" title="开映射定理"></a>开映射定理</h3><h5 id="条件：-2"><a href="#条件：-2" class="headerlink" title="条件："></a>条件：</h5><p>（1）. $X,X_1$都是Banach空间  </p>
 <p>（2）. $T$是满射</p>
 <h5 id="结论：-2"><a href="#结论：-2" class="headerlink" title="结论："></a>结论：</h5><p> $T$把 $X$中的开集映成 $X_1$中的开集</p>
@@ -264,16 +264,16 @@
 <p>……  </p>
 <p>$ B_{1}\left(0, \delta/2^n\right) \subset \overline{T \bar{B}\left(0, 1/2^n\right)} $  </p>
 <p>下面每一步都是根据过渡引理和上面的每一个关系式得到的： </p>
-<p>i.对于 $\varepsilon=\delta/2^2 , \forall y \in B_{1}\left(0, \delta/2\right) , \exists Tx_1 \in T \bar{B}\left(0, 1/2\right) st.||y-Tx_1||&lt;\delta/2^2 $ , </p>
+<p>i.对于 $\varepsilon=\delta/2^2 , \forall y \in B_{1}\left(0, \delta/2\right) , \exists Tx_1 \in T \bar{B}\left(0, 1/2\right) st.\|y-Tx_1\|&lt;\delta/2^2 $ , </p>
 <p>可以得到$y-Tx_1 \in B_{1}\left(0, \delta/2^2\right)$</p>
-<p>ii. 对于$\varepsilon=\delta/2^3 , y-Tx_1 \in B_{1}\left(0, \delta/2^2\right) , \exists Tx_2 \in T \bar{B}\left(0, 1/2^2\right) st.||y-Tx_1-Tx_2||&lt;\delta/2^3 $ , </p>
+<p>ii. 对于$\varepsilon=\delta/2^3 , y-Tx_1 \in B_{1}\left(0, \delta/2^2\right) , \exists Tx_2 \in T \bar{B}\left(0, 1/2^2\right) st.\|y-Tx_1-Tx_2\|&lt;\delta/2^3 $ , </p>
 <p>可以得到 $y-Tx_1-Tx_2 \in B_{1}\left(0, \delta/2^3\right)$  </p>
 <p>……  </p>
 <p>依次做下去，可以得到</p>
 <p>$y-Tx_1-Tx_2-\dots-Tx_n \in B_{1}\left(0, \delta/2^{n+1}\right)$  且 $ x_n \in \bar{B}\left(0, 1/2^n\right) $  </p>
-<p>一方面，令$s_n=\sum\limits_{k=1}^{n}x_k$ , 则 $s_n \in \bar{B}(0, 1/2^n)$ , 由于$||x_k|| \leq 1/2^k$ , 所以$ \{s_n\} $ 收敛， </p>
-<p>设$\lim\limits_{n \to \infty}s_n=s$ , 则有$||s||\leq \sum\limits_{k=1}^{\infty}||x_k|| \leq 1$ , 那么有$s \in \bar{B}(0,1),Ts \in T \bar{B}(0,1)$ .  </p>
-<p>另一方面，$||y-Tx_1-Tx_2-\dots-Tx_n||=||y-s_n|| \leq \delta/2^{n+1}$ , 令$n \to \infty$ ,  </p>
+<p>一方面，令$s_n=\sum\limits_{k=1}^{n}x_k$ , 则 $s_n \in \bar{B}(0, 1/2^n)$ , 由于$\|x_k\| \leq 1/2^k$ , 所以$ \{s_n\} $ 收敛， </p>
+<p>设$\lim\limits_{n \to \infty}s_n=s$ , 则有$\|s\|\leq \sum\limits_{k=1}^{\infty}\|x_k\| \leq 1$ , 那么有$s \in \bar{B}(0,1),Ts \in T \bar{B}(0,1)$ .  </p>
+<p>另一方面，$\|y-Tx_1-Tx_2-\dots-Tx_n\|=\|y-s_n\| \leq \delta/2^{n+1}$ , 令$n \to \infty$ ,  </p>
 <p>得到$y=\lim\limits_{n \to \infty}Ts_n=Ts\in T \bar{B}(0,1)$  </p>
 <p>综上，得到如下结果：  </p>
 <p> $\forall y \in B_{1}\left(0, \delta/2\right) ,  $ 有 $y \in T \bar{B}(0,1)$  , 即$ B_{1}\left(0, \delta/2\right) \subset T \bar{B}\left(0, 1/2\right) $  </p>
@@ -285,24 +285,24 @@
 <p>若 $G$ 是开集，由开映射定理可知，$T(G)$是开集 , 而$T(G)=T T^{-1}(G_1)=G_1$ ,  </p>
 <p>说明对于$T^{-1}$ , 开集的原像是开集，$T^{-1}$连续，即$T^{-1}$有界  </p>
 <h3 id="另一个与逆算子有关的定理"><a href="#另一个与逆算子有关的定理" class="headerlink" title="另一个与逆算子有关的定理"></a>另一个与逆算子有关的定理</h3><p>$ T$ 是赋范空间 $  X$ 中到赋范空间 $  X_{1}$ 中的线性算子, 如果存在  $ m&gt;0$  , 使得  </p>
-<p>$||T x|| \geqslant m||x|| \quad(x \in \mathscr{D}(T)),$   则 $  T$ 存在有界的逆算子 $  T^{-1} .$   反之，如果 </p>
+<p>$\|T x\| \geqslant m\|x\| \quad(x \in \mathscr{D}(T)),$   则 $  T$ 存在有界的逆算子 $  T^{-1} .$   反之，如果 </p>
 <p>$R(T)$上的逆算子$T^{-1}$存在且有界，则上式成立. </p>
 <h6 id="证明：-1"><a href="#证明：-1" class="headerlink" title="证明："></a>证明：</h6><p>“$\Rightarrow $”  </p>
 <p>(1) 证 $ T $  是一对一的. 如果   $T x_{1}=T x_{2} $ , 则   $T\left(x_{1}-x_{2}\right)=0 $ , 但</p>
-<p> $\left||T\left(x_{1}-x_{2}\right)\right|| \geqslant m\left||x_{1}-x_{2}\right||, $</p>
-<p>因此,  $ \left||x_{1}-x_{2}\right||=0  $, 即  $ x_{1}=x_{2} $ . 故  $ T $  是一对一的, 于是逆算子  $ T^{-1}: \mathscr{R}(T) \rightarrow   \mathscr{D}(T)  $ 存在.<br>(2) 证   $T^{-1} $  是有界的. 对于任意的  $ y \in \mathscr{R}(T), T^{-1} y \in \mathscr{D}(T)  $. 由条件</p>
-<p> $\left||T\left(T^{-1} y\right)\right|| \geqslant m\left||T^{-1} y\right||, $</p>
-<p>即  $ ||y|| \geqslant m\left||T^{-1} y\right||  $, 于是我们有</p>
-<p> $\left||T^{-1} y\right|| \leqslant \frac{1}{m}||y||, \forall y \in \mathscr{R}(T), $</p>
+<p> $\left\|T\left(x_{1}-x_{2}\right)\right\| \geqslant m\left\|x_{1}-x_{2}\right\|, $</p>
+<p>因此,  $ \left\|x_{1}-x_{2}\right\|=0  $, 即  $ x_{1}=x_{2} $ . 故  $ T $  是一对一的, 于是逆算子  $ T^{-1}: \mathscr{R}(T) \rightarrow   \mathscr{D}(T)  $ 存在.<br>(2) 证   $T^{-1} $  是有界的. 对于任意的  $ y \in \mathscr{R}(T), T^{-1} y \in \mathscr{D}(T)  $. 由条件</p>
+<p> $\left\|T\left(T^{-1} y\right)\right\| \geqslant m\left\|T^{-1} y\right\|, $</p>
+<p>即  $ \|y\| \geqslant m\left\|T^{-1} y\right\|  $, 于是我们有</p>
+<p> $\left\|T^{-1} y\right\| \leqslant \frac{1}{m}\|y\|, \forall y \in \mathscr{R}(T), $</p>
 <p> $ T^{-1} $  是有界线性算子.</p>
 <p>“$\Leftarrow$”</p>
 <p>反之, 如果定义在  $ \mathscr{R}(T)  $ 上的逆算子 $  T^{-1}   $存在且有界, 但结论不成立, 则对每个正整数   $n $ , 存在  $ x_{n} \in \mathscr{D}(T)  $, 使得</p>
-<p> $\left||T x_{n}\right||&lt;\frac{1}{n}\left||x_{n}\right|| \text {. } $</p>
+<p> $\left\|T x_{n}\right\|&lt;\frac{1}{n}\left\|x_{n}\right\| \text {. } $</p>
 <p>设 $  y_{n}=T x_{n}, x_{n}=T^{-1} y_{n}  $, 则</p>
-<p> $n\left||y_{n}\right||&lt;\left||T^{-1} y_{n}\right||, $</p>
+<p> $n\left\|y_{n}\right\|&lt;\left\|T^{-1} y_{n}\right\|, $</p>
 <p>由此推出  $ T^{-1}  $ 无界, 矛盾.</p>
 <h3 id="闭算子定理"><a href="#闭算子定理" class="headerlink" title="闭算子定理"></a>闭算子定理</h3><h5 id="乘积空间："><a href="#乘积空间：" class="headerlink" title="乘积空间："></a>乘积空间：</h5><p>$X \times X_1 = \{ (x,y): x \in X, y \in X_1 \}$</p>
-<h5 id="乘积空间中的范数定义："><a href="#乘积空间中的范数定义：" class="headerlink" title="乘积空间中的范数定义："></a>乘积空间中的范数定义：</h5><p>$||(x,y)||=||x||+||y||$</p>
+<h5 id="乘积空间中的范数定义："><a href="#乘积空间中的范数定义：" class="headerlink" title="乘积空间中的范数定义："></a>乘积空间中的范数定义：</h5><p>$\|(x,y)\|=\|x\|+\|y\|$</p>
 <h5 id="算子T的图像："><a href="#算子T的图像：" class="headerlink" title="算子T的图像："></a>算子T的图像：</h5><p>$G(T)=\{(x,Tx): x \in D(T)\}$</p>
 <h5 id="闭算子定义："><a href="#闭算子定义：" class="headerlink" title="闭算子定义："></a>闭算子定义：</h5><p>$G(T)$是闭集,则称算子$T$是闭的  </p>
 <h5 id="闭算子定理："><a href="#闭算子定理：" class="headerlink" title="闭算子定理："></a>闭算子定理：</h5><p>$T$是闭算子 “$ \Leftrightarrow $” $\forall x_n \to x , y_n \to y ,\text{有} x \in D(T) , y=Tx$</p>
@@ -334,7 +334,7 @@
 <h3 id="线性泛函和闭集分离定理"><a href="#线性泛函和闭集分离定理" class="headerlink" title="线性泛函和闭集分离定理"></a>线性泛函和闭集分离定理</h3><p>设 $ G $ 是赋范空间$ X$ 的子空间, $  x_{1} \in X ,$  如果</p>
 <p>$ d=d\left(x_{1}, G\right)=\inf\limits _{x \in G}\left\|x-x_{1}\right\|&gt;0,$ </p>
 <p>则存在 $  X  $ 上的有界线性泛函 $  f_1 ,$ </p>
-<p>$ ||f_1||=\frac{1}{d} ;  \quad f_1\left(x_{1}\right)=1 ; f_1(x)=0, \forall x \in G $ </p>
+<p>$ \|f_1\|=\frac{1}{d} ;  \quad f_1\left(x_{1}\right)=1 ; f_1(x)=0, \forall x \in G $ </p>
 <p><img src="/img-analysis/fa-chapter3-fig2.png" style="zoom:120%;" /></p>
 <p>注：闭集分离定理和延拓定理本质是一回事，两者可以相互推，关于这个定理在连续函数中也有类似结论，参考<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV195411p72j">Tietze扩张</a></p>
 <iframe src="//player.bilibili.com/player.html?aid=455903289&bvid=BV195411p72j&cid=199763814&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="600" height="500"> </iframe>

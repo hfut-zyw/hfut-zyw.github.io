@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://example.com/img-analysis/fa-chapter4-fig2.png">
 <meta property="og:image" content="http://example.com/img-analysis/fa-chapter4-fig3.png">
 <meta property="article:published_time" content="2022-09-20T00:05:18.000Z">
-<meta property="article:modified_time" content="2022-09-22T13:19:21.386Z">
+<meta property="article:modified_time" content="2022-09-22T23:39:39.631Z">
 <meta property="article:author" content="Pokemon Master">
 <meta property="article:tag" content="分析笔记">
 <meta name="twitter:card" content="summary">
@@ -209,7 +209,7 @@
 X^*=B(X,K)=\{ X上定义的全体有界线性泛函  \}</script><p>称$X^*$为$X$的共轭空间  </p>
 <p>注：从定义上来看，实际就是从X到数域K的有界线性算子全体  </p>
 <h5 id="L-p-a-b-的共轭空间"><a href="#L-p-a-b-的共轭空间" class="headerlink" title="$L^p[a,b]$的共轭空间"></a>$L^p[a,b]$的共轭空间</h5><p>$ f $ 是 $ L^{p}[a, b] $ 上的有界线性泛函, 则存在唯一的 $ y(t) \in L^{q}[a, b],\left(\frac{1}{p}+\right.   \left.\frac{1}{q}=1\right) $, 使得</p>
-<p>$f(x)=\int_{a}^{b} x(t) y(t) \mathrm{d} t, \forall x \in L^{p}[a, b],$$\text { 且 }||f||=||y||_{q}=\left(\int_{a}^{b}|y(t)|^{q} \mathrm{~d} t\right)^{\frac{1}{q}} \text {. }$ </p>
+<p>$f(x)=\int_{a}^{b} x(t) y(t) \mathrm{d} t, \forall x \in L^{p}[a, b],$$\text { 且 }\|f\|=\|y\|_{q}=\left(\int_{a}^{b}|y(t)|^{q} \mathrm{~d} t\right)^{\frac{1}{q}} \text {. }$ </p>
 <h5 id="Rieze表示定理"><a href="#Rieze表示定理" class="headerlink" title="Rieze表示定理"></a>Rieze表示定理</h5><p>设 $ H $ 是一个 Hilbert 空间, $ f$  是 $ H$  上定义的有界 线性泛函, 则存在唯一的 $ y_{f} \in H $, 使得</p>
 <p>$f(x)=\left(x, y_{f}\right), \forall x \in H$</p>
 <h6 id="推论（Hilbert空间的共轭空间）"><a href="#推论（Hilbert空间的共轭空间）" class="headerlink" title="推论（Hilbert空间的共轭空间）"></a>推论（Hilbert空间的共轭空间）</h6><p>设 $ H $ 是一个 Hilbert 空间，则$H=H^*$. 此处的等号表示同构意义下的相等，不是集合相等  </p>
@@ -233,20 +233,20 @@ X^*=B(X,K)=\{ X上定义的全体有界线性泛函  \}</script><p>称$X^*$为$X
 <p>那么对于算子A有：$A(y_1+y_2)=Ay_1+Ay_2 , A(ky)=kA(y) $ </p>
 <p>A是线性算子 </p>
 <p>（3）. $T^*$ 的有界性：</p>
-<p>$||Ay||=||z|| \quad \overset{Riesz表示定理}{=}  \quad ||f_{T,y}|| \leq ||T||\cdot||y|| $  </p>
+<p>$\|Ay\|=\|z\| \quad \overset{Riesz表示定理}{=}  \quad \|f_{T,y}\| \leq \|T\|\cdot\|y\| $  </p>
 <p>综上所述，这样的算子存在，后面记$A=T^*$  </p>
 <h3 id="共轭算子的基本性质"><a href="#共轭算子的基本性质" class="headerlink" title="共轭算子的基本性质"></a>共轭算子的基本性质</h3><p>设 $ A 、 B $ 是 Hilbert 空间 $ H $ 上的有界线性算子, 则</p>
-<p>（1）.$||A^\ast||=||A||, (A^\ast)^ \ast=A; $</p>
+<p>（1）.$\|A^\ast\|=\|A\|, (A^\ast)^ \ast=A; $</p>
 <p>（2）. $ (A+B)^\ast=A^*+B^\ast ; $</p>
 <p>（3）. $ (A B)^\ast=B^\ast A^\ast  $</p>
 <p>（4）. $ (\alpha A)^\ast=\bar{\alpha} A^\ast , \forall \alpha \in \mathbb{K} ; $</p>
-<p>（5）. $ ||A^\ast A||=||A A^\ast ||=||A||^{2}=||A^\ast ||^{2} $</p>
+<p>（5）. $ \|A^\ast A\|=\|A A^\ast \|=\|A\|^{2}=\|A^\ast \|^{2} $</p>
 <p>（6）. 若 $  A^{-1} $ 存在且有界, 则 $(A^\ast )^{-1}$ 也存在且有界, 且$   \left(A^\ast \right)^{-1}=\left(A^{-1}\right)^\ast  . $  </p>
 <h6 id="证明："><a href="#证明：" class="headerlink" title="证明："></a>证明：</h6><p>较为简单，略</p>
 <h3 id="有界自共轭算子的性质"><a href="#有界自共轭算子的性质" class="headerlink" title="有界自共轭算子的性质"></a>有界自共轭算子的性质</h3><p>设 $ A 、 B $ 是 Hilbert 空间 $ H $ 上的有界自共轭线性算子, 则</p>
 <p>（1）. $ AB $ 自共轭 $\Leftrightarrow AB=BA ;$</p>
 <p>（2）.  $ A $ 自共轭 $\Leftrightarrow (x,Ax) \text{是实的} ;$</p>
-<p>（3）. $||A||=\sup\limits_{||x||=1}(x,Ax) . $</p>
+<p>（3）. $\|A\|=\sup\limits_{\|x\|=1}(x,Ax) . $</p>
 <h6 id="证明：-1"><a href="#证明：-1" class="headerlink" title="证明："></a>证明：</h6><p>（1）较为简单，（2）、（3）需要用到类似平行四边形法则的公式变形，纯技巧，证明略  </p>
 
       
