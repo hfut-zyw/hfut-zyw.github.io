@@ -219,13 +219,13 @@
 <p>“ $ (3) \Rightarrow (1)  $ “   反证法. 假若  T  无界, 则  $ \forall n&gt;0, \exists x_{n}   $ , 使得  $ ||T x_{n}||&gt;n||x_{n}|| .  $ </p>
 <p>令   $  y_{n}=\frac{x_{n}}{n||x_{n}||}  $  , 可见  $   ||y_{n}|| \rightarrow 0   $ , 于是   $  y_{n} \rightarrow 0(n \rightarrow \infty) .   $ 由于  T  连续, 所以    $ T y_{n} \rightarrow T 0=0 .   $</p>
 <p> 但由上面假设有   $  ||T y_{n}||=\frac{1}{n}||\frac{T x_{n}}{||x_{n}||}||&gt;1 ,   $ 矛盾</p>
-<h4 id="定理1-5"><a href="#定理1-5" class="headerlink" title="定理1.5"></a>定理1.5</h4><p>设 $ (X,|\cdot|)  $  是有限维的赋范空间,  $  (Y,|\cdot|)   $ 是任意一个赋范空间,   $ T  $  是从  $  X  $  到  $  Y   $ 的线性算子, 则   $ T $   是有界线性算子.</p>
+<h4 id="定理1-5"><a href="#定理1-5" class="headerlink" title="定理1.5"></a>定理1.5</h4><p>设 $ (X,\|\cdot\|)  $  是有限维的赋范空间,  $  (Y,\|\cdot\|)   $ 是任意一个赋范空间,   $ T  $  是从  $  X  $  到  $  Y   $ 的线性算子, 则   $ T $   是有界线性算子.</p>
 <h6 id="证明：-2"><a href="#证明：-2" class="headerlink" title="证明："></a>证明：</h6><p>在  $ X  $  上定义一个新范数</p>
 <script type="math/tex; mode=display">
-\|x\|_{1}=\|x\|+\|T x\|  . \hspace{10cm}  (公式1)</script><p>显然范数前三个条件   $  |\cdot|_{1} $   都满足, 且   </p>
+\|x\|_{1}=\|x\|+\|T x\|  . \hspace{10cm}  (公式1)</script><p>显然范数前三个条件   $  \|\cdot\|_{1} $   都满足, 且   </p>
 <script type="math/tex; mode=display">
 ||x+y||_{1} =||x+y||+||T(x+y)||  =||x+y||+||T x+T y|| \leq
-||x||+||y||+||T x||+||T y|| =||x||_{1}+||y||_{1} . \hspace{3cm} (公式2)</script><p>即    $  ||\cdot||_{1} $   是  X  上定义的另一个范数.<br>因为  $  X   $   是有限维的赋范空间, 根据同一个有限维空间上定义的范数都是等价的, 于是  $  ||\cdot||   $ 和  $  |\cdot|_{1}   $ 等价, 即: 存在  $  K&gt;0 $  , 使得对于任意的 $  x \in X $ 有 $ ||x||_{1} \leqslant K||x||  $ .</p>
+||x||+||y||+||T x||+||T y|| =||x||_{1}+||y||_{1} . \hspace{3cm} (公式2)</script><p>即    $  ||\cdot||_{1} $   是  X  上定义的另一个范数.<br>因为  $  X   $   是有限维的赋范空间, 根据同一个有限维空间上定义的范数都是等价的, 于是  $  ||\cdot||   $ 和  $  \|\cdot\|_{1}   $ 等价, 即: 存在  $  K&gt;0 $  , 使得对于任意的 $  x \in X $ 有 $ ||x||_{1} \leqslant K||x||  $ .</p>
 <p>根据  (公式1)和 (公式2), 我们有</p>
 <p> $ ||T x|| \leqslant||x||_{1} \leqslant K||x||, $ </p>
 <p>这说明  $ T $  是有界的.</p>
@@ -241,18 +241,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2022/09/19/analysis/fa-chapter3/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/09/19/analysis/fa-chapter2/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
-          泛函笔记--第3章 泛函分析四大基本定理
+          泛函笔记--第2章 算子空间
         
       </div>
     </a>
   
   
-    <a href="/2022/09/19/analysis/fa-chapter2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">泛函笔记--第2章 算子空间</div>
+    <a href="/2022/09/03/opt/gradient-projection/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">梯度投影</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
