@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://example.com/img-analysis/fa-chapter5-fig3.png">
 <meta property="og:image" content="http://example.com/img-analysis/fa-chapter5-fig4.png">
 <meta property="article:published_time" content="2022-09-21T11:59:33.000Z">
-<meta property="article:modified_time" content="2022-09-22T08:29:33.606Z">
+<meta property="article:modified_time" content="2022-09-22T10:27:05.483Z">
 <meta property="article:author" content="Pokemon Master">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img-analysis/fa-chapter5-fig1.png">
@@ -242,45 +242,45 @@
 <p>本章的最后我们会给出不同的$\lambda $ 对应的 $\lambda I-T$ 是怎么样的提供一个形象直观的解释，当然，现在 </p>
 <p>也可以直接跳到最后看这个解释，不过缺少了相关定理的理解，可能对这个解释有些不明所以，还是 </p>
 <p>建议先看懂后面的定理，再看最后的解释。 </p>
-<h2 id="有界线性算子的谱集性质"><a href="#有界线性算子的谱集性质" class="headerlink" title="有界线性算子的谱集性质"></a>有界线性算子的谱集性质</h2><h3 id="一、谱集为有界闭集"><a href="#一、谱集为有界闭集" class="headerlink" title="一、谱集为有界闭集"></a>一、谱集为有界闭集</h3><h4 id="引理"><a href="#引理" class="headerlink" title="引理"></a>引理</h4><p> 设 $ X $ 是 Banach 空间, $ T \in \mathscr{B}(X) $, 如果 $ |T|&lt;1 $, 则算子 $  I-T$  有有界逆算子, 并且</p>
+<h2 id="有界线性算子的谱集性质"><a href="#有界线性算子的谱集性质" class="headerlink" title="有界线性算子的谱集性质"></a>有界线性算子的谱集性质</h2><h3 id="一、谱集为有界闭集"><a href="#一、谱集为有界闭集" class="headerlink" title="一、谱集为有界闭集"></a>一、谱集为有界闭集</h3><h4 id="引理"><a href="#引理" class="headerlink" title="引理"></a>引理</h4><p> 设 $ X $ 是 Banach 空间, $ T \in \mathscr{B}(X) $, 如果 $ ||T||&lt;1 $, 则算子 $  I-T$  有有界逆算子, 并且</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 (I-T)^{-1} &=\sum_{n=0}^{\infty} T^{n} \\
-\left\|(I-T)^{-1}\right\| & \leqslant \frac{1}{1-\|T\|}
+\left||(I-T)^{-1}\right|| & \leqslant \frac{1}{1-||T||}
 \end{aligned}</script><h6 id="证明："><a href="#证明：" class="headerlink" title="证明："></a>证明：</h6><p>考虑</p>
 <p>$\sum\limits_{k=0}^{\infty} T^{k}=I+T+T^{2}+\cdots,$</p>
 <p>记 $ S_{n}=\sum\limits_{k=0}^{n-1} T^{k} $, 则对于任何的正整数 $ m, n(m&gt;n) ,$</p>
-<p>$\left|S_{m}-S_{n}\right|=\left|\sum\limits_{k=n}^{m-1} T^{k}\right| \leqslant \sum\limits_{k=n}^{m-1}|T|^{k} .$</p>
-<p>由条件 $ |T|&lt;1 $ 知,  $\left\{S_{n}\right\}$  是 $ \mathscr{B}(X) $ 中的$ Cauchy$ 列. 因为 $ X$ 是完备的，所以 $\mathscr{B}(X) $ 是 $Banach$ 空间, 所以 $ \left\{S_{n}\right\}$  按算子范数收敛到一个有界线性算子, 由于</p>
+<p>$\left||S_{m}-S_{n}\right||=||\sum\limits_{k=n}^{m-1} T^{k}|| \leqslant \sum\limits_{k=n}^{m-1}||T||^{k} .$</p>
+<p>由条件 $ ||T||&lt;1 $ 知,  $\left\{S_{n}\right\}$  是 $ \mathscr{B}(X) $ 中的$ Cauchy$ 列. 因为 $ X$ 是完备的，所以 $\mathscr{B}(X) $ 是 $Banach$ 空间, 所以 $ \left\{S_{n}\right\}$  按算子范数收敛到一个有界线性算子, 由于</p>
 <p>$(I-T)\left(I+T+T^{2}+\cdots+T^{n-1}\right)=\left(I+T+T^{2}+\cdots+T^{n-1}\right)(I-T)=I-T^{n},$</p>
 <p>以及</p>
-<p>$\lim\limits _{n \rightarrow \infty}\left|T^{n}\right| \leqslant \lim\limits _{n \rightarrow \infty}|T|^{n}=0,$</p>
+<p>$\lim\limits _{n \rightarrow \infty}\left||T^{n}\right|| \leqslant \lim\limits _{n \rightarrow \infty}||T||^{n}=0,$</p>
 <p>上式两边令 $ n \rightarrow \infty $, 得到</p>
 <p>$(I-T)\left(\sum\limits_{k=0}^{\infty} T^{k}\right)=\left(\sum\limits_{k=0}^{\infty} T^{k}\right)(I-T)=I .$</p>
 <p>这说明算子 $ I-T $ 有逆算子, 且</p>
 <p>$(I-T)^{-1}=\sum\limits_{k=0}^{\infty} T^{k} .$</p>
-<p>$\left|(I-T)^{-1}\right|=\left|\sum\limits_{k=0}^{\infty} T^{k}\right| \leqslant \sum\limits_{k=0}^{\infty}|T|^{k}=\frac{1}{1-|T|} .$</p>
-<h4 id="命题1"><a href="#命题1" class="headerlink" title="命题1"></a>命题1</h4><p> 设 $ X $ 是 Banach 空间, $ T \in \mathscr{B}(X) $, 如果 $ ||\lambda|| &gt;|T| $, 则算子 $ \lambda I-T$  有有界逆算子, 并且</p>
+<p>$\left||(I-T)^{-1}\right||=||\sum\limits_{k=0}^{\infty} T^{k}|| \leqslant \sum\limits_{k=0}^{\infty}||T||^{k}=\frac{1}{1-||T||} .$</p>
+<h4 id="命题1"><a href="#命题1" class="headerlink" title="命题1"></a>命题1</h4><p> 设 $ X $ 是 Banach 空间, $ T \in \mathscr{B}(X) $, 如果 $ ||\lambda|| &gt;||T|| $, 则算子 $ \lambda I-T$  有有界逆算子, 并且</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 (\lambda I-T)^{-1} &=\frac{1}{\lambda} \sum_{n=0}^{\infty} (\frac{T}{\lambda})^{n} \\
-\left\|(\lambda I-T)^{-1}\right\| & \leqslant \frac{1}{||\lambda|| -\|T\|}
-\end{aligned}</script><h6 id="证明：-1"><a href="#证明：-1" class="headerlink" title="证明："></a>证明：</h6><p>对于  $|\lambda|&gt;|T|$ , 显然有 $ \left|\frac{1}{\lambda} T\right|&lt;1$ , 由引理1知, $ I-\frac{1}{\lambda} T$  有有界的逆算子,</p>
+\left||(\lambda I-T)^{-1}\right|| & \leqslant \frac{1}{||\lambda|| -||T||}
+\end{aligned}</script><h6 id="证明：-1"><a href="#证明：-1" class="headerlink" title="证明："></a>证明：</h6><p>对于  $|\lambda|&gt;||T||$ , 显然有 $ ||\frac{1}{\lambda} T||&lt;1$ , 由引理1知, $ I-\frac{1}{\lambda} T$  有有界的逆算子,</p>
 <p>$(\lambda I-T)^{-1}=\frac{1}{\lambda}\left(I-\frac{T}{\lambda}\right)^{-1}=\frac{1}{\lambda} \sum\limits_{n=0}^{\infty}\left(\frac{T}{\lambda}\right)^{n}=\sum\limits_{n=0}^{\infty} \lambda^{-n-1} T^{n} .$</p>
-<p>$\left|\left(I-\frac{T}{\lambda}\right)^{-1}\right| \leqslant \frac{1}{1-\frac{|T|}{|\lambda|}}=\frac{|\lambda|}{|\lambda|-|T|},$</p>
+<p>$||\left(I-\frac{T}{\lambda}\right)^{-1}|| \leqslant \frac{1}{1-\frac{||T||}{|\lambda|}}=\frac{|\lambda|}{|\lambda|-||T||},$</p>
 <p>于是</p>
-<p>$\left|(\lambda I-T)^{-1}\right| \leqslant \frac{1}{|\lambda|-|T|},$</p>
-<p>这说明当 $ |\lambda|&gt;|T| $ 时,  $\lambda \in \rho(T) . $即谱集合是有界的, $ \sigma(T) \subset \bar{B}(0,|T|) .$</p>
-<h4 id="命题2"><a href="#命题2" class="headerlink" title="命题2"></a>命题2</h4><p> 设 $ T $ 是 Banach 空间  $X$  到  $X$  的线性算子, $ \lambda \in \rho(T)$ , 且 $ |\mu|&lt;   \left|(\lambda I-T)^{-1}\right|^{-1} $, 则 $ \lambda+\mu \in \rho(T) $, 即  $\rho(T)$ 是一个开集.</p>
+<p>$||(\lambda I-T)^{-1}|| \leqslant \frac{1}{|\lambda|-||T||},$</p>
+<p>这说明当 $ |\lambda|&gt;||T|| $ 时,  $\lambda \in \rho(T) . $即谱集合是有界的, $ \sigma(T) \subset \bar{B}(0,||T||) .$</p>
+<h4 id="命题2"><a href="#命题2" class="headerlink" title="命题2"></a>命题2</h4><p> 设 $ T $ 是 Banach 空间  $X$  到  $X$  的线性算子, $ \lambda \in \rho(T)$ , 且 $ |\mu|&lt;   ||(\lambda I-T)^{-1}||^{-1} $, 则 $ \lambda+\mu \in \rho(T) $, 即  $\rho(T)$ 是一个开集.</p>
 <h6 id="证明：-2"><a href="#证明：-2" class="headerlink" title="证明："></a>证明：</h6><p>$ \lambda \in \rho(T) ,$ 考虑</p>
 <p>$(\lambda+\mu) I-T=(\lambda I-T)\left[I+\mu(\lambda I-T)^{-1}\right] .$</p>
-<p>由于$  \left|\mu(\lambda I-T)^{-1}\right|&lt;1 ,$ 可知 $ I+\mu(\lambda I-T)^{-1}  $有有界的逆算子, 于是</p>
+<p>由于$ ||\mu(\lambda I-T)^{-1}||&lt;1 ,$ 可知 $ I+\mu(\lambda I-T)^{-1}  $有有界的逆算子, 于是</p>
 <p>$R_{\lambda+\mu}(T)=\left[I+\mu(\lambda I-T)^{-1}\right]^{-1} R_{\lambda}(T),$</p>
 <p>且 $ R_{\lambda+\mu}(T) $ 可以表示为 $ R_{\lambda}(T)$  的幂级数,</p>
 <p>$R_{\lambda+\mu}(T)=\sum\limits_{n=0}^{\infty}(-1)^{n} \mu^{n}\left[R_{\lambda}(T)\right]^{n+1} .$</p>
 <p>这说明 $ R_{\lambda+\mu}(T) $ 存在且有界, 即  $\lambda+\mu \in \rho(T) . $这就证明了 $ \rho(T) $ 是开集.</p>
-<h4 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h4><p>有界线性算子的谱集为有界闭集，且当$ ||\lambda|| &gt;|T| $ 时，$\lambda$ 为正则点 </p>
-<h6 id="证明：-3"><a href="#证明：-3" class="headerlink" title="证明："></a>证明：</h6><p>由命题1知谱集为有界集，且$ ||\lambda|| &gt;|T| $ 时，$\lambda$ 为正则点 ， </p>
+<h4 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h4><p>有界线性算子的谱集为有界闭集，且当$ ||\lambda|| &gt;||T|| $ 时，$\lambda$ 为正则点 </p>
+<h6 id="证明：-3"><a href="#证明：-3" class="headerlink" title="证明："></a>证明：</h6><p>由命题1知谱集为有界集，且$ ||\lambda|| &gt;||T|| $ 时，$\lambda$ 为正则点 ， </p>
 <p>由命题2知$\rho(T)$是一个开集，即$\sigma(T)$为闭集</p>
 <h3 id="二、谱半径"><a href="#二、谱半径" class="headerlink" title="二、谱半径"></a>二、谱半径</h3><h4 id="定理-1"><a href="#定理-1" class="headerlink" title="定理"></a>定理</h4><script type="math/tex; mode=display">
 r_{\sigma}(T)=\sup_{\lambda \in \sigma(T)}|\lambda|=\lim\limits_{n \to \infty}||T^n||^{\frac{1}{n}}</script><h6 id="证明：-4"><a href="#证明：-4" class="headerlink" title="证明："></a>证明：</h6><p>Step1. 证明 $\lim\limits_{n \to \infty}||T^n||^{\frac{1}{n}}$ 存在， </p>
@@ -437,5 +437,20 @@ I=(\lambda I-T)P_{\lambda}(T)(\lambda^n I-T^n)^{-1}</script><p>由此可知$\lam
 
 
   </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":170,"height":340},"mobile":{"show":true},"log":false});</script></body>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":170,"height":340},"mobile":{"show":false},"log":false});</script></body>
 </html>
