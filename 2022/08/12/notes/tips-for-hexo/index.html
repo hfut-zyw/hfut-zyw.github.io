@@ -17,7 +17,7 @@
 <meta property="og:description" content="记录使用hexo中碰到的一些坑">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-12T08:55:44.000Z">
-<meta property="article:modified_time" content="2022-09-22T11:56:14.533Z">
+<meta property="article:modified_time" content="2022-09-22T12:31:41.378Z">
 <meta property="article:author" content="Pokemon Master">
 <meta name="twitter:card" content="summary">
   
@@ -334,6 +334,16 @@
 <p><strong>解决：</strong>修改第 20 行的 em 变量的值，这一步取消了对斜体标记_的转义</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">把 em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br><span class="line">改为 em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br></pre></td></tr></table></figure>
 <p><a target="_blank" rel="noopener" href="https://www.baidu.com/link?url=gZx5iE0YF1HpYWwPi0rcm_mSFEmO2CZ9NPhRHS9teMV-F1EiPfYSwE3UqXDd9omWFXHB302oefCqC_K231-kAnWfI70ZTXJmf72_qAhOxQu&amp;wd=&amp;eqid=c3ba57a400000ef200000006632c4a1d">其他渲染冲突问题</a></p>
+<h4 id="本地渲染成功，部署到github远程端不能渲染数学公式"><a href="#本地渲染成功，部署到github远程端不能渲染数学公式" class="headerlink" title="本地渲染成功，部署到github远程端不能渲染数学公式"></a>本地渲染成功，部署到github远程端不能渲染数学公式</h4><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d43535c17ce2?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes">参考</a></p>
+<p>先说原因，简单来说就是本地的mathjax脚本可以启用成功，发布到远程的时候，别人打开网页，网页会自动使用mathjax官网服务器的脚本来渲染公式，假如调用脚本失败，那么网页公式就会渲染失败。而调用失败的原因就是网页安全限制了调用脚本，解决方法就是更改mathjax的cdn或者到GitHub上取消https</p>
+<p>定位到</p>
+<pre><code class="lang-\node_modules\hexo-renderer-mathjax\mathjax.html```">
+把原来的 
+
+```&lt;script src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>修改为 </p>
+<p><code>&lt;script src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;</code></p>
 
       
     </div>
@@ -423,5 +433,5 @@
     });
 </script>
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":170,"height":340},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":170,"height":340},"mobile":{"show":true},"log":false});</script></body>
 </html>
