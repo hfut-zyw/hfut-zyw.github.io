@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>泛函笔记--第5章 谱分析 | Homepage | 张有为</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="​        本章是做什么的呢？要回答这个问题，先从线性代数讲起，例如有一个对称矩阵A,令$Ax&#x3D;\lambda x,$   求出特征值和特征向量后，我们以这组特征向量为基底，算子A就有了一个比较简单的表示形式，   这个形式反映了线性变换A对空间向量的具体作用，对于对称矩阵来说就是一些拉伸变换的组合。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="泛函笔记--第5章 谱分析">
+<meta property="og:url" content="http://example.com/2022/09/21/analysis/fa-chapter5/index.html">
+<meta property="og:site_name" content="Homepage | 张有为">
+<meta property="og:description" content="​        本章是做什么的呢？要回答这个问题，先从线性代数讲起，例如有一个对称矩阵A,令$Ax&#x3D;\lambda x,$   求出特征值和特征向量后，我们以这组特征向量为基底，算子A就有了一个比较简单的表示形式，   这个形式反映了线性变换A对空间向量的具体作用，对于对称矩阵来说就是一些拉伸变换的组合。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img-analysis/fa-chapter5-fig1.png">
+<meta property="og:image" content="http://example.com/img-analysis/fa-chapter5-fig2.png">
+<meta property="og:image" content="http://example.com/img-analysis/fa-chapter5-fig3.png">
+<meta property="og:image" content="http://example.com/img-analysis/fa-chapter5-fig4.png">
+<meta property="article:published_time" content="2022-09-21T11:59:33.000Z">
+<meta property="article:modified_time" content="2022-09-22T08:21:27.032Z">
+<meta property="article:author" content="宝可梦训练师">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img-analysis/fa-chapter5-fig1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Homepage | 张有为" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/icon.gif">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="/img/face.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">宝可梦训练师</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/2022/08/09/me/aboutme">个人简介</a></li>
+				        
+							<li><a href="/categories/notes">随写</a></li>
+				        
+							<li><a href="/categories/analysis">实变泛函</a></li>
+				        
+							<li><a href="/categories/opt">优化笔记</a></li>
+				        
+							<li><a href="/categories/pytorch">Pytorch</a></li>
+				        
+							<li><a href="/categories/nndl">nndl案例与实践</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/hfut-zyw" title="github">github</a>
+					        
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/face.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/2022/08/09/me/aboutme">个人简介</a></li>
+		        
+					<li><a href="/categories/notes">随写</a></li>
+		        
+					<li><a href="/categories/analysis">实变泛函</a></li>
+		        
+					<li><a href="/categories/opt">优化笔记</a></li>
+		        
+					<li><a href="/categories/pytorch">Pytorch</a></li>
+		        
+					<li><a href="/categories/nndl">nndl案例与实践</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/hfut-zyw" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-analysis/fa-chapter5" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/09/21/analysis/fa-chapter5/" class="article-date">
+  	<time datetime="2022-09-21T11:59:33.000Z" itemprop="datePublished">2022-09-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      泛函笔记--第5章 谱分析
+      
+          <span class="title-pop-out"></a>
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/analysis/">analysis</a>
+	</div>
+
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>​        本章是做什么的呢？要回答这个问题，先从线性代数讲起，例如有一个对称矩阵A,令$Ax=\lambda x,$  </p>
+<p>求出特征值和特征向量后，我们以这组特征向量为基底，算子A就有了一个比较简单的表示形式，  </p>
+<p>这个形式反映了线性变换A对空间向量的具体作用，对于对称矩阵来说就是一些拉伸变换的组合。  </p>
+<span id="more"></span>
+<p>​        在有限维空间下，各种线性变换可以等效为拉伸或者旋转变换的线性组合，不管拉伸还是旋转， </p>
+<p>都可以理解为乘法作用，而决定这种乘法作用的那个数就是特征值（如果是实数表现为拉伸， </p>
+<p>如果是纯虚数表现为旋转）。 </p>
+<p>​        在无限维空间下，我们管决定这种乘法作用的数叫谱，不过这个谱并不像有限维情形下那么简单， </p>
+<p>谱不仅包含了特征值这些“离散”分布在复平面的数，还包含了不可数的“连续”分布在复平面的数。 </p>
+<p>本章会对谱作个基本的分类，虽然后面没有给出具体求解谱的方法，但是会对常见算子的谱的基本 </p>
+<p>特点作一些分析。 </p>
+<p>​        另一方面，有限维空间下，我们研究特征值特征向量，有一个重要的目的是为了研究线性算子A </p>
+<p>的作用，比如将A对角化，实际上就是把A分解为一个个投影算子的线性组合，投影算子就是投影到 </p>
+<p>特征向量上的投影变换，我们不妨把这些特征向量决定的投影算子看成算子空间的一组基底，则A </p>
+<p>在这组基底下的表示就是我们上面讲的投影算子的线性组合。按照这个思路，在无穷维空间下， </p>
+<p>我们是否也有类似特征向量一样的东西帮助我们找到一列投影算子呢，答案是有的，只不过找到 </p>
+<p>一列投影算子作为基底的情形是一类较为简单的算子的情况，一般的算子找到的是不可数的投影算子 </p>
+<p>作为空间基底，由这些投影算子构成的坐标系既不叫笛卡尔直角坐标系，也不叫傅里叶三角系，而是 </p>
+<p>叫谱系，一个更加抽象的“坐标系”，而算子在谱系下的表示也不是线性组合这种累加的形式，而是以 </p>
+<p>积分的形式存在，叫谱积分。 </p>
+<p>​    对于这个谱系，你可能会自然而然产生几个疑问，谱系首先是怎么建立的（坐标轴是谁，怎么找， </p>
+<p>坐标轴的刻度或者说长度是否存在，怎么定义）？算子是如何在谱系下用谱积分表示？其实，这些 </p>
+<p>问题也是我看了泛函分析后想问的问题，但是这些深入的研究并没有在这门课谈及，如果读者有兴趣 </p>
+<p>的话，可以看看赋范代数（Banach代数），群表示论与量子力学等相关书籍。本章后面仅仅就是简单 </p>
+<p>介绍一下常见的有界线性算子的谱的基本分布情况，就是告诉你这种算子有什么类型的谱，范围在哪。</p>
+</blockquote>
+<h1 id="第5章-谱分析"><a href="#第5章-谱分析" class="headerlink" title="第5章 谱分析"></a>第5章 谱分析</h1><h2 id="谱的分类："><a href="#谱的分类：" class="headerlink" title="谱的分类："></a>谱的分类：</h2><p>​    首先我们连谱的定义都没有，直接谈谱的分类是不是有点扯，确实如此，所以需要慢慢说来，在有限 维情形下我们知道，我们求解特征值时是从$Ax=\lambda x , x \in D(T)$出发，符合这个这个方程的$\lambda$就是谱的一种， 有限维 情形下我们叫它特征值，在无穷维情形下，我们也可以叫它特征值，不过我们还给了它另一个名字，叫点谱。 ok，现在我们有了第一类谱，我们可以用以下这种方式定义它： </p>
+<hr>
+<p>对于复平面上的某个 $\lambda $ , 记 $T_\lambda =\lambda I-T,$ 并假定 $T_\lambda$ 是从 $D（T）\subset X$ 到 $X$ 上的闭线性算子，如果 $T_\lambda$ 不是单射，我们称这样的 $\lambda $ 为算子 $T$ 的点谱  </p>
+<hr>
+<p>上面这样定义是合情合理的，因为我们上面从$Ax=\lambda x$出发分析的情况，与我们定义中描述的本质是一回事， </p>
+<p>如果说这个你不太理解，说明你对单射是怎么回事可能需要复习一下  </p>
+<p>接下来的事情就简单了，对于  $T_\lambda$ ，上面我们只讲了令  $T_\lambda$ 为单射的那些 $\lambda $ 叫什么，但是使得  $T_\lambda$ 是别的 </p>
+<p>情形的时候的 $\lambda $ 我们还没提到，下面我们直接给出所有情形下的情况以及相应情形下的 $\lambda $ 叫什么 </p>
+<p><img src="/img-analysis/fa-chapter5-fig1.png" style="zoom:120%;" /></p>
+<p>仔细一看，你可能会发现这个谱的分类跟有的教材上的分类不太一样，实际上一方面是因为有的教材是按某一类算子进行的分类，另一方面就是叫法不一样，比如下面我们将按有界线性算子重新分一次类（因为本章只研究有界线性算子的谱分析，所以不要搞太复杂了），重新分类的时候我们把剩余谱和连续谱都叫成连续谱，这两者本质其实是一回事的。另外，假设$X$是完备的。 </p>
+<p>  <img src="/img-analysis/fa-chapter5-fig2.png" style="zoom:120%;" /></p>
+<p>虽然我们根据 $\lambda I-T$ 性质的不同给出了谱的定义并作了分类，但是除了点谱（特征值），我们对 </p>
+<p>谱的了解知之甚少，因为通过这么抽象的定义方式根本不知道谱到底是什么东西。现在先把这个问题 </p>
+<p>保留，不要问为什么，因为泛函中对谱的分析很少，不深入，你对它了解的比较抽象是正常的，别管， </p>
+<p>往后先把基本概念有个大概的认识就行了，至于真正理解，光靠这门课能提供的帮助显然是有限的 。</p>
+<p>本章的最后我们会给出不同的$\lambda $ 对应的 $\lambda I-T$ 是怎么样的提供一个形象直观的解释，当然，现在 </p>
+<p>也可以直接跳到最后看这个解释，不过缺少了相关定理的理解，可能对这个解释有些不明所以，还是 </p>
+<p>建议先看懂后面的定理，再看最后的解释。 </p>
+<h2 id="有界线性算子的谱集性质"><a href="#有界线性算子的谱集性质" class="headerlink" title="有界线性算子的谱集性质"></a>有界线性算子的谱集性质</h2><h3 id="一、谱集为有界闭集"><a href="#一、谱集为有界闭集" class="headerlink" title="一、谱集为有界闭集"></a>一、谱集为有界闭集</h3><h4 id="引理"><a href="#引理" class="headerlink" title="引理"></a>引理</h4><p> 设 $ X $ 是 Banach 空间, $ T \in \mathscr{B}(X) $, 如果 $ |T|&lt;1 $, 则算子 $  I-T$  有有界逆算子, 并且</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(I-T)^{-1} &=\sum_{n=0}^{\infty} T^{n} \\
+\left\|(I-T)^{-1}\right\| & \leqslant \frac{1}{1-\|T\|}
+\end{aligned}</script><h6 id="证明："><a href="#证明：" class="headerlink" title="证明："></a>证明：</h6><p>考虑</p>
+<p>$\sum\limits_{k=0}^{\infty} T^{k}=I+T+T^{2}+\cdots,$</p>
+<p>记 $ S_{n}=\sum\limits_{k=0}^{n-1} T^{k} $, 则对于任何的正整数 $ m, n(m&gt;n) ,$</p>
+<p>$\left|S_{m}-S_{n}\right|=\left|\sum\limits_{k=n}^{m-1} T^{k}\right| \leqslant \sum\limits_{k=n}^{m-1}|T|^{k} .$</p>
+<p>由条件 $ |T|&lt;1 $ 知,  $\left\{S_{n}\right\}$  是 $ \mathscr{B}(X) $ 中的$ Cauchy$ 列. 因为 $ X$ 是完备的，所以 $\mathscr{B}(X) $ 是 $Banach$ 空间, 所以 $ \left\{S_{n}\right\}$  按算子范数收敛到一个有界线性算子, 由于</p>
+<p>$(I-T)\left(I+T+T^{2}+\cdots+T^{n-1}\right)=\left(I+T+T^{2}+\cdots+T^{n-1}\right)(I-T)=I-T^{n},$</p>
+<p>以及</p>
+<p>$\lim\limits _{n \rightarrow \infty}\left|T^{n}\right| \leqslant \lim\limits _{n \rightarrow \infty}|T|^{n}=0,$</p>
+<p>上式两边令 $ n \rightarrow \infty $, 得到</p>
+<p>$(I-T)\left(\sum\limits_{k=0}^{\infty} T^{k}\right)=\left(\sum\limits_{k=0}^{\infty} T^{k}\right)(I-T)=I .$</p>
+<p>这说明算子 $ I-T $ 有逆算子, 且</p>
+<p>$(I-T)^{-1}=\sum\limits_{k=0}^{\infty} T^{k} .$</p>
+<p>$\left|(I-T)^{-1}\right|=\left|\sum\limits_{k=0}^{\infty} T^{k}\right| \leqslant \sum\limits_{k=0}^{\infty}|T|^{k}=\frac{1}{1-|T|} .$</p>
+<h4 id="命题1"><a href="#命题1" class="headerlink" title="命题1"></a>命题1</h4><p> 设 $ X $ 是 Banach 空间, $ T \in \mathscr{B}(X) $, 如果 $ ||\lambda|| &gt;|T| $, 则算子 $ \lambda I-T$  有有界逆算子, 并且</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+(\lambda I-T)^{-1} &=\frac{1}{\lambda} \sum_{n=0}^{\infty} (\frac{T}{\lambda})^{n} \\
+\left\|(\lambda I-T)^{-1}\right\| & \leqslant \frac{1}{||\lambda|| -\|T\|}
+\end{aligned}</script><h6 id="证明：-1"><a href="#证明：-1" class="headerlink" title="证明："></a>证明：</h6><p>对于  $|\lambda|&gt;|T|$ , 显然有 $ \left|\frac{1}{\lambda} T\right|&lt;1$ , 由引理1知, $ I-\frac{1}{\lambda} T$  有有界的逆算子,</p>
+<p>$(\lambda I-T)^{-1}=\frac{1}{\lambda}\left(I-\frac{T}{\lambda}\right)^{-1}=\frac{1}{\lambda} \sum\limits_{n=0}^{\infty}\left(\frac{T}{\lambda}\right)^{n}=\sum\limits_{n=0}^{\infty} \lambda^{-n-1} T^{n} .$</p>
+<p>$\left|\left(I-\frac{T}{\lambda}\right)^{-1}\right| \leqslant \frac{1}{1-\frac{|T|}{|\lambda|}}=\frac{|\lambda|}{|\lambda|-|T|},$</p>
+<p>于是</p>
+<p>$\left|(\lambda I-T)^{-1}\right| \leqslant \frac{1}{|\lambda|-|T|},$</p>
+<p>这说明当 $ |\lambda|&gt;|T| $ 时,  $\lambda \in \rho(T) . $即谱集合是有界的, $ \sigma(T) \subset \bar{B}(0,|T|) .$</p>
+<h4 id="命题2"><a href="#命题2" class="headerlink" title="命题2"></a>命题2</h4><p> 设 $ T $ 是 Banach 空间  $X$  到  $X$  的线性算子, $ \lambda \in \rho(T)$ , 且 $ |\mu|&lt;   \left|(\lambda I-T)^{-1}\right|^{-1} $, 则 $ \lambda+\mu \in \rho(T) $, 即  $\rho(T)$ 是一个开集.</p>
+<h6 id="证明：-2"><a href="#证明：-2" class="headerlink" title="证明："></a>证明：</h6><p>$ \lambda \in \rho(T) ,$ 考虑</p>
+<p>$(\lambda+\mu) I-T=(\lambda I-T)\left[I+\mu(\lambda I-T)^{-1}\right] .$</p>
+<p>由于$  \left|\mu(\lambda I-T)^{-1}\right|&lt;1 ,$ 可知 $ I+\mu(\lambda I-T)^{-1}  $有有界的逆算子, 于是</p>
+<p>$R_{\lambda+\mu}(T)=\left[I+\mu(\lambda I-T)^{-1}\right]^{-1} R_{\lambda}(T),$</p>
+<p>且 $ R_{\lambda+\mu}(T) $ 可以表示为 $ R_{\lambda}(T)$  的幂级数,</p>
+<p>$R_{\lambda+\mu}(T)=\sum\limits_{n=0}^{\infty}(-1)^{n} \mu^{n}\left[R_{\lambda}(T)\right]^{n+1} .$</p>
+<p>这说明 $ R_{\lambda+\mu}(T) $ 存在且有界, 即  $\lambda+\mu \in \rho(T) . $这就证明了 $ \rho(T) $ 是开集.</p>
+<h4 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h4><p>有界线性算子的谱集为有界闭集，且当$ ||\lambda|| &gt;|T| $ 时，$\lambda$ 为正则点 </p>
+<h6 id="证明：-3"><a href="#证明：-3" class="headerlink" title="证明："></a>证明：</h6><p>由命题1知谱集为有界集，且$ ||\lambda|| &gt;|T| $ 时，$\lambda$ 为正则点 ， </p>
+<p>由命题2知$\rho(T)$是一个开集，即$\sigma(T)$为闭集</p>
+<h3 id="二、谱半径"><a href="#二、谱半径" class="headerlink" title="二、谱半径"></a>二、谱半径</h3><h4 id="定理-1"><a href="#定理-1" class="headerlink" title="定理"></a>定理</h4><script type="math/tex; mode=display">
+r_{\sigma}(T)=\sup_{\lambda \in \sigma(T)}|\lambda|=\lim\limits_{n \to \infty}||T^n||^{\frac{1}{n}}</script><h6 id="证明：-4"><a href="#证明：-4" class="headerlink" title="证明："></a>证明：</h6><p>Step1. 证明 $\lim\limits_{n \to \infty}||T^n||^{\frac{1}{n}}$ 存在， </p>
+<p>记 $a_n=lg||T^n||,$ 易知 $a_{m+k}\leq a_m+a_k,$</p>
+<p>于是对于$\forall n,$固定整数$m,$则由带余除法得： </p>
+<p>$n=mp+q,0 \leq q &lt;m,$  </p>
+<p>则 $a_n=a_{mp+q}\leq a_{mp}+a_q = pa_m+a_q.$ </p>
+<script type="math/tex; mode=display">
+\Rightarrow \frac{a_n}{n}\leq \frac{p}{n}a_m+\frac{a_q}{n}=\frac{p}{mp+q}a_m+\frac{a_q}{mp+q}</script><p>上式两边同时取上确界 </p>
+<script type="math/tex; mode=display">
+\limsup_{n \to \infty} \frac{a_n}{n}\leq \limsup_{n \to \infty}(\frac{p}{n}a_m+\frac{a_q}{n})=\limsup_{p \to \infty}(\frac{p}{mp+q}a_m+\frac{a_q}{mp+q})=\frac{a_m}{m}</script><p>两边取下确界（左边已经是常值了，取下确界不变） </p>
+<script type="math/tex; mode=display">
+\limsup_{n \to \infty} \leq \liminf_{m \to \infty}\frac{a_m}{m}</script><p>由此可知，$\lim\limits_{n \to \infty}\frac{a_n}{n}$存在，即<script type="math/tex">\lim\limits_{n \to \infty}||T^n||^{\frac{1}{n}}</script>存在 </p>
+<p>Step2. 证明 $\sup_{\lambda \in \sigma(T)}|\lambda|=\lim\limits_{n \to \infty}||T^n||^{\frac{1}{n}}$</p>
+<p>(1). 先证 $\sup_{\lambda \in \sigma(T)}|\lambda|\leq \lim\limits_{n \to \infty}||T^n||^{\frac{1}{n}}$ </p>
+<p>想法：上式说明对所有$\lambda \in \sigma(T) $，要有$|\lambda|\leq ||T^n||^{\frac{1}{n}}$,即$|\lambda|^n \leq ||T^n||$ ,即$\lambda^n \notin \rho(T)$ </p>
+<p>反证法，设$\lambda \in \sigma(T) $，假如$\lambda^n \in \rho(T)$ ，则 $\lambda^n I-T^n$ 可逆，观察下式：</p>
+<script type="math/tex; mode=display">
+\lambda^n I-T^n=(\lambda I)^n-T^n=(\lambda I-T)P_{\lambda}(T)=P_{\lambda}(T)(\lambda I-T)</script><p>$\Rightarrow$</p>
+<script type="math/tex; mode=display">
+I=(\lambda^n I-T^n)^{-1}P_{\lambda}(T)(\lambda I-T) \\
+I=(\lambda I-T)P_{\lambda}(T)(\lambda^n I-T^n)^{-1}</script><p>由此可知$\lambda I-T$可逆，与$\lambda$是谱点矛盾，所以假设不成立，则$\lambda^n \notin \rho(T)$ </p>
+<p>(2). 再证$\sup_{\lambda \in \sigma(T)}|\lambda| \geq \lim\limits_{n \to \infty}||T^n||^{\frac{1}{n}}$</p>
+<p>想法：只要证明对于 $\forall \varepsilon &gt;0, n \text{足够大时},\sup\limits_{\lambda \in \sigma(T)}|\lambda|+\varepsilon \geq ||T^n||^{\frac{1}{n}}$ 即可</p>
+<p>令$\alpha = \sup\limits_{\lambda \in \sigma(T)}|\lambda|+\varepsilon ,$ 则 $\alpha \in \rho(T),$ 则有 $(\alpha I-T)^{-1} =\frac{1}{\alpha} \sum_{n=0}^{\infty} (\frac{T}{\alpha})^{n} $ 收敛， </p>
+<p>那么$||(\frac{T}{\alpha})^{n} || \to 0$，当n足够大时，有$||(\frac{T}{\alpha})^{n}|| &lt;1 $ ,即 $||T^n|| \leq |\alpha|^n, |\alpha| \geq||T^n||^\frac{1}{n} $</p>
+<h2 id="紧线性算子的谱集性质"><a href="#紧线性算子的谱集性质" class="headerlink" title="紧线性算子的谱集性质"></a>紧线性算子的谱集性质</h2><h3 id="一、紧算子的定义"><a href="#一、紧算子的定义" class="headerlink" title="一、紧算子的定义"></a>一、紧算子的定义</h3><p>有界算子：有界集 $\xrightarrow{映成}$有界集</p>
+<p>   紧算子：有界集 $\xrightarrow{映成}$列紧集</p>
+<h4 id="命题1-1"><a href="#命题1-1" class="headerlink" title="命题1"></a>命题1</h4><p>设$T \in B(X,Y),$ 若 $dimR(T)&lt;\infty,$ 则 $T$ 是紧的 </p>
+<h4 id="命题2-1"><a href="#命题2-1" class="headerlink" title="命题2"></a>命题2</h4><p>设$T \in B(X,Y),$ 若 $dimX = \infty,$ 则恒等算子 $I$ 不是紧的 </p>
+<h4 id="命题3"><a href="#命题3" class="headerlink" title="命题3"></a>命题3</h4><p>设 $H$ 是Hilbert 空间，$T \in B(H) , T_1 \in B(H) , T_2\in B(H),$ 则： </p>
+<p>（1）. 若 $T_1$ 和 $T_2$ 中有一个紧，一个有界，则 $T_1T_2$ 是紧的 </p>
+<p>（2）. $T$ 是紧的当且仅当 $T^*$ 是紧的</p>
+<h3 id="二、紧线性算子的谱"><a href="#二、紧线性算子的谱" class="headerlink" title="二、紧线性算子的谱"></a>二、紧线性算子的谱</h3><h4 id="三大核心定理"><a href="#三大核心定理" class="headerlink" title="三大核心定理"></a>三大核心定理</h4><p>假设 $\lambda I-T$ 是单射（特征值的情况较为简单，讨论非特征值的情况）</p>
+<p>（1）. 若 $\lambda=0$ , 单射不满 $\Rightarrow$ 0不是正则点</p>
+<p>（2）. 若 $\lambda \neq 0$ , 单射必满 $\Rightarrow$ 非零点不是连续谱 </p>
+<p>（3）. $\forall \alpha &gt;0, \lambda \in \sigma(T),$ 则 $|\lambda|&gt;\alpha$ 的那些 $\lambda$ 的个数有限 </p>
+<p>换句话说，0只能是特征值和连续谱，非零点只能是特征值和正则点</p>
+<p>$\Rightarrow$ </p>
+<script type="math/tex; mode=display">
+\sigma(T)=\{ \underbrace{0}_{特征值或连续谱},\underbrace{\lambda_1,\lambda_2,\dots,\lambda_n,\dots }_{特征值} \}</script><h6 id="证明：-5"><a href="#证明：-5" class="headerlink" title="证明："></a>证明：</h6><p>（1）. 反证法，假如$0 I-T=T$ 是满射，由逆算子定理可知 $T^{-1}$ 有界，那么再根据 </p>
+<p>$T$ 是紧的，可以得出 $I=TT^{-1}$ 也是紧算子，矛盾 </p>
+<p>（2）. 条件为$\lambda \neq 0 , N(\lambda I-T)=\{0\}$， 需要证明 $R(\lambda I-T)=X$ </p>
+<p>由于证明比较繁琐，这里不证了 </p>
+<p>（3）. 由于是构造性的证明，比较难，这里仅给出证明思路，读者结合思路翻阅书本查看证明  </p>
+<p>假定 $|\lambda|&gt;\alpha$ 的那些特征值有无穷多个，构造由特征元素张成的子空间，从中选一有界序列$\{y_n\}$, </p>
+<p>证明 $\{Ty_n\}$ 不紧得到矛盾 </p>
+<h3 id="三、Fredholm抉择定理"><a href="#三、Fredholm抉择定理" class="headerlink" title="三、Fredholm抉择定理"></a>三、Fredholm抉择定理</h3><p>设 $H$ 是 $Hilbert$ 空间，紧算子 $T \in B(H), \lambda \neq 0$ </p>
+<h4 id="引理1"><a href="#引理1" class="headerlink" title="引理1"></a>引理1</h4><p>设 $W$ 是 $H$ 的闭子空间，则 $H=W \oplus W^\perp$  </p>
+<h4 id="引理2"><a href="#引理2" class="headerlink" title="引理2"></a>引理2</h4><p>$N(\lambda I-T)$是有限维的 </p>
+<h6 id="证明：-6"><a href="#证明：-6" class="headerlink" title="证明："></a>证明：</h6><p> $T_{|N(\lambda I-T)}=\lambda I$ 是紧的</p>
+<h4 id="引理3"><a href="#引理3" class="headerlink" title="引理3"></a>引理3</h4><p>$N(\bar{\lambda} I-T^*)^\perp=\overline{R(\lambda I-T)}$</p>
+<h6 id="证明：-7"><a href="#证明：-7" class="headerlink" title="证明："></a>证明：</h6><p>先证明对于任意子空间 $W$ ,有 </p>
+<p>（1）. $W^\perp$是闭子空间 </p>
+<p>（2）. $W\subset W^{\perp\perp}$</p>
+<p>（3）.  $\overline{W}= W^{\perp\perp}$</p>
+<p>（4）.若 $W$ 是闭的，$W= W^{\perp\perp}$</p>
+<p>再证明 </p>
+<p>$N(A^*)^\perp=\overline{R(A)}$</p>
+<h4 id="引理4"><a href="#引理4" class="headerlink" title="引理4"></a>引理4</h4><p>$R(\lambda I-T)$ 是闭的 </p>
+<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><p>$H=N(\bar{\lambda} I-T^*)^\perp \oplus R(\lambda I-T)$</p>
+<h4 id="定理2（Fredholm抉择定理）"><a href="#定理2（Fredholm抉择定理）" class="headerlink" title="定理2（Fredholm抉择定理）"></a>定理2（Fredholm抉择定理）</h4><p>（1）. $\forall y \in H,(\lambda I-T)x=y$ 有唯一解 $\Leftrightarrow$  $(\lambda I-T)x=0$ 仅有零解 </p>
+<p>（2）. 若 $(\lambda I-T)x=0$ 有非零解 ，则 </p>
+<p> $(\lambda I-T)x=y$ 有解 $\Leftrightarrow$  $y \perp N(\bar{\lambda} I-T^*)  $  </p>
+<h2 id="有界自共轭线性算子的谱"><a href="#有界自共轭线性算子的谱" class="headerlink" title="有界自共轭线性算子的谱"></a>有界自共轭线性算子的谱</h2><h3 id="一、谱的基本性质"><a href="#一、谱的基本性质" class="headerlink" title="一、谱的基本性质"></a>一、谱的基本性质</h3><h4 id="性质1"><a href="#性质1" class="headerlink" title="性质1"></a>性质1</h4><p>对任意算子 $T$ ,其谱集与它的共轭算子的谱集也互为共轭关系，即 $\sigma(T^*)=\{\bar{\lambda}|\lambda \in \sigma(T) \}$</p>
+<h4 id="性质2"><a href="#性质2" class="headerlink" title="性质2"></a>性质2</h4><p>若$T=T^*$, 则 $T$ 的特征值为实数，且特征元素相互正交 </p>
+<h4 id="性质3"><a href="#性质3" class="headerlink" title="性质3"></a>性质3</h4><p>若$T=T^*$, 则 $T$ 的谱全是实数 </p>
+<h3 id="二、谱的分布范围"><a href="#二、谱的分布范围" class="headerlink" title="二、谱的分布范围"></a>二、谱的分布范围</h3><h4 id="引理1-1"><a href="#引理1-1" class="headerlink" title="引理1"></a>引理1</h4><p>$||T||=\sup\limits_{||x||=1}|(Tx,x)|$ </p>
+<h4 id="引理2-1"><a href="#引理2-1" class="headerlink" title="引理2"></a>引理2</h4><p>若$T=T^*$, 则 $r_\sigma (T)=||T||$ </p>
+<h4 id="引理3-1"><a href="#引理3-1" class="headerlink" title="引理3"></a>引理3</h4><p>$\lambda \in \sigma(T) \Leftrightarrow \exists \{x_n\},||x_n||=1,st.||(\lambda I-T)x_n||\to 0$ </p>
+<h4 id="定理-2"><a href="#定理-2" class="headerlink" title="定理"></a>定理</h4><p>记 $m=\inf\limits_{||x||=1}(Tx,x),M=\sup\limits_{||x||=1}(Tx,x),$ 则 </p>
+<p>$\sigma(T)=[m,M]=[m, ||T||]$ </p>
+<h4 id="从引理3可以推知的谱的直观理解"><a href="#从引理3可以推知的谱的直观理解" class="headerlink" title="从引理3可以推知的谱的直观理解"></a>从引理3可以推知的谱的直观理解</h4><p>（1）. 分析正则点与连续谱的区别，从映射特点和伸长倍数考虑两者的区别 </p>
+<p>由于这里不讨论特征值，所以设$\lambda I-T$是单射，即$(\lambda I-T)^{-1}$在$R(T)$上存在</p>
+<ul>
+<li>$\lambda$是连续谱 </li>
+</ul>
+<p>由定理知  “$\exists \{x_n\},||x_n||=1,st.||(\lambda I-T)x_n||\to 0$ ”  记$(\lambda I-T)x_n=y_n$ 则有 </p>
+<p> “$\exists \{x_n\},||x_n||=1,st.||y_n||\to 0$ ”  通俗来讲，就是长度为1的向量列，被映射后的长度 </p>
+<p>越来越接近0，说明这个映射对向量的伸缩倍率也向0趋近，反过来看，就是逆映射把一列 </p>
+<p>长度越来越接近0的向量，伸长为长度为1的向量，这个伸缩倍率向$\infty$趋近  </p>
+<ul>
+<li>$\lambda$是正则点 </li>
+</ul>
+<p>由定理知 “ $\forall x \in D(\lambda I-T),\exists m &gt;0 , st. ||(\lambda I-T)x|| \geq m||x|| .$ “  </p>
+<p>说明正向$\lambda I-T$对向量长度的伸缩倍数有个下界，那么反向$(\lambda I-T)^{-1}$ </p>
+<p>的伸缩倍数为正向伸缩倍数的倒数，所以有个上界，因此逆有界 </p>
+<p>（2）. 分析连续谱的分布特点，解释其为什么叫连续谱，连续的含义是和离散一词相对而言的 </p>
+<p><img src="/img-analysis/fa-chapter5-fig3.png" style="zoom:120%;" /></p>
+<p>（3）. 分析特征值，连续谱，正则点三者的区别，从映射特点考虑，打个比方来描述这种特点</p>
+<p><img src="/img-analysis/fa-chapter5-fig4.png" style="zoom:120%;" /></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/09/20/analysis/fa-chapter4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">泛函笔记--第4章 共轭空间与共轭算子</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 宝可梦训练师
+      </div>
+        <div class="footer-right">
+          <a href="https://space.bilibili.com/782159" target="_blank">访问我的哔哩哔哩</a> 
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: ,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":170,"height":340},"mobile":{"show":false},"log":false});</script></body>
+</html>

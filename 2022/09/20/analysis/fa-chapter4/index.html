@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>泛函笔记--第4章 共轭空间与共轭算子 | Homepage | 张有为</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="正如现实世界在镜子中的像一样，赋范线性空间也有它的对偶空间，一个算子也有它的共轭算子，共轭的概念主要出自于代数，是一种对称性的刻画，为后面的理论研究有很大帮助。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="泛函笔记--第4章 共轭空间与共轭算子">
+<meta property="og:url" content="http://example.com/2022/09/20/analysis/fa-chapter4/index.html">
+<meta property="og:site_name" content="Homepage | 张有为">
+<meta property="og:description" content="正如现实世界在镜子中的像一样，赋范线性空间也有它的对偶空间，一个算子也有它的共轭算子，共轭的概念主要出自于代数，是一种对称性的刻画，为后面的理论研究有很大帮助。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img-analysis/fa-chapter4-fig1.png">
+<meta property="og:image" content="http://example.com/img-analysis/fa-chapter4-fig2.png">
+<meta property="og:image" content="http://example.com/img-analysis/fa-chapter4-fig3.png">
+<meta property="article:published_time" content="2022-09-20T00:05:18.000Z">
+<meta property="article:modified_time" content="2022-09-21T12:00:42.610Z">
+<meta property="article:author" content="宝可梦训练师">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img-analysis/fa-chapter4-fig1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Homepage | 张有为" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/icon.gif">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="/img/face.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">宝可梦训练师</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/2022/08/09/me/aboutme">个人简介</a></li>
+				        
+							<li><a href="/categories/notes">随写</a></li>
+				        
+							<li><a href="/categories/analysis">实变泛函</a></li>
+				        
+							<li><a href="/categories/opt">优化笔记</a></li>
+				        
+							<li><a href="/categories/pytorch">Pytorch</a></li>
+				        
+							<li><a href="/categories/nndl">nndl案例与实践</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/hfut-zyw" title="github">github</a>
+					        
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/face.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/2022/08/09/me/aboutme">个人简介</a></li>
+		        
+					<li><a href="/categories/notes">随写</a></li>
+		        
+					<li><a href="/categories/analysis">实变泛函</a></li>
+		        
+					<li><a href="/categories/opt">优化笔记</a></li>
+		        
+					<li><a href="/categories/pytorch">Pytorch</a></li>
+		        
+					<li><a href="/categories/nndl">nndl案例与实践</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/hfut-zyw" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-analysis/fa-chapter4" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/09/20/analysis/fa-chapter4/" class="article-date">
+  	<time datetime="2022-09-20T00:05:18.000Z" itemprop="datePublished">2022-09-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      泛函笔记--第4章 共轭空间与共轭算子
+      
+          <span class="title-pop-out"></a>
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/analysis/">analysis</a>
+	</div>
+
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>正如现实世界在镜子中的像一样，赋范线性空间也有它的对偶空间，一个算子也有它的共轭算子，共轭的概念主要出自于代数，是一种对称性的刻画，为后面的理论研究有很大帮助。</p>
+</blockquote>
+<span id="more"></span>  
+<h1 id="第4章-共轭空间与共轭算子"><a href="#第4章-共轭空间与共轭算子" class="headerlink" title="第4章 共轭空间与共轭算子"></a>第4章 共轭空间与共轭算子</h1><h2 id="共轭空间的基本概念以及表示定理"><a href="#共轭空间的基本概念以及表示定理" class="headerlink" title="共轭空间的基本概念以及表示定理"></a>共轭空间的基本概念以及表示定理</h2><h5 id="定义4-1"><a href="#定义4-1" class="headerlink" title="定义4.1"></a>定义4.1</h5><script type="math/tex; mode=display">
+X^*=B(X,K)=\{ X上定义的全体有界线性泛函  \}</script><p>称$X^*$为$X$的共轭空间  </p>
+<p>注：从定义上来看，实际就是从X到数域K的有界线性算子全体  </p>
+<h5 id="L-p-a-b-的共轭空间"><a href="#L-p-a-b-的共轭空间" class="headerlink" title="$L^p[a,b]$的共轭空间"></a>$L^p[a,b]$的共轭空间</h5><p>$ f $ 是 $ L^{p}[a, b] $ 上的有界线性泛函, 则存在唯一的 $ y(t) \in L^{q}[a, b],\left(\frac{1}{p}+\right.   \left.\frac{1}{q}=1\right) $, 使得</p>
+<p>$f(x)=\int_{a}^{b} x(t) y(t) \mathrm{d} t, \forall x \in L^{p}[a, b],$$\text { 且 }||f||=||y||_{q}=\left(\int_{a}^{b}|y(t)|^{q} \mathrm{~d} t\right)^{\frac{1}{q}} \text {. }$ </p>
+<h5 id="Rieze表示定理"><a href="#Rieze表示定理" class="headerlink" title="Rieze表示定理"></a>Rieze表示定理</h5><p>设 $ H $ 是一个 Hilbert 空间, $ f$  是 $ H$  上定义的有界 线性泛函, 则存在唯一的 $ y_{f} \in H $, 使得</p>
+<p>$f(x)=\left(x, y_{f}\right), \forall x \in H$</p>
+<h6 id="推论（Hilbert空间的共轭空间）"><a href="#推论（Hilbert空间的共轭空间）" class="headerlink" title="推论（Hilbert空间的共轭空间）"></a>推论（Hilbert空间的共轭空间）</h6><p>设 $ H $ 是一个 Hilbert 空间，则$H=H^*$. 此处的等号表示同构意义下的相等，不是集合相等  </p>
+<p>注：上面的几个定理实际给出了一类特殊的算子（泛函）的表示形式，比如有限维空间下的线性变换  </p>
+<p>可以用矩阵表示，如果映射到数域K上，那么这个矩阵实际就是一个向量，原本线性变换只是一个抽象  </p>
+<p>的符号，以及用映射的定义来表示，通过同构，可以用一个具体的空间中的元素来把线性变换表示出来  </p>
+<p>在无穷维线性空间中，泛函同样可以有一个具体的表示形式，泛函空间一样可以同构到一个具体的空间  </p>
+<h2 id="共轭算子的提出"><a href="#共轭算子的提出" class="headerlink" title="共轭算子的提出"></a>共轭算子的提出</h2><h3 id="原始定义"><a href="#原始定义" class="headerlink" title="原始定义"></a>原始定义</h3><p><img src="/img-analysis/fa-chapter4-fig1.png" style="zoom:120%;" /></p>
+<h3 id="Hilbert空间上的共轭算子"><a href="#Hilbert空间上的共轭算子" class="headerlink" title="Hilbert空间上的共轭算子"></a>Hilbert空间上的共轭算子</h3><p><img src="/img-analysis/fa-chapter4-fig2.png" style="zoom:120%;" /></p>
+<h3 id="从物理角度来看"><a href="#从物理角度来看" class="headerlink" title="从物理角度来看"></a>从物理角度来看</h3><p><img src="/img-analysis/fa-chapter4-fig3.png" style="zoom:120%;" /></p>
+<h3 id="共轭算子定义的合理性"><a href="#共轭算子定义的合理性" class="headerlink" title="共轭算子定义的合理性"></a>共轭算子定义的合理性</h3><p>由于原始定义涉及4个空间，很复杂，这里仅讨论Hilbert空间上的共轭算子定义的合理性</p>
+<p>（1）. $T^*$ 的存在性：  </p>
+<p>取定$T,y$ , 定义 $f_{T,y}(x)=(Tx,y)$ 是H上的有界线性泛函，由Riesz表示定理，存在唯一的$z \in H,st. f_{T,y}(x) $=(x,z) ,</p>
+<p>所以有$(Tx,y)=(x,z)$. </p>
+<p>不妨记$z=Ay$ , 则$(Tx,y)=(x,Ay)$ , 故算子存在，但此时并不知道这是一个怎样的算子 </p>
+<p>（2）. $T^*$ 的线性性：</p>
+<p>一方面，由上面可知，$(Tx,y_1+y_2)=(x,A(y_1+y_2))$</p>
+<p>另一方面，由内积的线性性可知，$(Tx,y_1+y_2)=(Tx,y_1)+(Tx,y_2)=(x,Ay_1)+(x,Ay_2)=(x,Ay_1+Ay_2))$  </p>
+<p>所以，$(Tx,y_1+y_2)=(x,A(y_1+y_2))=(x,Ay_1+Ay_2)$ </p>
+<p>如法炮制，容易证明$(Tx,ky)=(x,A(ky))=(x,kA(y))$   </p>
+<p>那么对于算子A有：$A(y_1+y_2)=Ay_1+Ay_2 , A(ky)=kA(y) $ </p>
+<p>A是线性算子 </p>
+<p>（3）. $T^*$ 的有界性：</p>
+<p>$||Ay||=||z|| \quad \overset{Riesz表示定理}{=}  \quad ||f_{T,y}|| \leq ||T||\cdot||y|| $  </p>
+<p>综上所述，这样的算子存在，后面记$A=T^*$  </p>
+<h3 id="共轭算子的基本性质"><a href="#共轭算子的基本性质" class="headerlink" title="共轭算子的基本性质"></a>共轭算子的基本性质</h3><p>设 $ A 、 B $ 是 Hilbert 空间 $ H $ 上的有界线性算子, 则</p>
+<p>（1）.$||A^\star||=||A||, (A^\star)^ \star=A; $</p>
+<p>（2）. $ (A+B)^\star=A^*+B^\star ; $</p>
+<p>（3）. $ (A B)^\star=B^\star A^\star  $</p>
+<p>（4）. $ (\alpha A)^\star=\bar{\alpha} A^\star , \forall \alpha \in \mathbb{K} ; $</p>
+<p>（5）. $ ||A^\star A||=||A A^\star ||=||A||^{2}=||A^\star ||^{2} $</p>
+<p>（6）. 若 $  A^{-1} $ 存在且有界, 则 $(A^\star )^{-1}$ 也存在且有界, 且$   \left(A^\star \right)^{-1}=\left(A^{-1}\right)^\star  . $  </p>
+<h6 id="证明："><a href="#证明：" class="headerlink" title="证明："></a>证明：</h6><p>较为简单，略</p>
+<h3 id="有界自共轭算子的性质"><a href="#有界自共轭算子的性质" class="headerlink" title="有界自共轭算子的性质"></a>有界自共轭算子的性质</h3><p>设 $ A 、 B $ 是 Hilbert 空间 $ H $ 上的有界自共轭线性算子, 则</p>
+<p>（1）. $ AB $ 自共轭 $\Leftrightarrow AB=BA ;$</p>
+<p>（2）.  $ A $ 自共轭 $\Leftrightarrow (x,Ax) \text{是实的} ;$</p>
+<p>（3）. $||A||=\sup\limits_{||x||=1}(x,Ax) . $</p>
+<h6 id="证明：-1"><a href="#证明：-1" class="headerlink" title="证明："></a>证明：</h6><p>（1）较为简单，（2）、（3）需要用到类似平行四边形法则的公式变形，纯技巧，证明略  </p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/09/21/analysis/fa-chapter5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          泛函笔记--第5章 谱分析
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/09/19/analysis/fa-chapter3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">泛函笔记--第3章 泛函分析四大基本定理</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 宝可梦训练师
+      </div>
+        <div class="footer-right">
+          <a href="https://space.bilibili.com/782159" target="_blank">访问我的哔哩哔哩</a> 
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: ,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":170,"height":340},"mobile":{"show":false},"log":false});</script></body>
+</html>
