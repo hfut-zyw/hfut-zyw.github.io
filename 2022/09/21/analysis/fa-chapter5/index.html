@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://example.com/img-analysis/fa-chapter5-fig3.png">
 <meta property="og:image" content="http://example.com/img-analysis/fa-chapter5-fig4.png">
 <meta property="article:published_time" content="2022-09-21T11:59:33.000Z">
-<meta property="article:modified_time" content="2022-09-22T10:47:09.183Z">
+<meta property="article:modified_time" content="2022-09-22T10:55:28.123Z">
 <meta property="article:author" content="Pokemon Master">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/img-analysis/fa-chapter5-fig1.png">
@@ -254,8 +254,8 @@
 <p>由条件 $ ||T||&lt;1 $ 知,  $ \{S_{n} \}$  是 $ \mathscr{B}(X) $ 中的$ Cauchy$ 列. 因为 $ X$ 是完备的，所以 $\mathscr{B}(X) $ 是 $Banach$ 空间, 所以 $  \{S_{n} \}$  按算子范数收敛到一个有界线性算子, 由于</p>
 <p>$(I-T) (I+T+T^{2}+\cdots+T^{n-1} )= (I+T+T^{2}+\cdots+T^{n-1} )(I-T)=I-T^{n},$</p>
 <p>以及</p>
-<p>$\lim\limits _{n  arrow \infty} ||T^{n} || \leqslant \lim\limits _{n  arrow \infty}||T||^{n}=0,$</p>
-<p>上式两边令 $ n  arrow \infty $, 得到</p>
+<p>$\lim\limits _{n  \to \infty} ||T^{n} || \leqslant \lim\limits _{n  \to\infty}||T||^{n}=0,$</p>
+<p>上式两边令 $ n  \to \infty $, 得到</p>
 <p>$(I-T) (\sum\limits_{k=0}^{\infty} T^{k} )= (\sum\limits_{k=0}^{\infty} T^{k} )(I-T)=I .$</p>
 <p>这说明算子 $ I-T $ 有逆算子, 且</p>
 <p>$(I-T)^{-1}=\sum\limits_{k=0}^{\infty} T^{k} .$</p>
@@ -299,7 +299,7 @@ r_{\sigma}(T)=\sup_{\lambda \in \sigma(T)}|\lambda|=\lim\limits_{n \to \infty}||
 <p>想法：上式说明对所有$\lambda \in \sigma(T) $，要有$|\lambda|\leq ||T^n||^{\frac{1}{n}}$,即$|\lambda|^n \leq ||T^n||$ ,即$\lambda^n \notin \rho(T)$ </p>
 <p>反证法，设$\lambda \in \sigma(T) $，假如$\lambda^n \in \rho(T)$ ，则 $\lambda^n I-T^n$ 可逆，观察下式：</p>
 <script type="math/tex; mode=display">
-\lambda^n I-T^n=(\lambda I)^n-T^n=(\lambda I-T)P_{\lambda}(T)=P_{\lambda}(T)(\lambda I-T)</script><p>$ arrow$</p>
+\lambda^n I-T^n=(\lambda I)^n-T^n=(\lambda I-T)P_{\lambda}(T)=P_{\lambda}(T)(\lambda I-T)</script><p>$ \Rightarrow$</p>
 <script type="math/tex; mode=display">
 I=(\lambda^n I-T^n)^{-1}P_{\lambda}(T)(\lambda I-T) \\
 I=(\lambda I-T)P_{\lambda}(T)(\lambda^n I-T^n)^{-1}</script><p>由此可知$\lambda I-T$可逆，与$\lambda$是谱点矛盾，所以假设不成立，则$\lambda^n \notin \rho(T)$ </p>
@@ -315,11 +315,11 @@ I=(\lambda I-T)P_{\lambda}(T)(\lambda^n I-T^n)^{-1}</script><p>由此可知$\lam
 <p>（1）. 若 $T_1$ 和 $T_2$ 中有一个紧，一个有界，则 $T_1T_2$ 是紧的 </p>
 <p>（2）. $T$ 是紧的当且仅当 $T^*$ 是紧的</p>
 <h3 id="二、紧线性算子的谱"><a href="#二、紧线性算子的谱" class="headerlink" title="二、紧线性算子的谱"></a>二、紧线性算子的谱</h3><h4 id="三大核心定理"><a href="#三大核心定理" class="headerlink" title="三大核心定理"></a>三大核心定理</h4><p>假设 $\lambda I-T$ 是单射（特征值的情况较为简单，讨论非特征值的情况）</p>
-<p>（1）. 若 $\lambda=0$ , 单射不满 $ arrow$ 0不是正则点</p>
-<p>（2）. 若 $\lambda \neq 0$ , 单射必满 $ arrow$ 非零点不是连续谱 </p>
+<p>（1）. 若 $\lambda=0$ , 单射不满 $ \Rightarrow$ 0不是正则点</p>
+<p>（2）. 若 $\lambda \neq 0$ , 单射必满 $ \Rightarrow$ 非零点不是连续谱 </p>
 <p>（3）. $\forall \alpha &gt;0, \lambda \in \sigma(T),$ 则 $|\lambda|&gt;\alpha$ 的那些 $\lambda$ 的个数有限 </p>
 <p>换句话说，0只能是特征值和连续谱，非零点只能是特征值和正则点</p>
-<p>$ arrow$ </p>
+<p>$ \Rightarrow$ </p>
 <script type="math/tex; mode=display">
 \sigma(T)=\{ \underbrace{0}_{特征值或连续谱},\underbrace{\lambda_1,\lambda_2,\dots,\lambda_n,\dots }_{特征值} \}</script><h6 id="证明：-5"><a href="#证明：-5" class="headerlink" title="证明："></a>证明：</h6><p>（1）. 反证法，假如$0 I-T=T$ 是满射，由逆算子定理可知 $T^{-1}$ 有界，那么再根据 </p>
 <p>$T$ 是紧的，可以得出 $I=TT^{-1}$ 也是紧算子，矛盾 </p>
@@ -342,15 +342,15 @@ I=(\lambda I-T)P_{\lambda}(T)(\lambda^n I-T^n)^{-1}</script><p>由此可知$\lam
 <p>$N(A^*)^\perp=\overline{R(A)}$</p>
 <h4 id="引理4"><a href="#引理4" class="headerlink" title="引理4"></a>引理4</h4><p>$R(\lambda I-T)$ 是闭的 </p>
 <h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><p>$H=N(\bar{\lambda} I-T^*)^\perp \oplus R(\lambda I-T)$</p>
-<h4 id="定理2（Fredholm抉择定理）"><a href="#定理2（Fredholm抉择定理）" class="headerlink" title="定理2（Fredholm抉择定理）"></a>定理2（Fredholm抉择定理）</h4><p>（1）. $\forall y \in H,(\lambda I-T)x=y$ 有唯一解 $ rightarrow$  $(\lambda I-T)x=0$ 仅有零解 </p>
+<h4 id="定理2（Fredholm抉择定理）"><a href="#定理2（Fredholm抉择定理）" class="headerlink" title="定理2（Fredholm抉择定理）"></a>定理2（Fredholm抉择定理）</h4><p>（1）. $\forall y \in H,(\lambda I-T)x=y$ 有唯一解 $ \Leftrightarrow$  $(\lambda I-T)x=0$ 仅有零解 </p>
 <p>（2）. 若 $(\lambda I-T)x=0$ 有非零解 ，则 </p>
-<p> $(\lambda I-T)x=y$ 有解 $ rightarrow$  $y \perp N(\bar{\lambda} I-T^*)  $  </p>
+<p> $(\lambda I-T)x=y$ 有解 $ \Leftrightarrow$  $y \perp N(\bar{\lambda} I-T^*)  $  </p>
 <h2 id="有界自共轭线性算子的谱"><a href="#有界自共轭线性算子的谱" class="headerlink" title="有界自共轭线性算子的谱"></a>有界自共轭线性算子的谱</h2><h3 id="一、谱的基本性质"><a href="#一、谱的基本性质" class="headerlink" title="一、谱的基本性质"></a>一、谱的基本性质</h3><h4 id="性质1"><a href="#性质1" class="headerlink" title="性质1"></a>性质1</h4><p>对任意算子 $T$ ,其谱集与它的共轭算子的谱集也互为共轭关系，即 $\sigma(T^*)=\{\bar{\lambda}|\lambda \in \sigma(T) \}$</p>
 <h4 id="性质2"><a href="#性质2" class="headerlink" title="性质2"></a>性质2</h4><p>若$T=T^*$, 则 $T$ 的特征值为实数，且特征元素相互正交 </p>
 <h4 id="性质3"><a href="#性质3" class="headerlink" title="性质3"></a>性质3</h4><p>若$T=T^*$, 则 $T$ 的谱全是实数 </p>
 <h3 id="二、谱的分布范围"><a href="#二、谱的分布范围" class="headerlink" title="二、谱的分布范围"></a>二、谱的分布范围</h3><h4 id="引理1-1"><a href="#引理1-1" class="headerlink" title="引理1"></a>引理1</h4><p>$||T||=\sup\limits_{||x||=1}|(Tx,x)|$ </p>
 <h4 id="引理2-1"><a href="#引理2-1" class="headerlink" title="引理2"></a>引理2</h4><p>若$T=T^*$, 则 $r_\sigma (T)=||T||$ </p>
-<h4 id="引理3-1"><a href="#引理3-1" class="headerlink" title="引理3"></a>引理3</h4><p>$\lambda \in \sigma(T)  rightarrow \exists \{x_n\},||x_n||=1,st.||(\lambda I-T)x_n||\to 0$ </p>
+<h4 id="引理3-1"><a href="#引理3-1" class="headerlink" title="引理3"></a>引理3</h4><p>$\lambda \in \sigma(T)  \Leftrightarrow \exists \{x_n\},||x_n||=1,st.||(\lambda I-T)x_n||\to 0$ </p>
 <h4 id="定理-2"><a href="#定理-2" class="headerlink" title="定理"></a>定理</h4><p>记 $m=\inf\limits_{||x||=1}(Tx,x),M=\sup\limits_{||x||=1}(Tx,x),$ 则 </p>
 <p>$\sigma(T)=[m,M]=[m, ||T||]$ </p>
 <h4 id="从引理3可以推知的谱的直观理解"><a href="#从引理3可以推知的谱的直观理解" class="headerlink" title="从引理3可以推知的谱的直观理解"></a>从引理3可以推知的谱的直观理解</h4><p>（1）. 分析正则点与连续谱的区别，从映射特点和伸长倍数考虑两者的区别 </p>
