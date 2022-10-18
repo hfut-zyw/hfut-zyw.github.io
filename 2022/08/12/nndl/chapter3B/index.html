@@ -419,6 +419,31 @@ best accuracy performence has been updated: 0.80000 --&gt; 0.86667
 
 
 
+
+
+
+
+    <section id="comments" style="margin:100px;padding:100px;background:rgb(64, 206, 241);">
+      <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+      <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+      <script src="https://priesttomb.github.io/js/md5.min.js"></script>
+      
+      <div id="gitalk-container"></div>
+      <script>
+      var gitalk = new Gitalk({
+          clientID: 'ecf230c60af3ed1123fa',
+          clientSecret: '1e1daf2e6dd957a3f7d6b22b524387d14aafdb13',
+          repo: 'hfut-zyw.github.io',
+          owner: 'hfut-zyw',
+          admin: ['hfut-zyw'],
+          id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+      gitalk.render('gitalk-container')
+      </script>
+      
+    </section>
+
 </div>
       <footer id="footer">
   <div class="outer">
