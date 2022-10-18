@@ -17,7 +17,7 @@
 <meta property="og:description" content="记录使用hexo中碰到的一些坑">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-12T08:55:44.000Z">
-<meta property="article:modified_time" content="2022-10-15T12:47:58.887Z">
+<meta property="article:modified_time" content="2022-10-18T13:59:26.039Z">
 <meta property="article:author" content="LabmemNo.001">
 <meta property="article:tag" content="随写">
 <meta name="twitter:card" content="summary">
@@ -400,6 +400,18 @@
 <p>然后，下面的代码是指定输出的样式为header-submenu，同样也在main.styl中，只不过这个样式是我们增加的，需要拷贝前面的导航menu的样式，然后稍作修改，变成子菜单的样式</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav class=&quot;header-submenu&quot;&gt;</span><br><span class="line">			&lt;ul&gt;</span><br><span class="line">				&lt;% for (var i in theme.DeepLearning) &#123; %&gt;</span><br><span class="line">					&lt;li&gt;&lt;a href=&quot;&lt;%- url_for(theme.DeepLearning[i]) %&gt;&quot;&gt;&lt;div&gt;&lt;%= i %&gt;&lt;/div&gt;&lt;/a&gt;&lt;/li&gt;  </span><br><span class="line">				&lt;% &#125; %&gt;</span><br><span class="line">			&lt;/ul&gt;</span><br><span class="line">		&lt;/nav&gt;	</span><br></pre></td></tr></table></figure>
 <p>需要注意的是，我们的分类目录就按照一级目录，不作任何改变</p>
+<h2 id="如何添加评论"><a href="#如何添加评论" class="headerlink" title="如何添加评论"></a>如何添加评论</h2><h4 id="可用评论插件："><a href="#可用评论插件：" class="headerlink" title="可用评论插件："></a>可用评论插件：</h4><p>gitalk，vline等，注意，这些插件一般两种使用方法，第一种就是安装到本地，把css，js文件弄到相应文件夹，然后就可以创建相应的容器，也就是评论框了，第二种方法是在线引入样式文件，然后在需要的位置引入容器，由此可知，容器是依赖样式文件的；</p>
+<h4 id="gitalk的基本配置："><a href="#gitalk的基本配置：" class="headerlink" title="gitalk的基本配置："></a>gitalk的基本配置：</h4><p>第一点，你就按网上申请那个OAuth Apps，这个主要是用来把评论的数据存到你github仓库的issues里面的，方便管理；</p>
+<p>第二点，你先按网上的方法进行设置，看看能不能成功，其实就是在layout/_partial文件夹下配置引入cdn和显示容器的JavaScript文件，名称一般设置为gitalk.ejs，然后在layout文件夹下的article.ejs文件夹内使用插入代码，把刚刚设定好的代码插进你需要的位置。其实两步可以一步搞定，直接把那串代码复制到相应的位置就行了。另外gitalk.ejs里面多次引用了主题config.yml中预设好的变量，这步可以直接填写变量，省去主题文件的配置了。</p>
+<p>第三点，假如这个方法无法正常显示，我就是这样，排除其他原因，我这里最后是引入cdn的问题，也就是那把引入cdn的代码放在需要插入评论的位置，就不行，而是需要插入到这个html文件的开头，找到layout文件夹下的head.ejs(跟article.ejs一个文件夹)，然后在</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- js(&#x27;//cdn.bootcss.com/require.js/2.3.2/require.min.js&#x27;) %&gt;</span><br><span class="line">&lt;%- js(&#x27;//cdn.bootcss.com/jquery/3.1.1/jquery.min.js&#x27;) %&gt;</span><br></pre></td></tr></table></figure>
+<p>这两句代码之前，插入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/gitalk/dist/gitalk.css&quot;&gt;</span><br><span class="line">&lt;%- js(&#x27;https://unpkg.com/gitalk/dist/gitalk.min.js&#x27;) %&gt;</span><br><span class="line">&lt;%- js(&#x27;https://priesttomb.github.io/js/md5.min.js&#x27;) %&gt;</span><br></pre></td></tr></table></figure>
+<p>注意，<code>&lt;%js(&#39;https://unpkg.com/gitalk/dist/gitalk.min.js&#39;) %&gt;</code> ,会被编译成 </p>
+<p><code>&lt;script src=&quot;https://unpkg.com/gitalk/dist/gitalk.min.js&quot;&gt;&lt;/script&gt;</code></p>
+<p>而在article.ejs的最后，添加如下代码，就能添加评论的容器，实例化，并渲染</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (!index &amp;&amp; post.comments)&#123; %&gt;</span><br><span class="line">    &lt;section id=&quot;comments&quot; style=&quot;margin: 60px;&quot;&gt;</span><br><span class="line">      &lt;div id=&quot;gitalk-container&quot;&gt;&lt;/div&gt;</span><br><span class="line">      &lt;script&gt;</span><br><span class="line">      var gitalk = new Gitalk(&#123;</span><br><span class="line">          clientID: #按网上教程改,</span><br><span class="line">          clientSecret: #按网上教程改,</span><br><span class="line">          repo: #按网上教程改,</span><br><span class="line">          owner: #按网上教程改,</span><br><span class="line">          admin: [#按网上教程改],</span><br><span class="line">          id: md5(location.pathname),      // Ensure uniqueness and length less than 50</span><br><span class="line">          distractionFreeMode: false  // Facebook-like distraction free mode</span><br><span class="line">        &#125;)</span><br><span class="line">      gitalk.render(&#x27;gitalk-container&#x27;)</span><br><span class="line">      &lt;/script&gt;</span><br><span class="line">      </span><br><span class="line">    &lt;/section&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>第四点，github上需要在issues上面新建一个标签，名称为gitalk</p>
 
       
     </div>
@@ -434,7 +446,7 @@
 
 
 
-    <section id="comments">
+    <section id="comments" style="margin: 60px;">
       <div id="gitalk-container"></div>
       <script>
       var gitalk = new Gitalk({
