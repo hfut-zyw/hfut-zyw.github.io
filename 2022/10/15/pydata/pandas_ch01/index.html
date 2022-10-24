@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Pandas笔记--ch01 基本对象的数据结构 | Homepage | 张有为</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="pandas中需要了解的4个基本对象：Index，MultiIndex，Series，DataFrame  为什么需要了解它们的数据结构（内存管理，存储结构）：   有助于帮我们了解它们与其他数据类型的数据或者文件的数据交换，也能帮我们更好的了解它们的基本方法（算法）  注1：这4个最最基本的对象必须学懂，它们是后面一切的基础   注2：下面的图可能是老版本的pandas，个别属性已经被移除了，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pandas笔记--ch01 基本对象的数据结构">
+<meta property="og:url" content="http://example.com/2022/10/15/pydata/pandas_ch01/index.html">
+<meta property="og:site_name" content="Homepage | 张有为">
+<meta property="og:description" content="pandas中需要了解的4个基本对象：Index，MultiIndex，Series，DataFrame  为什么需要了解它们的数据结构（内存管理，存储结构）：   有助于帮我们了解它们与其他数据类型的数据或者文件的数据交换，也能帮我们更好的了解它们的基本方法（算法）  注1：这4个最最基本的对象必须学懂，它们是后面一切的基础   注2：下面的图可能是老版本的pandas，个别属性已经被移除了，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img-pandas/fig01.png">
+<meta property="og:image" content="http://example.com/img-pandas/fig02.png">
+<meta property="og:image" content="http://example.com/img-pandas/fig03.png">
+<meta property="og:image" content="http://example.com/img-pandas/fig04.png">
+<meta property="article:published_time" content="2022-10-15T05:34:15.000Z">
+<meta property="article:modified_time" content="2022-10-24T08:44:57.993Z">
+<meta property="article:author" content="LabmemNo.001">
+<meta property="article:tag" content="Pandas笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img-pandas/fig01.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Homepage | 张有为" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/icon.gif">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+  
+<script src="https://priesttomb.github.io/js/md5.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="/img/face.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">LabmemNo.001</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/2022/08/09/me/aboutme">个人简介</a>
+							</li>
+				        
+							<li><a href="/categories/notes">一些随写</a>
+							</li>
+				        
+							<li><a href="/categories/analysis">抽象分析基础</a>
+							</li>
+				        
+							<li><a href="/categories/probability">高等概率统计</a>
+							</li>
+				        
+							<li><a href="/categories/opt">矩阵论与最优化</a>
+							</li>
+				        
+						</ul>
+					</nav>
+
+					<nav class="header-menu">
+						<ul>
+						<li><a style="color:rgb(228, 117, 238)">Deep Learning </a>
+							<nav class="header-submenu">
+								<ul>
+									
+										<li><a href="/categories/pytorch"><div>Pytorch</div></a></li>  
+									
+										<li><a href="/categories/pydata"><div>数据分析</div></a></li>  
+									
+										<li><a href="/categories/nndl"><div>nndl案例与实践</div></a></li>  
+									
+								</ul>
+							</nav>	
+						</li>     
+						</ul>
+					</nav>
+					
+								
+					
+
+
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/hfut-zyw" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="mailto:lucario@qq.com" title="mail">mail</a>
+					        
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Matplotlib%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Matplotlib笔记</a> <a href="/tags/Pandas%E7%AC%94%E8%AE%B0/" style="font-size: 12.5px;">Pandas笔记</a> <a href="/tags/Pytorch%E7%AC%94%E8%AE%B0/" style="font-size: 12.5px;">Pytorch笔记</a> <a href="/tags/nndl%E6%A1%88%E4%BE%8B%E4%B8%8E%E5%AE%9E%E8%B7%B5/" style="font-size: 20px;">nndl案例与实践</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%AC%94%E8%AE%B0/" style="font-size: 15px;">优化笔记</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 10px;">关于我</a> <a href="/tags/%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" style="font-size: 17.5px;">分析笔记</a> <a href="/tags/%E9%9A%8F%E5%86%99/" style="font-size: 15px;">随写</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+	<div class="overlay">
+		<div class="slider-trigger"></div>
+		<h1 class="header-author js-mobile-header hide"></h1>
+	</div>
+  <div class="intrude-less">
+	  <header id="header" class="inner">
+		  <div class="profilepic">
+			  <img src="/img/face4.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
+		  </div>
+		  <hgroup>
+			<h1 class="header-author"></h1>
+		  </hgroup>
+		  
+
+		  <nav class="header-menu">
+			  <ul>
+			  
+				  <li><a href="/2022/08/09/me/aboutme" style="color:rgba(69, 7, 241, 0.904)" >个人简介</a></li>
+			  
+				  <li><a href="/categories/notes" style="color:rgba(69, 7, 241, 0.904)" >一些随写</a></li>
+			  
+				  <li><a href="/categories/analysis" style="color:rgba(69, 7, 241, 0.904)" >抽象分析基础</a></li>
+			  
+				  <li><a href="/categories/probability" style="color:rgba(69, 7, 241, 0.904)" >高等概率统计</a></li>
+			  
+				  <li><a href="/categories/opt" style="color:rgba(69, 7, 241, 0.904)" >矩阵论与最优化</a></li>
+			  
+			  <div class="clearfix"></div>
+			  </ul>
+		  </nav>
+
+		  <nav class="header-menu">
+			  <ul>
+			  <li><a style="color:rgba(69, 7, 241, 0.904)">Deep Learning </a>
+				  <nav class="header-submenu">
+					  <ul>
+						  
+							  <li><a href="/categories/pytorch" style="color:rgba(69, 7, 241, 0.904)" ><div>Pytorch</div></a></li>  
+						  
+							  <li><a href="/categories/pydata" style="color:rgba(69, 7, 241, 0.904)" ><div>数据分析</div></a></li>  
+						  
+							  <li><a href="/categories/nndl" style="color:rgba(69, 7, 241, 0.904)" ><div>nndl案例与实践</div></a></li>  
+						  
+					  </ul>
+				  </nav>	
+			  </li>     
+			  </ul>
+		  </nav>
+
+		  <nav class="header-nav">
+			  <div class="social">
+				  
+					  <a class="github" target="_blank" href="https://github.com/hfut-zyw" title="github">github</a>
+				  
+					  <a class="mail" target="_blank" href="mailto:lucario@qq.com" title="mail">mail</a>
+				  
+			  </div>
+		  </nav>
+	  </header>				
+  </div>
+</nav>
+      <div class="body-wrap">
+
+<article id="post-pydata/pandas_ch01" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/10/15/pydata/pandas_ch01/" class="article-date">
+  	<time datetime="2022-10-15T05:34:15.000Z" itemprop="datePublished">2022-10-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Pandas笔记--ch01 基本对象的数据结构
+      
+          <span class="title-pop-out"></a>
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pandas%E7%AC%94%E8%AE%B0/" rel="tag">Pandas笔记</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/pydata/">pydata</a>
+	</div>
+
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>pandas中需要了解的4个基本对象：Index，MultiIndex，Series，DataFrame </p>
+<p>为什么需要了解它们的数据结构（内存管理，存储结构）：  </p>
+<p>有助于帮我们了解它们与其他数据类型的数据或者文件的数据交换，也能帮我们更好的了解它们的基本方法（算法） </p>
+<p>注1：这4个最最基本的对象必须学懂，它们是后面一切的基础  </p>
+<p>注2：下面的图可能是老版本的pandas，个别属性已经被移除了，有别的属性或者方法来代替，参考<a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference">最新版官方API</a>和<a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/version/1.2/reference/">1.2版本API</a>  </p>
+<p>注3： 有些东西跟API上展示的不太一样，不清楚为什么  </p>
+</blockquote>
+<span id="more"></span>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">pd.__version__</span><br></pre></td></tr></table></figure>
+<pre><code>&#39;1.2.4&#39;
+</code></pre><h3 id="一、Index的数据结构"><a href="#一、Index的数据结构" class="headerlink" title="一、Index的数据结构"></a>一、Index的数据结构</h3><p><img src="/img-pandas/fig01.png" style="zoom:100%;" />  </p>
+<p>其中，<br>实线表示一般属性，虚线表示property创建的属性<br>工作机制：<br>虚线所指属性的值，一般是从实线那里获取，实线属性是我们关注的重点  </p>
+<p><a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/indexing.html">官方API</a>  </p>
+<p>1.name为普通属性，返回Index的名字  </p>
+<p>2.values/._values为property属性，返回Index的内部数据的视图  </p>
+<p>3._data为普通属性，返回Index的内部数据   </p>
+<p>4.shape为property属性，返回内部数据的形状  </p>
+<p>5._engine为标签映射管理器，它负责管理label和下标之间的映射,通过mapping的get_item可以获得标签的整数下标<br>最新版的pandas里面移除了这个属性，详情见官方API。取而代之可以用.get_loc()方法</p>
+<h4 id="example1—Index的初始化"><a href="#example1—Index的初始化" class="headerlink" title="example1—Index的初始化"></a>example1—Index的初始化</h4><p>先将列表数据传入_data，把字符串传入names</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">header1=pd.Index([<span class="string">&#x27;国家&#x27;</span>,<span class="string">&#x27;种族&#x27;</span>,<span class="string">&#x27;战斗力&#x27;</span>],name=<span class="string">&#x27;3年A班&#x27;</span>)</span><br><span class="line">header2=pd.Index([<span class="string">&#x27;国家&#x27;</span>,<span class="string">&#x27;国家&#x27;</span>,<span class="string">&#x27;种族&#x27;</span>,<span class="string">&#x27;战斗力&#x27;</span>],name=<span class="string">&#x27;3年A班&#x27;</span>) </span><br><span class="line">header3=pd.Index([<span class="string">&#x27;国家&#x27;</span>,<span class="string">&#x27;种族&#x27;</span>,<span class="string">&#x27;战斗力&#x27;</span>,<span class="string">&#x27;国家&#x27;</span>],name=<span class="string">&#x27;3年A班&#x27;</span>)</span><br><span class="line">header1,header2,header3</span><br></pre></td></tr></table></figure>
+<pre><code>(Index([&#39;国家&#39;, &#39;种族&#39;, &#39;战斗力&#39;], dtype=&#39;object&#39;, name=&#39;3年A班&#39;),
+ Index([&#39;国家&#39;, &#39;国家&#39;, &#39;种族&#39;, &#39;战斗力&#39;], dtype=&#39;object&#39;, name=&#39;3年A班&#39;),
+ Index([&#39;国家&#39;, &#39;种族&#39;, &#39;战斗力&#39;, &#39;国家&#39;], dtype=&#39;object&#39;, name=&#39;3年A班&#39;))
+</code></pre><h4 id="example2—查看属性"><a href="#example2—查看属性" class="headerlink" title="example2—查看属性"></a>example2—查看属性</h4><p>按照上图从上到下依次查看</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">header1.name,header1.values,header1._values,header1.shape,header1._data</span><br></pre></td></tr></table></figure>
+<pre><code>(&#39;3年A班&#39;,
+ array([&#39;国家&#39;, &#39;种族&#39;, &#39;战斗力&#39;], dtype=object),
+ array([&#39;国家&#39;, &#39;种族&#39;, &#39;战斗力&#39;], dtype=object),
+ (3,),
+ array([&#39;国家&#39;, &#39;种族&#39;, &#39;战斗力&#39;], dtype=object))
+</code></pre><h4 id="example3—使用-pandas-Index-get-loc-获取索引"><a href="#example3—使用-pandas-Index-get-loc-获取索引" class="headerlink" title="example3—使用 pandas.Index.get_loc() 获取索引"></a>example3—使用 pandas.Index.get_loc() 获取索引</h4><p>Index.get_loc(一个标签)<br>返回所请求标签的索引：整数位置、切片或布尔掩码  </p>
+<p>整数位置：就是一个整数，比如0，表示在第0个位置<br>切片：单调的索引切片，比如0到3<br>布尔掩码：不是连续的切片，中间有间断，比如0，2，4  </p>
+<p>其中，切片和布尔掩码都是以bool值的array展示</p>
+<p><a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Index.get_loc.html">官方API</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">header1.get_loc(<span class="string">&#x27;国家&#x27;</span>)  <span class="comment">## 国家不是重复元素，返回国家的下标 </span></span><br></pre></td></tr></table></figure>
+<pre><code>0
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">header2.get_loc(<span class="string">&#x27;国家&#x27;</span>) , header3.get_loc(<span class="string">&#x27;国家&#x27;</span>)  <span class="comment">## 国家是重复元素，所以返回的是bool元素的array</span></span><br></pre></td></tr></table></figure>
+<pre><code>(array([ True,  True, False, False]), array([ True, False, False,  True]))
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cols = [<span class="string">&#x27;国家&#x27;</span>, <span class="string">&#x27;战斗力&#x27;</span>]</span><br><span class="line">[header1.get_loc(c) <span class="keyword">for</span> c <span class="keyword">in</span> cols <span class="keyword">if</span> c <span class="keyword">in</span> header1]   <span class="comment">## 获取多个元素的下标</span></span><br></pre></td></tr></table></figure>
+<pre><code>[0, 2]
+</code></pre><h3 id="二、MultiIndex的数据结构"><a href="#二、MultiIndex的数据结构" class="headerlink" title="二、MultiIndex的数据结构"></a>二、MultiIndex的数据结构</h3><p><img src="/img-pandas/fig02.png" style="zoom:100%;" />  </p>
+<p><a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.MultiIndex.html">官方API</a>  </p>
+<p>1.name为普通属性，返回MultiIndex的名字。同Index  </p>
+<p>2.values/._values为property属性，返回MultiIndex的内部数据的视图。同Index  </p>
+<p>3._data为None，这里是与Index不同。  </p>
+<p>4.shape为property属性，返回内部属性的形状 。同Index  </p>
+<p>5._engine已弃用,取而代之使用.get_loc()和get_locs()方法，这里不举例说明了，因为这个方法不是给你用的  </p>
+<p>6.labels为property属性，它返回一个FrozenList（不可变列表），列表中存储每一级的label对应的下标（也就是创建MultiIndex时传入的labels参数），以FrozenNDArray的数据类型。  最新版已移除  </p>
+<p>7.levels为property属性，它返回一个FrozenList（不可变列表），列表中存储每一级的label（也就是创建MultiIndex时传入的levels参数），以Index的数据类型。  </p>
+<h4 id="example1—MultiIndex的初始化"><a href="#example1—MultiIndex的初始化" class="headerlink" title="example1—MultiIndex的初始化"></a>example1—MultiIndex的初始化</h4><ul>
+<li>第1种初始化，按一对一对元组传入 </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tup=[(<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;百里守约&#x27;</span>),(<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;项羽&#x27;</span>),(<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;猪八戒&#x27;</span>),(<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;蔡徐坤&#x27;</span>),(<span class="string">&#x27;女&#x27;</span>,<span class="string">&#x27;上官婉儿&#x27;</span>),(<span class="string">&#x27;女&#x27;</span>,<span class="string">&#x27;小乔&#x27;</span>),(<span class="string">&#x27;女&#x27;</span>,<span class="string">&#x27;蔡文姬&#x27;</span>)]</span><br><span class="line">index_col1=pd.MultiIndex.from_tuples(tup,names=[<span class="string">&#x27;性别&#x27;</span>,<span class="string">&#x27;姓名&#x27;</span>])</span><br><span class="line">index_col1</span><br></pre></td></tr></table></figure>
+<pre><code>MultiIndex([(&#39;男&#39;, &#39;百里守约&#39;),
+            (&#39;男&#39;,   &#39;项羽&#39;),
+            (&#39;男&#39;,  &#39;猪八戒&#39;),
+            (&#39;男&#39;,  &#39;蔡徐坤&#39;),
+            (&#39;女&#39;, &#39;上官婉儿&#39;),
+            (&#39;女&#39;,   &#39;小乔&#39;),
+            (&#39;女&#39;,  &#39;蔡文姬&#39;)],
+           names=[&#39;性别&#39;, &#39;姓名&#39;])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">index_col1.levels,index_col1.levels[<span class="number">0</span>],index_col1.levels[<span class="number">1</span>],index_col1.nlevels</span><br></pre></td></tr></table></figure>
+<pre><code>(FrozenList([[&#39;女&#39;, &#39;男&#39;], [&#39;上官婉儿&#39;, &#39;小乔&#39;, &#39;猪八戒&#39;, &#39;百里守约&#39;, &#39;蔡徐坤&#39;, &#39;蔡文姬&#39;, &#39;项羽&#39;]]),
+ Index([&#39;女&#39;, &#39;男&#39;], dtype=&#39;object&#39;, name=&#39;性别&#39;),
+ Index([&#39;上官婉儿&#39;, &#39;小乔&#39;, &#39;猪八戒&#39;, &#39;百里守约&#39;, &#39;蔡徐坤&#39;, &#39;蔡文姬&#39;, &#39;项羽&#39;], dtype=&#39;object&#39;, name=&#39;姓名&#39;),
+ 2)
+</code></pre><ul>
+<li>第2种初始化，按两个列表传入  </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list1=[<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;男&#x27;</span>,<span class="string">&#x27;女&#x27;</span>,<span class="string">&#x27;女&#x27;</span>,<span class="string">&#x27;女&#x27;</span>,<span class="string">&#x27;女&#x27;</span>]</span><br><span class="line">list2=[<span class="string">&#x27;百里守约&#x27;</span>,<span class="string">&#x27;项羽&#x27;</span>,<span class="string">&#x27;猪八戒&#x27;</span>,<span class="string">&#x27;蔡徐坤&#x27;</span>,<span class="string">&#x27;上官婉儿&#x27;</span>,<span class="string">&#x27;小乔&#x27;</span>,<span class="string">&#x27;蔡文姬&#x27;</span>,<span class="string">&#x27;上官婉儿&#x27;</span>]</span><br><span class="line">index_col2=pd.MultiIndex.from_arrays([list1,list2],names=[<span class="string">&#x27;性别&#x27;</span>,<span class="string">&#x27;姓名&#x27;</span>])</span><br><span class="line">index_col2</span><br></pre></td></tr></table></figure>
+<pre><code>MultiIndex([(&#39;男&#39;, &#39;百里守约&#39;),
+            (&#39;男&#39;,   &#39;项羽&#39;),
+            (&#39;男&#39;,  &#39;猪八戒&#39;),
+            (&#39;男&#39;,  &#39;蔡徐坤&#39;),
+            (&#39;女&#39;, &#39;上官婉儿&#39;),
+            (&#39;女&#39;,   &#39;小乔&#39;),
+            (&#39;女&#39;,  &#39;蔡文姬&#39;),
+            (&#39;女&#39;, &#39;上官婉儿&#39;)],
+           names=[&#39;性别&#39;, &#39;姓名&#39;])
+</code></pre><ul>
+<li>第3种初始化，两个列表笛卡尔积（构成的一对一对元组）传入 </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">list3=[<span class="string">&#x27;语文成绩&#x27;</span>,<span class="string">&#x27;数学成绩&#x27;</span>]</span><br><span class="line">list4=[<span class="string">&#x27;百里守约&#x27;</span>,<span class="string">&#x27;项羽&#x27;</span>,<span class="string">&#x27;猪八戒&#x27;</span>,<span class="string">&#x27;蔡徐坤&#x27;</span>,<span class="string">&#x27;上官婉儿&#x27;</span>,<span class="string">&#x27;小乔&#x27;</span>,<span class="string">&#x27;蔡文姬&#x27;</span>]</span><br><span class="line">index_col3=pd.MultiIndex.from_product([list3,list4],names=[<span class="string">&#x27;学科&#x27;</span>,<span class="string">&#x27;姓名&#x27;</span>])</span><br><span class="line">index_col3</span><br></pre></td></tr></table></figure>
+<pre><code>MultiIndex([(&#39;语文成绩&#39;, &#39;百里守约&#39;),
+            (&#39;语文成绩&#39;,   &#39;项羽&#39;),
+            (&#39;语文成绩&#39;,  &#39;猪八戒&#39;),
+            (&#39;语文成绩&#39;,  &#39;蔡徐坤&#39;),
+            (&#39;语文成绩&#39;, &#39;上官婉儿&#39;),
+            (&#39;语文成绩&#39;,   &#39;小乔&#39;),
+            (&#39;语文成绩&#39;,  &#39;蔡文姬&#39;),
+            (&#39;数学成绩&#39;, &#39;百里守约&#39;),
+            (&#39;数学成绩&#39;,   &#39;项羽&#39;),
+            (&#39;数学成绩&#39;,  &#39;猪八戒&#39;),
+            (&#39;数学成绩&#39;,  &#39;蔡徐坤&#39;),
+            (&#39;数学成绩&#39;, &#39;上官婉儿&#39;),
+            (&#39;数学成绩&#39;,   &#39;小乔&#39;),
+            (&#39;数学成绩&#39;,  &#39;蔡文姬&#39;)],
+           names=[&#39;学科&#39;, &#39;姓名&#39;])
+</code></pre><h4 id="example2—pandas-MultiIndex-get-locs（（参数1，参数2））"><a href="#example2—pandas-MultiIndex-get-locs（（参数1，参数2））" class="headerlink" title="example2—pandas.MultiIndex.get_locs（（参数1，参数2））"></a>example2—pandas.MultiIndex.get_locs（（参数1，参数2））</h4><p>参数1：对应第一列，可以是一个标签，一个切片，一个bool类型的mask列表   </p>
+<p>标签：’蔡徐坤’</p>
+<p>slice切片：np.s_[‘项羽’,’小乔’]或者(‘项羽’, ‘小乔’) </p>
+<p>mask列表：[True,False,False,True]</p>
+<p>注1：当单个参数不是元组时，填写两个参数外面的那个圆括号可以省略，但是如果单个参数已经是元组了，<br>比如slice切片，这时候外面那个圆括号不能省略，否者就会被认为是三元组，也就是三个参数了  </p>
+<p>注2：这里与<a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.MultiIndex.get_locs.html">官方API</a>写的稍有不同,因为两个levels的Index顺序是被打乱的，直接按照官方API操作会出错  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">index_col2     <span class="comment">##这是下面操作的对象</span></span><br></pre></td></tr></table></figure>
+<pre><code>MultiIndex([(&#39;男&#39;, &#39;百里守约&#39;),
+            (&#39;男&#39;,   &#39;项羽&#39;),
+            (&#39;男&#39;,  &#39;猪八戒&#39;),
+            (&#39;男&#39;,  &#39;蔡徐坤&#39;),
+            (&#39;女&#39;, &#39;上官婉儿&#39;),
+            (&#39;女&#39;,   &#39;小乔&#39;),
+            (&#39;女&#39;,  &#39;蔡文姬&#39;),
+            (&#39;女&#39;, &#39;上官婉儿&#39;)],
+           names=[&#39;性别&#39;, &#39;姓名&#39;])
+</code></pre><ul>
+<li>1.两个参数都是单个标签</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">index_col2.get_locs( (<span class="string">&#x27;男&#x27;</span>, <span class="string">&#x27;项羽&#x27;</span>))  <span class="comment">## 获得了矩阵的列标1，供矩阵使用</span></span><br></pre></td></tr></table></figure>
+<pre><code>array([1], dtype=int64)
+</code></pre><ul>
+<li>2.第二个参数为slice切片：  </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">slice</span>(<span class="literal">None</span>),np.s_[<span class="string">&#x27;项羽&#x27;</span>,<span class="string">&#x27;小乔&#x27;</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>(slice(None, None, None), (&#39;项羽&#39;, &#39;小乔&#39;))
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">index_col2.get_locs( (<span class="string">&#x27;女&#x27;</span>, <span class="built_in">slice</span>(<span class="literal">None</span>)))  <span class="comment">## 获得了矩阵的列标4，5，6，供矩阵使用</span></span><br></pre></td></tr></table></figure>
+<pre><code>array([4, 5, 6, 7], dtype=int64)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">index_col2.get_locs( (<span class="string">&#x27;男&#x27;</span>, np.s_[<span class="string">&#x27;项羽&#x27;</span>,<span class="string">&#x27;小乔&#x27;</span>]) )</span><br></pre></td></tr></table></figure>
+<pre><code>array([1], dtype=int64)
+</code></pre><ul>
+<li>3.第二个参数是掩码列表 </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">index_col2.get_locs( (<span class="string">&#x27;男&#x27;</span>, [<span class="literal">True</span>,<span class="literal">False</span>,<span class="literal">True</span>,<span class="literal">False</span>,<span class="literal">True</span>,<span class="literal">False</span>,<span class="literal">True</span>,<span class="literal">False</span>] ) )</span><br></pre></td></tr></table></figure>
+<pre><code>array([0, 2], dtype=int64)
+</code></pre><h3 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h3><ul>
+<li><p>创建Index和MultiIndex：<br>传一个list或者两个list  </p>
+</li>
+<li><p>Index.get_loc(参数)<br>参数只能是一个标签<br>返回的是整数下标array或者bool值的array  </p>
+</li>
+</ul>
+<ul>
+<li>MultiIncex.get_locs（参数1，参数2）<br>单个参数可以是：一个标签，一个元组表示的切片，一个bool列表<br>返回的是整数下标的array  </li>
+</ul>
+<h3 id="三、Series的数据结构"><a href="#三、Series的数据结构" class="headerlink" title="三、Series的数据结构"></a>三、Series的数据结构</h3><p><img src="/img-pandas/fig03.png" style="zoom:100%;" />  </p>
+<p><a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html">官方API</a>   </p>
+<p>1._name为普通属性，返回Seris的名字；.name为property属性，返回的也是Seris名字  </p>
+<p>2.dtype/.dtypes为property属性，返回Series的数据类型。  </p>
+<p>3.ftype/ftypes为property属性，返回一个字符串，说明Series是否稀疏数据。（二者返回的字符串的值相同，但不是同一个字符串对象）  </p>
+<p>4.values/._values为property属性，返回Series的内部数据的视图  </p>
+<p>5.index为普通属性，返回Series的索引  </p>
+<p>6.shape为property属性，返回Series的数据的形状  </p>
+<p>7._data为普通属性，它返回的是一个SingleBlockManager对象，该对象负责管理内部数据。<br>SingleBlockManager的.shape属性为property属性，返回内部数据的形状<br>SingleBlockManager的.blocks属性为普通属性，返回一个列表，该列表只有一个元素，该元素为一个IntBlock对象（或者其他的xxxBlock对象），代表了内部数据。<br>IntBlock的.values属性为普通属性，它返回内部数据：一个ndarray。<br>IntBlock的.shape属性为property属性，它返回内部数据的形状  </p>
+<h4 id="example1—单级索引的Series初始化"><a href="#example1—单级索引的Series初始化" class="headerlink" title="example1—单级索引的Series初始化"></a>example1—单级索引的Series初始化</h4><p>class pandas.Series(data=None, index=None, dtype=None, name=None, copy=False,fastpath=False)  </p>
+<p>参数：  </p>
+<p>1.data：它可以是一个字典、array-like、标量。表示Series包含的数据，如果是序列/数组，则它必须是一维的<br>如果是字典，则字典的键指定了label。如果你同时使用了index，则以index为准。<br>如果是标量，则结果为：该标量扩充为index长度相同的列表。  </p>
+<p>2.index：一个array-like或者一个Index对象。它指定了label。其值必须唯一而且hashable，且长度与data一致。<br>如果data是一个字典，则index将会使用该字典的key（此时index不起作用）。如果未提供，则使用np.arange(n)。</p>
+<p>3.name：一个字符串，为Series的名字。  </p>
+<p>4.dtype：指定数据类型。如果为None，则数据类型被自动推断  </p>
+<p>5.copy：一个布尔值。如果为True，则拷贝输入数据data </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># （1）由字典创建，字典的key就是index，values就是values</span></span><br><span class="line">dic = &#123;<span class="string">&#x27;a&#x27;</span>:<span class="number">1</span> ,<span class="string">&#x27;b&#x27;</span>:<span class="number">2</span> , <span class="string">&#x27;c&#x27;</span>:<span class="number">3</span>, <span class="string">&#x27;4&#x27;</span>:<span class="number">4</span>, <span class="string">&#x27;5&#x27;</span>:<span class="number">5</span>&#125;</span><br><span class="line">s = pd.Series(dic)</span><br><span class="line">s</span><br></pre></td></tr></table></figure>
+<pre><code>a    1
+b    2
+c    3
+4    4
+5    5
+dtype: int64
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># （2）由数组创建（一维数组）</span></span><br><span class="line">arr = np.random.randn(<span class="number">5</span>)</span><br><span class="line">s = pd.Series(arr)</span><br><span class="line">arr,s</span><br></pre></td></tr></table></figure>
+<pre><code>(array([ 0.1980849 , -0.55649407,  0.00830882,  1.05311009,  0.12881228]),
+ 0    0.198085
+ 1   -0.556494
+ 2    0.008309
+ 3    1.053110
+ 4    0.128812
+ dtype: float64)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s=pd.Series(arr, index = [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>,<span class="string">&#x27;e&#x27;</span>],dtype = np.<span class="built_in">object</span>)</span><br><span class="line">s</span><br></pre></td></tr></table></figure>
+<pre><code>C:\Users\Amadeus\AppData\Local\Temp\ipykernel_27936\2992262385.py:1: DeprecationWarning: `np.object` is a deprecated alias for the builtin `object`. To silence this warning, use `object` by itself. Doing this will not modify any behavior and is safe. 
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  s=pd.Series(arr, index = [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;e&#39;],dtype = np.object)
+
+
+
+
+
+a    0.198085
+b   -0.556494
+c    0.008309
+d     1.05311
+e    0.128812
+dtype: object
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># （3）由标量创建</span></span><br><span class="line">s = pd.Series(<span class="number">10</span>, index = <span class="built_in">range</span>(<span class="number">4</span>))</span><br><span class="line">s</span><br></pre></td></tr></table></figure>
+<pre><code>0    10
+1    10
+2    10
+3    10
+dtype: int64
+</code></pre><h4 id="example2—两级索引的Series初始化"><a href="#example2—两级索引的Series初始化" class="headerlink" title="example2—两级索引的Series初始化"></a>example2—两级索引的Series初始化</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># （1）data使用一维的array，index使用两个list </span></span><br><span class="line">se1=pd.Series(data=np.random.randn(<span class="number">4</span>),index=[<span class="built_in">list</span>(<span class="string">&quot;aabb&quot;</span>),[<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>]])</span><br><span class="line">se1</span><br></pre></td></tr></table></figure>
+<pre><code>a  1   -2.258218
+   2    0.616072
+b  1    0.463946
+   2    0.327015
+dtype: float64
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># （2）data是一维的list，index使用MultiIndex </span></span><br><span class="line">se2=pd.Series(data=[<span class="number">88</span>,<span class="number">56</span>,<span class="number">94</span>,<span class="number">44</span>],index=pd.MultiIndex.from_arrays([<span class="built_in">list</span>(<span class="string">&quot;aabb&quot;</span>),[<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>]]))</span><br><span class="line">se2</span><br></pre></td></tr></table></figure>
+<pre><code>a  1    88
+   2    56
+b  1    94
+   2    44
+dtype: int64
+</code></pre><h3 id="一、DataFrame的数据结构"><a href="#一、DataFrame的数据结构" class="headerlink" title="一、DataFrame的数据结构"></a>一、DataFrame的数据结构</h3><p><img src="/img-pandas/fig04.png" style="zoom:100%;" />  </p>
+<p><a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/frame.html">官方API</a>  </p>
+<p>1.index/columns属性都为普通属性，它们返回的都是一个Index对象，参考Series。   </p>
+<p>2.dtypes属性为property属性，给出了每列的数值类型。它返回的是一个Series。并且没有.dtype属性，这一点与Series不同。  </p>
+<p>3.ftypes属性为property属性，给出了每列是否为sparse/dense的。它返回的是一个Series。并且没有.ftype属性，这一点与Series不同。   </p>
+<p>4.values/._values/.shape属性都为property属性，参考Series。  </p>
+<p>5._data属性为普通属性，它返回的是一个BlockManager对象，该对象负责管理内部数据。该对象的.block属性（普通属性）返回一个列表，该列表里面有多个元素。 DataFrame尽量用一个数组保存类型相同的列。<br>每个元素都为一个xxBlock对象。如IntBlock/FloatBlock…<br>一个xxBlock 可能存储多个列的数据（这些列的数据都是同一个类型）<br>xxBlock对象的.values属性（普通属性）就是存储的某个列（或者某些类型相同的列）的内部数据，一个ndarray<br>xxBlock对象的.shape属性（property属性）就是存储的某个列（或者某些类型相同的列）的内部数据的形状  </p>
+<p>6.blocks属性为property属性。该属性返回一个字典，该字典的键为不同的数值类型，该字典的值为该数值类型的数值组成的DataFrame  </p>
+<h4 id="example1—DataFrame初始化"><a href="#example1—DataFrame初始化" class="headerlink" title="example1—DataFrame初始化"></a>example1—DataFrame初始化</h4><p>方法一：分别指定data（数据），index（行索引），columnx（列索引）即可  </p>
+<p>data：二维list或者array<br>index：list，array或者Index，MultiIndex<br>columns：list，array或者Index，MultiIndex</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df1=pd.DataFrame(np.random.randint(<span class="number">0</span>,<span class="number">10</span>,[<span class="number">4</span>,<span class="number">2</span>]),index=[<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span>],columns=[<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>])</span><br><span class="line">df1</span><br></pre></td></tr></table></figure>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>5</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>2</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>D</th>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">header1.name=<span class="string">&#x27;属性&#x27;</span></span><br><span class="line">header1._data[<span class="number">0</span>]=<span class="string">&#x27;体力值&#x27;</span>    <span class="comment">#如果直接通过index的索引是无法修改其值的，这里通过_data属性直接找到内存修改 </span></span><br><span class="line">df2=pd.DataFrame(data=np.random.randint(<span class="number">1</span>,<span class="number">100</span>,[<span class="number">7</span>,<span class="number">3</span>]),index=index_col1,columns=header1)</span><br><span class="line">df2</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code>Canceled future for execute_request message before replies were done
+
+
+
+The Kernel crashed while executing code in the the current cell or a previous cell. Please review the code in the cell(s) to identify a possible cause of the failure. Click &lt;a href=&#39;https://aka.ms/vscodeJupyterKernelCrash&#39;&gt;here&lt;/a&gt; for more info. View Jupyter &lt;a href=&#39;command:jupyter.viewOutput&#39;&gt;log&lt;/a&gt; for further details.
+</code></pre><p>方法二：从字典到DataFrame  </p>
+<p>下面使用的是DataFrame的初始化方法，默认字典的key是列索引，值是一列数据<br>DataFrame.from_dict方法具有更丰富的功能，这里不进行介绍了，知道就行，一般用不上  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dict</span>=&#123;<span class="string">&#x27;a&#x27;</span>:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],<span class="string">&#x27;b&#x27;</span>:[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]&#125;</span><br><span class="line">df1=pd.DataFrame(<span class="built_in">dict</span>)</span><br><span class="line">df2=pd.DataFrame(<span class="built_in">dict</span>,index=[<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;D&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">## df3=pd.DataFrame.from_dict(dict)      ##默认字典的key为columns，但奇怪的是这里无法指定行索引</span></span><br><span class="line"><span class="comment">## df4=pd.DataFrame.from_dict(dict,orient=&#x27;index&#x27;,columns=[&#x27;A&#x27;,&#x27;B&#x27;,&#x27;C&#x27;,&#x27;D&#x27;])  ##设置字典的key为index，columns额外指定</span></span><br><span class="line">df1,df2</span><br></pre></td></tr></table></figure>
+<pre><code>(   a  b
+ 0  1  5
+ 1  2  6
+ 2  3  7
+ 3  4  8,
+    a  b
+ A  1  5
+ B  2  6
+ C  3  7
+ D  4  8)
+</code></pre><p>方法三：从Series到DataFrame<br>默认会把Series的索引作为DataFrame的行索引，列索引可以手动指定，不指定会默认设置为数字索引  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">se1=pd.Series(data=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],index=[<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>])</span><br><span class="line">se2=pd.Series(data=np.random.randn(<span class="number">4</span>),index=[<span class="built_in">list</span>(<span class="string">&quot;aabb&quot;</span>),[<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>]])</span><br><span class="line">df1=pd.DataFrame(se1,columns=[<span class="string">&#x27;QQ&#x27;</span>])</span><br><span class="line">df2=pd.DataFrame(se2,columns=[<span class="string">&#x27;QQ&#x27;</span>])</span><br><span class="line">df1,df2</span><br></pre></td></tr></table></figure>
+<pre><code>(   QQ
+ a   1
+ b   2
+ c   3
+ d   4,
+            QQ
+ a 1 -0.183538
+   2  0.412109
+ b 1  0.547671
+   2 -0.295981)
+</code></pre><h4 id="example2—直接访问三个属性的内存管理对象（通过这三个对象，可以分别访问它们数据的内存）"><a href="#example2—直接访问三个属性的内存管理对象（通过这三个对象，可以分别访问它们数据的内存）" class="headerlink" title="example2—直接访问三个属性的内存管理对象（通过这三个对象，可以分别访问它们数据的内存）"></a>example2—直接访问三个属性的内存管理对象（通过这三个对象，可以分别访问它们数据的内存）</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df1._data,df1._data.blocks[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>(BlockManager
+ Items: Index([&#39;体力值&#39;, &#39;种族&#39;, &#39;战斗力&#39;], dtype=&#39;object&#39;, name=&#39;属性&#39;)
+ Axis 1: MultiIndex([(&#39;男&#39;, &#39;百里守约&#39;),
+             (&#39;男&#39;,   &#39;项羽&#39;),
+             (&#39;男&#39;,  &#39;猪八戒&#39;),
+             (&#39;男&#39;,  &#39;蔡徐坤&#39;),
+             (&#39;女&#39;, &#39;上官婉儿&#39;),
+             (&#39;女&#39;,   &#39;小乔&#39;),
+             (&#39;女&#39;,  &#39;蔡文姬&#39;)],
+            names=[&#39;性别&#39;, &#39;姓名&#39;])
+ IntBlock: slice(0, 3, 1), 3 x 7, dtype: int32,
+ IntBlock: slice(0, 3, 1), 3 x 7, dtype: int32)
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df1.index,df1.index.levels[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>(MultiIndex([(&#39;男&#39;, &#39;百里守约&#39;),
+             (&#39;男&#39;,   &#39;项羽&#39;),
+             (&#39;男&#39;,  &#39;猪八戒&#39;),
+             (&#39;男&#39;,  &#39;蔡徐坤&#39;),
+             (&#39;女&#39;, &#39;上官婉儿&#39;),
+             (&#39;女&#39;,   &#39;小乔&#39;),
+             (&#39;女&#39;,  &#39;蔡文姬&#39;)],
+            names=[&#39;性别&#39;, &#39;姓名&#39;]),
+ Index([&#39;女&#39;, &#39;男&#39;], dtype=&#39;object&#39;, name=&#39;性别&#39;))
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df1.columns,df1.columns._data</span><br></pre></td></tr></table></figure>
+<pre><code>(Index([&#39;体力值&#39;, &#39;种族&#39;, &#39;战斗力&#39;], dtype=&#39;object&#39;, name=&#39;属性&#39;),
+ array([&#39;体力值&#39;, &#39;种族&#39;, &#39;战斗力&#39;], dtype=object))
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/10/15/pydata/Matplotlib%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          Matplotlib笔记--快速入门
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/10/15/pydata/pandas_ch02/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Pandas笔记--ch02 Series和DataFrame的索引与切片</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+    <section id="comments" style="margin: 60px;">
+      <div id="gitalk-container"></div>
+      <script>
+      var gitalk = new Gitalk({
+          clientID: 'ecf230c60af3ed1123fa',
+          clientSecret: '1e1daf2e6dd957a3f7d6b22b524387d14aafdb13',
+          repo: 'hfut-zyw.github.io',
+          owner: 'hfut-zyw',
+          admin: ['hfut-zyw'],
+          id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+      gitalk.render('gitalk-container')
+      </script>
+      
+    </section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        <a href="https://space.bilibili.com/782159" target="_blank">访问我的哔哩哔哩</a> 
+      </div>
+        <div class="footer-right">
+        &copy; 2022 LabmemNo.001
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: ,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":85,"height":170},"mobile":{"show":false},"log":false});</script></body>
+</html>
