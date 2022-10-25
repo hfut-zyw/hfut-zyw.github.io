@@ -9,19 +9,19 @@
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="pandas中需要了解的4个基本对象：Index，MultiIndex，Series，DataFrame  为什么需要了解它们的数据结构（内存管理，存储结构）：   有助于帮我们了解它们与其他数据类型的数据或者文件的数据交换，也能帮我们更好的了解它们的基本方法（算法）  注1：这4个最最基本的对象必须学懂，它们是后面一切的基础   注2：下面的图可能是老版本的pandas，个别属性已经被移除了，">
+  <meta name="description" content="pandas中需要了解的4个基本对象：Index，MultiIndex，Series，DataFrame  为什么需要了解它们的数据结构（内存管理，存储结构）：   有助于帮我们了解它们与其他数据类型的数据或者文件的数据交换，也能帮我们更好的了解它们的基本方法（算法）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pandas笔记--ch01 基本对象的数据结构">
 <meta property="og:url" content="http://example.com/2022/10/24/pydata/pandas_ch01/index.html">
 <meta property="og:site_name" content="Homepage | 张有为">
-<meta property="og:description" content="pandas中需要了解的4个基本对象：Index，MultiIndex，Series，DataFrame  为什么需要了解它们的数据结构（内存管理，存储结构）：   有助于帮我们了解它们与其他数据类型的数据或者文件的数据交换，也能帮我们更好的了解它们的基本方法（算法）  注1：这4个最最基本的对象必须学懂，它们是后面一切的基础   注2：下面的图可能是老版本的pandas，个别属性已经被移除了，">
+<meta property="og:description" content="pandas中需要了解的4个基本对象：Index，MultiIndex，Series，DataFrame  为什么需要了解它们的数据结构（内存管理，存储结构）：   有助于帮我们了解它们与其他数据类型的数据或者文件的数据交换，也能帮我们更好的了解它们的基本方法（算法）">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img-pandas/fig01.png">
 <meta property="og:image" content="http://example.com/img-pandas/fig02.png">
 <meta property="og:image" content="http://example.com/img-pandas/fig03.png">
 <meta property="og:image" content="http://example.com/img-pandas/fig04.png">
 <meta property="article:published_time" content="2022-10-24T11:34:15.000Z">
-<meta property="article:modified_time" content="2022-10-24T13:28:48.268Z">
+<meta property="article:modified_time" content="2022-10-25T14:06:02.845Z">
 <meta property="article:author" content="LabmemNo.001">
 <meta property="article:tag" content="Pandas笔记">
 <meta name="twitter:card" content="summary">
@@ -263,11 +263,11 @@
 <p>pandas中需要了解的4个基本对象：Index，MultiIndex，Series，DataFrame </p>
 <p>为什么需要了解它们的数据结构（内存管理，存储结构）：  </p>
 <p>有助于帮我们了解它们与其他数据类型的数据或者文件的数据交换，也能帮我们更好的了解它们的基本方法（算法） </p>
+<span id="more"></span>
 <p>注1：这4个最最基本的对象必须学懂，它们是后面一切的基础  </p>
 <p>注2：下面的图可能是老版本的pandas，个别属性已经被移除了，有别的属性或者方法来代替，参考<a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference">最新版官方API</a>和<a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/version/1.2/reference/">1.2版本API</a>  </p>
 <p>注3： 有些东西跟API上展示的不太一样，不清楚为什么  </p>
 </blockquote>
-<span id="more"></span>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">pd.__version__</span><br></pre></td></tr></table></figure>
 <pre><code>&#39;1.2.4&#39;
 </code></pre><h3 id="一、Index的数据结构"><a href="#一、Index的数据结构" class="headerlink" title="一、Index的数据结构"></a>一、Index的数据结构</h3><p><img src="/img-pandas/fig01.png" style="zoom:100%;" />  </p>
@@ -593,18 +593,18 @@ The Kernel crashed while executing code in the the current cell or a previous ce
     
 <nav id="article-nav">
   
-    <a href="/2022/10/25/pydata/pandas_ch03/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/10/24/pydata/pandas_ch02/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
-          Pandas笔记--ch03 从CSV文件到DataFrame
+          Pandas笔记--ch02 Series和DataFrame的索引与切片
         
       </div>
     </a>
   
   
-    <a href="/2022/10/24/pydata/pandas_ch02/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Pandas笔记--ch02 Series和DataFrame的索引与切片</div>
+    <a href="/2022/10/18/pytorch/Pytorch/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Pytorch 简介</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
