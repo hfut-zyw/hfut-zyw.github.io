@@ -602,7 +602,7 @@ a {
 }
 #header .header-submenu {
   font-weight: 150;
-  line-height: 25px;
+  line-height: 28px;
   cursor: pointer;
   text-transform: none;
   float: none;
@@ -616,8 +616,8 @@ a {
 #header .header-submenu li {
   width: 110px;
   margin: 0 auto;
-  margin-top: 1px;
-  padding: 1px 1px;
+  margin-top: 5px;
+  padding: 5px 5px;
   -webkit-box-shadow: 0px 0px 10px 2px #9fe2bf;
   -moz-box-shadow: 0px 0px 10px 2px #9fe2bf;
   -ms-box-shadow: 0px 0px 10px 2px #9fe2bf;

@@ -87,13 +87,13 @@
 
 					<nav class="header-menu">
 						<ul>
-						<li><a style="color:rgb(228, 117, 238)">Deep Learning </a>
+						<li><a style="color:rgb(36, 243, 105)">Deep Learning </a>
 							<nav class="header-submenu">
 								<ul>
 									
-										<li><a href="/categories/pytorch"><div>Pytorch</div></a></li>  
+										<li><a href="/categories/pytorch"><div>深度学习框架</div></a></li>  
 									
-										<li><a href="/categories/pydata"><div>数据处理</div></a></li>  
+										<li><a href="/categories/pydata"><div>数据处理相关</div></a></li>  
 									
 										<li><a href="/categories/nndl"><div>nndl案例与实践</div></a></li>  
 									
@@ -126,7 +126,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Matplotlib%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Matplotlib笔记</a> <a href="/tags/Pandas%E7%AC%94%E8%AE%B0/" style="font-size: 18px;">Pandas笔记</a> <a href="/tags/Pytorch%E7%AC%94%E8%AE%B0/" style="font-size: 12px;">Pytorch笔记</a> <a href="/tags/nndl%E6%A1%88%E4%BE%8B%E4%B8%8E%E5%AE%9E%E8%B7%B5/" style="font-size: 20px;">nndl案例与实践</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%AC%94%E8%AE%B0/" style="font-size: 14px;">优化笔记</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 10px;">关于我</a> <a href="/tags/%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" style="font-size: 16px;">分析笔记</a> <a href="/tags/%E9%9A%8F%E5%86%99/" style="font-size: 14px;">随写</a>
+						<a href="/tags/Matplotlib%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Matplotlib笔记</a> <a href="/tags/Pandas%E7%AC%94%E8%AE%B0/" style="font-size: 17.5px;">Pandas笔记</a> <a href="/tags/Pytorch%E7%AC%94%E8%AE%B0/" style="font-size: 12.5px;">Pytorch笔记</a> <a href="/tags/nndl%E6%A1%88%E4%BE%8B%E4%B8%8E%E5%AE%9E%E8%B7%B5/" style="font-size: 20px;">nndl案例与实践</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%AC%94%E8%AE%B0/" style="font-size: 12.5px;">优化笔记</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 10px;">关于我</a> <a href="/tags/%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" style="font-size: 15px;">分析笔记</a> <a href="/tags/%E9%9A%8F%E5%86%99/" style="font-size: 12.5px;">随写</a>
 					</div>
 				</section>
 				
@@ -178,9 +178,9 @@
 				  <nav class="header-submenu">
 					  <ul>
 						  
-							  <li><a href="/categories/pytorch" style="color:rgba(69, 7, 241, 0.904)" ><div>Pytorch</div></a></li>  
+							  <li><a href="/categories/pytorch" style="color:rgba(69, 7, 241, 0.904)" ><div>深度学习框架</div></a></li>  
 						  
-							  <li><a href="/categories/pydata" style="color:rgba(69, 7, 241, 0.904)" ><div>数据处理</div></a></li>  
+							  <li><a href="/categories/pydata" style="color:rgba(69, 7, 241, 0.904)" ><div>数据处理相关</div></a></li>  
 						  
 							  <li><a href="/categories/nndl" style="color:rgba(69, 7, 241, 0.904)" ><div>nndl案例与实践</div></a></li>  
 						  
@@ -203,6 +203,158 @@
   </div>
 </nav>
       <div class="body-wrap">
+  
+    
+
+<article id="post-analysis/fa-chapter1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/09/19/analysis/fa-chapter1/" class="article-date">
+  	<time datetime="2022-09-19T11:02:17.000Z" itemprop="datePublished">2022-09-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/09/19/analysis/fa-chapter1/">
+        泛函笔记--第1章 有界线性算子
+        
+          <span class="title-pop-out"></a>
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>主要介绍有界线性算子的基本概念，包括算子的有界性，连续性</p>
+</blockquote>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+        <div class="article-pop-out tagcloud">
+          <a class="">置顶</a>
+        </div>
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" rel="tag">分析笔记</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/analysis/">analysis</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+        <p class="article-more-link">
+          <a  href="/2022/09/19/analysis/fa-chapter1/#more">阅读全文 >></a>
+        </p>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    
+
+<article id="post-analysis/fa-chapter2" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/09/19/analysis/fa-chapter2/" class="article-date">
+  	<time datetime="2022-09-19T11:02:17.000Z" itemprop="datePublished">2022-09-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/09/19/analysis/fa-chapter2/">
+        泛函笔记--第2章 算子空间
+        
+          <span class="title-pop-out"></a>
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>主要介绍赋范的线性算子空间，了解算子范数的定义，算子列的收敛，算子空间的完备性等</p>
+</blockquote>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+        <div class="article-pop-out tagcloud">
+          <a class="">置顶</a>
+        </div>
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" rel="tag">分析笔记</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/analysis/">analysis</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+        <p class="article-more-link">
+          <a  href="/2022/09/19/analysis/fa-chapter2/#more">阅读全文 >></a>
+        </p>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     
 
@@ -434,10 +586,10 @@
   
     
 
-<article id="post-pytorch/chapter1-tensor" class="article article-type-post" itemscope itemprop="blogPost">
+<article id="post-pytorch/tensor" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2022/09/03/pytorch/chapter1-tensor/" class="article-date">
+      <a href="/2022/09/03/pytorch/tensor/" class="article-date">
   	<time datetime="2022-09-03T12:27:57.000Z" itemprop="datePublished">2022-09-03</time>
 </a>
     </div>
@@ -451,8 +603,8 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/03/pytorch/chapter1-tensor/">
-        第一章 矩阵
+      <a class="article-title" href="/2022/09/03/pytorch/tensor/">
+        矩阵简介
         
           <span class="title-pop-out"></a>
         
@@ -493,7 +645,7 @@
     </div>
       
         <p class="article-more-link">
-          <a  href="/2022/09/03/pytorch/chapter1-tensor/#more">阅读全文 >></a>
+          <a  href="/2022/09/03/pytorch/tensor/#more">阅读全文 >></a>
         </p>
       
     
@@ -1170,154 +1322,6 @@
 
 
   
-    
-
-<article id="post-nndl/chapter4A" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2022/08/12/nndl/chapter4A/" class="article-date">
-  	<time datetime="2022-08-12T01:27:16.000Z" itemprop="datePublished">2022-08-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/12/nndl/chapter4A/">
-        第4章（上）：前馈神经网络理论解读
-        
-          <span class="title-pop-out"></a>
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="第4章-前馈神经网络"><a href="#第4章-前馈神经网络" class="headerlink" title="第4章 前馈神经网络"></a>第4章 前馈神经网络</h1><p>神经网络是由神经元按照一定的连接结构组合而成的网络。神经网络可以看作一个函数，通过简单非线性函数的多次复合，实现输入空间到输出空间的复杂映射 。
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-        <div class="article-pop-out tagcloud">
-          <a class="">置顶</a>
-        </div>
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nndl%E6%A1%88%E4%BE%8B%E4%B8%8E%E5%AE%9E%E8%B7%B5/" rel="tag">nndl案例与实践</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/nndl/">nndl</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-        <p class="article-more-link">
-          <a  href="/2022/08/12/nndl/chapter4A/#more">阅读全文 >></a>
-        </p>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    
-
-<article id="post-nndl/chapter3B" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2022/08/12/nndl/chapter3B/" class="article-date">
-  	<time datetime="2022-08-12T01:26:58.000Z" itemprop="datePublished">2022-08-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/12/nndl/chapter3B/">
-        第3章（下）：基于Softmax回归完成鸢尾花分类任务
-        
-          <span class="title-pop-out"></a>
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="3-3-实践：基于Softmax回归完成鸢尾花分类任务"><a href="#3-3-实践：基于Softmax回归完成鸢尾花分类任务" class="headerlink" title="3.3 实践：基于Softmax回归完成鸢尾花分类任务"></a>3.3 实践：基于Softmax回归完成鸢尾花分类任务</h2><p>在本节，我们用入门深度学习的基础实验之一“鸢尾花分类任务”来进行实践，使用经典学术数据集Iris作为训练数据，实现基于Softmax回归的鸢尾花分类任务。
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-        <div class="article-pop-out tagcloud">
-          <a class="">置顶</a>
-        </div>
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nndl%E6%A1%88%E4%BE%8B%E4%B8%8E%E5%AE%9E%E8%B7%B5/" rel="tag">nndl案例与实践</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/nndl/">nndl</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-        <p class="article-more-link">
-          <a  href="/2022/08/12/nndl/chapter3B/#more">阅读全文 >></a>
-        </p>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/"></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"></a>
@@ -1331,7 +1335,7 @@
         <a href="https://space.bilibili.com/782159" target="_blank">访问我的哔哩哔哩</a> 
       </div>
         <div class="footer-right">
-        &copy; 2022 LabmemNo.001
+        &copy; 2023 LabmemNo.001
         </div>
     </div>
   </div>
