@@ -9,22 +9,21 @@
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是一个基于Python和Numpy从零开始实现的深度学习框架">
+  <meta name="description" content="这是一个基于Python和Cupy从零开始实现的深度学习框架    项目主页地址：https:&#x2F;&#x2F;github.com&#x2F;hfut-zyw&#x2F;Rhitta_GPU">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的第一个深度学习框架">
 <meta property="og:url" content="http://example.com/2023/04/16/pytorch/rhitta/index.html">
 <meta property="og:site_name" content="Homepage | 张有为">
-<meta property="og:description" content="这是一个基于Python和Numpy从零开始实现的深度学习框架">
+<meta property="og:description" content="这是一个基于Python和Cupy从零开始实现的深度学习框架    项目主页地址：https:&#x2F;&#x2F;github.com&#x2F;hfut-zyw&#x2F;Rhitta_GPU">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img-pytorch/AutoGrad.png">
-<meta property="og:image" content="http://example.com/img-pytorch/AutoGrad2.png">
+<meta property="og:image" content="http://example.com/img-pytorch/core.png">
 <meta property="og:image" content="http://example.com/img-pytorch/AutoGrad3.png">
 <meta property="article:published_time" content="2023-04-16T06:49:06.000Z">
-<meta property="article:modified_time" content="2023-04-17T13:43:51.219Z">
+<meta property="article:modified_time" content="2023-04-26T13:04:23.208Z">
 <meta property="article:author" content="LabmemNo.001">
 <meta property="article:tag" content="Pytorch笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img-pytorch/AutoGrad.png">
+<meta name="twitter:image" content="http://example.com/img-pytorch/core.png">
   
     <link rel="alternative" href="/atom.xml" title="Homepage | 张有为" type="application/atom+xml">
   
@@ -259,13 +258,195 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p> 这是一个基于Python和Numpy从零开始实现的深度学习框架</p>
+<p> 这是一个基于Python和Cupy从零开始实现的深度学习框架  </p>
+<p> 项目主页地址：<a target="_blank" rel="noopener" href="https://github.com/hfut-zyw/Rhitta_GPU">https://github.com/hfut-zyw/Rhitta_GPU</a></p>
 </blockquote>
 <span id="more"></span>
-<p>内容五一左右会更新</p>
-<p><img src="/img-pytorch/AutoGrad.png" style="zoom:100%;" /></p>
-<p><img src="/img-pytorch/AutoGrad2.png" style="zoom:100%;" /></p>
-<p><img src="/img-pytorch/AutoGrad3.png" style="zoom:100%;" /></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  目前深度学习框架各式各样，国外有大家最为熟知的Pytorch，tensorflow，mxnet，也有一些国内的PaddlePaddle（百度），OpenMMlab（商汤＆港大）。这些工业级深度学习框架虽然运算速度很快，有丰富的算子，模型，优化器，数据io接口，但是里面高度封装，其背后是如何运行的对于大多数非计算机专业的同学来说比较头疼。而想要深入进行科研，学会在上述框架的基础上进行二次开发是必要的，目前CVPR顶会一些基础性研究，比如对vison for transformer的兴起，都是对基础构件的加工修改，又如一些论文提出新的损失函数，等等这些都要求作者具备二次开发的能力。而这些复杂的框架由于其背后复杂的封装，让非计算机系的同学往往望而却步，如果能把其背后关于深度学习神经网络的部分单独拿出来分析其背后的工作机理，那么再去看市面上这些各式各样的框架就能轻车熟路了。本框架完全基于Python和Cupy（一个矩阵运算库，Numpy的镜像，运行在GPU上的）从零开始实现神经网络框架，在这里，你将会见证如何从基础的加减乘除算子，到最后复杂的CNN，RNN模型的整个构建过程。  </p>
+<h2 id="关于本框架Rhitta-GPU"><a href="#关于本框架Rhitta-GPU" class="headerlink" title="关于本框架Rhitta_GPU"></a>关于本框架Rhitta_GPU</h2><h4 id="1-环境准备："><a href="#1-环境准备：" class="headerlink" title="1.环境准备："></a>1.环境准备：</h4><p>  numpy,cupy,pandas,matplotlib,sklearn这些版本随意，只要能import出来即可<br>  对于cupy，如果import失败，请查看本框架目录下的环境配置txt文件，或者自己搜索如何安装使用cupy</p>
+<h4 id="2-如何使用："><a href="#2-如何使用：" class="headerlink" title="2.如何使用："></a>2.如何使用：</h4><p>  把Rhitta_GPU放在D盘根目录下，可正常运行所有test和examples下的示例程序，如果放在其他目录下，框架是可以正常运行的，但是里面的示例程序需要修改一点点内容才能运行 </p>
+<h4 id="3-本框架的底层逻辑"><a href="#3-本框架的底层逻辑" class="headerlink" title="3.本框架的底层逻辑"></a>3.本框架的底层逻辑</h4><p>  如下图，本框架采用静态图机制，使用Tensor类及其子类（各种算子）自动构建静态图，<br>  并实现前向传播和反向传播，各个算子被容器Graph引用，Optimizer通过Graph可以<br>  遍历计算图中的数据，并可以更新其参数。<br>  <img src="/img-pytorch/core.png" style="zoom:100%;" /></p>
+<h4 id="4-本框架的缺陷"><a href="#4-本框架的缺陷" class="headerlink" title="4.本框架的缺陷"></a>4.本框架的缺陷</h4><p>  首先是静态图，灵活性低，另外前向传播和反向传播的算法效率非常低，速度很慢；<br>  第二点就是批机制是通过for循环一个一个处理样本实现的，没有使用矩阵的并行计算；<br>  第三点是一些基础算子没有优化，比如卷积算子，窗口滑来滑去，一个一个按顺序算，其实可以同时算的，再把同时算出来的值填到结果矩阵里，但是不是计算机系的，Python有GIL锁，另外这个是运行在cuda上面的，不会多线程或者多进程编程，速度特别慢。<br>  总之，这是一个计算速度特别慢的框架，其意义并不在于把它当作生产力工具，而是在于从中学习其背后的工作原理。当原理掌握后，一通百通，各种框架不在话下。  </p>
+<h4 id="5-本框架实现的主要算子"><a href="#5-本框架实现的主要算子" class="headerlink" title="5.本框架实现的主要算子"></a>5.本框架实现的主要算子</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>底层API</th>
+<th>中层API</th>
+<th>Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add</td>
+<td>Conv2D</td>
+<td>SCN</td>
+</tr>
+<tr>
+<td>Sub</td>
+<td>Pooling</td>
+<td>ResNet_simple</td>
+</tr>
+<tr>
+<td>Matmul</td>
+<td>ReLU</td>
+<td>SRN</td>
+</tr>
+<tr>
+<td>Multiply</td>
+<td>Linear</td>
+<td>LSTM</td>
+</tr>
+<tr>
+<td>Div</td>
+<td>LayerNorm</td>
+<td>BiLSTM</td>
+</tr>
+<tr>
+<td>sum</td>
+<td>RNNCell</td>
+<td></td>
+</tr>
+<tr>
+<td>mean</td>
+<td>LSTMCell</td>
+<td></td>
+</tr>
+<tr>
+<td>power</td>
+<td>ResBlock4x4</td>
+<td></td>
+</tr>
+<tr>
+<td>sqrt</td>
+<td>ResBlock4x8</td>
+<td></td>
+</tr>
+<tr>
+<td>Concat</td>
+<td>ResBlock8x8</td>
+<td></td>
+</tr>
+<tr>
+<td>Logistic</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Tanh</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Softmax</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Relu</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BinaryClassLoss</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CrossEntropyLoss</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MSELoss</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>conv2d</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MaxPooling</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AveragePooling</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>embedding</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>layernorm</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="6-关于计算图"><a href="#6-关于计算图" class="headerlink" title="6.关于计算图"></a>6.关于计算图</h4><p>自动微分算法是所有深度学习框架的核心中的核心，关于其算法，我搜集了很多经典的教程，点击下方链接  </p>
+<p><a target="_blank" rel="noopener" href="https://hfut-zyw.github.io/2023/04/16/pytorch/autograd/">https://hfut-zyw.github.io/2023/04/16/pytorch/autograd/</a></p>
+<p><img src="/img-pytorch/AutoGrad3.png" style="zoom:100%;" /> </p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4>
+
+	<div class="row">
+    <embed src="/pdf/rhitta_exp01.pdf" width="100%" height="750" type="application/pdf">
+	</div>
+
+
+
+
+
+	<div class="row">
+    <embed src="/pdf/rhitta_exp02.pdf" width="100%" height="750" type="application/pdf">
+	</div>
+
+
+
+
+
+	<div class="row">
+    <embed src="/pdf/rhitta_exp03.pdf" width="100%" height="750" type="application/pdf">
+	</div>
+
+
+
+
+
+	<div class="row">
+    <embed src="/pdf/rhitta_exp04.pdf" width="100%" height="750" type="application/pdf">
+	</div>
+
+
+
+
+
+	<div class="row">
+    <embed src="/pdf/rhitta_exp05.pdf" width="100%" height="750" type="application/pdf">
+	</div>
+
+
+
+
+
+	<div class="row">
+    <embed src="/pdf/rhitta_exp06.pdf" width="100%" height="750" type="application/pdf">
+	</div>
+
+
+
+
+
+	<div class="row">
+    <embed src="/pdf/rhitta_exp07.pdf" width="100%" height="750" type="application/pdf">
+	</div>
+
+
 
       
     </div>
