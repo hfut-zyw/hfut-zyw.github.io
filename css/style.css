@@ -614,7 +614,7 @@ a {
   -webkit-box-align: center;
 }
 #header .header-submenu li {
-  width: 110px;
+  width: 120px;
   margin: 0 auto;
   margin-top: 5px;
   padding: 5px 5px;
@@ -630,7 +630,7 @@ a {
 #header .header-submenu li a {
   color: #fbd0e5;
   font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 7px;
+  font-size: 11px;
   letter-spacing: 2px;
   min-width: 200px;
 }
