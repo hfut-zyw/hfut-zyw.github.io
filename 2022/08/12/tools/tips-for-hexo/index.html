@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo 使用指南 | Homepage | 张有为</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="记录使用hexo中碰到的一些坑,以及一些常用的东西.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo 使用指南">
+<meta property="og:url" content="http://example.com/2022/08/12/tools/tips-for-hexo/index.html">
+<meta property="og:site_name" content="Homepage | 张有为">
+<meta property="og:description" content="记录使用hexo中碰到的一些坑,以及一些常用的东西.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-12T08:55:44.000Z">
+<meta property="article:modified_time" content="2024-01-14T02:51:35.214Z">
+<meta property="article:author" content="张有为">
+<meta property="article:tag" content="随写">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Homepage | 张有为" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/face/icon.gif">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+  
+<script src="https://priesttomb.github.io/js/md5.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="/img/face/face.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">张有为</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/2022/08/09/aboutme/aboutme">个人简介</a>
+							</li>
+				        
+							<li><a href="/categories/tools">工具杂记</a>
+							</li>
+				        
+							<li><a href="/categories/abstract-analysis">抽象分析基础</a>
+							</li>
+				        
+							<li><a href="/categories/probability">高等概率统计</a>
+							</li>
+				        
+							<li><a href="/categories/matrix-opt">矩阵论与最优化</a>
+							</li>
+				        
+						</ul>
+					</nav>
+
+					<nav class="header-menu">
+						<ul>
+						<li><a style="color:rgb(36, 243, 105)">Deep Learning </a>
+							<nav class="header-submenu">
+								<ul>
+									
+										<li><a href="/categories/python-lib"><div>Python杂记</div></a></li>  
+									
+										<li><a href="/categories/ml-nndl"><div>机器学习与深度学习</div></a></li>  
+									
+								</ul>
+							</nav>	
+						</li>     
+						</ul>
+					</nav>
+					
+								
+					
+
+
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/hfut-zyw" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="mailto:lucario@qq.com" title="mail">mail</a>
+					        
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Matplotlib%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Matplotlib笔记</a> <a href="/tags/Pandas%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Pandas笔记</a> <a href="/tags/Plotly%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Plotly笔记</a> <a href="/tags/Python%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 10px;">Python字符串</a> <a href="/tags/Spacy%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Spacy笔记</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%AC%94%E8%AE%B0/" style="font-size: 17.5px;">优化笔记</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 10px;">关于我</a> <a href="/tags/%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">分析笔记</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">深度学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/" style="font-size: 17.5px;">深度学习框架</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 10px;">自然语言处理</a> <a href="/tags/%E9%9A%8F%E5%86%99/" style="font-size: 15px;">随写</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+	<div class="overlay">
+		<div class="slider-trigger"></div>
+		<h1 class="header-author js-mobile-header hide"></h1>
+	</div>
+  <div class="intrude-less">
+	  <header id="header" class="inner">
+		  <div class="profilepic">
+			  <img src="/img/face/face4.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
+		  </div>
+		  <hgroup>
+			<h1 class="header-author"></h1>
+		  </hgroup>
+		  
+
+		  <nav class="header-menu">
+			  <ul>
+			  
+				  <li><a href="/2022/08/09/aboutme/aboutme" style="color:rgba(69, 7, 241, 0.904)" >个人简介</a></li>
+			  
+				  <li><a href="/categories/tools" style="color:rgba(69, 7, 241, 0.904)" >工具杂记</a></li>
+			  
+				  <li><a href="/categories/abstract-analysis" style="color:rgba(69, 7, 241, 0.904)" >抽象分析基础</a></li>
+			  
+				  <li><a href="/categories/probability" style="color:rgba(69, 7, 241, 0.904)" >高等概率统计</a></li>
+			  
+				  <li><a href="/categories/matrix-opt" style="color:rgba(69, 7, 241, 0.904)" >矩阵论与最优化</a></li>
+			  
+			  <div class="clearfix"></div>
+			  </ul>
+		  </nav>
+
+		  <nav class="header-menu">
+			  <ul>
+			  <li><a style="color:rgba(69, 7, 241, 0.904)">Deep Learning </a>
+				  <nav class="header-submenu">
+					  <ul>
+						  
+							  <li><a href="/categories/python-lib" style="color:rgba(69, 7, 241, 0.904)" ><div>Python杂记</div></a></li>  
+						  
+							  <li><a href="/categories/ml-nndl" style="color:rgba(69, 7, 241, 0.904)" ><div>机器学习与深度学习</div></a></li>  
+						  
+					  </ul>
+				  </nav>	
+			  </li>     
+			  </ul>
+		  </nav>
+
+		  <nav class="header-nav">
+			  <div class="social">
+				  
+					  <a class="github" target="_blank" href="https://github.com/hfut-zyw" title="github">github</a>
+				  
+					  <a class="mail" target="_blank" href="mailto:lucario@qq.com" title="mail">mail</a>
+				  
+			  </div>
+		  </nav>
+	  </header>				
+  </div>
+</nav>
+      <div class="body-wrap">
+
+<article id="post-tools/tips-for-hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/08/12/tools/tips-for-hexo/" class="article-date">
+  	<time datetime="2022-08-12T08:55:44.000Z" itemprop="datePublished">2022-08-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Hexo 使用指南
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E5%86%99/" rel="tag">随写</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/tools/">tools</a>
+	</div>
+
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>记录使用hexo中碰到的一些坑,以及一些常用的东西.</p>
+</blockquote>
+<span id="more"></span>
+<p>[TOC]</p>
+<h2 id="1-快速使用"><a href="#1-快速使用" class="headerlink" title="1. 快速使用"></a>1. 快速使用</h2><h4 id="1-1-基本了解"><a href="#1-1-基本了解" class="headerlink" title="1.1 基本了解"></a>1.1 基本了解</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Node.js与hexo的关系:  </span><br><span class="line">Node.js是一门语言，hexo是一个建立网站的库.   </span><br><span class="line">安装好Node.js后，前面本地之前使用过的网站文件夹，里面实际上已经有hexo了，不需要重新安装.  </span><br><span class="line">npm是Node.js安装各种库（包括hexo，以及hexo的子库）的命令，相当于python里面的pip.  </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git是上传到github的工具,上传到GitHub，需要配置ssh key，一机一码，并复制给github</span><br></pre></td></tr></table></figure>
+<h4 id="1-2-安装Hexo"><a href="#1-2-安装Hexo" class="headerlink" title="1.2 安装Hexo"></a>1.2 安装Hexo</h4><p>1.下载按照Node.js和Git<br><a target="_blank" rel="noopener" href="http://nodejs.org/">http://nodejs.org/</a><br><a target="_blank" rel="noopener" href="http://git-scm.com/">http://git-scm.com/</a></p>
+<p>2.Git Bash下安装Hexo（Homepage这个文件夹其实里面已经安装了一个，这步可以跳过）<br>npm install -g hexo-cli</p>
+<p>3.在Homepage下，Git Bash命令</p>
+<p>打开服务：hexo s<br>生成静态网页：hexo g<br>清楚静态网页：hexo clean<br>上传：hexo d<br>创建新文章：hexo new post —path pytorch/123  </p>
+<h4 id="1-3-配置github"><a href="#1-3-配置github" class="headerlink" title="1.3 配置github"></a>1.3 配置github</h4><p><strong>1.ssh key配置</strong>  </p>
+<p>就是本地和远程仓库之间的暗号,本地生成一个暗号,告诉远程仓库,以后使用git推送文件到  </p>
+<p>远程仓库时,会自动核对暗号,暗号正确,那么就可以推送成功,不需要核对账号密码这么麻烦了</p>
+<p>如果换电脑，需要重新配置ssh key,或者你备份一下复制到新电脑里<br><a target="_blank" rel="noopener" href="https://www.bbsmax.com/A/kvJ3Z8KAzg/">https://www.bbsmax.com/A/kvJ3Z8KAzg/</a><br>一般ssh key所在目录为<br>C:\Users\Administrator.ssh<br>文件名为 id_rsa.pub</p>
+<p>当然,除了配置git的密钥,还需要配置本地user信息,就是user的用户名的邮箱,可以瞎填,这个就是一个身份代号,  </p>
+<p>远程仓库的人好知道是张三推过来的代码还是李四推过来的.配置教程直接网上搜,非常简单.</p>
+<p>至此,git的配置工作就完成了.</p>
+<p><strong>2.hexo单独配置一键推送的插件</strong><br>安装好git后，在hexo里面安装一键上传插件<br> hexo-deployer-git<br>安装好后，打开_config.yml进行配置<br>配置教程：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/one-command-deployment">https://hexo.io/zh-cn/docs/one-command-deployment</a><br>教程下面还有一堆使用git之外的工具进行上传的，没有使用git配合hexo插件方便</p>
+<h2 id="2-hexo文件夹介绍"><a href="#2-hexo文件夹介绍" class="headerlink" title="2. hexo文件夹介绍"></a>2. hexo文件夹介绍</h2><h4 id="2-1-config-yml文件"><a href="#2-1-config-yml文件" class="headerlink" title="2.1 _config.yml文件"></a>2.1 _config.yml文件</h4><p>网站的配置信息，可以在此配置大部分的参数,一些插件安装后,相关配置有时也在这里进行</p>
+<h4 id="2-2-source文件夹"><a href="#2-2-source文件夹" class="headerlink" title="2.2 source文件夹"></a>2.2 source文件夹</h4><p>资源文件夹，存放用户资源的地方（放图片、Markdown文档、文章、草稿、各种页面等）</p>
+<p>source/__posts ：存放文章的markdown源文件，会被编译成 html 文件<br>source/categories: 分类文件夹，文章有categories参数的话，会把文章添加到此目录<br>source/tags: 标签文件夹，同上.</p>
+<p>当上传到github后,source作为资源根目录,比如/img就表示source/img</p>
+<h4 id="2-3-scaffolds文件夹"><a href="#2-3-scaffolds文件夹" class="headerlink" title="2.3 scaffolds文件夹"></a>2.3 scaffolds文件夹</h4><p>模版文件夹，是指在新建的文章文件中默认填充的内容，如果文章需要分类，可以加个categories参数，以后每次新建post时候，文章头都会添加这个参数</p>
+<h4 id="2-4-public文件夹"><a href="#2-4-public文件夹" class="headerlink" title="2.4 public文件夹"></a>2.4 public文件夹</h4><p>生成的静态网页文件，用于上传到GitHub，这个文件夹就是你看到的页面，其文件目录就是真正的路径地址</p>
+<h4 id="2-5-package-json文件和node-module文件夹"><a href="#2-5-package-json文件和node-module文件夹" class="headerlink" title="2.5 package.json文件和node_module文件夹"></a>2.5 package.json文件和node_module文件夹</h4><p>package.json：查看Hexo的版本以及相关依赖包的版本</p>
+<p>node_module文件夹：所有的包</p>
+<p>​        Hexo会默认安装：</p>
+<p>​        hexo：主程序<br>​        hexo-deployer-git：实现git部署(在_config.yml中配置参数后可以一键部署)<br>​        hexo-generator-archive：存档页面生成器<br>​        hexo-generator-category：分类页面生成器<br>​        hexo-generator-index：index生成器（可以删除，用index2插件代替，以实现文章排序）<br>​        hexo-generator-tag：标签页面生成器<br>​        hexo-renderer-ejs：支持EJS渲染<br>​        hexo-renderer-marked：Markdown引擎<br>​        hexo-renderer-stylus：支持stylus渲染，主题需要<br>​        hexo-server：支持本地预览，默认地址localhost:4000</p>
+<p><strong>插件使用核心</strong></p>
+<p>插件安装在node_module目录下，启用插件以及插件的配置参数，在_config.yml文件中填写，</p>
+<p>一般插件源代码中的变量名前面都有个config前缀，就是从config中读取变量</p>
+<p>​        </p>
+<h4 id="2-6-themes-jelly-layout-和-themes-jelly-source-css"><a href="#2-6-themes-jelly-layout-和-themes-jelly-source-css" class="headerlink" title="2.6 themes/jelly/layout 和 themes/jelly/source/css"></a>2.6 themes/jelly/layout 和 themes/jelly/source/css</h4><p>相应主题（这里是jelly）的页面排版布局，比如字体，图标的源文件和设置一般在css中，而</p>
+<p>页面的其他布局一般在layout中</p>
+<pre><code>    ##### example
+</code></pre><p>​        比如打开layout/_partial下的left-col.ejs文件，会有这么一行代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav class=&quot;header-menu&quot;&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">    &lt;% for (var i in theme.menu)&#123; %&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href=&quot;&lt;%- url_for(theme.menu[i]) %&gt;&quot;&gt;&lt;%= i %&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;%&#125;%&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/nav&gt;</span><br></pre></td></tr></table></figure>
+<p>在主题_config.yml中menu下，加入一项nndl案例与实践后，通过上述for遍历得到变量名theme.menu，从而把”nndl案例与实践”加入menu当中</p>
+<p>而配置menu字体大小写的文件，在主题文件夹的source/css/_partial的main.styl文件中，只需要修改text-transform属性即可</p>
+<h2 id="3-如何正确引用相对路径"><a href="#3-如何正确引用相对路径" class="headerlink" title="3. 如何正确引用相对路径"></a>3. 如何正确引用相对路径</h2><h4 id="3-1-config-yml配置"><a href="#3-1-config-yml配置" class="headerlink" title="3.1 _config.yml配置"></a>3.1 _config.yml配置</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:left">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>source_dir</code></td>
+<td style="text-align:left">资源文件夹，这个文件夹用来存放内容。</td>
+<td style="text-align:left"><code>source</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>tag_dir</code></td>
+<td style="text-align:left">标签文件夹</td>
+<td style="text-align:left"><code>tags</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>archive_dir</code></td>
+<td style="text-align:left">归档文件夹</td>
+<td style="text-align:left"><code>archives</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>category_dir</code></td>
+<td style="text-align:left">分类文件夹</td>
+<td style="text-align:left"><code>categories</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>skip_render</code></td>
+<td style="text-align:left">跳过指定文件的渲染,文件将会被不做改动地复制到 <code>public</code> 目录中</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="3-2-引用说明"><a href="#3-2-引用说明" class="headerlink" title="3.2 引用说明"></a>3.2 引用说明</h4><ul>
+<li>比如插入一张图片，路径格式应为</li>
+</ul>
+<p>​        /img/figure.png</p>
+<p>​        那么会引用source/img/figure.png</p>
+<p>实际上source下面创建的资源文件夹在生成静态网页时会跑到根目录下，因此引用路径为/img</p>
+<ul>
+<li><p>tips：</p>
+<p>本地写文章时，在md所在文件夹下先建立img文件夹，放好图片，然后复制到source文件夹下</p>
+</li>
+<li><p>比如menu中引用categories中的nndl</p>
+</li>
+</ul>
+<p>​        /categories/nndl</p>
+<p>​        那么会引用source/categories/nndl</p>
+<h2 id="4-如何在文章中插入pdf在线预览"><a href="#4-如何在文章中插入pdf在线预览" class="headerlink" title="4. 如何在文章中插入pdf在线预览"></a>4. 如何在文章中插入pdf在线预览</h2><h4 id="step1："><a href="#step1：" class="headerlink" title="step1："></a>step1：</h4><p>​        到hexo网站文件夹下安装</p>
+<p>​        npm install hexo-pdf —save</p>
+<h4 id="step2："><a href="#step2：" class="headerlink" title="step2："></a>step2：</h4><p>​        在文章需要加入pdf的地方</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% pdf /pdf/xxx.pdf %&#125;</span><br></pre></td></tr></table></figure>
+<p>​        其中，xxx.pdf放在source的pdf文件夹下</p>
+<p>​        注：本地打开网页，会跳出保存pdf，上传到服务器后，才是预览</p>
+<h4 id="step3："><a href="#step3：" class="headerlink" title="step3："></a>step3：</h4><p>​        到node_modules/hexo-pdf下打开reader.ejs</p>
+<p>​        将height=”550”改为height=”800”</p>
+<p>​        这样预览pdf的窗口高度就会变高</p>
+<h2 id="5-如何修改头像，logo"><a href="#5-如何修改头像，logo" class="headerlink" title="5. 如何修改头像，logo"></a>5. 如何修改头像，logo</h2><h4 id="头像"><a href="#头像" class="headerlink" title="头像"></a>头像</h4><p>​        一般在主题的_config.yml中可以直接配置，头像文件一般在source/img文件夹下</p>
+<h4 id="小部件的logo"><a href="#小部件的logo" class="headerlink" title="小部件的logo"></a>小部件的logo</h4><p>​        这个可能在主题source/css/fonts文件夹下的字体文件fontawesome中</p>
+<h2 id="6-关于menu导航栏的文章分类定制"><a href="#6-关于menu导航栏的文章分类定制" class="headerlink" title="6. 关于menu导航栏的文章分类定制"></a>6. 关于menu导航栏的文章分类定制</h2><p>在主题的_config.yml中设置如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line"> 主页:  2022/08/09/home/me/</span><br><span class="line"> #全部文章: /</span><br><span class="line"> 文章归档: /archives</span><br><span class="line"> nndl案例与实践: /categories/nndl</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>第一项</p>
+<p>主页:  2022/08/09/home/me/</p>
+<p>首先新建个人简介文章，然后生成静态网页或者本地打开这篇文章，查看这篇文章的路径</p>
+<p>然后把这个路径复制过来，这样打开主页按钮，就会显示整篇文章</p>
+</li>
+<li><p>第二项</p>
+<p>全部文章：/</p>
+<p>显示所有文章，由于文章太多，这里不建议使用此项</p>
+</li>
+<li><p>第三项</p>
+<p>文章归档，按日期给文章分类</p>
+</li>
+<li><p>第四项</p>
+<p>自定义栏目，一般显示的文件夹为categories的子文件夹，这样给文章加个分类标签容易管理</p>
+<p>创建分类文件夹代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post --path analysis/123</span><br></pre></td></tr></table></figure>
+<p>新目录名称为analysis，里面默认创建一个123.md文件</p>
+</li>
+</ul>
+<h2 id="7-文章分类与排序：hexo-generator插件介绍"><a href="#7-文章分类与排序：hexo-generator插件介绍" class="headerlink" title="7. 文章分类与排序：hexo-generator插件介绍"></a>7. 文章分类与排序：hexo-generator插件介绍</h2><p><a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-generator-index">hexo-generator-index</a> 用于生成主页</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-generator-category">hexo-generator-category</a> 用于生成目录页</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-generator-archive">hexo-generator-archive</a> 用于生成文章归档页</p>
+<p>上面三个插件都是通过调用hexo-pagination函数生成页面</p>
+<h4 id="7-1-pagination函数的返回值"><a href="#7-1-pagination函数的返回值" class="headerlink" title="7.1 pagination函数的返回值"></a>7.1 pagination函数的返回值</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">      path: xxxDir,     // 路径</span><br><span class="line">      layout: [&#x27;layout1&#x27;, &#x27;layout2&#x27;, &#x27;layout3&#x27;, &#x27;layout4&#x27;],  //指定布局，首先找有没有1模板 没有依次往下找</span><br><span class="line">      data: &#123;</span><br><span class="line">        base: xxxDir,</span><br><span class="line">        total: 1,</span><br><span class="line">        current: 1,</span><br><span class="line">        current_url: tagDir,</span><br><span class="line">        posts: locals.posts,</span><br><span class="line">        prev: 0,</span><br><span class="line">        prev_link: &#x27;&#x27;,</span><br><span class="line">        next: 0,</span><br><span class="line">        next_link: &#x27;&#x27;,</span><br><span class="line">        tags: tags</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="7-2-主题-config-yml的menu配置（生成各种导航按钮）"><a href="#7-2-主题-config-yml的menu配置（生成各种导航按钮）" class="headerlink" title="7.2 主题_config.yml的menu配置（生成各种导航按钮）"></a>7.2 主题_config.yml的menu配置（生成各种导航按钮）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  主页:  2022/08/09/home/me/</span><br><span class="line">  笔记: /categories/notes</span><br><span class="line">  nndl案例与实践: /categories/nndl</span><br></pre></td></tr></table></figure>
+<h4 id="7-3-根目录-config-yml配置"><a href="#7-3-根目录-config-yml配置" class="headerlink" title="7.3 根目录_config.yml配置"></a>7.3 根目录_config.yml配置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># index 页面配置</span><br><span class="line">index_generator:</span><br><span class="line">  path: &#x27;&#x27;</span><br><span class="line">  per_page: 15</span><br><span class="line">  order_by: top</span><br><span class="line"></span><br><span class="line"># Category 页面配置</span><br><span class="line">category_generator:</span><br><span class="line">  layout: index</span><br><span class="line">  per_page: 15</span><br><span class="line">  order_by: top</span><br><span class="line">  </span><br><span class="line"># Archive 页面配置</span><br><span class="line">archive_generator:</span><br><span class="line">  layout: index</span><br><span class="line">  per_page: 15</span><br><span class="line">  order_by: top</span><br><span class="line">  </span><br><span class="line"># Tag 页面配置</span><br><span class="line">tag_generator:</span><br><span class="line">  layout: index</span><br><span class="line">  per_page: 15</span><br><span class="line">  order_by: top</span><br></pre></td></tr></table></figure>
+<ul>
+<li>path: 文章源路径</li>
+<li>per_page: 每页显示的文章数量</li>
+<li><p>order_by: -date表示按日期降序，top表示按top值升序</p>
+</li>
+<li><p>置顶的字样如果不想要，可以在主题的layout/_partial/post下的title.ejs中修改</p>
+</li>
+</ul>
+<h4 id="7-4-生成页面布局修改"><a href="#7-4-生成页面布局修改" class="headerlink" title="7.4 生成页面布局修改"></a>7.4 生成页面布局修改</h4><p>比如想要把category页面布局生成的和主页布局一样，直接找到插件目录下的lib/generator.js，修改</p>
+<p><code>layout: [&#39;index&#39;,&#39;category&#39;, &#39;archive&#39;]</code></p>
+<p>默认就会选择index布局</p>
+<h4 id="7-5-布局目录"><a href="#7-5-布局目录" class="headerlink" title="7.5 布局目录"></a>7.5 布局目录</h4><p>主题文件夹下的layout文件夹</p>
+<h2 id="8-数学公式支持"><a href="#8-数学公式支持" class="headerlink" title="8. 数学公式支持"></a>8. 数学公式支持</h2><h4 id="8-1-插件依赖"><a href="#8-1-插件依赖" class="headerlink" title="8.1 插件依赖"></a>8.1 插件依赖</h4><p>安装：</p>
+<p>hexo-renderer-mathjax</p>
+<p>hexo-renderer-kramed 或者 hexo-renderer-pandoc</p>
+<p>卸载：</p>
+<p>hexo-renderer-marked</p>
+<p>hexo-math</p>
+<h4 id="8-2-主题config-yml配置"><a href="#8-2-主题config-yml配置" class="headerlink" title="8.2 主题config.yml配置"></a>8.2 主题config.yml配置</h4><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">math:</span><br><span class="line">  # Default (true) will load mathjax / katex script on demand.</span><br><span class="line">  # That is it only render those page which has `mathjax: true` in Front-matter.</span><br><span class="line">  # If you set it to false, it will load mathjax / katex srcipt EVERY PAGE.</span><br><span class="line">  per_page: true</span><br><span class="line"></span><br><span class="line">  # hexo-renderer-pandoc (or hexo-renderer-kramed) required for full MathJax support.</span><br><span class="line">  mathjax:</span><br><span class="line">    enable: true</span><br><span class="line">    # See: https://mhchem.github.io/MathJax-mhchem/</span><br><span class="line">    mhchem: false</span><br></pre></td></tr></table></figure>
+<h4 id="8-3-文章头设置"><a href="#8-3-文章头设置" class="headerlink" title="8.3 文章头设置"></a>8.3 文章头设置</h4><p>mathjax: true</p>
+<h4 id="8-4-更改-hexo-renderer-kramed-部分转义规则"><a href="#8-4-更改-hexo-renderer-kramed-部分转义规则" class="headerlink" title="8.4 更改 hexo-renderer-kramed 部分转义规则"></a>8.4 更改 hexo-renderer-kramed 部分转义规则</h4><p>主要是因为hexo-renderer-kramed渲染MathJax时与Markdown语法冲突</p>
+<p>找到</p>
+<p>node_modules\kramed\lib\rules\inline.js</p>
+<p>修改以下几个地方：</p>
+<p><strong>问题描述：</strong>当公式中出现\\表示换行时，会被kramed渲染为\，导致公式显示异常。</p>
+<p><strong>解决：</strong>修改第 11 行的 escape 变量的值，这一步是在原基础上取消了对 <code>\ , &#123; , &#125;</code> 的转义</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">把 escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,</span><br><span class="line">改为 escape: /^\\([`*\[\]()#$+\-.!_&gt;])/,</span><br></pre></td></tr></table></figure>
+<p><strong>问题描述</strong>：当公式中出现多个下划线时，会被kramed渲染为Markdown斜体，导致公式显示异常。</p>
+<p><strong>解决：</strong>修改第 20 行的 em 变量的值，这一步取消了对斜体标记_的转义</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">把 em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br><span class="line">改为 em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://www.baidu.com/link?url=gZx5iE0YF1HpYWwPi0rcm_mSFEmO2CZ9NPhRHS9teMV-F1EiPfYSwE3UqXDd9omWFXHB302oefCqC_K231-kAnWfI70ZTXJmf72_qAhOxQu&amp;wd=&amp;eqid=c3ba57a400000ef200000006632c4a1d">其他渲染冲突问题</a></p>
+<h4 id="8-5-本地渲染成功，部署到github远程端不能渲染数学公式"><a href="#8-5-本地渲染成功，部署到github远程端不能渲染数学公式" class="headerlink" title="8.5 本地渲染成功，部署到github远程端不能渲染数学公式"></a>8.5 本地渲染成功，部署到github远程端不能渲染数学公式</h4><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d43535c17ce2?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes">参考</a></p>
+<p>先说原因，简单来说就是本地的mathjax脚本可以启用成功，发布到远程的时候，别人打开网页，网页会自动使用mathjax官网服务器的脚本来渲染公式，假如调用脚本失败，那么网页公式就会渲染失败。而调用失败的原因就是网页安全限制了调用脚本，解决方法就是更改mathjax的cdn或者到GitHub上取消https</p>
+<p>定位到   </p>
+<p>   <code>\node_modules\hexo-renderer-mathjax\mathjax.html</code>   </p>
+<p>把原来的    </p>
+<p>   <code>&lt;script src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;</code>   </p>
+<p>修改为    </p>
+<p>   <code>&lt;script src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;</code></p>
+<h2 id="9-导航栏设置"><a href="#9-导航栏设置" class="headerlink" title="9. 导航栏设置"></a>9. 导航栏设置</h2><h4 id="9-1-主题config-yml配置"><a href="#9-1-主题config-yml配置" class="headerlink" title="9.1 主题config.yml配置"></a>9.1 主题config.yml配置</h4><p>仿照menu的格式，可以创建一个submenu，名字随意，这个主要用来存取子菜单的变量名和链接的</p>
+<h4 id="9-2-主题布局文件layout-partial-left-col-ejs添加代码"><a href="#9-2-主题布局文件layout-partial-left-col-ejs添加代码" class="headerlink" title="9.2 主题布局文件layout/_partial/left-col.ejs添加代码"></a>9.2 主题布局文件layout/_partial/left-col.ejs添加代码</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav class=&quot;header-menu&quot;&gt;</span><br><span class="line">	&lt;ul&gt;</span><br><span class="line">	&lt;li&gt;&lt;a style=&quot;color:rgb(228, 117, 238)&quot;&gt;Deep Learning &lt;/a&gt;</span><br><span class="line">		&lt;nav class=&quot;header-submenu&quot;&gt;</span><br><span class="line">			&lt;ul&gt;</span><br><span class="line">				&lt;% for (var i in theme.DeepLearning) &#123; %&gt;</span><br><span class="line">					&lt;li&gt;&lt;a href=&quot;&lt;%- url_for(theme.DeepLearning[i]) %&gt;&quot;&gt;&lt;div&gt;&lt;%= i %&gt;&lt;/div&gt;&lt;/a&gt;&lt;/li&gt;  </span><br><span class="line">				&lt;% &#125; %&gt;</span><br><span class="line">			&lt;/ul&gt;</span><br><span class="line">		&lt;/nav&gt;	</span><br><span class="line">	&lt;/li&gt;     </span><br><span class="line">	&lt;/ul&gt;</span><br><span class="line">&lt;/nav&gt;</span><br></pre></td></tr></table></figure>
+<p>其中，下面的代码是指定输出的样式为header-menu，这个样式文件在主题/source/css/_partial/main.styl中可以找到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav class=&quot;header-menu&quot;&gt;</span><br><span class="line">&lt;/nav&gt;</span><br></pre></td></tr></table></figure>
+<p>然后，下面的代码，是输出字体 Deep Learning，并且不带链接的纯字体，并且可以修改颜色</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;li&gt;&lt;a style=&quot;color:rgb(228, 117, 238)&quot;&gt;Deep Learning &lt;/a&gt;</span><br><span class="line">&lt;/li&gt;</span><br></pre></td></tr></table></figure>
+<p>然后，下面的代码是指定输出的样式为header-submenu，同样也在main.styl中，只不过这个样式是我们增加的，需要拷贝前面的导航menu的样式，然后稍作修改，变成子菜单的样式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav class=&quot;header-submenu&quot;&gt;</span><br><span class="line">			&lt;ul&gt;</span><br><span class="line">				&lt;% for (var i in theme.DeepLearning) &#123; %&gt;</span><br><span class="line">					&lt;li&gt;&lt;a href=&quot;&lt;%- url_for(theme.DeepLearning[i]) %&gt;&quot;&gt;&lt;div&gt;&lt;%= i %&gt;&lt;/div&gt;&lt;/a&gt;&lt;/li&gt;  </span><br><span class="line">				&lt;% &#125; %&gt;</span><br><span class="line">			&lt;/ul&gt;</span><br><span class="line">		&lt;/nav&gt;	</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，我们的分类目录就按照一级目录，不作任何改变</p>
+<h2 id="10-如何添加评论"><a href="#10-如何添加评论" class="headerlink" title="10. 如何添加评论"></a>10. 如何添加评论</h2><h4 id="10-1-可用评论插件："><a href="#10-1-可用评论插件：" class="headerlink" title="10.1 可用评论插件："></a>10.1 可用评论插件：</h4><p>gitalk，vline等，注意，这些插件一般两种使用方法，第一种就是安装到本地，把css，js文件弄到相应文件夹，然后就可以创建相应的容器，也就是评论框了，第二种方法是在线引入样式文件，然后在需要的位置引入容器，由此可知，容器是依赖样式文件的；</p>
+<h4 id="10-2-gitalk的基本配置："><a href="#10-2-gitalk的基本配置：" class="headerlink" title="10.2 gitalk的基本配置："></a>10.2 gitalk的基本配置：</h4><p>第一点，你就按网上申请那个OAuth Apps，这个主要是用来把评论的数据存到你github仓库的issues里面的，方便管理；</p>
+<p>第二点，你先按网上的方法进行设置，看看能不能成功，其实就是在layout/_partial文件夹下配置引入cdn和显示容器的JavaScript文件，名称一般设置为gitalk.ejs，然后在layout文件夹下的article.ejs文件夹内使用插入代码，把刚刚设定好的代码插进你需要的位置。其实两步可以一步搞定，直接把那串代码复制到相应的位置就行了。另外gitalk.ejs里面多次引用了主题config.yml中预设好的变量，这步可以直接填写变量，省去主题文件的配置了。</p>
+<p>第三点，假如这个方法无法正常显示，我就是这样，排除其他原因，我这里最后是引入cdn的问题，也就是那把引入cdn的代码放在需要插入评论的位置，就不行，而是需要插入到这个html文件的开头，找到layout文件夹下的head.ejs(跟article.ejs一个文件夹)，然后在</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- js(&#x27;//cdn.bootcss.com/require.js/2.3.2/require.min.js&#x27;) %&gt;</span><br><span class="line">&lt;%- js(&#x27;//cdn.bootcss.com/jquery/3.1.1/jquery.min.js&#x27;) %&gt;</span><br></pre></td></tr></table></figure>
+<p>这两句代码之前，插入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/gitalk/dist/gitalk.css&quot;&gt;</span><br><span class="line">&lt;%- js(&#x27;https://unpkg.com/gitalk/dist/gitalk.min.js&#x27;) %&gt;</span><br><span class="line">&lt;%- js(&#x27;https://priesttomb.github.io/js/md5.min.js&#x27;) %&gt;</span><br></pre></td></tr></table></figure>
+<p>注意，<code>&lt;%js(&#39;https://unpkg.com/gitalk/dist/gitalk.min.js&#39;) %&gt;</code> ,会被编译成 </p>
+<p><code>&lt;script src=&quot;https://unpkg.com/gitalk/dist/gitalk.min.js&quot;&gt;&lt;/script&gt;</code></p>
+<p>而在article.ejs的最后，添加如下代码，就能添加评论的容器，实例化，并渲染</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (!index &amp;&amp; post.comments)&#123; %&gt;</span><br><span class="line">    &lt;section id=&quot;comments&quot; style=&quot;margin: 60px;&quot;&gt;</span><br><span class="line">      &lt;div id=&quot;gitalk-container&quot;&gt;&lt;/div&gt;</span><br><span class="line">      &lt;script&gt;</span><br><span class="line">      var gitalk = new Gitalk(&#123;</span><br><span class="line">          clientID: #按网上教程改,</span><br><span class="line">          clientSecret: #按网上教程改,</span><br><span class="line">          repo: #按网上教程改,</span><br><span class="line">          owner: #按网上教程改,</span><br><span class="line">          admin: [#按网上教程改],</span><br><span class="line">          id: md5(location.pathname),      // Ensure uniqueness and length less than 50</span><br><span class="line">          distractionFreeMode: false  // Facebook-like distraction free mode</span><br><span class="line">        &#125;)</span><br><span class="line">      gitalk.render(&#x27;gitalk-container&#x27;)</span><br><span class="line">      &lt;/script&gt;</span><br><span class="line">      </span><br><span class="line">    &lt;/section&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>第四点，github上需要在issues上面新建一个标签，名称为gitalk</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/09/03/matrix-opt/KT-conditions/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          KT条件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/08/11/ml-nndl/How-does-GAN-work/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">How does GAN work?</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+    <section id="comments" style="margin: 60px;">
+      <div id="gitalk-container"></div>
+      <script>
+      var gitalk = new Gitalk({
+          clientID: 'ecf230c60af3ed1123fa',
+          clientSecret: '1e1daf2e6dd957a3f7d6b22b524387d14aafdb13',
+          repo: 'hfut-zyw.github.io',
+          owner: 'hfut-zyw',
+          admin: ['hfut-zyw'],
+          id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+      gitalk.render('gitalk-container')
+      </script>
+      
+    </section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        <a href="https://space.bilibili.com/782159" target="_blank">访问我的哔哩哔哩</a> 
+      </div>
+        <div class="footer-right">
+        &copy; 2024 张有为
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: ,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":85,"height":170},"mobile":{"show":false},"log":false});</script></body>
+</html>

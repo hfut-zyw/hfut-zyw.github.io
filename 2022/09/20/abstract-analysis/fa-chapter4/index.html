@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>泛函笔记--第4章 共轭空间与共轭算子 | Homepage | 张有为</title>
+  <title>泛函笔记Chapter4 共轭空间与共轭算子 | Homepage | 张有为</title>
 
   <!-- keywords -->
   
@@ -11,25 +11,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="正如现实世界在镜子中的像一样，赋范线性空间也有它的对偶空间，一个算子也有它的共轭算子，共轭的概念主要出自于代数，是一种对称性的刻画，为后面的理论研究有很大帮助。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="泛函笔记--第4章 共轭空间与共轭算子">
+<meta property="og:title" content="泛函笔记Chapter4 共轭空间与共轭算子">
 <meta property="og:url" content="http://example.com/2022/09/20/abstract-analysis/fa-chapter4/index.html">
 <meta property="og:site_name" content="Homepage | 张有为">
 <meta property="og:description" content="正如现实世界在镜子中的像一样，赋范线性空间也有它的对偶空间，一个算子也有它的共轭算子，共轭的概念主要出自于代数，是一种对称性的刻画，为后面的理论研究有很大帮助。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img-analysis/fa-chapter4-fig1.png">
-<meta property="og:image" content="http://example.com/img-analysis/fa-chapter4-fig2.png">
-<meta property="og:image" content="http://example.com/img-analysis/fa-chapter4-fig3.png">
+<meta property="og:image" content="http://example.com/img/functional-analysis/fa-chapter4-fig1.png">
+<meta property="og:image" content="http://example.com/img/functional-analysis/fa-chapter4-fig2.png">
+<meta property="og:image" content="http://example.com/img/functional-analysis/fa-chapter4-fig3.png">
 <meta property="article:published_time" content="2022-09-20T00:05:18.000Z">
-<meta property="article:modified_time" content="2023-05-31T08:37:41.081Z">
+<meta property="article:modified_time" content="2024-01-14T02:19:00.928Z">
 <meta property="article:author" content="张有为">
 <meta property="article:tag" content="分析笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img-analysis/fa-chapter4-fig1.png">
+<meta name="twitter:image" content="http://example.com/img/functional-analysis/fa-chapter4-fig1.png">
   
     <link rel="alternative" href="/atom.xml" title="Homepage | 张有为" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/icon.gif">
+    <link rel="icon" href="/img/face/icon.gif">
   
   
 <link rel="stylesheet" href="/css/style.css">
@@ -60,7 +60,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/img/face.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
+			<img src="/img/face/face.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
 		</a>
 
 		<hgroup>
@@ -76,10 +76,10 @@
 					<nav class="header-menu">
 						<ul>
 						
-							<li><a href="/2022/08/09/me/aboutme">个人简介</a>
+							<li><a href="/2022/08/09/aboutme/aboutme">个人简介</a>
 							</li>
 				        
-							<li><a href="/categories/notes">随写笔记</a>
+							<li><a href="/categories/tools">工具杂记</a>
 							</li>
 				        
 							<li><a href="/categories/abstract-analysis">抽象分析基础</a>
@@ -88,7 +88,7 @@
 							<li><a href="/categories/probability">高等概率统计</a>
 							</li>
 				        
-							<li><a href="/categories/opt">矩阵论与最优化</a>
+							<li><a href="/categories/matrix-opt">矩阵论与最优化</a>
 							</li>
 				        
 						</ul>
@@ -100,9 +100,9 @@
 							<nav class="header-submenu">
 								<ul>
 									
-										<li><a href="/categories/nndl"><div>深度学习</div></a></li>  
+										<li><a href="/categories/python-lib"><div>Python杂记</div></a></li>  
 									
-										<li><a href="/categories/Pre-processing"><div>数据处理</div></a></li>  
+										<li><a href="/categories/ml-nndl"><div>机器学习与深度学习</div></a></li>  
 									
 								</ul>
 							</nav>	
@@ -133,7 +133,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Matplotlib%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Matplotlib笔记</a> <a href="/tags/Pandas%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Pandas笔记</a> <a href="/tags/Plotly%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Plotly笔记</a> <a href="/tags/Spacy%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Spacy笔记</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%AC%94%E8%AE%B0/" style="font-size: 17.5px;">优化笔记</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 10px;">关于我</a> <a href="/tags/%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">分析笔记</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">深度学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/" style="font-size: 17.5px;">深度学习框架</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 12.5px;">自然语言处理</a> <a href="/tags/%E9%9A%8F%E5%86%99/" style="font-size: 15px;">随写</a>
+						<a href="/tags/Matplotlib%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Matplotlib笔记</a> <a href="/tags/Pandas%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Pandas笔记</a> <a href="/tags/Plotly%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Plotly笔记</a> <a href="/tags/Python%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 10px;">Python字符串</a> <a href="/tags/Spacy%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Spacy笔记</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%AC%94%E8%AE%B0/" style="font-size: 17.5px;">优化笔记</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 10px;">关于我</a> <a href="/tags/%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">分析笔记</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">深度学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/" style="font-size: 17.5px;">深度学习框架</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 10px;">自然语言处理</a> <a href="/tags/%E9%9A%8F%E5%86%99/" style="font-size: 15px;">随写</a>
 					</div>
 				</section>
 				
@@ -155,7 +155,7 @@
   <div class="intrude-less">
 	  <header id="header" class="inner">
 		  <div class="profilepic">
-			  <img src="/img/face4.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
+			  <img src="/img/face/face4.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
 		  </div>
 		  <hgroup>
 			<h1 class="header-author"></h1>
@@ -165,15 +165,15 @@
 		  <nav class="header-menu">
 			  <ul>
 			  
-				  <li><a href="/2022/08/09/me/aboutme" style="color:rgba(69, 7, 241, 0.904)" >个人简介</a></li>
+				  <li><a href="/2022/08/09/aboutme/aboutme" style="color:rgba(69, 7, 241, 0.904)" >个人简介</a></li>
 			  
-				  <li><a href="/categories/notes" style="color:rgba(69, 7, 241, 0.904)" >随写笔记</a></li>
+				  <li><a href="/categories/tools" style="color:rgba(69, 7, 241, 0.904)" >工具杂记</a></li>
 			  
 				  <li><a href="/categories/abstract-analysis" style="color:rgba(69, 7, 241, 0.904)" >抽象分析基础</a></li>
 			  
 				  <li><a href="/categories/probability" style="color:rgba(69, 7, 241, 0.904)" >高等概率统计</a></li>
 			  
-				  <li><a href="/categories/opt" style="color:rgba(69, 7, 241, 0.904)" >矩阵论与最优化</a></li>
+				  <li><a href="/categories/matrix-opt" style="color:rgba(69, 7, 241, 0.904)" >矩阵论与最优化</a></li>
 			  
 			  <div class="clearfix"></div>
 			  </ul>
@@ -185,9 +185,9 @@
 				  <nav class="header-submenu">
 					  <ul>
 						  
-							  <li><a href="/categories/nndl" style="color:rgba(69, 7, 241, 0.904)" ><div>深度学习</div></a></li>  
+							  <li><a href="/categories/python-lib" style="color:rgba(69, 7, 241, 0.904)" ><div>Python杂记</div></a></li>  
 						  
-							  <li><a href="/categories/Pre-processing" style="color:rgba(69, 7, 241, 0.904)" ><div>数据处理</div></a></li>  
+							  <li><a href="/categories/ml-nndl" style="color:rgba(69, 7, 241, 0.904)" ><div>机器学习与深度学习</div></a></li>  
 						  
 					  </ul>
 				  </nav>	
@@ -226,7 +226,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      泛函笔记--第4章 共轭空间与共轭算子
+      泛函笔记Chapter4 共轭空间与共轭算子
       
           <span class="title-pop-out"></a>
       
@@ -270,9 +270,9 @@ X^*=B(X,K)=\{ X上定义的全体有界线性泛函  \}</script><p>称$X^*$为$X
 <p>可以用矩阵表示，如果映射到数域K上，那么这个矩阵实际就是一个向量，原本线性变换只是一个抽象  </p>
 <p>的符号，以及用映射的定义来表示，通过同构，可以用一个具体的空间中的元素来把线性变换表示出来  </p>
 <p>在无穷维线性空间中，泛函同样可以有一个具体的表示形式，泛函空间一样可以同构到一个具体的空间  </p>
-<h2 id="共轭算子的提出"><a href="#共轭算子的提出" class="headerlink" title="共轭算子的提出"></a>共轭算子的提出</h2><h3 id="原始定义"><a href="#原始定义" class="headerlink" title="原始定义"></a>原始定义</h3><p><img src="/img-analysis/fa-chapter4-fig1.png" style="zoom:120%;" /></p>
-<h3 id="Hilbert空间上的共轭算子"><a href="#Hilbert空间上的共轭算子" class="headerlink" title="Hilbert空间上的共轭算子"></a>Hilbert空间上的共轭算子</h3><p><img src="/img-analysis/fa-chapter4-fig2.png" style="zoom:120%;" /></p>
-<h3 id="从物理角度来看"><a href="#从物理角度来看" class="headerlink" title="从物理角度来看"></a>从物理角度来看</h3><p><img src="/img-analysis/fa-chapter4-fig3.png" style="zoom:120%;" /></p>
+<h2 id="共轭算子的提出"><a href="#共轭算子的提出" class="headerlink" title="共轭算子的提出"></a>共轭算子的提出</h2><h3 id="原始定义"><a href="#原始定义" class="headerlink" title="原始定义"></a>原始定义</h3><p><img src="/img/functional-analysis/fa-chapter4-fig1.png" style="zoom:120%;" /></p>
+<h3 id="Hilbert空间上的共轭算子"><a href="#Hilbert空间上的共轭算子" class="headerlink" title="Hilbert空间上的共轭算子"></a>Hilbert空间上的共轭算子</h3><p><img src="/img/functional-analysis/fa-chapter4-fig2.png" style="zoom:120%;" /></p>
+<h3 id="从物理角度来看"><a href="#从物理角度来看" class="headerlink" title="从物理角度来看"></a>从物理角度来看</h3><p><img src="/img/functional-analysis/fa-chapter4-fig3.png" style="zoom:120%;" /></p>
 <h3 id="共轭算子定义的合理性"><a href="#共轭算子定义的合理性" class="headerlink" title="共轭算子定义的合理性"></a>共轭算子定义的合理性</h3><p>由于原始定义涉及4个空间，很复杂，这里仅讨论Hilbert空间上的共轭算子定义的合理性</p>
 <p>（1）. $T^*$ 的存在性：  </p>
 <p>取定$T,y$ , 定义 $f_{T,y}(x)=(Tx,y)$ 是H上的有界线性泛函，由Riesz表示定理，存在唯一的$z \in H,st. f_{T,y}(x) $=(x,z) ,</p>
@@ -314,14 +314,14 @@ X^*=B(X,K)=\{ X上定义的全体有界线性泛函  \}</script><p>称$X^*$为$X
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
-          泛函笔记--第5章 谱分析
+          泛函笔记Chapter5 谱分析
         
       </div>
     </a>
   
   
     <a href="/2022/09/19/abstract-analysis/fa-chapter3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">泛函笔记--第3章 泛函分析四大基本定理</div>
+      <div class="article-nav-title">泛函笔记Chapter3 泛函分析四大基本定理</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
@@ -360,7 +360,7 @@ X^*=B(X,K)=\{ X上定义的全体有界线性泛函  \}</script><p>称$X^*$为$X
         <a href="https://space.bilibili.com/782159" target="_blank">访问我的哔哩哔哩</a> 
       </div>
         <div class="footer-right">
-        &copy; 2023 张有为
+        &copy; 2024 张有为
         </div>
     </div>
   </div>

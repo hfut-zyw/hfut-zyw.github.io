@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>泛函笔记--第3章 泛函分析四大基本定理 | Homepage | 张有为</title>
+  <title>泛函笔记Chapter3 泛函分析四大基本定理 | Homepage | 张有为</title>
 
   <!-- keywords -->
   
@@ -11,24 +11,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="介绍泛函分析中的四大基本定理：一致有界原则和共鸣定理，开映射定理和逆算子定理，闭算子定理，Hahn-Banach延拓定理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="泛函笔记--第3章 泛函分析四大基本定理">
+<meta property="og:title" content="泛函笔记Chapter3 泛函分析四大基本定理">
 <meta property="og:url" content="http://example.com/2022/09/19/abstract-analysis/fa-chapter3/index.html">
 <meta property="og:site_name" content="Homepage | 张有为">
 <meta property="og:description" content="介绍泛函分析中的四大基本定理：一致有界原则和共鸣定理，开映射定理和逆算子定理，闭算子定理，Hahn-Banach延拓定理">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img-analysis/fa-chapter3-fig1.png">
-<meta property="og:image" content="http://example.com/img-analysis/fa-chapter3-fig2.png">
+<meta property="og:image" content="http://example.com/img/functional-analysis/fa-chapter3-fig1.png">
+<meta property="og:image" content="http://example.com/img/functional-analysis/fa-chapter3-fig2.png">
 <meta property="article:published_time" content="2022-09-19T13:02:17.000Z">
-<meta property="article:modified_time" content="2023-05-31T08:37:35.187Z">
+<meta property="article:modified_time" content="2024-01-14T02:18:54.319Z">
 <meta property="article:author" content="张有为">
 <meta property="article:tag" content="分析笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img-analysis/fa-chapter3-fig1.png">
+<meta name="twitter:image" content="http://example.com/img/functional-analysis/fa-chapter3-fig1.png">
   
     <link rel="alternative" href="/atom.xml" title="Homepage | 张有为" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/icon.gif">
+    <link rel="icon" href="/img/face/icon.gif">
   
   
 <link rel="stylesheet" href="/css/style.css">
@@ -59,7 +59,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/img/face.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
+			<img src="/img/face/face.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
 		</a>
 
 		<hgroup>
@@ -75,10 +75,10 @@
 					<nav class="header-menu">
 						<ul>
 						
-							<li><a href="/2022/08/09/me/aboutme">个人简介</a>
+							<li><a href="/2022/08/09/aboutme/aboutme">个人简介</a>
 							</li>
 				        
-							<li><a href="/categories/notes">随写笔记</a>
+							<li><a href="/categories/tools">工具杂记</a>
 							</li>
 				        
 							<li><a href="/categories/abstract-analysis">抽象分析基础</a>
@@ -87,7 +87,7 @@
 							<li><a href="/categories/probability">高等概率统计</a>
 							</li>
 				        
-							<li><a href="/categories/opt">矩阵论与最优化</a>
+							<li><a href="/categories/matrix-opt">矩阵论与最优化</a>
 							</li>
 				        
 						</ul>
@@ -99,9 +99,9 @@
 							<nav class="header-submenu">
 								<ul>
 									
-										<li><a href="/categories/nndl"><div>深度学习</div></a></li>  
+										<li><a href="/categories/python-lib"><div>Python杂记</div></a></li>  
 									
-										<li><a href="/categories/Pre-processing"><div>数据处理</div></a></li>  
+										<li><a href="/categories/ml-nndl"><div>机器学习与深度学习</div></a></li>  
 									
 								</ul>
 							</nav>	
@@ -132,7 +132,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Matplotlib%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Matplotlib笔记</a> <a href="/tags/Pandas%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Pandas笔记</a> <a href="/tags/Plotly%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Plotly笔记</a> <a href="/tags/Spacy%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Spacy笔记</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%AC%94%E8%AE%B0/" style="font-size: 17.5px;">优化笔记</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 10px;">关于我</a> <a href="/tags/%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">分析笔记</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">深度学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/" style="font-size: 17.5px;">深度学习框架</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 12.5px;">自然语言处理</a> <a href="/tags/%E9%9A%8F%E5%86%99/" style="font-size: 15px;">随写</a>
+						<a href="/tags/Matplotlib%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Matplotlib笔记</a> <a href="/tags/Pandas%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Pandas笔记</a> <a href="/tags/Plotly%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Plotly笔记</a> <a href="/tags/Python%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 10px;">Python字符串</a> <a href="/tags/Spacy%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Spacy笔记</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%AC%94%E8%AE%B0/" style="font-size: 17.5px;">优化笔记</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 10px;">关于我</a> <a href="/tags/%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">分析笔记</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">深度学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/" style="font-size: 17.5px;">深度学习框架</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 10px;">自然语言处理</a> <a href="/tags/%E9%9A%8F%E5%86%99/" style="font-size: 15px;">随写</a>
 					</div>
 				</section>
 				
@@ -154,7 +154,7 @@
   <div class="intrude-less">
 	  <header id="header" class="inner">
 		  <div class="profilepic">
-			  <img src="/img/face4.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
+			  <img src="/img/face/face4.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
 		  </div>
 		  <hgroup>
 			<h1 class="header-author"></h1>
@@ -164,15 +164,15 @@
 		  <nav class="header-menu">
 			  <ul>
 			  
-				  <li><a href="/2022/08/09/me/aboutme" style="color:rgba(69, 7, 241, 0.904)" >个人简介</a></li>
+				  <li><a href="/2022/08/09/aboutme/aboutme" style="color:rgba(69, 7, 241, 0.904)" >个人简介</a></li>
 			  
-				  <li><a href="/categories/notes" style="color:rgba(69, 7, 241, 0.904)" >随写笔记</a></li>
+				  <li><a href="/categories/tools" style="color:rgba(69, 7, 241, 0.904)" >工具杂记</a></li>
 			  
 				  <li><a href="/categories/abstract-analysis" style="color:rgba(69, 7, 241, 0.904)" >抽象分析基础</a></li>
 			  
 				  <li><a href="/categories/probability" style="color:rgba(69, 7, 241, 0.904)" >高等概率统计</a></li>
 			  
-				  <li><a href="/categories/opt" style="color:rgba(69, 7, 241, 0.904)" >矩阵论与最优化</a></li>
+				  <li><a href="/categories/matrix-opt" style="color:rgba(69, 7, 241, 0.904)" >矩阵论与最优化</a></li>
 			  
 			  <div class="clearfix"></div>
 			  </ul>
@@ -184,9 +184,9 @@
 				  <nav class="header-submenu">
 					  <ul>
 						  
-							  <li><a href="/categories/nndl" style="color:rgba(69, 7, 241, 0.904)" ><div>深度学习</div></a></li>  
+							  <li><a href="/categories/python-lib" style="color:rgba(69, 7, 241, 0.904)" ><div>Python杂记</div></a></li>  
 						  
-							  <li><a href="/categories/Pre-processing" style="color:rgba(69, 7, 241, 0.904)" ><div>数据处理</div></a></li>  
+							  <li><a href="/categories/ml-nndl" style="color:rgba(69, 7, 241, 0.904)" ><div>机器学习与深度学习</div></a></li>  
 						  
 					  </ul>
 				  </nav>	
@@ -225,7 +225,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      泛函笔记--第3章 泛函分析四大基本定理
+      泛函笔记Chapter3 泛函分析四大基本定理
       
           <span class="title-pop-out"></a>
       
@@ -383,12 +383,12 @@
 <h3 id="Hahn-Banach定理"><a href="#Hahn-Banach定理" class="headerlink" title="Hahn-Banach定理"></a>Hahn-Banach定理</h3><p>设$f$是定义在赋范线性空间$X$的子集$G$上的有界线性泛函，则$f$可以保范延拓至全空间$X$上  </p>
 <h6 id="证明思路：-2"><a href="#证明思路：-2" class="headerlink" title="证明思路："></a>证明思路：</h6><p>先将$f$从$G$上保范延拓至G和G外一点$x_1$张成的子空间上，再由Zorn引理（差不多就是数学归纳法用在不可数的情况）即可得到结论  </p>
 <p>这里证明过程不再给出，一般泛函书籍都有介绍，下面给出这个延拓的几何直观解释  </p>
-<p><img src="/img-analysis/fa-chapter3-fig1.png" style="zoom:120%;" /></p>
+<p><img src="/img/functional-analysis/fa-chapter3-fig1.png" style="zoom:120%;" /></p>
 <h3 id="线性泛函和闭集分离定理"><a href="#线性泛函和闭集分离定理" class="headerlink" title="线性泛函和闭集分离定理"></a>线性泛函和闭集分离定理</h3><p>设 $ G $ 是赋范空间$ X$ 的子空间, $  x_{1} \in X ,$  如果</p>
 <p>$ d=d\left(x_{1}, G\right)=\inf\limits _{x \in G}\left\|x-x_{1}\right\|&gt;0,$ </p>
 <p>则存在 $  X  $ 上的有界线性泛函 $  f_1 ,$ </p>
 <p>$ \|f_1\|=\frac{1}{d} ;  \quad f_1\left(x_{1}\right)=1 ; f_1(x)=0, \forall x \in G $ </p>
-<p><img src="/img-analysis/fa-chapter3-fig2.png" style="zoom:120%;" /></p>
+<p><img src="/img/functional-analysis/fa-chapter3-fig2.png" style="zoom:120%;" /></p>
 <p>注：闭集分离定理和延拓定理本质是一回事，两者可以相互推，关于这个定理在连续函数中也有类似结论，参考<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV195411p72j">Tietze扩张</a></p>
 <iframe src="//player.bilibili.com/player.html?aid=455903289&bvid=BV195411p72j&cid=199763814&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="600" height="500"> </iframe>
 
@@ -404,14 +404,14 @@
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
-          泛函笔记--第4章 共轭空间与共轭算子
+          泛函笔记Chapter4 共轭空间与共轭算子
         
       </div>
     </a>
   
   
     <a href="/2022/09/19/abstract-analysis/fa-chapter1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">泛函笔记--第1章 有界线性算子</div>
+      <div class="article-nav-title">泛函笔记Chapter1 有界线性算子</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
@@ -450,7 +450,7 @@
         <a href="https://space.bilibili.com/782159" target="_blank">访问我的哔哩哔哩</a> 
       </div>
         <div class="footer-right">
-        &copy; 2023 张有为
+        &copy; 2024 张有为
         </div>
     </div>
   </div>

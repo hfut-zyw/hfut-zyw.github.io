@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>正则表达式30分钟入门 | Homepage | 张有为</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="正则表达式里面最简单的部分，30分钟看懂并上手使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式30分钟入门">
+<meta property="og:url" content="http://example.com/2023/04/22/python-lib/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F30%E5%88%86%E9%92%9F%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="Homepage | 张有为">
+<meta property="og:description" content="正则表达式里面最简单的部分，30分钟看懂并上手使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/string-process/正则表达式01.png">
+<meta property="og:image" content="http://example.com/img/string-process/正则表达式02.png">
+<meta property="og:image" content="http://example.com/img/string-process/正则表达式03.png">
+<meta property="og:image" content="http://example.com/img/string-process/正则表达式04.png">
+<meta property="og:image" content="http://example.com/img/string-process/正则表达式05.png">
+<meta property="og:image" content="http://example.com/img/string-process/正则表达式06.png">
+<meta property="og:image" content="http://example.com/img/string-process/正则表达式07.png">
+<meta property="og:image" content="http://example.com/img/string-process/正则表达式11.png">
+<meta property="og:image" content="http://example.com/img/string-process/正则表达式08.png">
+<meta property="og:image" content="http://example.com/img/string-process/正则表达式09.png">
+<meta property="og:image" content="http://example.com/img/string-process/正则表达式10.png">
+<meta property="article:published_time" content="2023-04-22T12:45:44.000Z">
+<meta property="article:modified_time" content="2024-01-14T02:29:58.396Z">
+<meta property="article:author" content="张有为">
+<meta property="article:tag" content="自然语言处理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/string-process/正则表达式01.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Homepage | 张有为" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/face/icon.gif">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+  
+<script src="https://priesttomb.github.io/js/md5.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="/img/face/face.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">张有为</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/2022/08/09/aboutme/aboutme">个人简介</a>
+							</li>
+				        
+							<li><a href="/categories/tools">工具杂记</a>
+							</li>
+				        
+							<li><a href="/categories/abstract-analysis">抽象分析基础</a>
+							</li>
+				        
+							<li><a href="/categories/probability">高等概率统计</a>
+							</li>
+				        
+							<li><a href="/categories/matrix-opt">矩阵论与最优化</a>
+							</li>
+				        
+						</ul>
+					</nav>
+
+					<nav class="header-menu">
+						<ul>
+						<li><a style="color:rgb(36, 243, 105)">Deep Learning </a>
+							<nav class="header-submenu">
+								<ul>
+									
+										<li><a href="/categories/python-lib"><div>Python杂记</div></a></li>  
+									
+										<li><a href="/categories/ml-nndl"><div>机器学习与深度学习</div></a></li>  
+									
+								</ul>
+							</nav>	
+						</li>     
+						</ul>
+					</nav>
+					
+								
+					
+
+
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/hfut-zyw" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="mailto:lucario@qq.com" title="mail">mail</a>
+					        
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Matplotlib%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Matplotlib笔记</a> <a href="/tags/Pandas%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Pandas笔记</a> <a href="/tags/Plotly%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Plotly笔记</a> <a href="/tags/Python%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 10px;">Python字符串</a> <a href="/tags/Spacy%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Spacy笔记</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%AC%94%E8%AE%B0/" style="font-size: 17.5px;">优化笔记</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 10px;">关于我</a> <a href="/tags/%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">分析笔记</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">深度学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/" style="font-size: 17.5px;">深度学习框架</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 10px;">自然语言处理</a> <a href="/tags/%E9%9A%8F%E5%86%99/" style="font-size: 15px;">随写</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+	<div class="overlay">
+		<div class="slider-trigger"></div>
+		<h1 class="header-author js-mobile-header hide"></h1>
+	</div>
+  <div class="intrude-less">
+	  <header id="header" class="inner">
+		  <div class="profilepic">
+			  <img src="/img/face/face4.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
+		  </div>
+		  <hgroup>
+			<h1 class="header-author"></h1>
+		  </hgroup>
+		  
+
+		  <nav class="header-menu">
+			  <ul>
+			  
+				  <li><a href="/2022/08/09/aboutme/aboutme" style="color:rgba(69, 7, 241, 0.904)" >个人简介</a></li>
+			  
+				  <li><a href="/categories/tools" style="color:rgba(69, 7, 241, 0.904)" >工具杂记</a></li>
+			  
+				  <li><a href="/categories/abstract-analysis" style="color:rgba(69, 7, 241, 0.904)" >抽象分析基础</a></li>
+			  
+				  <li><a href="/categories/probability" style="color:rgba(69, 7, 241, 0.904)" >高等概率统计</a></li>
+			  
+				  <li><a href="/categories/matrix-opt" style="color:rgba(69, 7, 241, 0.904)" >矩阵论与最优化</a></li>
+			  
+			  <div class="clearfix"></div>
+			  </ul>
+		  </nav>
+
+		  <nav class="header-menu">
+			  <ul>
+			  <li><a style="color:rgba(69, 7, 241, 0.904)">Deep Learning </a>
+				  <nav class="header-submenu">
+					  <ul>
+						  
+							  <li><a href="/categories/python-lib" style="color:rgba(69, 7, 241, 0.904)" ><div>Python杂记</div></a></li>  
+						  
+							  <li><a href="/categories/ml-nndl" style="color:rgba(69, 7, 241, 0.904)" ><div>机器学习与深度学习</div></a></li>  
+						  
+					  </ul>
+				  </nav>	
+			  </li>     
+			  </ul>
+		  </nav>
+
+		  <nav class="header-nav">
+			  <div class="social">
+				  
+					  <a class="github" target="_blank" href="https://github.com/hfut-zyw" title="github">github</a>
+				  
+					  <a class="mail" target="_blank" href="mailto:lucario@qq.com" title="mail">mail</a>
+				  
+			  </div>
+		  </nav>
+	  </header>				
+  </div>
+</nav>
+      <div class="body-wrap">
+
+<article id="post-python-lib/正则表达式30分钟入门" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2023/04/22/python-lib/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F30%E5%88%86%E9%92%9F%E5%85%A5%E9%97%A8/" class="article-date">
+  	<time datetime="2023-04-22T12:45:44.000Z" itemprop="datePublished">2023-04-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      正则表达式30分钟入门
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" rel="tag">自然语言处理</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/python-lib/">python-lib</a>
+	</div>
+
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>正则表达式里面最简单的部分，30分钟看懂并上手使用</p>
+</blockquote>
+<span id="more"></span>
+<h3 id="首先搞明白正则表达式是什么，是用来干什么的"><a href="#首先搞明白正则表达式是什么，是用来干什么的" class="headerlink" title="首先搞明白正则表达式是什么，是用来干什么的"></a>首先搞明白正则表达式是什么，是用来干什么的</h3><p>相信大家使用word的时候，会使用ctrl+F打开查找功能吧，其实这个正则表达式就是更高级的ctrl+F查找，在word里面的ctrl+F，你只能查找简单的字符串，也就是脑子里想到哪个东西去查哪个东西，想查找单词hello，那么就输入hello，word自动会帮你找到所有的hello，但是在某些场合下，我们需要查找更加复杂规则的东西，比如一次性找出类似010-213213，010-244698的号码，显然你靠word的ctrl+F是没法查出来这些全都不一样的号码的，这时候正则表达式就派上用场了，它是描述上面这么一串电话号码规则的一个表达式，比如约定\d表示单个数字字符，那么查找\d\d\d-\d\d\d\d\d\d就能把上面那些号码全部查找出来。  </p>
+<p>正则表达式当然不仅仅是用来查找电话号码的一个表达式，它是描述一串字符的表达式，后面我们学习的就是它是如何来描述各种更加复杂规则的字符串 </p>
+<h3 id="一个正则表达式学习软件"><a href="#一个正则表达式学习软件" class="headerlink" title="一个正则表达式学习软件"></a>一个正则表达式学习软件</h3><p><a target="_blank" rel="noopener" href="https://deerchao.cn/tools/regex_tester/index.htm">下载地址</a></p>
+<p>使用方法：先把原始字符串复制到源文本一栏，  然后把要匹配的表达式填写到模式一栏，  </p>
+<p>最后点击运行，匹配结果会在右边结果栏显示  </p>
+<p><img src="/img/string-process/正则表达式01.png" alt=""></p>
+<h3 id="反斜杠-的含义及其用法"><a href="#反斜杠-的含义及其用法" class="headerlink" title="反斜杠\的含义及其用法"></a>反斜杠<code>\</code>的含义及其用法</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\d</code></td>
+<td>数字字符集</td>
+</tr>
+<tr>
+<td><code>\w</code></td>
+<td>单词字符集</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>例1：  </p>
+<p><code>\d</code>就是表示集合{0，1，2，3，4，5，6，7，8，9}，匹配的时候，一个一个字符扫描，如果字符属于这个集合，就把这个字符拿出来</p>
+<p><img src="/img/string-process/正则表达式02.png" alt="">  </p>
+<p>例2：  </p>
+<p><code>\d\d\d\d</code>表示连续4个属于数字集合的字符  </p>
+<p><img src="/img/string-process/正则表达式03.png" alt="">  </p>
+<p>例3：  </p>
+<p><code>\w</code> 表示属于{数字，字母，下划线，中文汉字}的单个字符   </p>
+<p><img src="/img/string-process/正则表达式04.png" alt="">  </p>
+<p>说明：我们在学习的时候，完全忽略中文汉字，仅仅以纯英文文本作为理解，也就是文本字符串里面只有数字，字母，标点，特殊符号  </p>
+<h3 id="中括号的用法"><a href="#中括号的用法" class="headerlink" title="中括号的用法"></a>中括号的用法</h3><p>一句话概括为：自定义字符集，就是你理解的数学中的集合的含义，但是正则表达式里面的集合  </p>
+<p>不用花括号，用中括号，比如下面几个例子</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[23查找]</td>
+<td>表示属于集合{2，3，查，找}的一个字符</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="/img/string-process/正则表达式05.png" alt="">  </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9][0-9]</code></td>
+<td>就是数字数字数字-数字数字数字数字数字数字</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="/img/string-process/正则表达式06.png" alt="">  </p>
+<p>有人会问了，我靠，<code>[0-9]</code>不应该是{0，-，9}这三个字符的集合吗，怎么就表示0-9这些数字的集合呢，说到这里，就要提一下中括号里面的3个特殊字符，这三个字符具有特殊含义，不是原本的含义了 </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>反斜杠<code>\</code></td>
+<td>转义字符，比如\d表示数字字符</td>
+</tr>
+<tr>
+<td>短横线<code>-</code></td>
+<td>连接在数字中间或者字母中间，表示范围，否则就是原本的<code>-</code>字符</td>
+</tr>
+<tr>
+<td>尖帽子<code>^</code></td>
+<td>在中括号外面是边界字符，在中括号里面表示反义，先别理会，后面会讲</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>如何输出上面3个特殊字符，很简单，前面再加个反斜杠转义字符就行了，另外短横线，只要不是在数字字母中间，就是原本的含义  </p>
+<p><img src="/img/string-process/正则表达式07.png" alt="">  </p>
+<h3 id="中途小结，以及容易混淆的东西说明"><a href="#中途小结，以及容易混淆的东西说明" class="headerlink" title="中途小结，以及容易混淆的东西说明"></a>中途小结，以及容易混淆的东西说明</h3><p><img src="/img/string-process/正则表达式11.png" alt=""> </p>
+<ol>
+<li><p>首先单个反斜杠和中括号虽然表示的是字符集合，但是你写一个，表示匹配在这个字符集里面的一个字符，前面我们匹配电话的时候，就需要反复写  </p>
+</li>
+<li><p>其次，不管那些字符是否有特殊含义，你加个转义字符，它就是它自己了，没有特殊含义了</p>
+</li>
+<li><p>有了字符集的表示方法，我们能查找的东西一下子变的非常多，比如<code>\d[qwer]</code> 就能找出 2q , 7w , 9e 这些东西，<code>\d</code>有10种，[qwer]有4中，那么  </p>
+</li>
+</ol>
+<p>这个表达式就能匹配40种，所以它比ctrl+F的查找更加强大  </p>
+<h3 id="更强大的功能——数量限定符-加乘问花括号"><a href="#更强大的功能——数量限定符-加乘问花括号" class="headerlink" title="更强大的功能——数量限定符  加乘问花括号"></a>更强大的功能——数量限定符  加乘问花括号</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>匹配大于等于1个某字符</td>
+</tr>
+<tr>
+<td>*</td>
+<td>匹配大于等于0个某字符</td>
+</tr>
+<tr>
+<td>?</td>
+<td>匹配0或1个某字符</td>
+</tr>
+<tr>
+<td>{}</td>
+<td>匹配指定数量的某字符</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>使用方法说明：</p>
+<p>虽然有了字符集这么一个强大的表示方法，我们可以根据自己的需求可以随意组合，但是碰到像前面电话号码010-213213，010-244698 这么有规律的字符串，我们用字符集按照电话号码的格式使劲写长长的一大串，有点繁琐，另外有时候电话号码长度不一致的时候，比如123-4324 ，(000)2354也在里面，我们如果按照字符集的表达方法，只要长度不一样，我们就得写好几个正则表达式才能表示这4串号码，所以有4个字符可以对字符直接作数量限制，具体含义直接看下面的例子</p>
+<p><img src="/img/string-process/正则表达式08.png" alt="">  </p>
+<h3 id="接下来要讲什么？"><a href="#接下来要讲什么？" class="headerlink" title="接下来要讲什么？"></a>接下来要讲什么？</h3><p>前面已经讲解了反斜杠，中括号，4个数量限定符的用法，你观察一下键盘，发现还有好多字符对不对，可能里面还有一半的字符都有其特殊含义（表示原字符，也就是字符的原本含义，需要前面加反斜杠，前面已经讲了），但是如果掌握了上面反斜杠，中括号，4个数量限定符的用法，实际上你已经能做很多事情了。</p>
+<p>举个例子，对于IMDB电影评论数据集，里面收集了几万用户对电影的评论的句子，句子里面有中英文单词，空格，标点符号，特殊字符，我们做数据的时候，只要里面的单词，那么如何把单词全部找出来呢，其实<code>[a-zA-Z]+</code>就能把所有的单词抽出来，这个表达式表示大于等于1个字母的字符串，其实就是单词了，注意，</p>
+<p>这里说的单词和上面讲的<code>\w</code>表达的单词不是一个定义，这里讲的单词就是你在英语词典里能找到的单词，而前面讲的<code>\w</code>是正则表达式里面单词字符集{数字，字母，下划线，中文}中的一个字符，如果想表示多个，<code>\w+</code>就可以提取出mike_1998这种“单词了”，再强调一遍，<code>\w</code>单个只能一次提一个字符，然后不停这样提取，提取出来的是m,i,k,e,_,1,9,9,8这种 </p>
+<p>有了上面的认识，后面如果需要更复杂的再去查表即可，后面再补充三个东西：</p>
+<p>第一个东西很简单，就是键盘上反斜杠那个键上面的竖线<code>|</code>,这个符号就是正则表达式里面的条件表达式，比如你写了一个 正则表达式1<code>|</code>正则表达式2  ，就会找符号表达式1或2的字符串，拿前面电话号码的例子来说，如果你很难一次性编写出符合所有电话号码规则的表达式，你就分开写，再用竖线分隔写出来就行。有了前面的例子解释，这里就不写了，你自己有兴趣拿上面的软件试一试。</p>
+<p>第二个东西就是反义，反含义，比如非数字用<code>[^0-9]</code>表示，但是这个尖帽子符号如果写在中括号外面，它表示边界限定符号，就是第三个要讲的东西，但是我们就不拿尖帽子举例了，换个简单的来举例子</p>
+<p>第三个东西：边界限定符，比如<code>\b</code>它表示什么字符集的一个字符呢？答案很奇怪，它不表示任何字符，而是表示一个不存在的字符，这个字符需要你在脑子里抽象画出来，然后匹配的时候去看，由于还没讲例子，你肯定不清楚我上面在讲什么，因为我虽然讲了它不表示任何字符，但是它要怎么匹配我还没说，具体它要怎么匹配，要在例子里面说明，见下图  </p>
+<p><img src="/img/string-process/正则表达式09.png" alt="">  </p>
+<p><img src="/img/string-process/正则表达式10.png" alt="">  </p>
+<p>通过上面两个例子对比，我们就知道了<code>\b</code>的作用，它出现在单词字符的某一边，就是给单词某一边的字符加了一个限制条件，也就是给单词的边界下了一条规则，这就是边界匹配符。由于边界匹配符还有好几个，并且其含义说的不太像人话，这里就不提了。  </p>
+<h3 id="Python中的正则表达式模块"><a href="#Python中的正则表达式模块" class="headerlink" title="Python中的正则表达式模块"></a>Python中的正则表达式模块</h3><p>import re </p>
+<p>patten=re.compile(r”正则表达式”)</p>
+<p>data=re.findall(patten,原始字符串)</p>
+<p>上面先用compile把你写的正则表达式编译成re模块能识别的东西，不要管，接着使用findall找到</p>
+<p>符合正则表达式的所有字符串，返回一个列表给变量名data</p>
+<p>字符串的替换与修改如下：</p>
+<p>re.sub(patten,”你要替换成什么在这里写”,原始字符串)  </p>
+<p>不要管返回值了，反正就这么替换了，简而言之就是python字符串replace方法的加强版  </p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a target="_blank" rel="noopener" href="https://deerchao.cn/tutorials/regex/regex.htm">正则表达式30分钟入门</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/09/21/abstract-analysis/fourier/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          四大傅里叶变换
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/04/17/python-lib/Python%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python字符串处理</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+    <section id="comments" style="margin: 60px;">
+      <div id="gitalk-container"></div>
+      <script>
+      var gitalk = new Gitalk({
+          clientID: 'ecf230c60af3ed1123fa',
+          clientSecret: '1e1daf2e6dd957a3f7d6b22b524387d14aafdb13',
+          repo: 'hfut-zyw.github.io',
+          owner: 'hfut-zyw',
+          admin: ['hfut-zyw'],
+          id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+      gitalk.render('gitalk-container')
+      </script>
+      
+    </section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        <a href="https://space.bilibili.com/782159" target="_blank">访问我的哔哩哔哩</a> 
+      </div>
+        <div class="footer-right">
+        &copy; 2024 张有为
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: ,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":85,"height":170},"mobile":{"show":false},"log":false});</script></body>
+</html>

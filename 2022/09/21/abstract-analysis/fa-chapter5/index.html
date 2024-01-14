@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>泛函笔记--第5章 谱分析 | Homepage | 张有为</title>
+  <title>泛函笔记Chapter5 谱分析 | Homepage | 张有为</title>
 
   <!-- keywords -->
   
@@ -11,26 +11,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="​        本章是做什么的呢？要回答这个问题，先从线性代数讲起，例如有一个对称矩阵A,令$Ax&#x3D;\lambda x,$   求出特征值和特征向量后，我们以这组特征向量为基底，算子A就有了一个比较简单的表示形式，   这个形式反映了线性变换A对空间向量的具体作用，对于对称矩阵来说就是一些拉伸变换的组合。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="泛函笔记--第5章 谱分析">
+<meta property="og:title" content="泛函笔记Chapter5 谱分析">
 <meta property="og:url" content="http://example.com/2022/09/21/abstract-analysis/fa-chapter5/index.html">
 <meta property="og:site_name" content="Homepage | 张有为">
 <meta property="og:description" content="​        本章是做什么的呢？要回答这个问题，先从线性代数讲起，例如有一个对称矩阵A,令$Ax&#x3D;\lambda x,$   求出特征值和特征向量后，我们以这组特征向量为基底，算子A就有了一个比较简单的表示形式，   这个形式反映了线性变换A对空间向量的具体作用，对于对称矩阵来说就是一些拉伸变换的组合。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img-analysis/fa-chapter5-fig1.png">
-<meta property="og:image" content="http://example.com/img-analysis/fa-chapter5-fig2.png">
-<meta property="og:image" content="http://example.com/img-analysis/fa-chapter5-fig3.png">
-<meta property="og:image" content="http://example.com/img-analysis/fa-chapter5-fig4.png">
+<meta property="og:image" content="http://example.com/img/functional-analysis/fa-chapter5-fig1.png">
+<meta property="og:image" content="http://example.com/img/functional-analysis/fa-chapter5-fig2.png">
+<meta property="og:image" content="http://example.com/img/functional-analysis/fa-chapter5-fig3.png">
+<meta property="og:image" content="http://example.com/img/functional-analysis/fa-chapter5-fig4.png">
 <meta property="article:published_time" content="2022-09-21T11:59:33.000Z">
-<meta property="article:modified_time" content="2023-11-26T12:33:38.956Z">
+<meta property="article:modified_time" content="2024-01-14T02:19:10.011Z">
 <meta property="article:author" content="张有为">
 <meta property="article:tag" content="分析笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img-analysis/fa-chapter5-fig1.png">
+<meta name="twitter:image" content="http://example.com/img/functional-analysis/fa-chapter5-fig1.png">
   
     <link rel="alternative" href="/atom.xml" title="Homepage | 张有为" type="application/atom+xml">
   
   
-    <link rel="icon" href="/img/icon.gif">
+    <link rel="icon" href="/img/face/icon.gif">
   
   
 <link rel="stylesheet" href="/css/style.css">
@@ -61,7 +61,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/img/face.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
+			<img src="/img/face/face.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
 		</a>
 
 		<hgroup>
@@ -77,10 +77,10 @@
 					<nav class="header-menu">
 						<ul>
 						
-							<li><a href="/2022/08/09/me/aboutme">个人简介</a>
+							<li><a href="/2022/08/09/aboutme/aboutme">个人简介</a>
 							</li>
 				        
-							<li><a href="/categories/notes">随写笔记</a>
+							<li><a href="/categories/tools">工具杂记</a>
 							</li>
 				        
 							<li><a href="/categories/abstract-analysis">抽象分析基础</a>
@@ -89,7 +89,7 @@
 							<li><a href="/categories/probability">高等概率统计</a>
 							</li>
 				        
-							<li><a href="/categories/opt">矩阵论与最优化</a>
+							<li><a href="/categories/matrix-opt">矩阵论与最优化</a>
 							</li>
 				        
 						</ul>
@@ -101,9 +101,9 @@
 							<nav class="header-submenu">
 								<ul>
 									
-										<li><a href="/categories/nndl"><div>深度学习</div></a></li>  
+										<li><a href="/categories/python-lib"><div>Python杂记</div></a></li>  
 									
-										<li><a href="/categories/Pre-processing"><div>数据处理</div></a></li>  
+										<li><a href="/categories/ml-nndl"><div>机器学习与深度学习</div></a></li>  
 									
 								</ul>
 							</nav>	
@@ -134,7 +134,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Matplotlib%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Matplotlib笔记</a> <a href="/tags/Pandas%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Pandas笔记</a> <a href="/tags/Plotly%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Plotly笔记</a> <a href="/tags/Spacy%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Spacy笔记</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%AC%94%E8%AE%B0/" style="font-size: 17.5px;">优化笔记</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 10px;">关于我</a> <a href="/tags/%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">分析笔记</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">深度学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/" style="font-size: 17.5px;">深度学习框架</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 12.5px;">自然语言处理</a> <a href="/tags/%E9%9A%8F%E5%86%99/" style="font-size: 15px;">随写</a>
+						<a href="/tags/Matplotlib%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Matplotlib笔记</a> <a href="/tags/Pandas%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Pandas笔记</a> <a href="/tags/Plotly%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Plotly笔记</a> <a href="/tags/Python%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 10px;">Python字符串</a> <a href="/tags/Spacy%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Spacy笔记</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%AC%94%E8%AE%B0/" style="font-size: 17.5px;">优化笔记</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 10px;">关于我</a> <a href="/tags/%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">分析笔记</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">深度学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/" style="font-size: 17.5px;">深度学习框架</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 10px;">自然语言处理</a> <a href="/tags/%E9%9A%8F%E5%86%99/" style="font-size: 15px;">随写</a>
 					</div>
 				</section>
 				
@@ -156,7 +156,7 @@
   <div class="intrude-less">
 	  <header id="header" class="inner">
 		  <div class="profilepic">
-			  <img src="/img/face4.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
+			  <img src="/img/face/face4.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
 		  </div>
 		  <hgroup>
 			<h1 class="header-author"></h1>
@@ -166,15 +166,15 @@
 		  <nav class="header-menu">
 			  <ul>
 			  
-				  <li><a href="/2022/08/09/me/aboutme" style="color:rgba(69, 7, 241, 0.904)" >个人简介</a></li>
+				  <li><a href="/2022/08/09/aboutme/aboutme" style="color:rgba(69, 7, 241, 0.904)" >个人简介</a></li>
 			  
-				  <li><a href="/categories/notes" style="color:rgba(69, 7, 241, 0.904)" >随写笔记</a></li>
+				  <li><a href="/categories/tools" style="color:rgba(69, 7, 241, 0.904)" >工具杂记</a></li>
 			  
 				  <li><a href="/categories/abstract-analysis" style="color:rgba(69, 7, 241, 0.904)" >抽象分析基础</a></li>
 			  
 				  <li><a href="/categories/probability" style="color:rgba(69, 7, 241, 0.904)" >高等概率统计</a></li>
 			  
-				  <li><a href="/categories/opt" style="color:rgba(69, 7, 241, 0.904)" >矩阵论与最优化</a></li>
+				  <li><a href="/categories/matrix-opt" style="color:rgba(69, 7, 241, 0.904)" >矩阵论与最优化</a></li>
 			  
 			  <div class="clearfix"></div>
 			  </ul>
@@ -186,9 +186,9 @@
 				  <nav class="header-submenu">
 					  <ul>
 						  
-							  <li><a href="/categories/nndl" style="color:rgba(69, 7, 241, 0.904)" ><div>深度学习</div></a></li>  
+							  <li><a href="/categories/python-lib" style="color:rgba(69, 7, 241, 0.904)" ><div>Python杂记</div></a></li>  
 						  
-							  <li><a href="/categories/Pre-processing" style="color:rgba(69, 7, 241, 0.904)" ><div>数据处理</div></a></li>  
+							  <li><a href="/categories/ml-nndl" style="color:rgba(69, 7, 241, 0.904)" ><div>机器学习与深度学习</div></a></li>  
 						  
 					  </ul>
 				  </nav>	
@@ -227,7 +227,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      泛函笔记--第5章 谱分析
+      泛函笔记Chapter5 谱分析
       
           <span class="title-pop-out"></a>
       
@@ -291,9 +291,9 @@
 <p>如果说这个你不太理解，说明你对单射是怎么回事可能需要复习一下  </p>
 <p>接下来的事情就简单了，对于  $T_\lambda$ ，上面我们只讲了令  $T_\lambda$ 为单射的那些 $\lambda $ 叫什么，但是使得  $T_\lambda$ 是别的 </p>
 <p>情形的时候的 $\lambda $ 我们还没提到，下面我们直接给出所有情形下的情况以及相应情形下的 $\lambda $ 叫什么 </p>
-<p><img src="/img-analysis/fa-chapter5-fig1.png" style="zoom:120%;" /></p>
+<p><img src="/img/functional-analysis/fa-chapter5-fig1.png" style="zoom:120%;" /></p>
 <p>仔细一看，你可能会发现这个谱的分类跟有的教材上的分类不太一样，实际上一方面是因为有的教材是按某一类算子进行的分类，另一方面就是叫法不一样，比如下面我们将按有界线性算子重新分一次类（因为本章只研究有界线性算子的谱分析，所以不要搞太复杂了），重新分类的时候我们把剩余谱和连续谱都叫成连续谱，这两者本质其实是一回事的。另外，假设$X$是完备的。 </p>
-<p>  <img src="/img-analysis/fa-chapter5-fig2.png" style="zoom:120%;" /></p>
+<p>  <img src="/img/functional-analysis/fa-chapter5-fig2.png" style="zoom:120%;" /></p>
 <p>虽然我们根据 $\lambda I-T$ 性质的不同给出了谱的定义并作了分类，但是除了点谱（特征值），我们对 </p>
 <p>谱的了解知之甚少，因为通过这么抽象的定义方式根本不知道谱到底是什么东西。现在先把这个问题 </p>
 <p>保留，不要问为什么，因为泛函中对谱的分析很少，不深入，你对它了解的比较抽象是正常的，别管， </p>
@@ -428,9 +428,9 @@ I=(\lambda I-T)P_{\lambda}(T)(\lambda^n I-T^n)^{-1}</script><p>由此可知$\lam
 <p>说明正向$\lambda I-T$对向量长度的伸缩倍数有个下界，那么反向$(\lambda I-T)^{-1}$ </p>
 <p>的伸缩倍数为正向伸缩倍数的倒数，所以有个上界，因此逆有界 </p>
 <p>（2）. 分析连续谱的分布特点，解释其为什么叫连续谱，连续的含义是和离散一词相对而言的 </p>
-<p><img src="/img-analysis/fa-chapter5-fig3.png" style="zoom:120%;" /></p>
+<p><img src="/img/functional-analysis/fa-chapter5-fig3.png" style="zoom:120%;" /></p>
 <p>（3）. 分析特征值，连续谱，正则点三者的区别，从映射特点考虑，打个比方来描述这种特点</p>
-<p><img src="/img-analysis/fa-chapter5-fig4.png" style="zoom:120%;" /></p>
+<p><img src="/img/functional-analysis/fa-chapter5-fig4.png" style="zoom:120%;" /></p>
 
       
     </div>
@@ -440,7 +440,7 @@ I=(\lambda I-T)P_{\lambda}(T)(\lambda^n I-T^n)^{-1}</script><p>由此可知$\lam
     
 <nav id="article-nav">
   
-    <a href="/2022/10/15/Pre-processing/Pandas%20%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/10/15/python-lib/Pandas%20%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
@@ -451,7 +451,7 @@ I=(\lambda I-T)P_{\lambda}(T)(\lambda^n I-T^n)^{-1}</script><p>由此可知$\lam
   
   
     <a href="/2022/09/20/abstract-analysis/fa-chapter4/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">泛函笔记--第4章 共轭空间与共轭算子</div>
+      <div class="article-nav-title">泛函笔记Chapter4 共轭空间与共轭算子</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
@@ -490,7 +490,7 @@ I=(\lambda I-T)P_{\lambda}(T)(\lambda^n I-T^n)^{-1}</script><p>由此可知$\lam
         <a href="https://space.bilibili.com/782159" target="_blank">访问我的哔哩哔哩</a> 
       </div>
         <div class="footer-right">
-        &copy; 2023 张有为
+        &copy; 2024 张有为
         </div>
     </div>
   </div>

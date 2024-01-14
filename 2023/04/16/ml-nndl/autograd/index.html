@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>自动微分算法 | Homepage | 张有为</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="自动微分算法，项目主页">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自动微分算法">
+<meta property="og:url" content="http://example.com/2023/04/16/ml-nndl/autograd/index.html">
+<meta property="og:site_name" content="Homepage | 张有为">
+<meta property="og:description" content="自动微分算法，项目主页">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/autograd/AutoGrad.png">
+<meta property="og:image" content="http://example.com/img/autograd/AutoGrad2.png">
+<meta property="og:image" content="http://example.com/img/autograd/AutoGrad3.png">
+<meta property="article:published_time" content="2023-04-16T02:27:57.000Z">
+<meta property="article:modified_time" content="2024-01-14T02:28:56.608Z">
+<meta property="article:author" content="张有为">
+<meta property="article:tag" content="深度学习框架">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/autograd/AutoGrad.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Homepage | 张有为" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/face/icon.gif">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+  
+<script src="https://priesttomb.github.io/js/md5.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="/img/face/face.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">张有为</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/2022/08/09/aboutme/aboutme">个人简介</a>
+							</li>
+				        
+							<li><a href="/categories/tools">工具杂记</a>
+							</li>
+				        
+							<li><a href="/categories/abstract-analysis">抽象分析基础</a>
+							</li>
+				        
+							<li><a href="/categories/probability">高等概率统计</a>
+							</li>
+				        
+							<li><a href="/categories/matrix-opt">矩阵论与最优化</a>
+							</li>
+				        
+						</ul>
+					</nav>
+
+					<nav class="header-menu">
+						<ul>
+						<li><a style="color:rgb(36, 243, 105)">Deep Learning </a>
+							<nav class="header-submenu">
+								<ul>
+									
+										<li><a href="/categories/python-lib"><div>Python杂记</div></a></li>  
+									
+										<li><a href="/categories/ml-nndl"><div>机器学习与深度学习</div></a></li>  
+									
+								</ul>
+							</nav>	
+						</li>     
+						</ul>
+					</nav>
+					
+								
+					
+
+
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/hfut-zyw" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="mailto:lucario@qq.com" title="mail">mail</a>
+					        
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Matplotlib%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Matplotlib笔记</a> <a href="/tags/Pandas%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Pandas笔记</a> <a href="/tags/Plotly%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Plotly笔记</a> <a href="/tags/Python%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 10px;">Python字符串</a> <a href="/tags/Spacy%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Spacy笔记</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%AC%94%E8%AE%B0/" style="font-size: 17.5px;">优化笔记</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 10px;">关于我</a> <a href="/tags/%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">分析笔记</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">深度学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/" style="font-size: 17.5px;">深度学习框架</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 10px;">自然语言处理</a> <a href="/tags/%E9%9A%8F%E5%86%99/" style="font-size: 15px;">随写</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+	<div class="overlay">
+		<div class="slider-trigger"></div>
+		<h1 class="header-author js-mobile-header hide"></h1>
+	</div>
+  <div class="intrude-less">
+	  <header id="header" class="inner">
+		  <div class="profilepic">
+			  <img src="/img/face/face4.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
+		  </div>
+		  <hgroup>
+			<h1 class="header-author"></h1>
+		  </hgroup>
+		  
+
+		  <nav class="header-menu">
+			  <ul>
+			  
+				  <li><a href="/2022/08/09/aboutme/aboutme" style="color:rgba(69, 7, 241, 0.904)" >个人简介</a></li>
+			  
+				  <li><a href="/categories/tools" style="color:rgba(69, 7, 241, 0.904)" >工具杂记</a></li>
+			  
+				  <li><a href="/categories/abstract-analysis" style="color:rgba(69, 7, 241, 0.904)" >抽象分析基础</a></li>
+			  
+				  <li><a href="/categories/probability" style="color:rgba(69, 7, 241, 0.904)" >高等概率统计</a></li>
+			  
+				  <li><a href="/categories/matrix-opt" style="color:rgba(69, 7, 241, 0.904)" >矩阵论与最优化</a></li>
+			  
+			  <div class="clearfix"></div>
+			  </ul>
+		  </nav>
+
+		  <nav class="header-menu">
+			  <ul>
+			  <li><a style="color:rgba(69, 7, 241, 0.904)">Deep Learning </a>
+				  <nav class="header-submenu">
+					  <ul>
+						  
+							  <li><a href="/categories/python-lib" style="color:rgba(69, 7, 241, 0.904)" ><div>Python杂记</div></a></li>  
+						  
+							  <li><a href="/categories/ml-nndl" style="color:rgba(69, 7, 241, 0.904)" ><div>机器学习与深度学习</div></a></li>  
+						  
+					  </ul>
+				  </nav>	
+			  </li>     
+			  </ul>
+		  </nav>
+
+		  <nav class="header-nav">
+			  <div class="social">
+				  
+					  <a class="github" target="_blank" href="https://github.com/hfut-zyw" title="github">github</a>
+				  
+					  <a class="mail" target="_blank" href="mailto:lucario@qq.com" title="mail">mail</a>
+				  
+			  </div>
+		  </nav>
+	  </header>				
+  </div>
+</nav>
+      <div class="body-wrap">
+
+<article id="post-ml-nndl/autograd" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2023/04/16/ml-nndl/autograd/" class="article-date">
+  	<time datetime="2023-04-16T02:27:57.000Z" itemprop="datePublished">2023-04-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      自动微分算法
+      
+          <span class="title-pop-out"></a>
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/" rel="tag">深度学习框架</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/ml-nndl/">ml-nndl</a>
+	</div>
+
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p> 自动微分算法，<a target="_blank" rel="noopener" href="https://github.com/hfut-zyw/Automatic-Differentiation">项目主页</a></p>
+</blockquote>
+<span id="more"></span>
+<h1 id="Automatic-Differentiation"><a href="#Automatic-Differentiation" class="headerlink" title="Automatic Differentiation"></a>Automatic Differentiation</h1><h3 id="基础理论入门："><a href="#基础理论入门：" class="headerlink" title="基础理论入门："></a>基础理论入门：</h3><ul>
+<li>[ ] <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/520065656">https://zhuanlan.zhihu.com/p/520065656</a></li>
+<li>[ ] <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=wG_nF1awSSY">https://www.youtube.com/watch?v=wG_nF1awSSY</a></li>
+<li>[ ] <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5s4pERJ0VZo&amp;t=501s">https://www.youtube.com/watch?v=5s4pERJ0VZo&amp;t=501s</a></li>
+<li>[ ] <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=B-1hsAfdGHw&amp;t=1129s">https://www.youtube.com/watch?v=B-1hsAfdGHw&amp;t=1129s</a></li>
+</ul>
+<h3 id="好的例子1"><a href="#好的例子1" class="headerlink" title="好的例子1"></a>好的例子1</h3><ul>
+<li><p>[ ] video：</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=xBc95BB6Gwo">https://www.youtube.com/watch?v=xBc95BB6Gwo</a></p>
+</li>
+<li><p>[ ] code：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/CIS-522/course-content/tree/main/">https://github.com/CIS-522/course-content/tree/main/</a></p>
+</li>
+</ul>
+<h3 id="好的例子2"><a href="#好的例子2" class="headerlink" title="好的例子2"></a>好的例子2</h3><ul>
+<li><p>[ ] video:</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=R_m4kanPy6Q">https://www.youtube.com/watch?v=R_m4kanPy6Q</a></p>
+</li>
+<li><p>[ ] code:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/cg-tuwien/deep_learning_demo">https://github.com/cg-tuwien/deep_learning_demo</a></p>
+</li>
+</ul>
+<h3 id="好的例子3"><a href="#好的例子3" class="headerlink" title="好的例子3"></a>好的例子3</h3><ul>
+<li><p>[ ] video：</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=ALMKFS_QFm4">https://www.youtube.com/watch?v=ALMKFS_QFm4</a></p>
+</li>
+<li><p>[ ] code：</p>
+<p><a target="_blank" rel="noopener" href="https://autodiff-workshop.github.io/2016.html">https://autodiff-workshop.github.io/2016.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/autodiff-workshop">https://github.com/autodiff-workshop</a></p>
+</li>
+</ul>
+<h3 id="好的例子4"><a href="#好的例子4" class="headerlink" title="好的例子4"></a>好的例子4</h3><ul>
+<li><p>[ ] video：</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Fntkxhcs3mU">https://www.youtube.com/watch?v=Fntkxhcs3mU</a></p>
+</li>
+<li><p>[ ] code：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/alan-christopher/autodiff-edu">https://github.com/alan-christopher/autodiff-edu</a></p>
+</li>
+</ul>
+<h3 id="好的例子5"><a href="#好的例子5" class="headerlink" title="好的例子5"></a>好的例子5</h3><ul>
+<li><p>[ ] c++实现（代码可能有问题）：</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Cb411p7Bd?spm_id_from=333.337">https://www.bilibili.com/video/BV1Cb411p7Bd?spm_id_from=333.337</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/48356514/answer/123290631">https://www.zhihu.com/question/48356514/answer/123290631</a></p>
+</li>
+</ul>
+<h3 id="Pytorch-AutoGrad"><a href="#Pytorch-AutoGrad" class="headerlink" title="Pytorch AutoGrad"></a>Pytorch AutoGrad</h3><ul>
+<li><p>[ ] 最好的一个解释</p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=MswxJw-8PvE&amp;t=2s">https://www.youtube.com/watch?v=MswxJw-8PvE&amp;t=2s</a></p>
+</li>
+<li><p>[ ] 其他不错的翻译解释</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/608842866">https://zhuanlan.zhihu.com/p/608842866</a>   （和上面视频是对应的）</p>
+<p><a target="_blank" rel="noopener" href="https://amsword.medium.com/understanding-pytorchs-autograd-with-grad-fn-and-next-functions-b2c4836daa00">https://amsword.medium.com/understanding-pytorchs-autograd-with-grad-fn-and-next-functions-b2c4836daa00</a>   （简化反向计算图的理解）</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/598291307">https://zhuanlan.zhihu.com/p/598291307</a>  （包含dispatcher）</p>
+<p><a target="_blank" rel="noopener" href="http://blog.ezyang.com/2020/09/lets-talk-about-the-pytorch-dispatcher/">http://blog.ezyang.com/2020/09/lets-talk-about-the-pytorch-dispatcher/</a> （dispatcher）</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/69294347">https://zhuanlan.zhihu.com/p/69294347</a>  （用Pytorch做实验解释）</p>
+<p><a target="_blank" rel="noopener" href="https://towardsdatascience.com/pytorch-autograd-understanding-the-heart-of-pytorchs-magic-2686cd94ec95">https://towardsdatascience.com/pytorch-autograd-understanding-the-heart-of-pytorchs-magic-2686cd94ec95</a>  （普通动态图解释）</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/351687500">https://zhuanlan.zhihu.com/p/351687500</a>  （包含代码封装的逻辑）</p>
+</li>
+<li><p>[ ] 算子扩展（暂时没有研究）</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/349560723">https://zhuanlan.zhihu.com/p/349560723</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/350651297">https://zhuanlan.zhihu.com/p/350651297</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/562950957">https://zhuanlan.zhihu.com/p/562950957</a></p>
+</li>
+</ul>
+<h3 id="动态计算图"><a href="#动态计算图" class="headerlink" title="动态计算图"></a>动态计算图</h3><p><img src="/img/autograd/AutoGrad.png" style="zoom:100%;" /></p>
+<p><img src="/img/autograd/AutoGrad2.png" style="zoom:100%;" /></p>
+<p><img src="/img/autograd/AutoGrad3.png" style="zoom:100%;" /></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/04/16/ml-nndl/rhitta/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          Rihtta 我的第一个深度学习框架
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/11/18/python-lib/plotly/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Plotly 入门</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+    <section id="comments" style="margin: 60px;">
+      <div id="gitalk-container"></div>
+      <script>
+      var gitalk = new Gitalk({
+          clientID: 'ecf230c60af3ed1123fa',
+          clientSecret: '1e1daf2e6dd957a3f7d6b22b524387d14aafdb13',
+          repo: 'hfut-zyw.github.io',
+          owner: 'hfut-zyw',
+          admin: ['hfut-zyw'],
+          id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+      gitalk.render('gitalk-container')
+      </script>
+      
+    </section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        <a href="https://space.bilibili.com/782159" target="_blank">访问我的哔哩哔哩</a> 
+      </div>
+        <div class="footer-right">
+        &copy; 2024 张有为
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: ,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":85,"height":170},"mobile":{"show":false},"log":false});</script></body>
+</html>
