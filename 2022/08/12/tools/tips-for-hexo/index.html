@@ -17,7 +17,7 @@
 <meta property="og:description" content="记录使用hexo中碰到的一些坑,以及一些常用的东西.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-12T08:55:44.000Z">
-<meta property="article:modified_time" content="2024-01-17T02:05:27.461Z">
+<meta property="article:modified_time" content="2024-01-17T02:11:28.340Z">
 <meta property="article:author" content="张有为">
 <meta property="article:tag" content="随写">
 <meta name="twitter:card" content="summary">
@@ -271,6 +271,8 @@
 <p>配置代理是因为有时候github无法访问，配置系统代理，与设置—网络—代理中的系统代理一致，需要</p>
 <p>你用软件打开系统代理，在系统设置的网络的代理中才能看到</p>
 <p>代理配置：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weimeibuqieryu/article/details/106793645">git设置、查看、取消代理_git 取消代理-CSDN博客</a></p>
+<p>如果上传的时候出现下方错误，说明你的22号端口被学校或者机构禁用了，需要换端口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh: connect to host github.com port 22: Connection timed out</span><br><span class="line">fatal: Could not read from remote repository.</span><br></pre></td></tr></table></figure>
 <p>端口配置：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/521340971">坑：ssh: connect to host github.com port 22: Connection refused - 知乎 (zhihu.com)</a></p>
 <h2 id="2-hexo文件夹介绍"><a href="#2-hexo文件夹介绍" class="headerlink" title="2. hexo文件夹介绍"></a>2. hexo文件夹介绍</h2><h4 id="2-1-config-yml文件"><a href="#2-1-config-yml文件" class="headerlink" title="2.1 _config.yml文件"></a>2.1 _config.yml文件</h4><p>网站的配置信息，可以在此配置大部分的参数,一些插件安装后,相关配置有时也在这里进行</p>
 <h4 id="2-2-source文件夹"><a href="#2-2-source文件夹" class="headerlink" title="2.2 source文件夹"></a>2.2 source文件夹</h4><p>资源文件夹，存放用户资源的地方（放图片、Markdown文档、文章、草稿、各种页面等）</p>

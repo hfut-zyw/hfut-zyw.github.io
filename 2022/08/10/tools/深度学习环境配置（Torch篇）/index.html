@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://example.com/img/miniconda3/fig1.png">
 <meta property="og:image" content="http://example.com/img/miniconda3/fig2.png">
 <meta property="article:published_time" content="2022-08-10T08:28:48.000Z">
-<meta property="article:modified_time" content="2024-01-17T01:33:39.128Z">
+<meta property="article:modified_time" content="2024-01-17T02:12:47.603Z">
 <meta property="article:author" content="张有为">
 <meta property="article:tag" content="随写">
 <meta name="twitter:card" content="summary">
@@ -437,17 +437,17 @@
 <h4 id="3-4-Anaconda软件源"><a href="#3-4-Anaconda软件源" class="headerlink" title="3.4 Anaconda软件源"></a>3.4 Anaconda软件源</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">关于conda的软件源:</span><br><span class="line">使用conda config --append channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">添加源,然后到用户目录下显示隐藏文件,找到.condarc文件打开,添加如下清华源</span><br><span class="line">channels:</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2/</span><br><span class="line">  - defaults</span><br><span class="line">注意不是越多越好,顺序也很重要,不对的情况下使用conda或pip会安装失败</span><br><span class="line">清华源的地址:</span><br><span class="line">https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/</span><br></pre></td></tr></table></figure>
 <h2 id="4-Jupyter-内核配置"><a href="#4-Jupyter-内核配置" class="headerlink" title="4. Jupyter 内核配置"></a>4. Jupyter 内核配置</h2><p>如果你已经使用Anaconda创建了一个新环境，并且想要将其添加到Jupyter Notebook的内核列表中，可以按照以下步骤进行操作：</p>
 <ol>
-<li>激活你要添加到Jupyter Notebook的环境。例如，如果你的环境名为<code>my_env</code>，则在终端中运行以下命令：</li>
+<li>激活你要添加到Jupyter Notebook的环境。例如，如果你的环境名为<code>py310</code>，则在终端中运行以下命令：</li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate my_env</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate py310</span><br></pre></td></tr></table></figure>
 <ol>
 <li>安装<code>ipykernel</code>包。这个包提供了一个命令将当前环境安装为Jupyter Notebook的一个内核。</li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install ipykernel</span><br></pre></td></tr></table></figure>
 <ol>
-<li>将环境添加到Jupyter Notebook内核列表中。运行以下命令，其中<code>my_env</code>是你的环境名称，而<code>My Env</code>是你想要在Jupyter Notebook内核列表中显示的名称。</li>
+<li>将环境添加到Jupyter Notebook内核列表中。运行以下命令，其中<code>py310</code>是你的环境名称，而<code>PY310</code>是你想要在Jupyter Notebook内核列表中显示的名称，其实写成一样就行，没必要区分。</li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m ipykernel install --user --name py310 --display-name &quot;py310&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m ipykernel install --user --name py310 --display-name &quot;PY310&quot;</span><br></pre></td></tr></table></figure>
 <p>现在，你就可以在Jupyter Notebook的内核列表中看到你刚刚添加的环境了。启动Jupyter Notebook之后，在Notebook上方的“Kernel”菜单下拉列表中选择你的新环境即可开始使用它。</p>
 <p>一点补充:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">关于Ubuntu中默认启动路径设置：</span><br><span class="line">启动你的环境，然后</span><br><span class="line">第一步：</span><br><span class="line">jupyter-lab --generate-config</span><br><span class="line">即可出现jupyter_lab_config所在的路径</span><br><span class="line">第二步：</span><br><span class="line">打开jupyter_lab_config.py文件，查找“The directory”，大概有好几个，</span><br><span class="line">有一个后面有以下内容</span><br><span class="line">c.ServerApp.root_dir = ‘jupyter lab默认启动位置’</span><br><span class="line"></span><br><span class="line">改为你的路径就行，我这里设置为</span><br><span class="line">c.ServerApp.root_dir = &#x27;/home/amadeus/notebook&#x27;</span><br></pre></td></tr></table></figure>
