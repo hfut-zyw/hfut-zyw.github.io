@@ -17,7 +17,7 @@
 <meta property="og:description" content="记录使用hexo中碰到的一些坑,以及一些常用的东西.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-12T08:55:44.000Z">
-<meta property="article:modified_time" content="2024-01-14T02:51:35.214Z">
+<meta property="article:modified_time" content="2024-01-17T02:05:27.461Z">
 <meta property="article:author" content="张有为">
 <meta property="article:tag" content="随写">
 <meta name="twitter:card" content="summary">
@@ -262,11 +262,16 @@
 <h4 id="1-3-配置github"><a href="#1-3-配置github" class="headerlink" title="1.3 配置github"></a>1.3 配置github</h4><p><strong>1.ssh key配置</strong>  </p>
 <p>就是本地和远程仓库之间的暗号,本地生成一个暗号,告诉远程仓库,以后使用git推送文件到  </p>
 <p>远程仓库时,会自动核对暗号,暗号正确,那么就可以推送成功,不需要核对账号密码这么麻烦了</p>
-<p>如果换电脑，需要重新配置ssh key,或者你备份一下复制到新电脑里<br><a target="_blank" rel="noopener" href="https://www.bbsmax.com/A/kvJ3Z8KAzg/">https://www.bbsmax.com/A/kvJ3Z8KAzg/</a><br>一般ssh key所在目录为<br>C:\Users\Administrator.ssh<br>文件名为 id_rsa.pub</p>
+<p>如果换电脑，需要重新配置ssh key,或者你备份一下复制到新电脑里（需要用户名和邮箱设置和之前一样）<br><a target="_blank" rel="noopener" href="https://www.bbsmax.com/A/kvJ3Z8KAzg/">https://www.bbsmax.com/A/kvJ3Z8KAzg/</a><br>一般ssh key所在目录为<br>C:\Users\Administrator.ssh<br>文件名为 id_rsa.pub</p>
 <p>当然,除了配置git的密钥,还需要配置本地user信息,就是user的用户名的邮箱,可以瞎填,这个就是一个身份代号,  </p>
 <p>远程仓库的人好知道是张三推过来的代码还是李四推过来的.配置教程直接网上搜,非常简单.</p>
 <p>至此,git的配置工作就完成了.</p>
 <p><strong>2.hexo单独配置一键推送的插件</strong><br>安装好git后，在hexo里面安装一键上传插件<br> hexo-deployer-git<br>安装好后，打开_config.yml进行配置<br>配置教程：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/one-command-deployment">https://hexo.io/zh-cn/docs/one-command-deployment</a><br>教程下面还有一堆使用git之外的工具进行上传的，没有使用git配合hexo插件方便</p>
+<p><strong>3.配置端口和代理</strong></p>
+<p>配置代理是因为有时候github无法访问，配置系统代理，与设置—网络—代理中的系统代理一致，需要</p>
+<p>你用软件打开系统代理，在系统设置的网络的代理中才能看到</p>
+<p>代理配置：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weimeibuqieryu/article/details/106793645">git设置、查看、取消代理_git 取消代理-CSDN博客</a></p>
+<p>端口配置：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/521340971">坑：ssh: connect to host github.com port 22: Connection refused - 知乎 (zhihu.com)</a></p>
 <h2 id="2-hexo文件夹介绍"><a href="#2-hexo文件夹介绍" class="headerlink" title="2. hexo文件夹介绍"></a>2. hexo文件夹介绍</h2><h4 id="2-1-config-yml文件"><a href="#2-1-config-yml文件" class="headerlink" title="2.1 _config.yml文件"></a>2.1 _config.yml文件</h4><p>网站的配置信息，可以在此配置大部分的参数,一些插件安装后,相关配置有时也在这里进行</p>
 <h4 id="2-2-source文件夹"><a href="#2-2-source文件夹" class="headerlink" title="2.2 source文件夹"></a>2.2 source文件夹</h4><p>资源文件夹，存放用户资源的地方（放图片、Markdown文档、文章、草稿、各种页面等）</p>
 <p>source/__posts ：存放文章的markdown源文件，会被编译成 html 文件<br>source/categories: 分类文件夹，文章有categories参数的话，会把文章添加到此目录<br>source/tags: 标签文件夹，同上.</p>
