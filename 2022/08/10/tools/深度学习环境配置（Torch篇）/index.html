@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>深度学习环境配置（Torch篇） | Homepage | 张有为</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这里给出我自己使用的pytorch的环境配置，备份，恢复的一套方案，仅供参考。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度学习环境配置（Torch篇）">
+<meta property="og:url" content="http://example.com/2022/08/10/tools/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%88Torch%E7%AF%87%EF%BC%89/index.html">
+<meta property="og:site_name" content="Homepage | 张有为">
+<meta property="og:description" content="这里给出我自己使用的pytorch的环境配置，备份，恢复的一套方案，仅供参考。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/miniconda3/fig1.png">
+<meta property="og:image" content="http://example.com/img/miniconda3/fig2.png">
+<meta property="article:published_time" content="2022-08-10T08:28:48.000Z">
+<meta property="article:modified_time" content="2024-01-17T01:33:39.128Z">
+<meta property="article:author" content="张有为">
+<meta property="article:tag" content="随写">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/miniconda3/fig1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Homepage | 张有为" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/face/icon.gif">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+  
+<script src="https://priesttomb.github.io/js/md5.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="/img/face/face.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">张有为</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/2022/08/09/aboutme/aboutme">个人简介</a>
+							</li>
+				        
+							<li><a href="/categories/tools">工具杂记</a>
+							</li>
+				        
+							<li><a href="/categories/abstract-analysis">抽象分析基础</a>
+							</li>
+				        
+							<li><a href="/categories/probability">高等概率统计</a>
+							</li>
+				        
+							<li><a href="/categories/matrix-opt">矩阵论与最优化</a>
+							</li>
+				        
+						</ul>
+					</nav>
+
+					<nav class="header-menu">
+						<ul>
+						<li><a style="color:rgb(36, 243, 105)">Deep Learning </a>
+							<nav class="header-submenu">
+								<ul>
+									
+										<li><a href="/categories/python-lib"><div>Python杂记</div></a></li>  
+									
+										<li><a href="/categories/ml-nndl"><div>机器学习与深度学习</div></a></li>  
+									
+								</ul>
+							</nav>	
+						</li>     
+						</ul>
+					</nav>
+					
+								
+					
+
+
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/hfut-zyw" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="mailto:lucario@qq.com" title="mail">mail</a>
+					        
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Matplotlib%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Matplotlib笔记</a> <a href="/tags/Pandas%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Pandas笔记</a> <a href="/tags/Plotly%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Plotly笔记</a> <a href="/tags/Python%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 10px;">Python字符串</a> <a href="/tags/Spacy%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Spacy笔记</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%AC%94%E8%AE%B0/" style="font-size: 17.5px;">优化笔记</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 10px;">关于我</a> <a href="/tags/%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">分析笔记</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">深度学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/" style="font-size: 17.5px;">深度学习框架</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 10px;">自然语言处理</a> <a href="/tags/%E9%9A%8F%E5%86%99/" style="font-size: 15px;">随写</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+	<div class="overlay">
+		<div class="slider-trigger"></div>
+		<h1 class="header-author js-mobile-header hide"></h1>
+	</div>
+  <div class="intrude-less">
+	  <header id="header" class="inner">
+		  <div class="profilepic">
+			  <img src="/img/face/face4.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
+		  </div>
+		  <hgroup>
+			<h1 class="header-author"></h1>
+		  </hgroup>
+		  
+
+		  <nav class="header-menu">
+			  <ul>
+			  
+				  <li><a href="/2022/08/09/aboutme/aboutme" style="color:rgba(69, 7, 241, 0.904)" >个人简介</a></li>
+			  
+				  <li><a href="/categories/tools" style="color:rgba(69, 7, 241, 0.904)" >工具杂记</a></li>
+			  
+				  <li><a href="/categories/abstract-analysis" style="color:rgba(69, 7, 241, 0.904)" >抽象分析基础</a></li>
+			  
+				  <li><a href="/categories/probability" style="color:rgba(69, 7, 241, 0.904)" >高等概率统计</a></li>
+			  
+				  <li><a href="/categories/matrix-opt" style="color:rgba(69, 7, 241, 0.904)" >矩阵论与最优化</a></li>
+			  
+			  <div class="clearfix"></div>
+			  </ul>
+		  </nav>
+
+		  <nav class="header-menu">
+			  <ul>
+			  <li><a style="color:rgba(69, 7, 241, 0.904)">Deep Learning </a>
+				  <nav class="header-submenu">
+					  <ul>
+						  
+							  <li><a href="/categories/python-lib" style="color:rgba(69, 7, 241, 0.904)" ><div>Python杂记</div></a></li>  
+						  
+							  <li><a href="/categories/ml-nndl" style="color:rgba(69, 7, 241, 0.904)" ><div>机器学习与深度学习</div></a></li>  
+						  
+					  </ul>
+				  </nav>	
+			  </li>     
+			  </ul>
+		  </nav>
+
+		  <nav class="header-nav">
+			  <div class="social">
+				  
+					  <a class="github" target="_blank" href="https://github.com/hfut-zyw" title="github">github</a>
+				  
+					  <a class="mail" target="_blank" href="mailto:lucario@qq.com" title="mail">mail</a>
+				  
+			  </div>
+		  </nav>
+	  </header>				
+  </div>
+</nav>
+      <div class="body-wrap">
+
+<article id="post-tools/深度学习环境配置（Torch篇）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/08/10/tools/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%88Torch%E7%AF%87%EF%BC%89/" class="article-date">
+  	<time datetime="2022-08-10T08:28:48.000Z" itemprop="datePublished">2022-08-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      深度学习环境配置（Torch篇）
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E5%86%99/" rel="tag">随写</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/tools/">tools</a>
+	</div>
+
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>这里给出我自己使用的pytorch的环境配置，备份，恢复的一套方案，仅供参考。</p>
+</blockquote>
+<span id="more"></span>
+<h1 id="深度学习环境配置"><a href="#深度学习环境配置" class="headerlink" title="深度学习环境配置"></a>深度学习环境配置</h1><h2 id="1-Windows"><a href="#1-Windows" class="headerlink" title="1. Windows"></a>1. Windows</h2><h4 id="第一步，安装anaconda、配置环境变量、初始化"><a href="#第一步，安装anaconda、配置环境变量、初始化" class="headerlink" title="第一步，安装anaconda、配置环境变量、初始化"></a>第一步，安装anaconda、配置环境变量、初始化</h4><ul>
+<li><p>首先进官网下载anaconda，然后直接安装，所有配置使用默认配置即可</p>
+</li>
+<li><p>然后添加下面几个目录到你的环境变量中去(anaconda3所在目录根据你的安装路径修改)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C:\ProgramData\anaconda3</span><br><span class="line">C:\ProgramData\anaconda3\Scripts</span><br><span class="line">C:\ProgramData\anaconda3\Library\bin</span><br><span class="line">C:\ProgramData\anaconda3\Library\mingw-w64\bin</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化conda到你的命令行中</p>
+<p>管理员身份打开powershell<br>先输入conda按回车，再输入conda init powershell按回车，<br>关闭powershell重新打开会自动进入base环境<br>如果出现什么组策略错误，请第一步输入Set-ExecutionPolicy RemoteSigned<br>回车，再输入conda执行后续操作。</p>
+</li>
+</ul>
+<h4 id="第二步，安装英伟达驱动，cuda驱动，cudnn扩展包"><a href="#第二步，安装英伟达驱动，cuda驱动，cudnn扩展包" class="headerlink" title="第二步，安装英伟达驱动，cuda驱动，cudnn扩展包"></a>第二步，安装英伟达驱动，cuda驱动，cudnn扩展包</h4><ul>
+<li><p>注意，这几个是系统驱动，和你的环境无关，无论你是用python环境，还是java环境，还是什么其他视频编码，游戏，都可以调用系统驱动的包，这个包是全局公用的，不是安装在你的某个python环境中的，首先搞清楚这一点。</p>
+</li>
+<li><p>英伟达驱动包含studio版，和game版，我们一般下载studio版，这个是开发人员使用的  </p>
+<p>下载地址:</p>
+<p><a target="_blank" rel="noopener" href="https://www.nvidia.cn/geforce/drivers/">https://www.nvidia.cn/geforce/drivers/</a></p>
+<p>安装成功后,powershell中输入nvidia-smi就能查看到驱动版本以及支持的最高的cuda版本,</p>
+<p>注意,这个cuda版本是当前驱动所支持安装的最高版本,不是说你安装的cuda,你还没安装呢.</p>
+</li>
+<li><p>cuda驱动版本需要根据英伟达驱动版本来下载,</p>
+<p>版本对应关系如下:</p>
+<p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html">https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html</a></p>
+<p>cuda下载地址如下:</p>
+<p><a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-toolkit-archive">https://developer.nvidia.com/cuda-toolkit-archive</a></p>
+<p>安装完成后,会自动添加到系统环境变量中去,重启电脑,</p>
+<p>输入 nvcc -V即可查看到cuda信息,这个才是你安装的cuda版本信息</p>
+</li>
+<li><p>cudnn扩展包需要根据cuda版本来下载,</p>
+<p>下载及依赖关系地址如下:</p>
+<p><a target="_blank" rel="noopener" href="https://developer.nvidia.com/rdp/cudnn-archive">https://developer.nvidia.com/rdp/cudnn-archive</a></p>
+<p>这个是扩展包,直接把文件夹复制到cuda对应目录即可,cuda目录下也有这几个文件夹,覆盖即可</p>
+</li>
+</ul>
+<h4 id="第三步-安装pytorch"><a href="#第三步-安装pytorch" class="headerlink" title="第三步,安装pytorch"></a>第三步,安装pytorch</h4><h4 id="当前最新-https-pytorch-org-get-started-locally"><a href="#当前最新-https-pytorch-org-get-started-locally" class="headerlink" title="当前最新:https://pytorch.org/get-started/locally/"></a>当前最新:<a target="_blank" rel="noopener" href="https://pytorch.org/get-started/locally/">https://pytorch.org/get-started/locally/</a></h4><p>过去版本:<a target="_blank" rel="noopener" href="https://pytorch.org/get-started/previous-versions/">https://pytorch.org/get-started/previous-versions/</a></p>
+<p>要想成功安装,必须搞清楚版本依赖关系,</p>
+<ul>
+<li><p>python依赖</p>
+<p>get-started页面,会提示python版本不低于多少,你在conda中创建一个差不多版本的</p>
+<p>python环境即可,这一步请参考下面的conda使用</p>
+</li>
+<li><p>cuda依赖</p>
+<p>根据你前面下载的cuda版本,找到对应的pytorch版本,然后复制它的命令,一般可以选择</p>
+<p>pip或conda命令安装,建议使用pip后面会讲清楚为什么</p>
+</li>
+</ul>
+<p>只要创建的python环境的python版本没问题,并且torch对应的cuda版本与你电脑安装的一致,</p>
+<p>这步就不会报错,否则会提示你上面之一有错.</p>
+<h2 id="2-Ubuntu"><a href="#2-Ubuntu" class="headerlink" title="2. Ubuntu"></a>2. Ubuntu</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">几个重要下载地址归纳如下</span><br><span class="line">1.显卡驱动与cuda对应版本关系:</span><br><span class="line">https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html</span><br><span class="line">cuda与cudnn对应关系在cudnn下载地址页面有说明</span><br><span class="line">2.显卡下载地址:</span><br><span class="line">https://www.nvidia.cn/geforce/drivers/</span><br><span class="line">3.cuda下载地址:</span><br><span class="line">https://developer.nvidia.com/cuda-toolkit-archive</span><br><span class="line">4.cudnn下载地址:</span><br><span class="line">https://developer.nvidia.com/rdp/cudnn-archive</span><br><span class="line">5.pytorch下载地址:</span><br><span class="line">当前最新:https://pytorch.org/get-started/locally/</span><br><span class="line">过去版本:https://pytorch.org/get-started/previous-versions/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">关于anaconda安装:</span><br><span class="line">1.下载地址:https://www.anaconda.com/download</span><br><span class="line">2.优先下载run文件,然后使用bash命令安装,注意,不要用sudo bash,否则会安装到系统磁盘下,</span><br><span class="line">对于anaconda只能安装在用户磁盘,即home下,这样后面执行各种命令时才不需要root权限.</span><br><span class="line">3.安装过程中,有一步是手动输入安装路径的</span><br><span class="line">4.最后一步是确认是否初始化conda,一定要选择yes,然后关闭终端,重新打开就在base环境了</span><br><span class="line">5.如果没有初始化成功,进入那个目录,使用rm -rf anaconda3删除,重新安装</span><br><span class="line">6.anaconda-navigator命令是打开图形化界面,也可以去anaconda3目录下查找这个文件,然后放到桌面上并允许启动</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">关于驱动的安装:</span><br><span class="line">1.一定要sudo -i进入root操作权限,这样就自动安装到根目录下了,驱动程序默认安装在系统路径</span><br><span class="line">2.下载的文件也是优先下载run文件,这里使用sudo bash命令安装</span><br><span class="line">3.会提示你当前系统使用的是nouveau驱动,但是其实不用管,看英文一直点下去,</span><br><span class="line">需要初始化的尽量初始化,安装好之后,重启会自动使用安装好的驱动,并且使用nvidia-smi命令,可以</span><br><span class="line">查看当前驱动版本,上面显示的cuda版本并不是安装的cuda版本号,而是最高支持的cuda版本号</span><br><span class="line">4.如果nvidia-smi不显示,说明没启动成功,或者打开所有程序找到nvidia,看看能不能调节屏幕分辨率亮度之类的,</span><br><span class="line">有没有RTX3060(我的显卡是3060)的相关调节选项,如果没有,说明没有使用安装的驱动,需要重新安装</span><br><span class="line">5.如果上述方法不行,查看网上禁用nouveau的方法,需要手动在某个文件里添加两行代码</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">关于cuda的安装:</span><br><span class="line">1.也是sudo -i进入超级root用户,也是sudo bash run文件</span><br><span class="line">2.安装的时候,把驱动选项去掉,按空格键,其他不用动,然后一直安装下去就行了</span><br><span class="line">3.注意,这时候虽然已经安装到usr/local目录下了,会有一个cuda文件夹,但是你使用nvcc -V,会提示你没有这个命令,需要安装cuda toolkit,一定一定不要按提示安装toolkit,否则就会安装一个很老版本的cuda替换掉你安装的cuda,你需要做的就是把nvcc这个添加到环境变量中,具体是:</span><br><span class="line">(1).使用vim ~/.bashrc打开环境变量配置文件</span><br><span class="line">(2).添加下面两行,注意cuda版本一定要和你自己的一样,具体就是你的usr/local下面的cudaxx.xx文件夹</span><br><span class="line">export PATH=/usr/local/cuda-11.8/bin:$PATH</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda-11.8/lib64:$LD_LIBRARY_PATH</span><br><span class="line">(在vim中,按i进入插入模式,插入后按esc退出插入模式,然后按住shift,再按两下zz保存退出)</span><br><span class="line">(3).刷新环境配置文件,然后再使用命令查看cuda版本号就出来了</span><br><span class="line">source ~/.bashrc </span><br><span class="line">nvcc -V </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">关于cudnn的安装:</span><br><span class="line">下载run和deb文件都行,使用sudo bash run文件或者sudo dpkg -i deb文件,</span><br><span class="line">第一次安装可能提示你需要用cp命令把key文件复制过去，就按提示执行，然后再重新安装下载的文件，成功了。</span><br><span class="line">实际安装过程就是复制文件的过程，var文件夹是临时解压的文件夹</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">关于几个安装命令:</span><br><span class="line">bash是执行批处理</span><br><span class="line">dpkg是最底层的安装</span><br><span class="line">apt-get是dpkg的封装</span><br><span class="line">apt是apt-get的封装,能解决依赖问题</span><br><span class="line">假如安装过程中出现了依赖问题,需要使用sudo apt-get install -f修复依赖并安装成功,</span><br><span class="line">假如不能安装,可能软件源需要用sudo apt update更新一下</span><br></pre></td></tr></table></figure>
+<h2 id="3-Anaconda3-的使用"><a href="#3-Anaconda3-的使用" class="headerlink" title="3. Anaconda3 的使用"></a>3. Anaconda3 的使用</h2><h4 id="3-1-常见conda命令"><a href="#3-1-常见conda命令" class="headerlink" title="3.1 常见conda命令"></a>3.1 常见conda命令</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">环境管理</th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">conda env list</td>
+<td style="text-align:left">查看已经安装的环境（会同步到IDE中，在IDE中可以查看环境的目录）</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">conda create -n zyw python=3.10</td>
+<td style="text-align:left">创建名为zyw的环境，python版本3.10</td>
+</tr>
+<tr>
+<td style="text-align:left">conda remove -n zyw —all</td>
+<td style="text-align:left">删除环境</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">conda activate zyw</td>
+<td style="text-align:left">激活进入虚拟环境</td>
+</tr>
+<tr>
+<td style="text-align:left">conda deactivate</td>
+<td style="text-align:left">退出当前环境</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>环境包管理</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>conda list</td>
+<td>查看当前环境中已安装的包</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>conda install numpy matplotlib pandas torch</td>
+<td>在当前环境中安装指定包，可以同时安装多个</td>
+</tr>
+<tr>
+<td>conda remove numpy</td>
+<td>在当前环境中删除指定包</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>conda update numpy</td>
+<td>更新指定包</td>
+</tr>
+<tr>
+<td>conda update —all</td>
+<td>更新当前环境中的所有包</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">conda自身相关</th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">conda info</td>
+<td style="text-align:left">查看当前conda信息</td>
+</tr>
+<tr>
+<td style="text-align:left">conda —version</td>
+<td style="text-align:left">查看conda版本</td>
+</tr>
+<tr>
+<td style="text-align:left">conda update conda</td>
+<td style="text-align:left">更新conda至最新版本</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="3-2-在IDE中配置，激活，使用虚拟环境（以VScode为例）"><a href="#3-2-在IDE中配置，激活，使用虚拟环境（以VScode为例）" class="headerlink" title="3.2 在IDE中配置，激活，使用虚拟环境（以VScode为例）"></a>3.2 在IDE中配置，激活，使用虚拟环境（以VScode为例）</h4><ul>
+<li>第一点</li>
+</ul>
+<p>VScode下方终端直接调用windows的powshell，在这里很方便使用conda配置激活环境，安装包都可以在这个黑框框里搞</p>
+<p>但是这个终端下激活环境，跟你程序所使用的环境没有关系</p>
+<p><img src="/img/miniconda3/fig1.png" style="zoom:100%;" /></p>
+<ul>
+<li>第二点</li>
+</ul>
+<p>不管你在哪个IDE运行程序，总有地方可以找到这个程序的内核（编译器，环境），只要在这个地方找到你创建的虚拟环境，</p>
+<p>切换内核（环境）即可。</p>
+<p><img src="/img/miniconda3/fig2.png" style="zoom:100%;" /></p>
+<h4 id="3-3-conda备份和恢复环境"><a href="#3-3-conda备份和恢复环境" class="headerlink" title="3.3 conda备份和恢复环境"></a>3.3 conda备份和恢复环境</h4><p>个人习惯: </p>
+<ol>
+<li><p>conda只用于管理环境,从来不安装各种包,比如conda install 全都变成 pip install,</p>
+</li>
+<li><p>包的安装管理备份恢复全都使用pip</p>
+</li>
+<li>英伟达驱动,cuda,cudnn,anaconda3,pytorch单独安装,然后使用pip恢复其他包</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">关于conda备份恢复命令:</span><br><span class="line">备份</span><br><span class="line">conda env export -no-build &gt; environment.yaml  </span><br><span class="line">conda env export  &gt; test.yaml</span><br><span class="line">带有nobuild的后面不会添加电脑配置信息,方便不同系统之间迁移</span><br><span class="line">恢复</span><br><span class="line">conda env create -f environment.yml</span><br><span class="line">成功要点:</span><br><span class="line">(1).可以把pip的部分单独剪切出来,使用pip恢复</span><br><span class="line">(2).conda恢复过程中,哪些包出现问题,就删除哪些</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">关于pip备份恢复环境:</span><br><span class="line">最好不要使用conda恢复,同系统不太清楚,反正不同系统之间很难恢复成功,我是使用</span><br><span class="line">pip freeze &gt; requirements.txt备份环境,</span><br><span class="line">pip install -r requirements恢复环境,</span><br><span class="line">requirements.txt里面前面是包的名称,后面是版本号,里面有一大堆不认识的可以删除,基本不影响</span><br><span class="line">另外使用pip只能导出使用pip安装的包,使用conda安装的包是导出不来的,所以需要使用conda导出yaml文件,</span><br><span class="line">检查pip之外的那些包,有没有遗漏的,把遗漏的复制到txt文件中,</span><br><span class="line">所以后面尽量使用pip安装包,这样方便后续环境管理,包之间冲突的可能性也会减小,尽量不要使用conda命令安装,</span><br><span class="line">我没试过只使用conda命令安装包,然后使用conda备份恢复环境,但是我是混合情况,使用conda恢复环境各种冲突,</span><br><span class="line">各种问题,所以改用pip了</span><br></pre></td></tr></table></figure>
+<h4 id="3-4-Anaconda软件源"><a href="#3-4-Anaconda软件源" class="headerlink" title="3.4 Anaconda软件源"></a>3.4 Anaconda软件源</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">关于conda的软件源:</span><br><span class="line">使用conda config --append channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">添加源,然后到用户目录下显示隐藏文件,找到.condarc文件打开,添加如下清华源</span><br><span class="line">channels:</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r/</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2/</span><br><span class="line">  - defaults</span><br><span class="line">注意不是越多越好,顺序也很重要,不对的情况下使用conda或pip会安装失败</span><br><span class="line">清华源的地址:</span><br><span class="line">https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/</span><br></pre></td></tr></table></figure>
+<h2 id="4-Jupyter-内核配置"><a href="#4-Jupyter-内核配置" class="headerlink" title="4. Jupyter 内核配置"></a>4. Jupyter 内核配置</h2><p>如果你已经使用Anaconda创建了一个新环境，并且想要将其添加到Jupyter Notebook的内核列表中，可以按照以下步骤进行操作：</p>
+<ol>
+<li>激活你要添加到Jupyter Notebook的环境。例如，如果你的环境名为<code>my_env</code>，则在终端中运行以下命令：</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate my_env</span><br></pre></td></tr></table></figure>
+<ol>
+<li>安装<code>ipykernel</code>包。这个包提供了一个命令将当前环境安装为Jupyter Notebook的一个内核。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install ipykernel</span><br></pre></td></tr></table></figure>
+<ol>
+<li>将环境添加到Jupyter Notebook内核列表中。运行以下命令，其中<code>my_env</code>是你的环境名称，而<code>My Env</code>是你想要在Jupyter Notebook内核列表中显示的名称。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m ipykernel install --user --name py310 --display-name &quot;py310&quot;</span><br></pre></td></tr></table></figure>
+<p>现在，你就可以在Jupyter Notebook的内核列表中看到你刚刚添加的环境了。启动Jupyter Notebook之后，在Notebook上方的“Kernel”菜单下拉列表中选择你的新环境即可开始使用它。</p>
+<p>一点补充:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">关于Ubuntu中默认启动路径设置：</span><br><span class="line">启动你的环境，然后</span><br><span class="line">第一步：</span><br><span class="line">jupyter-lab --generate-config</span><br><span class="line">即可出现jupyter_lab_config所在的路径</span><br><span class="line">第二步：</span><br><span class="line">打开jupyter_lab_config.py文件，查找“The directory”，大概有好几个，</span><br><span class="line">有一个后面有以下内容</span><br><span class="line">c.ServerApp.root_dir = ‘jupyter lab默认启动位置’</span><br><span class="line"></span><br><span class="line">改为你的路径就行，我这里设置为</span><br><span class="line">c.ServerApp.root_dir = &#x27;/home/amadeus/notebook&#x27;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/08/10/matrix-opt/test-handlebook/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          考前突击小册子
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/08/10/tools/Markdown/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Markdown</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+    <section id="comments" style="margin: 60px;">
+      <div id="gitalk-container"></div>
+      <script>
+      var gitalk = new Gitalk({
+          clientID: 'ecf230c60af3ed1123fa',
+          clientSecret: '1e1daf2e6dd957a3f7d6b22b524387d14aafdb13',
+          repo: 'hfut-zyw.github.io',
+          owner: 'hfut-zyw',
+          admin: ['hfut-zyw'],
+          id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+      gitalk.render('gitalk-container')
+      </script>
+      
+    </section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        <a href="https://space.bilibili.com/782159" target="_blank">访问我的哔哩哔哩</a> 
+      </div>
+        <div class="footer-right">
+        &copy; 2024 张有为
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: ,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":85,"height":170},"mobile":{"show":false},"log":false});</script></body>
+</html>
