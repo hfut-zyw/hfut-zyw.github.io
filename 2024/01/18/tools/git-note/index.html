@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>git 快速使用 | Homepage | 张有为</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="主要包括本地仓库和远程仓库的管理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git 快速使用">
+<meta property="og:url" content="http://example.com/2024/01/18/tools/git-note/index.html">
+<meta property="og:site_name" content="Homepage | 张有为">
+<meta property="og:description" content="主要包括本地仓库和远程仓库的管理。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/git/git01.png">
+<meta property="og:image" content="http://example.com/img/git/git02.png">
+<meta property="og:image" content="http://example.com/img/git/git03.png">
+<meta property="og:image" content="http://example.com/img/git/git04.png">
+<meta property="og:image" content="http://example.com/img/git/git05.png">
+<meta property="og:image" content="http://example.com/img/git/git06.png">
+<meta property="og:image" content="http://example.com/img/git/git07.png">
+<meta property="og:image" content="http://example.com/img/git/git08.png">
+<meta property="og:image" content="http://example.com/img/git/git09.png">
+<meta property="og:image" content="http://example.com/img/git/git10.png">
+<meta property="og:image" content="http://example.com/img/git/git11.png">
+<meta property="og:image" content="http://example.com/img/git/git12.png">
+<meta property="og:image" content="http://example.com/img/git/git13.png">
+<meta property="og:image" content="http://example.com/img/git/git14.png">
+<meta property="article:published_time" content="2024-01-18T00:50:36.000Z">
+<meta property="article:modified_time" content="2024-01-22T08:01:54.948Z">
+<meta property="article:author" content="张有为">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/git/git01.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Homepage | 张有为" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/face/icon.gif">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+  
+<script src="https://priesttomb.github.io/js/md5.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="/img/face/face.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">张有为</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/2022/08/09/aboutme/aboutme">个人简介</a>
+							</li>
+				        
+							<li><a href="/categories/tools">工具杂记</a>
+							</li>
+				        
+							<li><a href="/categories/abstract-analysis">抽象分析基础</a>
+							</li>
+				        
+							<li><a href="/categories/probability">高等概率统计</a>
+							</li>
+				        
+							<li><a href="/categories/matrix-opt">矩阵论与最优化</a>
+							</li>
+				        
+						</ul>
+					</nav>
+
+					<nav class="header-menu">
+						<ul>
+						<li><a style="color:rgb(36, 243, 105)">Deep Learning </a>
+							<nav class="header-submenu">
+								<ul>
+									
+										<li><a href="/categories/python-lib"><div>Python杂记</div></a></li>  
+									
+										<li><a href="/categories/ml-nndl"><div>机器学习与深度学习</div></a></li>  
+									
+								</ul>
+							</nav>	
+						</li>     
+						</ul>
+					</nav>
+					
+								
+					
+
+
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/hfut-zyw" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="mailto:lucario@qq.com" title="mail">mail</a>
+					        
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Matplotlib%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Matplotlib笔记</a> <a href="/tags/Pandas%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Pandas笔记</a> <a href="/tags/Plotly%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Plotly笔记</a> <a href="/tags/Python%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 10px;">Python字符串</a> <a href="/tags/Spacy%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Spacy笔记</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%AC%94%E8%AE%B0/" style="font-size: 17.5px;">优化笔记</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 10px;">关于我</a> <a href="/tags/%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">分析笔记</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">深度学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/" style="font-size: 17.5px;">深度学习框架</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 10px;">自然语言处理</a> <a href="/tags/%E9%9A%8F%E5%86%99/" style="font-size: 15px;">随写</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+	<div class="overlay">
+		<div class="slider-trigger"></div>
+		<h1 class="header-author js-mobile-header hide"></h1>
+	</div>
+  <div class="intrude-less">
+	  <header id="header" class="inner">
+		  <div class="profilepic">
+			  <img src="/img/face/face4.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
+		  </div>
+		  <hgroup>
+			<h1 class="header-author"></h1>
+		  </hgroup>
+		  
+
+		  <nav class="header-menu">
+			  <ul>
+			  
+				  <li><a href="/2022/08/09/aboutme/aboutme" style="color:rgba(69, 7, 241, 0.904)" >个人简介</a></li>
+			  
+				  <li><a href="/categories/tools" style="color:rgba(69, 7, 241, 0.904)" >工具杂记</a></li>
+			  
+				  <li><a href="/categories/abstract-analysis" style="color:rgba(69, 7, 241, 0.904)" >抽象分析基础</a></li>
+			  
+				  <li><a href="/categories/probability" style="color:rgba(69, 7, 241, 0.904)" >高等概率统计</a></li>
+			  
+				  <li><a href="/categories/matrix-opt" style="color:rgba(69, 7, 241, 0.904)" >矩阵论与最优化</a></li>
+			  
+			  <div class="clearfix"></div>
+			  </ul>
+		  </nav>
+
+		  <nav class="header-menu">
+			  <ul>
+			  <li><a style="color:rgba(69, 7, 241, 0.904)">Deep Learning </a>
+				  <nav class="header-submenu">
+					  <ul>
+						  
+							  <li><a href="/categories/python-lib" style="color:rgba(69, 7, 241, 0.904)" ><div>Python杂记</div></a></li>  
+						  
+							  <li><a href="/categories/ml-nndl" style="color:rgba(69, 7, 241, 0.904)" ><div>机器学习与深度学习</div></a></li>  
+						  
+					  </ul>
+				  </nav>	
+			  </li>     
+			  </ul>
+		  </nav>
+
+		  <nav class="header-nav">
+			  <div class="social">
+				  
+					  <a class="github" target="_blank" href="https://github.com/hfut-zyw" title="github">github</a>
+				  
+					  <a class="mail" target="_blank" href="mailto:lucario@qq.com" title="mail">mail</a>
+				  
+			  </div>
+		  </nav>
+	  </header>				
+  </div>
+</nav>
+      <div class="body-wrap">
+
+<article id="post-tools/git-note" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2024/01/18/tools/git-note/" class="article-date">
+  	<time datetime="2024-01-18T00:50:36.000Z" itemprop="datePublished">2024-01-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      git 快速使用
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/tools/">tools</a>
+	</div>
+
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>主要包括本地仓库和远程仓库的管理。</p>
+</blockquote>
+<span id="more"></span>
+<p>本文部分参考: <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1MU4y1Y7h5">https://www.bilibili.com/video/BV1MU4y1Y7h5</a></p>
+<h2 id="1-git安装及配置"><a href="#1-git安装及配置" class="headerlink" title="1. git安装及配置"></a>1. git安装及配置</h2><p>注意,以下所有配置,均可在用户目录下的.ssh文件夹和.gitconfig文件中找到,有时候也可以直接创建这些  </p>
+<p>文件并写入配置,但是代码比较繁琐,下面还是使用git提供的命令进行配置</p>
+<h4 id="1-1-下载及安装"><a href="#1-1-下载及安装" class="headerlink" title="1.1 下载及安装"></a>1.1 下载及安装</h4><p><a target="_blank" rel="noopener" href="https://git-scm.com/download/win">Git - Downloading Package (git-scm.com)</a></p>
+<h4 id="1-2-本地身份配置"><a href="#1-2-本地身份配置" class="headerlink" title="1.2 本地身份配置"></a>1.2 本地身份配置</h4><p>本地账户名和邮箱名可随便填写，假的也行，这个主要为了后面提交到远程仓库时，<br>管理远程仓库的人可以看见到底是哪个人推了这段代码上来，辨识身份用的，和在线github账号完全无关<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;Your Name&quot;</span><br><span class="line">git config --global user.email &quot;youremail@yourdomain.com&quot;</span><br></pre></td></tr></table></figure></p>
+<p>然后是本地生成一串ssh key,相当于暗号,生成后复制到你的远程仓库,这里指的是github中去,以后这台电脑</p>
+<p>在git环境下推送东西到有这串钥匙的github账号的仓库中时,就不需要输入任何账号密码,直接就能推送过去.  </p>
+<p>生成办法也很简单,随便一个地方右击,git gui here,然后找到help-show ssh key,如果出来的窗口没有一串英文字母和数字的ssh key,窗口中右上方有个generate ssh key,就能生成,然后复制这串key,点击网页右上方你的github头像，点Settings，SSH and GPG keys，然后粘贴进去，添加即可,ssh key的名称随意填写.</p>
+<h4 id="1-3-代理设置"><a href="#1-3-代理设置" class="headerlink" title="1.3 代理设置"></a>1.3 代理设置</h4><p>配置代理是因为有时候github无法访问，配置系统代理，与设置—网络—代理中的系统代理一致，需要</p>
+<p>你用软件打开系统代理，在系统设置的网络的代理中才能看到</p>
+<p>代理配置：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weimeibuqieryu/article/details/106793645">git设置、查看、取消代理_git 取消代理-CSDN博客</a></p>
+<p>如果上传的时候出现下方错误，说明你的22号端口被学校或者机构禁用了，需要换端口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh: connect to host github.com port 22: Connection timed out</span><br><span class="line">fatal: Could not read from remote repository.</span><br></pre></td></tr></table></figure>
+<p>端口配置：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/521340971">坑：ssh: connect to host github.com port 22: Connection refused - 知乎 (zhihu.com)</a></p>
+<h2 id="2-git基本命令格式"><a href="#2-git基本命令格式" class="headerlink" title="2. git基本命令格式"></a>2. git基本命令格式</h2><p>一般形式:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git &lt;命令&gt; [一般参数,长参数,短参数,多个参数]</span><br></pre></td></tr></table></figure>
+<p>一般参数的命令:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git log readme.md</span><br><span class="line">只显示readme.md文件的提交记录</span><br></pre></td></tr></table></figure>
+<p>长参数的命令:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git log --author John</span><br><span class="line">git log --author=John</span><br><span class="line">显示作者John的提交记录</span><br></pre></td></tr></table></figure>
+<p>短参数的命令:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git log -a John</span><br><span class="line">显示作者John的提交记录</span><br></pre></td></tr></table></figure>
+<p>多个参数的命令:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git log --author=John --since=&quot;2023-01-01&quot; -- README.md</span><br><span class="line">只显示作者为 &quot;John&quot; 且从 &quot;2023-01-01&quot; 开始的与文件 &quot;README.md&quot; 相关的提交记录</span><br></pre></td></tr></table></figure>
+<p>实际上命令可以理解为函数名,然后后面就是函数的参数,然后参数包括普通参数和关键字参数,</p>
+<p>普通参数直接 git 命令 普通参数, 关键字参数就是 git 命令 [关键字=参数] 关键字就是长选项或者短选项,</p>
+<p>后面的内容就是参数值,一般用空格放在中间,也可以使用等号.</p>
+<h2 id="3-本地仓库管理"><a href="#3-本地仓库管理" class="headerlink" title="3. 本地仓库管理"></a>3. 本地仓库管理</h2><h4 id="3-1-基本概念"><a href="#3-1-基本概念" class="headerlink" title="3.1 基本概念"></a>3.1 基本概念</h4><p>首先本地仓库抽象为3块内存,分别是仓库,暂存区,工作区,工作区就是你能看得到的本地文件夹目录下的区域,</p>
+<p>仓库就是背后你看不到的一个区域,你需要把你想管理的文件都提交到这个仓库才行,暂存区就是一个中转站,所有</p>
+<p>工作目录的东西需要先放到暂存区后,才能提交给仓库.如下图</p>
+<p><img src="/img/git/git01.png" alt="git01"></p>
+<p>为了便于理解,这里举个例子,比如你在玩口袋妖怪,你的工作区就是你看到的游戏界面,现在你要购买10个伤药和5个解毒药,于是你通过按键操控人物来到商店,点击购买10个伤药和5个解毒药,于是你的工作区也就是游戏界面的装备栏的物品就更新了,这个操作对应git里面的两步操作,一个就是把工作区的文件添加10个伤药和5个解毒药,然后通过git add放入缓存区,在游戏里面你购买就相当于同时执行了这两步.如果此时你直接关机,那么下次开机你的记录还是没有10个伤药和5个解毒药,所以还需要进行存档操作,这步对应git里面的git commit.下面就来完整操作一遍.</p>
+<p>第一步,初始化一个存档</p>
+<p>假设pokemon文件夹就是我的工作目录,我添加一个initial_archive文件,然后使用如下</p>
+<p>命令将仓库初始化成这个存档(第一个命令就是初始化仓库,背后新建了一个数据结构进行管理),</p>
+<p>剩下两个命令你暂时不用理会,现在当作不存在,后面你就明白了.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init </span><br><span class="line">git add .</span><br><span class="line">git commit -m &#x27;init archive&#x27;</span><br></pre></td></tr></table></figure>
+<p><img src="/img/git/git02.png" alt="git02"></p>
+<p>第二步,购买伤药解毒药</p>
+<p><img src="/img/git/git03.png" alt="git03"></p>
+<p>第三步,提交给缓存区</p>
+<p>使用如下命令,其中点是提交所有修改的内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+<p><img src="/img/git/git04.png" alt="git04"></p>
+<p>第四步,存档</p>
+<p>使用如下命令,其中 -m表示message消息,后面字符串是你对当前操作的一个说明,后面可以通过log查看这个消息,  </p>
+<p>以便于你知道你干了什么事情</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &#x27;buy 10 shangyao and 10 jieduyao&#x27;</span><br></pre></td></tr></table></figure>
+<p><img src="/img/git/git05.png" alt="git05"></p>
+<p>第五步,就是简单查看一下你干了什么事</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br><span class="line">或者使用 git-log 这个自定义配置的命令,这个前面没有提,请看参考链接中的视频教程解说</span><br></pre></td></tr></table></figure>
+<p><img src="/img/git/git06.png" alt="git06"></p>
+<h4 id="3-2-多分支管理"><a href="#3-2-多分支管理" class="headerlink" title="3.2 多分支管理"></a>3.2 多分支管理</h4><p>这个这里也是简单提一下到底是怎么回事,相当于你同学借你的当前存档继续玩,比如他发现了一个大师球,</p>
+<p>然后你在你的存档下继续玩,你捉到了一只妙蛙种子,然后你和你的同学都进行了存档.</p>
+<p>当前的情况就是两台游戏机,对应的就是git仓库的两个分支,每个分支对应一个游戏机,你所在的主分支就是</p>
+<p>上一节操作的那台游戏机和存档,而你同学的分支是另外开辟的结构和你的一模一样的分支.</p>
+<p>先把两个分支分别怎么玩讲清楚,然后再讲别的.接下来我们主要做三件事,第一件事就是把你的存档拷贝给一台新游戏机,也就是新开辟一个一模一样的分支,第二件事就是你去捕捉妙蛙种子并存档,第三件事就是让你同学找到大师球并存档.先把这3件事情完成再谈后面的事情.</p>
+<p><strong>三件事全流程</strong></p>
+<p>第一件事,拷存档,即开辟新分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch &#x27;分支名称&#x27;</span><br></pre></td></tr></table></figure>
+<p><img src="/img/git/git07.png" alt="git07"></p>
+<p>第二件事，你在master分支捕捉妙蛙种子并存档</p>
+<p>既然当前分支是master,那么当前显示的工作目录就是你自己的游戏机,直接操作即可</p>
+<p><img src="/img/git/git08.png" alt="git08"></p>
+<p>第三件事,切换到小智分支,然后寻找大师球,并存档</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout xiaozhi  # 切换到小智分支</span><br></pre></td></tr></table></figure>
+<p><img src="/img/git/git09.png" alt="git09"></p>
+<p>寻找大师球,并存档到小智游戏机的存档里面,  </p>
+<p>由于当前分支已经切换到小智游戏机了,所以当前工作目录就是小智的游戏机</p>
+<p><img src="/img/git/git10.png" alt="git10"></p>
+<p><strong>三件事之后</strong></p>
+<p>做完上面3件事情之后,我们有了两个游戏机和存档,一般来说,这两个存档你只能选择其中一个继续玩,比如要了妙蛙种子存档你就没有大师球,要了大师球存档,你就不能有妙蛙种子.  </p>
+<p>但是和游戏存档不同的是,我们这里可以合并存档,把修改的地方(这里是增加装备或精灵)同时合并到同一个存档,这里就把小智游戏机的存档合并到你的游戏机中去.这样小智获得的大师球你就也有了.</p>
+<p>(冲突情况请参考上面的参考链接,就是我使用了一个伤药,剩余9个,小智购买了10个伤药,变成了20个,我们同时更改了伤药,那么合并分支到底采用哪个人的伤药呢?不要突然想到数量合并,这样你就想偏了)</p>
+<p>这里仅仅为了演示基本操作,并让你理解这个操作背后的含义,所以只把简单的例子执行一遍让你看,并不会面面俱到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master # 切换到你的游戏机</span><br><span class="line">git merge xiaozhi # 把小智的存档合并到你的存档</span><br></pre></td></tr></table></figure>
+<p><img src="/img/git/git11.png" alt="git11"></p>
+<p><img src="/img/git/git12.png" alt="git12"></p>
+<p>注意,上面git merge xiaozhi 后面其实也要加个字符串短消息,和git commit一样.如果上面不加,会跳出一个添加短消息的界面,自动给你加了一个消息,你不需要更改,直接按ESC,然后输入:wq退出即可.   </p>
+<h2 id="4-远程仓库管理"><a href="#4-远程仓库管理" class="headerlink" title="4. 远程仓库管理"></a>4. 远程仓库管理</h2><p>首先新建一个github远程仓库,非常简单,登录你的账号后,上面有新建仓库选项,一路创建下去即可,先不用管各种配置选项,然后打开你创建的仓库就行了.</p>
+<h4 id="4-1-推送"><a href="#4-1-推送" class="headerlink" title="4.1 推送"></a>4.1 推送</h4><p>远程仓库相当于云存档,然后你电脑上的多个分支,最后一般是都合并到你的主分支上面(master或main),你上传到云存档的就是这个主分支,将主分支存档合并到云存档里面.具体操作步骤如下:</p>
+<p>第一步,设置添加远程仓库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> git remote add &lt;远端名称&gt; &lt;仓库路径&gt;</span><br><span class="line">远端名称，随便起个名字就行,比如remote-pokemon</span><br><span class="line">仓库路径，从远端服务器获取此URL,就是你打开那个远程仓库,点击右边的code,会出现https,ssh,github cli三个</span><br><span class="line">链接地址,这里选ssh的地址,并复制下来</span><br></pre></td></tr></table></figure>
+<p>第二步,合并存档到云存档</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push remote-pokemon master:main</span><br></pre></td></tr></table></figure>
+<p>remote-pokemon是你刚开始定义的远程仓库名称</p>
+<p>master是本地分支名称</p>
+<p>main是远程仓库主分支名称</p>
+<h4 id="4-2-克隆与拉取"><a href="#4-2-克隆与拉取" class="headerlink" title="4.2 克隆与拉取"></a>4.2 克隆与拉取</h4><p>克隆就是张三买了游戏机,他也想玩口袋妖怪,但他又不想从头打,于是他把云端存档下载到他的游戏机,然后打</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone  &lt;仓库URL&gt;  pokemon2</span><br></pre></td></tr></table></figure>
+<p>仓库URL就是上面说的仓库路径,也就是ssh地址,pokemon2就是工作目录,把远程仓库的东西都克隆到这个工作目录</p>
+<p>拉取就是云端存档被张三玩了一下,他捉到了喷火龙,这是你没有的,于是你新开一个本地存档分支’zhangsan’,把他的存档拉取下来到这个分支,然后继续打这个分支,打完后,再合并到你的本地主分支上面.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git fetch &lt;远程仓库名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</span><br><span class="line">git fetch remote-pokemon main:zhangsan</span><br></pre></td></tr></table></figure>
+<p>注意,这里拉取的同时,也会新创建zhangsan分支,这个分支你游戏机里之前是没有的,</p>
+<p>假如你的游戏机已经有了zhangsan分支了,使用fetch命令拉下来的存档会存到一个引用中,你需要再使用merge命令合并到你的zhangsan存档中去,这种已经存在这个分支的情况,我们通常并不这么麻烦,而是使用另外的拉取命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git pull &lt;远程仓库名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</span><br><span class="line">git pull remote-pokemon main:zhangsan</span><br></pre></td></tr></table></figure>
+<p>这样,就直接拉取并合并到你的zhangsan分支存档里面了,相当于fetch+merge命令</p>
+<p>ok,基本命令和所做的事情的含义就讲到这里,到这里你的脑中应该就有一个大致的印象了,知道这东西大概是怎么回事了,更多的命令和使用,以及各种场景(冲突,分支开发),请参考其他资料,或问chatgpt即可.</p>
+<h2 id="5-图形化管理工具"><a href="#5-图形化管理工具" class="headerlink" title="5. 图形化管理工具"></a>5. 图形化管理工具</h2><p>这节就是告诉你有图形化管理工具替代git命令,图形化工具有很多种,会使用命令的情况下,这些工具学起来也不会很难,所以这里不会详细讲解这些工具怎么用.本文的核心是让你大脑里对git管理的东西到底是怎么回事有个大致的概念,这个很重要.下面简单看一款图形化工具，叫Sourcetree</p>
+<p><img src="/img/git/git13.png" alt="git13"></p>
+<p>上面点击history就能看到所有分支的记录，相当于git log</p>
+<p><img src="/img/git/git14.png" alt="git14"></p>
+<p>另外，你在本地修改了任意内容，这里也是实时更新的，再workspace中的文件状态中可以提交修改到暂存区，然后commit给存档。</p>
+<p>这里就不把每个事情讲一遍了，详细使用请参考网上教程，直接b站搜Sourcetree或者git图形化即可。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/01/20/ml-nndl/vae/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          变分自编码器(生成模型基础原理)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/09/21/abstract-analysis/fourier/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">四大傅里叶变换</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+    <section id="comments" style="margin: 60px;">
+      <div id="gitalk-container"></div>
+      <script>
+      var gitalk = new Gitalk({
+          clientID: 'ecf230c60af3ed1123fa',
+          clientSecret: '1e1daf2e6dd957a3f7d6b22b524387d14aafdb13',
+          repo: 'hfut-zyw.github.io',
+          owner: 'hfut-zyw',
+          admin: ['hfut-zyw'],
+          id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+      gitalk.render('gitalk-container')
+      </script>
+      
+    </section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        <a href="https://space.bilibili.com/782159" target="_blank">访问我的哔哩哔哩</a> 
+      </div>
+        <div class="footer-right">
+        &copy; 2024 张有为
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: ,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":85,"height":170},"mobile":{"show":false},"log":false});</script></body>
+</html>

@@ -12,14 +12,14 @@
   <meta name="description" content="这里给出我自己使用的pytorch的环境配置，备份，恢复的一套方案，仅供参考。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深度学习环境配置（Torch篇）">
-<meta property="og:url" content="http://example.com/2022/08/10/tools/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%88Torch%E7%AF%87%EF%BC%89/index.html">
+<meta property="og:url" content="http://example.com/2022/08/10/tools/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE(Torch%E7%AF%87)/index.html">
 <meta property="og:site_name" content="Homepage | 张有为">
 <meta property="og:description" content="这里给出我自己使用的pytorch的环境配置，备份，恢复的一套方案，仅供参考。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/miniconda3/fig1.png">
 <meta property="og:image" content="http://example.com/img/miniconda3/fig2.png">
 <meta property="article:published_time" content="2022-08-10T08:28:48.000Z">
-<meta property="article:modified_time" content="2024-01-17T02:12:47.603Z">
+<meta property="article:modified_time" content="2024-01-18T02:38:47.642Z">
 <meta property="article:author" content="张有为">
 <meta property="article:tag" content="随写">
 <meta name="twitter:card" content="summary">
@@ -208,10 +208,10 @@
 </nav>
       <div class="body-wrap">
 
-<article id="post-tools/深度学习环境配置（Torch篇）" class="article article-type-post" itemscope itemprop="blogPost">
+<article id="post-tools/深度学习环境配置(Torch篇)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2022/08/10/tools/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%88Torch%E7%AF%87%EF%BC%89/" class="article-date">
+      <a href="/2022/08/10/tools/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE(Torch%E7%AF%87)/" class="article-date">
   	<time datetime="2022-08-10T08:28:48.000Z" itemprop="datePublished">2022-08-10</time>
 </a>
     </div>
@@ -449,6 +449,14 @@
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m ipykernel install --user --name py310 --display-name &quot;PY310&quot;</span><br></pre></td></tr></table></figure>
 <p>现在，你就可以在Jupyter Notebook的内核列表中看到你刚刚添加的环境了。启动Jupyter Notebook之后，在Notebook上方的“Kernel”菜单下拉列表中选择你的新环境即可开始使用它。</p>
+<ol>
+<li><p>查看与删除内核</p>
+<p>查看当前的kernel</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter kernelspec list</span><br></pre></td></tr></table></figure>
+<p>删除jupyter notebook的kernel</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter kernelspec remove kernelname</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 <p>一点补充:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">关于Ubuntu中默认启动路径设置：</span><br><span class="line">启动你的环境，然后</span><br><span class="line">第一步：</span><br><span class="line">jupyter-lab --generate-config</span><br><span class="line">即可出现jupyter_lab_config所在的路径</span><br><span class="line">第二步：</span><br><span class="line">打开jupyter_lab_config.py文件，查找“The directory”，大概有好几个，</span><br><span class="line">有一个后面有以下内容</span><br><span class="line">c.ServerApp.root_dir = ‘jupyter lab默认启动位置’</span><br><span class="line"></span><br><span class="line">改为你的路径就行，我这里设置为</span><br><span class="line">c.ServerApp.root_dir = &#x27;/home/amadeus/notebook&#x27;</span><br></pre></td></tr></table></figure>
 
