@@ -17,8 +17,9 @@
 <meta property="og:description" content="​        主要讲清楚4个傅里叶变换和它们之间的联系,让你明白为什么基于连续情况下设计的滤波公式,如何使用离散形式在计算机中实现,并且保证和连续的情形下是一致的,这部分我还举了例子,分别通过手动积分,对连续函数进行傅里叶变换,然后进行采样,并且断定采样的结果和离散傅里叶变换公式算出来的结果一定是一样的.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/fourier/Fourier.png">
+<meta property="og:image" content="http://example.com/img/fourier/fangchengjieou.png">
 <meta property="article:published_time" content="2023-09-21T11:59:33.000Z">
-<meta property="article:modified_time" content="2024-01-14T02:01:33.078Z">
+<meta property="article:modified_time" content="2024-03-20T08:47:52.630Z">
 <meta property="article:author" content="张有为">
 <meta property="article:tag" content="分析笔记">
 <meta name="twitter:card" content="summary">
@@ -89,6 +90,9 @@
 							<li><a href="/categories/matrix-opt">矩阵论与最优化</a>
 							</li>
 				        
+							<li><a href="/categories/cs">计算机专业基础</a>
+							</li>
+				        
 						</ul>
 					</nav>
 
@@ -131,7 +135,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Matplotlib%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Matplotlib笔记</a> <a href="/tags/Pandas%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Pandas笔记</a> <a href="/tags/Plotly%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Plotly笔记</a> <a href="/tags/Python%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 10px;">Python字符串</a> <a href="/tags/Spacy%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Spacy笔记</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%AC%94%E8%AE%B0/" style="font-size: 17.5px;">优化笔记</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 10px;">关于我</a> <a href="/tags/%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">分析笔记</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">深度学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/" style="font-size: 17.5px;">深度学习框架</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 10px;">自然语言处理</a> <a href="/tags/%E9%9A%8F%E5%86%99/" style="font-size: 15px;">随写</a>
+						<a href="/tags/Matplotlib%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Matplotlib笔记</a> <a href="/tags/Pandas%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Pandas笔记</a> <a href="/tags/Plotly%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Plotly笔记</a> <a href="/tags/Python%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 10px;">Python字符串</a> <a href="/tags/Spacy%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Spacy笔记</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%AC%94%E8%AE%B0/" style="font-size: 17.5px;">优化笔记</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 10px;">关于我</a> <a href="/tags/%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">分析笔记</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">深度学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/" style="font-size: 17.5px;">深度学习框架</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 10px;">自然语言处理</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 12.5px;">计算机基础</a> <a href="/tags/%E9%9A%8F%E5%86%99/" style="font-size: 15px;">随写</a>
 					</div>
 				</section>
 				
@@ -172,6 +176,8 @@
 				  <li><a href="/categories/probability" style="color:rgba(69, 7, 241, 0.904)" >高等概率统计</a></li>
 			  
 				  <li><a href="/categories/matrix-opt" style="color:rgba(69, 7, 241, 0.904)" >矩阵论与最优化</a></li>
+			  
+				  <li><a href="/categories/cs" style="color:rgba(69, 7, 241, 0.904)" >计算机专业基础</a></li>
 			  
 			  <div class="clearfix"></div>
 			  </ul>
@@ -282,6 +288,24 @@
 <li><p>3.对于随机过程(多个轨道样本)或者多个样本,一般不是拿它们一个一个分析,而是去分析某个统计量,比如平均轨道函数,单独分析这一个函数,或者分析相关函数这一个轨道,对于相关函数这个统计量的研究,其目的就是计算能量分布,所以研究任何统计量,都必须首先明白其动机,搞清楚动机最直接的方式就是看后面拿这个统计量来做什么,在课本中给的顺序一般是先给出定义,再做一些无脑计算,背后的实质是反过来的,而是首先有个动机,想去计算一个东西,比如这些轨道的能量分布,然后通过计算,把计算过程中的某个东西提炼出来,这里就是协方差矩阵和相关函数,然后以后都是基于这个定义的东西进行快速计算,并且继续挖掘更深的结论.所以我们需要把反过来写的东西摸清楚,必须搞明白一个定义的动机,其关键就是这个定义是在计算什么过程中抽出来当成一个定义的  </p>
 </li>
 </ul>
+<h4 id="关于信息压缩编码表示"><a href="#关于信息压缩编码表示" class="headerlink" title="关于信息压缩编码表示"></a>关于信息压缩编码表示</h4><ul>
+<li><p>目前我所了解的无监督压缩变换分为两种，一个是基于单个向量模长或者能量的压缩，一个是基于总体数据方差或能量的压缩</p>
+</li>
+<li><p>基于单个向量的压缩比如傅里叶变换，就是空间中找到一组基向量，然后把向量投影到这组向量上去，相当于换个坐标系(频域)，然后根据黎曼勒贝格引理，可以只保留前面的坐标，后面的可以忽略不计，相当于三角形一条直角边特别长，和斜边差不多，另一条直角边特别短，可以忽略不计，模长就是能量。然后滤波就是去掉指定几个坐标分量。</p>
+</li>
+<li><p>基于整体数据的方差或者能量的压缩，比如PCA，把所有的点投影到待求向量上，求总体方差，化简得到$e\Sigma e^T = \sigma ^2$，然后求解最优化问题 $argmax_{e} \sigma^2$ ,就能知道协方差矩阵的特征向量能让这些数据投影过来方差最大，把特征向量组合在一起就是坐标变换矩阵。（也能证明尾巴可以丢掉，整体信息没丢多少）</p>
+</li>
+<li><p>对于相关函数，就是前面分析的多个离散样本变成连续的函数，每个函数或者说每个样本看成一个轨道，这时候也可以求这些函数投影到哪根轴上方差(能量，谱密度还是啥，忘了)，然后化简就能得到类似上面二次型一样的东西，  这个公式里面肯定出现了相关函数，然后求解最优化问题，得到特征向量恰好就是傅里叶变换选取的基向量，后面什么的记不清了，前面这里讲的细节不一定准确，但是要做什么事情实际上是非常相似的。</p>
+<p>这部分参考这里：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1FG4y1d7t6/?spm_id_from=333.788&amp;vd_source=5c649fe6538c49c0c8260759f4ebfcff">37 随机过程 平稳过程相关函数与谱密度 本学期结束_哔哩哔哩_bilibili</a></p>
+</li>
+<li><p>注意，上面的变换的细节就是一个个基向量的转置乘以x（内积）,就是变换后的坐标。这个被变换的样本x如果是行向量，变换矩阵在右边，xA，如果x是列向量，则变换矩阵在坐标Ax，注意程序实现的时候怎么相乘的</p>
+</li>
+</ul>
+<h4 id="从方程解耦角度理解变换"><a href="#从方程解耦角度理解变换" class="headerlink" title="从方程解耦角度理解变换"></a>从方程解耦角度理解变换</h4><p>不同问题需要从不同角度理解变换，这里还有一个角度，就是方程解耦角度</p>
+<p><img src="/img/fourier/fangchengjieou.png" style="zoom:100%;" /></p>
+<h4 id="基于注意力机制"><a href="#基于注意力机制" class="headerlink" title="基于注意力机制"></a>基于注意力机制</h4><p>有时候可以把左边的矩阵看成注意力矩阵A，右边的矩阵V看成多行的样本，左边第一行乘以右边V，就以不同的注意力组合了V的每一行，得到了第一行的新编码表示。</p>
+<h4 id="基于结构力学"><a href="#基于结构力学" class="headerlink" title="基于结构力学"></a>基于结构力学</h4><p>左边的矩阵每一行代表一个节点的(x,y,z)三个方向的运动，假设特征就这3个，然后邻接矩阵就是刚度矩阵K，</p>
+<p>刚度矩阵K乘以每一列特征，就能得到位移后的特征。这种按特征不按样本进行变换分析的比较少见。</p>
 
       
     </div>
