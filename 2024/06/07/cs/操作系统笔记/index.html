@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>操作系统笔记 | Homepage | 张有为</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="8086cpu的一些简单汇编基础 前置课程：计算机组成原理，汇编语言 笔记概要：记录哈工大的os课程，这门课把os的骨架基本都讲清楚了，但不可能讲清楚细节，其他课程我也看了，有点照本宣科的感觉，包括清华那个，讲的太枯燥无味了，像是念课本。蒋炎岩那个也不错，不过不适合入门。最佳的入门方式就是先把硬件和汇编学学，不用学多深，然后学os，当然，中间这个过程你会觉得好像还是很多搞不懂，这是因为os这门课">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统笔记">
+<meta property="og:url" content="http://example.com/2024/06/07/cs/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Homepage | 张有为">
+<meta property="og:description" content="8086cpu的一些简单汇编基础 前置课程：计算机组成原理，汇编语言 笔记概要：记录哈工大的os课程，这门课把os的骨架基本都讲清楚了，但不可能讲清楚细节，其他课程我也看了，有点照本宣科的感觉，包括清华那个，讲的太枯燥无味了，像是念课本。蒋炎岩那个也不错，不过不适合入门。最佳的入门方式就是先把硬件和汇编学学，不用学多深，然后学os，当然，中间这个过程你会觉得好像还是很多搞不懂，这是因为os这门课">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/os/fig1.png">
+<meta property="og:image" content="http://example.com/img/os/fig2.png">
+<meta property="og:image" content="http://example.com/img/os/fig3.png">
+<meta property="og:image" content="http://example.com/img/os/fig4.png">
+<meta property="og:image" content="http://example.com/img/os/fig5.png">
+<meta property="article:published_time" content="2024-06-07T13:54:40.000Z">
+<meta property="article:modified_time" content="2024-06-07T14:46:16.779Z">
+<meta property="article:author" content="张有为">
+<meta property="article:tag" content="计算机基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/os/fig1.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Homepage | 张有为" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/face/icon.gif">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+  
+<script src="https://priesttomb.github.io/js/md5.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="/img/face/face.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">张有为</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/2022/08/09/aboutme/aboutme">个人简介</a>
+							</li>
+				        
+							<li><a href="/categories/tools">工具杂记</a>
+							</li>
+				        
+							<li><a href="/categories/abstract-analysis">抽象分析基础</a>
+							</li>
+				        
+							<li><a href="/categories/probability">高等概率统计</a>
+							</li>
+				        
+							<li><a href="/categories/matrix-opt">矩阵论与最优化</a>
+							</li>
+				        
+							<li><a href="/categories/cs">计算机专业基础</a>
+							</li>
+				        
+						</ul>
+					</nav>
+
+					<nav class="header-menu">
+						<ul>
+						<li><a style="color:rgb(36, 243, 105)">Deep Learning </a>
+							<nav class="header-submenu">
+								<ul>
+									
+										<li><a href="/categories/python-lib"><div>Python杂记</div></a></li>  
+									
+										<li><a href="/categories/ml-nndl"><div>机器学习与深度学习</div></a></li>  
+									
+								</ul>
+							</nav>	
+						</li>     
+						</ul>
+					</nav>
+					
+								
+					
+
+
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/hfut-zyw" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="mailto:lucario@qq.com" title="mail">mail</a>
+					        
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Matplotlib%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Matplotlib笔记</a> <a href="/tags/Pandas%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Pandas笔记</a> <a href="/tags/Plotly%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Plotly笔记</a> <a href="/tags/Python%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 10px;">Python字符串</a> <a href="/tags/Spacy%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Spacy笔记</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%AC%94%E8%AE%B0/" style="font-size: 16px;">优化笔记</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 10px;">关于我</a> <a href="/tags/%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">分析笔记</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 12px;">深度学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/" style="font-size: 16px;">深度学习框架</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 10px;">自然语言处理</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a> <a href="/tags/%E9%9A%8F%E5%86%99/" style="font-size: 14px;">随写</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+	<div class="overlay">
+		<div class="slider-trigger"></div>
+		<h1 class="header-author js-mobile-header hide"></h1>
+	</div>
+  <div class="intrude-less">
+	  <header id="header" class="inner">
+		  <div class="profilepic">
+			  <img src="/img/face/face4.png" class="js-avatar show" style="width: 100%;height: 100%;opacity: 1;">
+		  </div>
+		  <hgroup>
+			<h1 class="header-author"></h1>
+		  </hgroup>
+		  
+
+		  <nav class="header-menu">
+			  <ul>
+			  
+				  <li><a href="/2022/08/09/aboutme/aboutme" style="color:rgba(69, 7, 241, 0.904)" >个人简介</a></li>
+			  
+				  <li><a href="/categories/tools" style="color:rgba(69, 7, 241, 0.904)" >工具杂记</a></li>
+			  
+				  <li><a href="/categories/abstract-analysis" style="color:rgba(69, 7, 241, 0.904)" >抽象分析基础</a></li>
+			  
+				  <li><a href="/categories/probability" style="color:rgba(69, 7, 241, 0.904)" >高等概率统计</a></li>
+			  
+				  <li><a href="/categories/matrix-opt" style="color:rgba(69, 7, 241, 0.904)" >矩阵论与最优化</a></li>
+			  
+				  <li><a href="/categories/cs" style="color:rgba(69, 7, 241, 0.904)" >计算机专业基础</a></li>
+			  
+			  <div class="clearfix"></div>
+			  </ul>
+		  </nav>
+
+		  <nav class="header-menu">
+			  <ul>
+			  <li><a style="color:rgba(69, 7, 241, 0.904)">Deep Learning </a>
+				  <nav class="header-submenu">
+					  <ul>
+						  
+							  <li><a href="/categories/python-lib" style="color:rgba(69, 7, 241, 0.904)" ><div>Python杂记</div></a></li>  
+						  
+							  <li><a href="/categories/ml-nndl" style="color:rgba(69, 7, 241, 0.904)" ><div>机器学习与深度学习</div></a></li>  
+						  
+					  </ul>
+				  </nav>	
+			  </li>     
+			  </ul>
+		  </nav>
+
+		  <nav class="header-nav">
+			  <div class="social">
+				  
+					  <a class="github" target="_blank" href="https://github.com/hfut-zyw" title="github">github</a>
+				  
+					  <a class="mail" target="_blank" href="mailto:lucario@qq.com" title="mail">mail</a>
+				  
+			  </div>
+		  </nav>
+	  </header>				
+  </div>
+</nav>
+      <div class="body-wrap">
+
+<article id="post-cs/操作系统笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2024/06/07/cs/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B0/" class="article-date">
+  	<time datetime="2024-06-07T13:54:40.000Z" itemprop="datePublished">2024-06-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      操作系统笔记
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag">计算机基础</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/cs/">cs</a>
+	</div>
+
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>8086cpu的一些简单汇编基础</p>
+<p>前置课程：计算机组成原理，汇编语言</p>
+<p>笔记概要：记录哈工大的os课程，这门课把os的骨架基本都讲清楚了，但不可能讲清楚细节，其他课程我也看了，有点照本宣科的感觉，包括清华那个，讲的太枯燥无味了，像是念课本。蒋炎岩那个也不错，不过不适合入门。最佳的入门方式就是先把硬件和汇编学学，不用学多深，然后学os，当然，中间这个过程你会觉得好像还是很多搞不懂，这是因为os这门课涉及的东西确实太多，学完全部后，回过头来多学几次，才能慢慢摸清楚怎么回事，试图第一次听懂基本不可能的。并且，没有一门课给你面面俱到的，因此，即便有哈工大os这么好的课程，也还是需要多查，补充课程中的细节的地方，这门课的核心是os骨架！</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="内存布局"><a href="#内存布局" class="headerlink" title="内存布局"></a>内存布局</h2><h4 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h4><p>首先声明本笔记不是教程，而是对应课程的笔记，看完课程有个概念后，然后肯定存在一些想要摸清楚但是课程里面却没讲的细节，这里第一个需要讲清楚的细节就是经过bootsect.s和setup.s和head.s后，物理内存的布局是什么样的，关键的数据结构在内存中的哪个位置。这个对于后面程序的理解较为重要。比如GDT表，前4项是操作系统寻址的段描述符，后面的项是进程的tss和ldt表地址，由TR寄存器和LDTR寄存器指向，相关的硬件指令（ljmp和mmu寻址）工作时会用到。</p>
+<p>此外，由于内存管理就是维护一个mem_map，用于分配物理内存的数据结构，这个东西比较简单，就没画出来。</p>
+<p>然后，进程就是一个PCB，里面核心的两个东西就是tss和ldt，一个是进程运行状态或者cpu状态的记录信息，一个是mmu寻址用到的表，进程运行状态切换实际上在汇编里简单提了一下，如果保存状态，然后切回来，这个会在后面利用栈切换进程线程以及后面的fork()中提到，当然，fork里面讲到的东西太多了，具体还是需要看哈工大os课程，然后再来看这些图片补充细节问题。</p>
+<p>最后，这里并不一定非常准确！但是大体是这么回事，仅仅是帮助理解os是如何工作的。</p>
+<p><img src="/img/os/fig1.png" style="zoom:100%;" /></p>
+<h2 id="保护模式（段表、页表）"><a href="#保护模式（段表、页表）" class="headerlink" title="保护模式（段表、页表）"></a>保护模式（段表、页表）</h2><h4 id="概要-1"><a href="#概要-1" class="headerlink" title="概要"></a>概要</h4><p>如果下图看不懂，结合下面罗列的视频，以及前面我写的汇编笔记中的实模式保护模式，结合理解。</p>
+<p>刚开始，这个概念很难理解，最后理解后，基本上就是查表完成映射这么回事了，并且搞清楚进入内核时，实际上偏移地址=线性地址=物理地址，给的地址就是物理地址，空间范围就是0-16M，到了用户态，根据段表可知，管理的虚拟地址空间为0-4G，只不过每个进程这里简单分配了64M，互不重叠，因此页目录表就一个，切换进程时根本不用切换页目录表了。</p>
+<p>内存管理：其实就是段表页表保护模式下的内存管理，知道进程的段表什么结构，知道mem_map如何分配空闲物理页给进程的页表。</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1hM4y167pm/?spm_id_from=333.788&amp;vd_source=5c649fe6538c49c0c8260759f4ebfcff">linux 0.11 内核代码 8086 保护模式_哔哩哔哩_bilibili</a></p>
+<p><img src="/img/os/fig2.png" style="zoom:100%;" /></p>
+<h2 id="利用栈切换进程线程原理"><a href="#利用栈切换进程线程原理" class="headerlink" title="利用栈切换进程线程原理"></a>利用栈切换进程线程原理</h2><h4 id="概要-2"><a href="#概要-2" class="headerlink" title="概要"></a>概要</h4><p>把进程看成游戏，当进入内核时，相当于你马上要关闭这个游戏，切换到另一个游戏，因此你需要存档，这个存档在这里是通过压入栈中（手动压入用户栈，或者内核级线程里面是通过中断压入内核栈），然后读档的方式就是把栈里面的东西pop到cpu里面。</p>
+<p>实际上还能通过把存档信息放在tss结构体中，然后把tss结构体刷到cpu中就能完成切换。下一节会讲。</p>
+<p><img src="/img/os/fig3.png" style="zoom:100%;" /></p>
+<h2 id="进程与fork（）"><a href="#进程与fork（）" class="headerlink" title="进程与fork（）"></a>进程与fork（）</h2><h4 id="概要-3"><a href="#概要-3" class="headerlink" title="概要"></a>概要</h4><p>把fork如何创建复制一个进程的大部分流程画了图，并给了例子。</p>
+<p>搞懂这个需要你对PCB非常了解，因为这里切换，主要就是对进程的一些信息操作，这个信息从cpu中弄到栈里面，然后弄到创建的新PCB里面，然后怎么切换，怎么返回，返回的时候会回到哪里。</p>
+<p>并且复制的新进程，它的虚拟地址在哪里，主要就是cs，ds和用户栈的ss，esp，内核栈的ss0，esp0；然后它返回值eax是什么，父进程的返回值eax是什么。你可能还需要参考课本，看下这些细节，以及0号进程如何创建的。</p>
+<p>最后，本笔记不会涉及进程调度，磁盘调度这些事情。本笔记只是os骨架的概要，了解os如何运行，关键的数据结构，以及内存分布。</p>
+<p>进程管理：PCB结构，fork()工作原理，调度算法</p>
+<p><img src="/img/os/fig4.png" style="zoom:100%;" /></p>
+<h2 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h2><h4 id="概要-4"><a href="#概要-4" class="headerlink" title="概要"></a>概要</h4><p>第一层：最开始涉及的磁盘访问指令，完全就是IN，OUT，需要磁头，磁道，扇区三个参数，为了继续简化访问,</p>
+<p>第二层：重新用块编址，然后写一套驱动，用块作为参数的新接口访问（需要知道磁头磁道扇区和块之间的映射），由于文件抽象为字节流，文件在磁盘上也需要按块存储，因此给文件分配物理块很重要，于是得到了inode，通过inode访问文件。这里提到的inode相当于页表。</p>
+<p>第三层：对一大堆文件设计树状目录，可以用路径表示，也就是可以将路径解析找到inode，就能通过上层接口访问了，这一层抽象为通过文件路径访问。</p>
+<p>第四层：前面是把数据写到缓冲区中，然后c语言抽象为FILE结构体，对缓冲区操作。</p>
+<p>第五层：可以抽象为行和列访问，各种各样的数据结构。</p>
+<p>除了文件是这么抽象的，其他的IO接口大致也有这么多层抽象过程，大致就这么回事，但是具体细学的话，里面又存在很多东西需要学，以后用到再学，现在简单懂个这么一个抽象过程和数据结构即可。</p>
+<p><img src="/img/os/fig5.png" style="zoom:100%;" /></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/06/07/cs/%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">汇编基础</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+    <section id="comments" style="margin: 60px;">
+      <div id="gitalk-container"></div>
+      <script>
+      var gitalk = new Gitalk({
+          clientID: 'ecf230c60af3ed1123fa',
+          clientSecret: '1e1daf2e6dd957a3f7d6b22b524387d14aafdb13',
+          repo: 'hfut-zyw.github.io',
+          owner: 'hfut-zyw',
+          admin: ['hfut-zyw'],
+          id: md5(location.pathname),      // Ensure uniqueness and length less than 50
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+      gitalk.render('gitalk-container')
+      </script>
+      
+    </section>
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        <a href="https://space.bilibili.com/782159" target="_blank">访问我的哔哩哔哩</a> 
+      </div>
+        <div class="footer-right">
+        &copy; 2024 张有为
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: ,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":85,"height":170},"mobile":{"show":false},"log":false});</script></body>
+</html>
