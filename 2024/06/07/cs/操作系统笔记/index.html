@@ -18,11 +18,12 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/os/fig1.png">
 <meta property="og:image" content="http://example.com/img/os/fig2.png">
+<meta property="og:image" content="http://example.com/img/os/fig6.png">
 <meta property="og:image" content="http://example.com/img/os/fig3.png">
 <meta property="og:image" content="http://example.com/img/os/fig4.png">
 <meta property="og:image" content="http://example.com/img/os/fig5.png">
 <meta property="article:published_time" content="2024-06-07T13:54:40.000Z">
-<meta property="article:modified_time" content="2024-06-07T14:48:54.140Z">
+<meta property="article:modified_time" content="2024-06-13T01:50:25.318Z">
 <meta property="article:author" content="张有为">
 <meta property="article:tag" content="计算机基础">
 <meta name="twitter:card" content="summary">
@@ -138,7 +139,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Matplotlib%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Matplotlib笔记</a> <a href="/tags/Pandas%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Pandas笔记</a> <a href="/tags/Plotly%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Plotly笔记</a> <a href="/tags/Python%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 10px;">Python字符串</a> <a href="/tags/Spacy%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Spacy笔记</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%AC%94%E8%AE%B0/" style="font-size: 16px;">优化笔记</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 10px;">关于我</a> <a href="/tags/%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">分析笔记</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 12px;">深度学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/" style="font-size: 16px;">深度学习框架</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 10px;">自然语言处理</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 18px;">计算机基础</a> <a href="/tags/%E9%9A%8F%E5%86%99/" style="font-size: 14px;">随写</a>
+						<a href="/tags/Matplotlib%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Matplotlib笔记</a> <a href="/tags/Pandas%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Pandas笔记</a> <a href="/tags/Plotly%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Plotly笔记</a> <a href="/tags/Python%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 10px;">Python字符串</a> <a href="/tags/Spacy%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">Spacy笔记</a> <a href="/tags/%E4%BC%98%E5%8C%96%E7%AC%94%E8%AE%B0/" style="font-size: 17.5px;">优化笔记</a> <a href="/tags/%E5%85%B3%E4%BA%8E%E6%88%91/" style="font-size: 10px;">关于我</a> <a href="/tags/%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/" style="font-size: 20px;">分析笔记</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">深度学习</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/" style="font-size: 17.5px;">深度学习框架</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 10px;">自然语言处理</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" style="font-size: 20px;">计算机基础</a> <a href="/tags/%E9%9A%8F%E5%86%99/" style="font-size: 15px;">随写</a>
 					</div>
 				</section>
 				
@@ -274,16 +275,18 @@
 <p>内存管理：其实就是段表页表保护模式下的内存管理，知道进程的段表什么结构，知道mem_map如何分配空闲物理页给进程的页表。</p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1hM4y167pm/?spm_id_from=333.788&amp;vd_source=5c649fe6538c49c0c8260759f4ebfcff">linux 0.11 内核代码 8086 保护模式_哔哩哔哩_bilibili</a></p>
 <p><img src="/img/os/fig2.png" style="zoom:100%;" /></p>
-<h2 id="利用栈切换进程线程原理"><a href="#利用栈切换进程线程原理" class="headerlink" title="利用栈切换进程线程原理"></a>利用栈切换进程线程原理</h2><h4 id="概要-2"><a href="#概要-2" class="headerlink" title="概要"></a>概要</h4><p>把进程看成游戏，当进入内核时，相当于你马上要关闭这个游戏，切换到另一个游戏，因此你需要存档，这个存档在这里是通过压入栈中（手动压入用户栈，或者内核级线程里面是通过中断压入内核栈），然后读档的方式就是把栈里面的东西pop到cpu里面。</p>
+<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><h4 id="概要-2"><a href="#概要-2" class="headerlink" title="概要"></a>概要</h4><p>操作系统几乎所有主要的API都是通过系统调用实现的，后面的fork(),execve(),open(),read(),write(),close()等等，背后的工作流程几乎完全一样。</p>
+<p><img src="/img/os/fig6.png" style="zoom:100%;" /></p>
+<h2 id="利用栈切换进程线程原理"><a href="#利用栈切换进程线程原理" class="headerlink" title="利用栈切换进程线程原理"></a>利用栈切换进程线程原理</h2><h4 id="概要-3"><a href="#概要-3" class="headerlink" title="概要"></a>概要</h4><p>把进程看成游戏，当进入内核时，相当于你马上要关闭这个游戏，切换到另一个游戏，因此你需要存档，这个存档在这里是通过压入栈中（手动压入用户栈，或者内核级线程里面是通过中断压入内核栈），然后读档的方式就是把栈里面的东西pop到cpu里面。</p>
 <p>实际上还能通过把存档信息放在tss结构体中，然后把tss结构体刷到cpu中就能完成切换。下一节会讲。</p>
 <p><img src="/img/os/fig3.png" style="zoom:100%;" /></p>
-<h2 id="进程与fork（）"><a href="#进程与fork（）" class="headerlink" title="进程与fork（）"></a>进程与fork（）</h2><h4 id="概要-3"><a href="#概要-3" class="headerlink" title="概要"></a>概要</h4><p>把fork如何创建复制一个进程的大部分流程画了图，并给了例子。</p>
+<h2 id="进程与fork（）"><a href="#进程与fork（）" class="headerlink" title="进程与fork（）"></a>进程与fork（）</h2><h4 id="概要-4"><a href="#概要-4" class="headerlink" title="概要"></a>概要</h4><p>把fork如何创建复制一个进程的大部分流程画了图，并给了例子。</p>
 <p>搞懂这个需要你对PCB非常了解，因为这里切换，主要就是对进程的一些信息操作，这个信息从cpu中弄到栈里面，然后弄到创建的新PCB里面，然后怎么切换，怎么返回，返回的时候会回到哪里。</p>
 <p>并且复制的新进程，它的虚拟地址在哪里，主要就是cs，ds和用户栈的ss，esp，内核栈的ss0，esp0；然后它返回值eax是什么，父进程的返回值eax是什么。你可能还需要参考课本，看下这些细节，以及0号进程如何创建的。</p>
 <p>最后，本笔记不会涉及进程调度，磁盘调度这些事情。本笔记只是os骨架的概要，了解os如何运行，关键的数据结构，以及内存分布。</p>
 <p>进程管理：PCB结构，fork()工作原理，调度算法</p>
 <p><img src="/img/os/fig4.png" style="zoom:100%;" /></p>
-<h2 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h2><h4 id="概要-4"><a href="#概要-4" class="headerlink" title="概要"></a>概要</h4><p>第一层：最开始涉及的磁盘访问指令，完全就是IN，OUT，需要磁头，磁道，扇区三个参数，为了继续简化访问,</p>
+<h2 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h2><h4 id="概要-5"><a href="#概要-5" class="headerlink" title="概要"></a>概要</h4><p>第一层：最开始涉及的磁盘访问指令，完全就是IN，OUT，需要磁头，磁道，扇区三个参数，为了继续简化访问,</p>
 <p>第二层：重新用块编址，然后写一套驱动，用块作为参数的新接口访问（需要知道磁头磁道扇区和块之间的映射），由于文件抽象为字节流，文件在磁盘上也需要按块存储，因此给文件分配物理块很重要，于是得到了inode，通过inode访问文件。这里提到的inode相当于页表。</p>
 <p>第三层：对一大堆文件设计树状目录，可以用路径表示，也就是可以将路径解析找到inode，就能通过上层接口访问了，这一层抽象为通过文件路径访问。</p>
 <p>第四层：前面是把数据写到缓冲区中，然后c语言抽象为FILE结构体，对缓冲区操作。</p>
@@ -298,6 +301,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2024/06/13/cs/oslab/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          oslab
+        
+      </div>
+    </a>
   
   
     <a href="/2024/06/07/cs/%E6%B1%87%E7%BC%96%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
